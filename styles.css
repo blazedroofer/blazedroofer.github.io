@@ -135,3 +135,25 @@ footer a:hover {
     font-size: 1.3em;
     color: #b0b0b0;
 }
+#offer, #writing, #beliefs {
+    background: #1a1a1a;
+    padding: 35px 30px;
+    border-radius: 8px;
+    margin: 40px auto;
+    max-width: 820px;
+}
+
+.btn-small {
+    display: inline-block;
+    background: #0066cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 15px;
+    font-size: 0.95em;
+}
+
+.btn-small:hover {
+    background: #0055aa;
+}
