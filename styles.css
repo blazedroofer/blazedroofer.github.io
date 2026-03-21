@@ -157,3 +157,48 @@ footer a {
     color: #00a2ff;
     text-decoration: none;
 }
+tagline {
+    font-size: 1.65em;
+    color: #00a2ff;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+}
+
+.subtitle {
+    font-size: 1.25em;
+    color: #ccc;
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #333, transparent);
+    margin: 70px auto;
+    max-width: 700px;
+}
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+    margin-top: 35px;
+}
+
+.offer-card {
+    background: #1a1a1a;
+    padding: 28px 24px;
+    border-radius: 12px;
+    border-left: 6px solid #00a2ff;
+    transition: all 0.3s ease;
+}
+
+.offer-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 25px rgba(0,162,255,0.15);
+}
+
+.offer-card strong {
+    display: block;
+    color: #00a2ff;
+    font-size: 1.3em;
+    margin-bottom: 14px;
+}
