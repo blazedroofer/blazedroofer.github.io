@@ -211,13 +211,7 @@ h3 {
     }
 }
 
-/* Buttons */
-.btn, .crisis-btn, .cta-btn {
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
+/* ==================== BUTTONS ==================== */
 .btn {
     background: #00a2ff;
     color: white;
@@ -226,6 +220,9 @@ h3 {
     text-decoration: none;
     font-weight: 600;
     display: inline-block;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
@@ -248,6 +245,44 @@ h3 {
 .btn:hover::after {
     opacity: 1;
     transform: scale(1.8);
+}
+
+/* Small button used in featured articles */
+.btn-small {
+    background: #00a2ff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    font-size: 0.95rem;
+    margin-top: 12px;
+}
+
+.btn-small:hover {
+    background: #0088cc;
+    transform: translateY(-2px);
+}
+
+/* Crisis CTA Button */
+.crisis-btn {
+    display: inline-block;
+    background: #00a2ff;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 16px 42px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(0, 162, 255, 0.35);
+    transition: all 0.3s ease;
+}
+
+.crisis-btn:hover {
+    background: #ff3b3b;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 59, 59, 0.45);
 }
 
 /* More Articles */
@@ -320,49 +355,30 @@ section.visible,
     transition-delay: calc(80ms * var(--order));
 }
 
-/* ==================== CRISIS CTA (High Contrast) ==================== */
+/* ==================== CLEAN CRISIS CTA ==================== */
 .crisis-cta {
     max-width: 820px;
-    margin: 40px auto 60px;   /* tighter spacing for top placement */
-    padding: 38px 30px 42px;
+    margin: 35px auto 55px;
+    padding: 32px 25px;
     text-align: center;
     background: #111a24;
-    border: 3px solid #00a2ff;
-    border-radius: 16px;
-    box-shadow: 0 15px 40px rgba(0, 162, 255, 0.25);
+    border: 2px solid #00a2ff;
+    border-radius: 14px;
 }
 
 .crisis-cta h2 {
     color: #ffffff;
-    font-size: 2.1rem;
-    margin: 0 0 12px 0;
-    line-height: 1.2;
+    font-size: 1.95rem;
+    margin: 0 0 10px 0;
+    line-height: 1.25;
 }
 
 .crisis-sub {
     color: #b0c4d8;
-    font-size: 1.15rem;
-    max-width: 580px;
-    margin: 0 auto 28px;
+    font-size: 1.1rem;
+    max-width: 520px;
+    margin: 0 auto 22px;
     line-height: 1.5;
-}
-
-.crisis-btn {
-    display: inline-block;
-    background: #00a2ff;
-    color: #fff;
-    font-size: 1.35rem;
-    font-weight: 700;
-    padding: 18px 48px;
-    border-radius: 50px;
-    text-decoration: none;
-    box-shadow: 0 10px 30px rgba(0, 162, 255, 0.4);
-}
-
-.crisis-btn:hover {
-    background: #ff3b3b;
-    transform: translateY(-4px);
-    box-shadow: 0 15px 40px rgba(255, 59, 59, 0.5);
 }
 
 /* ==================== MOBILE ==================== */
