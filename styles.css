@@ -109,7 +109,7 @@ nav {
     border-color: #00a2ff;
 }
 
-/* ==================== SECTIONS ==================== */
+/* ==================== SECTIONS & GENERAL ==================== */
 section {
     max-width: 820px;
     margin: 60px auto;
@@ -132,10 +132,17 @@ h3 {
 
 /* Dividers */
 .divider {
-    height: 1px;
+    height: 2px;
     background: linear-gradient(to right, transparent, #333, transparent);
     margin: 70px auto;
     max-width: 700px;
+    position: relative;
+    animation: drawLine 1.2s ease forwards;
+}
+
+@keyframes drawLine {
+    from { width: 0; margin-left: 50%; }
+    to { width: 100%; margin-left: 0; }
 }
 
 /* Offer Cards */
@@ -151,8 +158,6 @@ h3 {
     padding: 28px 24px;
     border-radius: 12px;
     border-left: 6px solid #00a2ff;
-    
-    /* New bouncy transition + stagger support */
     transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
     transition-delay: calc(80ms * var(--order));
 }
@@ -177,6 +182,7 @@ h3 {
     margin: 35px 0;
     text-align: center;
     box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    animation: fadeUpFeatured 0.8s ease forwards;
 }
 
 .featured img {
@@ -185,8 +191,6 @@ h3 {
     border-radius: 10px;
     margin-bottom: 20px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-    
-    /* Breathe animation */
     transition: all 0.5s ease;
     transform: scale(0.95);
 }
@@ -194,10 +198,6 @@ h3 {
 .featured:hover img {
     transform: scale(1.03);
     box-shadow: 0 15px 35px rgba(0, 162, 255, 0.25);
-}
-
-.featured {
-    animation: fadeUpFeatured 0.8s ease forwards;
 }
 
 @keyframes fadeUpFeatured {
@@ -211,12 +211,11 @@ h3 {
     }
 }
 
-/* Connect Buttons - improved with pulse */
-.connect-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 30px;
+/* Buttons */
+.btn, .crisis-btn, .cta-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 .btn {
@@ -227,11 +226,6 @@ h3 {
     text-decoration: none;
     font-weight: 600;
     display: inline-block;
-    
-    /* Pulse improvements */
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
 }
 
 .btn:hover {
@@ -240,7 +234,6 @@ h3 {
     box-shadow: 0 10px 25px rgba(0, 162, 255, 0.3);
 }
 
-/* Soft white pulse ring */
 .btn::after {
     content: '';
     position: absolute;
@@ -257,7 +250,7 @@ h3 {
     transform: scale(1.8);
 }
 
-/* More Articles Buttons */
+/* More Articles */
 .article-grid {
     display: flex;
     flex-direction: column;
@@ -284,6 +277,14 @@ h3 {
     transform: translateY(-2px);
 }
 
+/* Connect Buttons */
+.connect-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
 /* Footer */
 footer {
     text-align: center;
@@ -296,11 +297,12 @@ footer a {
     color: #00a2ff;
     text-decoration: none;
 }
+
 /* ==================== SCROLL REVEAL ANIMATIONS ==================== */
 section,
 .featured,
 .offer-grid {
-    opacity: 0;                    /* Must be 0 to see the fade-in */
+    opacity: 0;
     transform: translateY(40px);
     transition: all 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
@@ -312,180 +314,73 @@ section.visible,
     transform: translateY(0);
 }
 
-/* (you can keep the .visible part — it's harmless now) */
-section.visible,
-.featured.visible,
-.offer-grid.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-section.visible,
-.featured.visible,
-.offer-grid.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Stagger the four offer cards so they pop in one after another */
+/* Stagger offer cards */
 .offer-card {
     transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
-    transition-delay: calc(80ms * var(--order)); /* this is the magic stagger */
-}
-/* ==================== FEATURED CHARTS BREATHE ANIMATION ==================== */
-/* Makes your flowcharts feel premium and inviting */
-
-.featured img {
-    transition: all 0.5s ease;
-    transform: scale(0.95);           /* starts slightly smaller */
-    border-radius: 10px;
+    transition-delay: calc(80ms * var(--order));
 }
 
-.featured:hover img {
-    transform: scale(1.03);           /* gentle friendly zoom */
-    box-shadow: 0 15px 35px rgba(0, 162, 255, 0.25);  /* soft blue glow */
-}
-
-/* Optional: nice entrance fade for the whole featured box */
-.featured {
-    animation: fadeUpFeatured 0.8s ease forwards;
-}
-
-@keyframes fadeUpFeatured {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-/* ==================== IMPROVED BUTTON HOVER WITH PULSE ==================== */
-
-.btn {
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 10px 25px rgba(0, 162, 255, 0.3);
-}
-
-/* Soft white pulse ring effect */
-.btn::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.15);
-    opacity: 0;
-    transform: scale(0.8);
-    transition: all 0.4s ease;
-}
-
-.btn:hover::after {
-    opacity: 1;
-    transform: scale(1.8);
-}
-/* ==================== ANIMATED DIVIDER ==================== */
-
-.divider {
-    background: linear-gradient(to right, transparent, #333, transparent);
-    height: 2px;
-    position: relative;
-    animation: drawLine 1.2s ease forwards;
-}
-
-@keyframes drawLine {
-    from { 
-        width: 0; 
-        margin-left: 50%; 
-    }
-    to { 
-        width: 100%; 
-        margin-left: 0; 
-    }
-}
-/* ==================== CRISIS CTA — HIGH CONTRAST & URGENT ==================== */
+/* ==================== CRISIS CTA (High Contrast) ==================== */
 .crisis-cta {
     max-width: 820px;
-    margin: 70px auto;
-    padding: 50px 30px;
+    margin: 40px auto 60px;   /* tighter spacing for top placement */
+    padding: 38px 30px 42px;
     text-align: center;
-    background: #0f1620;
-    border: 4px solid #00a2ff;
-    border-radius: 18px;
-    box-shadow: 0 20px 50px rgba(0, 162, 255, 0.35);
+    background: #111a24;
+    border: 3px solid #00a2ff;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 162, 255, 0.25);
 }
 
 .crisis-cta h2 {
     color: #ffffff;
-    font-size: 2.35rem;
-    margin-bottom: 14px;
-    line-height: 1.15;
+    font-size: 2.1rem;
+    margin: 0 0 12px 0;
+    line-height: 1.2;
 }
 
 .crisis-sub {
-    color: #b8c8d8;
-    font-size: 1.2rem;
-    max-width: 620px;
-    margin: 0 auto 32px;
-    line-height: 1.55;
+    color: #b0c4d8;
+    font-size: 1.15rem;
+    max-width: 580px;
+    margin: 0 auto 28px;
+    line-height: 1.5;
 }
 
 .crisis-btn {
     display: inline-block;
     background: #00a2ff;
-    color: white;
-    font-size: 1.45rem;
+    color: #fff;
+    font-size: 1.35rem;
     font-weight: 700;
-    padding: 24px 58px;
+    padding: 18px 48px;
     border-radius: 50px;
     text-decoration: none;
-    box-shadow: 0 12px 35px rgba(0, 162, 255, 0.5);
-    transition: all 0.35s ease;
+    box-shadow: 0 10px 30px rgba(0, 162, 255, 0.4);
 }
 
 .crisis-btn:hover {
-    background: #e63939;           /* turns red for urgency */
-    transform: translateY(-6px) scale(1.05);
-    box-shadow: 0 20px 45px rgba(230, 57, 57, 0.5);
+    background: #ff3b3b;
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(255, 59, 59, 0.5);
 }
+
 /* ==================== MOBILE ==================== */
 @media (max-width: 600px) {
-    header {
-        height: 320px;
+    header { height: 320px; }
+    h1 { font-size: 2.7em; }
+    .tagline { font-size: 1.3em; }
+    .subtitle { font-size: 1em; }
+    .purpose { font-size: 1em; }
+    .featured img { max-width: 88%; }
+    .connect-buttons { flex-direction: column; }
+    .nav-links { gap: 8px; }
+    .nav-btn { padding: 9px 18px; font-size: 0.95em; }
+    .article-btn { padding: 14px 18px; font-size: 0.95em; }
+    
+    .crisis-cta {
+        margin: 30px 20px 50px;
+        padding: 32px 20px;
     }
-    h1 {
-        font-size: 2.7em;
-    }
-    .tagline {
-        font-size: 1.3em;
-    }
-    .subtitle {
-        font-size: 1em;
-    }
-    .purpose {
-        font-size: 1em;
-    }
-    .featured img {
-        max-width: 88%;
-    }
-    .connect-buttons {
-        flex-direction: column;
-    }
-    .nav-links {
-        gap: 8px;
-    }
-    .nav-btn {
-        padding: 9px 18px;
-        font-size: 0.95em;
-    }
-    .article-btn {
-        padding: 14px 18px;
-        font-size: 0.95em;
-    }
+    .crisis-cta h2 { font-size: 1.85rem; }
 }
