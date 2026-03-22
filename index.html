@@ -135,5 +135,31 @@
     <footer>
         <p>Made by Josh Pearsall • <a href="https://recoveryroofer.ca">recoveryroofer.ca</a></p>
     </footer>
+    <!-- Scroll Reveal JavaScript -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const elements = document.querySelectorAll('section, .featured, .offer-grid');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Stagger the four offer cards
+                    if (entry.target.classList.contains('offer-grid')) {
+                        entry.target.querySelectorAll('.offer-card').forEach((card, idx) => {
+                            card.style.setProperty('--order', idx);
+                        });
+                    }
+                }
+            });
+        }, { 
+            threshold: 0.15 
+        });
+
+        elements.forEach(el => observer.observe(el));
+    });
+    </script>
+</body>
 </body>
 </html>
