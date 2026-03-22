@@ -296,15 +296,21 @@ footer a {
     color: #00a2ff;
     text-decoration: none;
 }
-/* ==================== SCROLL REVEAL ANIMATIONS ==================== */
-/* Makes sections gently fade in as you scroll down — feels hopeful and guided */
-
+/* ==================== SCROLL REVEAL ANIMATIONS (fixed) ==================== */
 section,
 .featured,
 .offer-grid {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1); /* smooth & natural */
+    opacity: 1;           /* now visible */
+    transform: none;
+    transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* (you can keep the .visible part — it's harmless now) */
+section.visible,
+.featured.visible,
+.offer-grid.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 section.visible,
