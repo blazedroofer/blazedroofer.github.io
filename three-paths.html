@@ -72,8 +72,30 @@
         <p>The systems are far from perfect, but they can work if you stay persistent and strategic.</p>
     </section>
 
-    <footer>
+      <footer>
         <p>Made by Josh Pearsall • <a href="https://recoveryroofer.ca">recoveryroofer.ca</a></p>
     </footer>
+
+    <!-- Scroll reveal animation -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            }, { 
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            document.querySelectorAll("section, .featured, .offer-grid").forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
 </body>
 </html>
