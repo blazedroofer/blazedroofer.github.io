@@ -135,21 +135,21 @@
         <p>Made by Josh Pearsall • <a href="https://recoveryroofer.ca">recoveryroofer.ca</a></p>
     </footer>
 
-    <!-- Scroll reveal animation -->
+       <!-- Scroll Reveal Animation -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
+                entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("visible");
                     }
                 });
-            }, { 
+            }, {
                 threshold: 0.15,
                 rootMargin: "0px 0px -50px 0px"
             });
 
-            document.querySelectorAll("section, .featured, .offer-grid").forEach(el => {
+            document.querySelectorAll("section, .featured, .offer-grid").forEach((el) => {
                 observer.observe(el);
             });
         });
