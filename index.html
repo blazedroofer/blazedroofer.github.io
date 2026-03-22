@@ -86,10 +86,10 @@
     </section>
 
     <div class="divider"></div>
+
     <section id="writing">
         <h2>Recovery Insights & Guides</h2>
         
-        <!-- Chart 1 -->
         <div class="featured">
             <img src="images/treatmentflow.jpg" alt="Crisis services flowchart">
             <p><strong>Navigating Crisis Services in Ottawa</strong></p>
@@ -97,7 +97,6 @@
             <a href="three-paths.html" class="btn-small">Read the full article →</a>
         </div>
 
-        <!-- Chart 2 -->
         <div class="featured"> 
             <img src="images/penicpm.jpg" alt="Motivation Window">
             <p><strong>Shedding the Prison Identity</strong></p>
@@ -105,20 +104,20 @@
             <a href="internal-motivation.html" class="btn-small">Read the full article →</a>
         </div>
 
-        <!-- More Articles with nicer buttons -->
         <h3>More Articles</h3>
         <div class="article-grid">
-            <a href="https://x.com/RecoveryRoofer/status/2034882238421123204" target="_blank" class="article-btn">
-                Culture Shock: Shedding the Prison Identity
+            <a href="https://x.com/RecoveryRoofer/status/2034881463850512384" target="_blank" class="article-btn">
+                Internal Motivation: The Fuel That Keeps You Rebuilding
             </a>
-            <a href="https://x.com/RecoveryRoofer/status/2032777198071939303" target="_blank" class="article-btn">
-                From Zero: The Boring Basics That Actually Worked
+            <a href="https://x.com/RecoveryRoofer/status/2032775603821105152" target="_blank" class="article-btn">
+                Navigating Crisis Services in Ottawa
             </a>
-            <a href="https://x.com/RecoveryRoofer/status/2030868084467142780" target="_blank" class="article-btn">
-                Structured Intervention: Beyond Jail Detox
+            <a href="https://x.com/RecoveryRoofer/status/2030866238470000640" target="_blank" class="article-btn">
+                Structured Intervention Policy
             </a>
         </div>
     </section>
+
     <div class="divider"></div>
 
     <section id="connect">
@@ -135,31 +134,5 @@
     <footer>
         <p>Made by Josh Pearsall • <a href="https://recoveryroofer.ca">recoveryroofer.ca</a></p>
     </footer>
-    <!-- Scroll Reveal JavaScript -->
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const elements = document.querySelectorAll('section, .featured, .offer-grid');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Stagger the four offer cards
-                    if (entry.target.classList.contains('offer-grid')) {
-                        entry.target.querySelectorAll('.offer-card').forEach((card, idx) => {
-                            card.style.setProperty('--order', idx);
-                        });
-                    }
-                }
-            });
-        }, { 
-            threshold: 0.15 
-        });
-
-        elements.forEach(el => observer.observe(el));
-    });
-    </script>
-</body>
 </body>
 </html>
