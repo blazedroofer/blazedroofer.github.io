@@ -16,7 +16,6 @@
             <p class="subtitle">From the streets to the rooftops • Ottawa</p>
         </div>
     </header>
-
     <!-- NAV BAR -->
     <nav>
         <div class="nav-container">
@@ -29,49 +28,54 @@
             </div>
         </div>
     </nav>
-
-    
-
-          <section id="writing">
+    <section id="writing">
         <h2>Recovery Insights & Guides</h2>
-        
-        <!-- Chart 1 -->
+        <!-- NEW FEATURED: Owen Sound -->
+        <div class="featured" style="border: 2px solid #00bfff; padding: 15px; border-radius: 12px; margin-bottom: 25px;">
+            <img src="images/owen-sound-article-hero.jpg" alt="Josh cooking at home - life in recovery"
+ style="max-width:100%; border-radius:8px;">
+            <p><strong>New: When Small Systems Work</strong></p>
+            <p>What Owen Sound taught me about continuum of care, front-line workers, and why smaller recovery systems can sometimes reduce the friction that makes people fall through the cracks.</p>
+            <a href="owen-sound-continuum-of-care.html" class="btn-small" style="background:#00bfff; color:#000; padding:12px 20px; border-radius:30px; text-decoration:none; font-weight:bold;">Read the full article →</a>
+        </div>
+        <!-- Cold Turkey -->
+        <div class="featured">
+            <img src="images/josh-roofing-nailgun.jpg" alt="Josh on the roof - 4 years clean" style="max-width:100%; border-radius:8px;">
+            <p><strong>Cold Turkey Is Dead</strong></p>
+            <p>Why medical detox is the only safe move with today's toxic drug supply. Real talk from a sober roofer in Ottawa + how to actually get help.</p>
+            <a href="cold-turkey-is-dead.html" class="btn-small">Read the full article →</a>
+        </div>
+        <!-- Crisis Services -->
         <div class="featured">
             <img src="images/treatmentflow.jpg" alt="Crisis services flowchart">
             <p><strong>Navigating Crisis Services in Ottawa</strong></p>
             <p>Three clear pathways: Homeless • Still Working • Court-involved</p>
             <a href="three-paths.html" class="btn-small">Read the full article →</a>
         </div>
-
-        <!-- Chart 2 -->
+        <!-- Prison Identity -->
         <div class="featured"> 
             <img src="images/penicpm.jpg" alt="Motivation Window">
             <p><strong>Shedding the Prison Identity</strong></p>
             <p>One of the hardest parts of recovery is letting go of the old prison mindset and beliefs that kept me stuck for years. This chart helped me understand the Motivation Window and why timing matters when change finally becomes possible.</p>
             <a href="internal-motivation.html" class="btn-small">Read the full article →</a>
         </div>
-
-        <!-- More Articles with nicer buttons -->
+        <!-- More Articles -->
         <h3>More Articles</h3>
         <div class="article-grid">
-            <a href="https://x.com/RecoveryRoofer/status/2034882238421123204" target="_blank" class="article-btn">
+            <a href="[x.com](https://x.com/RecoveryRoofer/status/2034882238421123204)" target="_blank" class="article-btn">
                 Culture Shock: Shedding the Prison Identity
             </a>
-            <a href="https://x.com/RecoveryRoofer/status/2032777198071939303" target="_blank" class="article-btn">
+            <a href="[x.com](https://x.com/RecoveryRoofer/status/2032777198071939303)" target="_blank" class="article-btn">
                 From Zero: The Boring Basics That Actually Worked
             </a>
-            <a href="https://x.com/RecoveryRoofer/status/2030868084467142780" target="_blank" class="article-btn">
+            <a href="[x.com](https://x.com/RecoveryRoofer/status/2030868084467142780)" target="_blank" class="article-btn">
                 Structured Intervention: Beyond Jail Detox
             </a>
         </div>
     </section>
-
-
-
-      <footer>
-        <p>Made by Josh Pearsall • <a href="https://recoveryroofer.ca">recoveryroofer.ca</a></p>
+    <footer>
+        <p>Made by Josh Pearsall • <a href="[recoveryroofer.ca](https://recoveryroofer.ca)">recoveryroofer.ca</a></p>
     </footer>
-
     <!-- Scroll reveal animation -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -85,14 +89,11 @@
                 threshold: 0.15,
                 rootMargin: "0px 0px -50px 0px"
             });
-
             document.querySelectorAll("section, .featured, .offer-grid").forEach(el => {
                 observer.observe(el);
             });
         });
     </script>
-    
-
     <!-- FLOATING NEED HELP NOW CTA -->
     <a href="tel:6132411525" class="floating-cta">
         <span>🚨</span>
