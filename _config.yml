@@ -1,8 +1,7 @@
 title: Recovery Roofer
-description: Ottawa recovery hub • Lived experience • Ontario continuum of care • System gaps • Practical resources
+description: Ottawa recovery hub – Lived experience, Ontario continuum of care, system gaps, practical resources
 remote_theme: daattali/beautiful-jekyll@6.0.1
 
-# Navigation menu - change this once and it updates everywhere
 navbar_links:
   - name: Home
     link: /
@@ -17,4 +16,4 @@ navbar_links:
   - name: Insights & Gaps
     link: /writing.html
   - name: Connect
-    link: /connect.html
+    link: /connect.html   # change this if your contact page has a different name
