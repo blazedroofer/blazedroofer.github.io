@@ -3,685 +3,447 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Story | Recovery Roofer</title>
-    <link rel="stylesheet" href="styles.css?v=14">
+    <title>My Story – Recovery Roofer</title>
+    <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        /* =====================
-           STORY PAGE STYLES
-           Dark Theme Version
-           ===================== */
-        
-        :root {
-            --bg-dark: #0d0d0d;
-            --bg-card: #1a1a1a;
-            --bg-card-hover: #242424;
-            --accent-red: #e63946;
-            --accent-cyan: #00b4d8;
-            --text-primary: #f0f0f0;
-            --text-secondary: #b0b0b0;
-            --text-muted: #808080;
-            --border-subtle: #333;
-            --warning-bg: #2a2517;
-            --warning-border: #d4a017;
-            --warning-text: #f5d76e;
-            --success-bg: #1a2e1a;
-            --success-border: #2e7d32;
-            --success-text: #81c784;
+        /* ── Story layout ── */
+        .story-hero {
+            max-width: 820px;
+            margin: 50px auto 0;
+            padding: 0 25px;
         }
-        
-        /* Main Story Container */
-        .story-section {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
-        
-        /* Section Headings */
-        .story-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-            border-bottom: 3px solid var(--accent-red);
-            padding-bottom: 0.5rem;
-            display: inline-block;
-        }
-        
-        .story-section h3 {
-            font-size: 1.4rem;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-        
-        /* Body Text */
-        .story-section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-            margin-bottom: 1.2rem;
-        }
-        
-        /* Links */
-        .story-section a {
-            color: var(--accent-cyan);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s ease, color 0.2s ease;
-        }
-        
-        .story-section a:hover {
-            color: #4dd4ec;
-            border-bottom-color: var(--accent-cyan);
-        }
-        
-        /* Intro Box */
-        .story-intro {
-            background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2.5rem;
-            border-left: 4px solid var(--accent-red);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .story-intro p {
-            font-size: 1.15rem;
-            margin-bottom: 0.8rem;
-            color: var(--text-primary);
-        }
-        
-        .story-intro p:last-child {
-            margin-bottom: 0;
-        }
-        
-        /* Chapter Sections */
-        .chapter {
-            margin-bottom: 3rem;
-            padding-bottom: 2.5rem;
-            border-bottom: 1px solid var(--border-subtle);
-        }
-        
-        .chapter:last-of-type {
-            border-bottom: none;
-        }
-        
-        /* Warning/Highlight Box */
-        .highlight-box {
-            background: var(--warning-bg);
-            border: 1px solid var(--warning-border);
-            border-radius: 6px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        
-        .highlight-box p {
-            margin-bottom: 0.8rem;
-            color: var(--warning-text);
-        }
-        
-        .highlight-box p:first-child {
-            font-weight: 600;
-            color: #fff;
-        }
-        
-        .highlight-box p:last-child {
-            margin-bottom: 0;
-        }
-        
-        /* Priorities/Arrow Lists */
-        .priorities-list {
-            list-style: none;
-            padding: 0;
-            margin: 1.2rem 0;
-        }
-        
-        .priorities-list li {
-            padding: 0.7rem 0 0.7rem 2rem;
-            position: relative;
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-        }
-        
-        .priorities-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--accent-red);
-            font-weight: bold;
-        }
-        
-        /* Timeline Table - Dark Theme */
-        .timeline-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            font-size: 1rem;
-            background: var(--bg-card);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .timeline-table th {
-            background: var(--accent-red);
-            color: #fff;
-            padding: 1rem 1.2rem;
-            text-align: left;
-            font-weight: 600;
+        .story-hero .kicker {
+            font-size: 0.78em;
+            font-weight: 700;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-        }
-        
-        .timeline-table td {
-            padding: 1rem 1.2rem;
-            border-bottom: 1px solid var(--border-subtle);
-            vertical-align: top;
-            color: var(--text-secondary);
-        }
-        
-        .timeline-table tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .timeline-table tr:hover td {
-            background: var(--bg-card-hover);
-        }
-        
-        .year-cell {
-            font-weight: 600;
-            color: var(--accent-cyan);
-            white-space: nowrap;
-            width: 140px;
-        }
-        
-        /* Topics Grid */
-        .topics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-        
-        .topic-card {
-            background: var(--bg-card);
-            border-radius: 6px;
-            padding: 1.2rem;
-            border-left: 3px solid var(--accent-red);
-            transition: transform 0.2s ease, background 0.2s ease;
-        }
-        
-        .topic-card:hover {
-            background: var(--bg-card-hover);
-            transform: translateX(4px);
-        }
-        
-        .topic-card strong {
+            color: #00a2ff;
+            margin-bottom: 14px;
             display: block;
-            margin-bottom: 0.4rem;
-            color: var(--text-primary);
-            font-size: 1.05rem;
         }
-        
-        .topic-card span {
-            font-size: 0.95rem;
-            color: var(--text-muted);
+        .story-hero h1 {
+            font-size: 2.2em;
+            color: #ffffff;
+            line-height: 1.25;
+            margin-bottom: 20px;
         }
-        
-        /* Resources Box */
-        .resources-box {
-            background: var(--success-bg);
-            border: 1px solid var(--success-border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 2.5rem 0;
+        .story-hero .lede {
+            font-size: 1.15em;
+            color: #aaaaaa;
+            line-height: 1.75;
+            max-width: 660px;
+            margin-bottom: 30px;
         }
-        
-        .resources-box h4 {
-            margin-top: 0;
-            margin-bottom: 1rem;
-            color: var(--success-text);
-            font-size: 1.2rem;
+        .byline-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 0;
+            border-top: 1px solid #1f1f1f;
+            border-bottom: 1px solid #1f1f1f;
+            margin-bottom: 50px;
         }
-        
-        .resources-box p {
-            color: var(--text-secondary);
+        .byline-row img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 2px solid #00a2ff;
+            margin: 0;
         }
-        
-        .resources-box ul {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0;
+        .byline-row .bl {
+            font-size: 0.9em;
         }
-        
-        .resources-box li {
-            padding: 0.6rem 0;
-            color: var(--text-secondary);
-            border-bottom: 1px solid rgba(46, 125, 50, 0.3);
+        .byline-row .bl strong { color: #e0e0e0; display: block; }
+        .byline-row .bl span { color: #555; }
+
+        /* ── Story body ── */
+        .story-body {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 25px;
         }
-        
-        .resources-box li:last-child {
-            border-bottom: none;
+        .story-body p {
+            color: #cccccc;
+            font-size: 1.05em;
+            line-height: 1.85;
+            margin-bottom: 24px;
         }
-        
-        .resources-box strong {
-            color: var(--success-text);
+        .story-body h2 {
+            color: #ffffff;
+            font-size: 1.35em;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #1f1f1f;
         }
-        
-        .resources-box a {
-            color: var(--accent-cyan);
+
+        /* Pull quote */
+        .pull {
+            border-left: 4px solid #00a2ff;
+            margin: 40px 0;
+            padding: 18px 26px;
+            background: #0d1520;
+            border-radius: 0 8px 8px 0;
         }
-        
-        /* Closing Statement */
-        .closing-statement {
-            background: linear-gradient(135deg, var(--bg-card) 0%, #252525 100%);
-            color: #fff;
-            padding: 2.5rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-            text-align: center;
-            border: 1px solid var(--border-subtle);
-        }
-        
-        .closing-statement p {
-            color: var(--text-primary);
-            font-size: 1.3rem;
-            margin-bottom: 0;
+        .pull p {
+            color: #ffffff;
+            font-size: 1.2em;
             font-style: italic;
+            line-height: 1.6;
+            margin: 0;
         }
-        
-        /* Scroll Fade-In Animation */
-        .chapter,
-        .story-intro,
-        .resources-box,
-        .closing-statement {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+
+        /* Dark pull — for harder moments */
+        .pull.dark {
+            background: #111;
+            border-left-color: #444;
         }
-        
-        .chapter.visible,
-        .story-intro.visible,
-        .resources-box.visible,
-        .closing-statement.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .pull.dark p { color: #aaaaaa; font-size: 1.05em; }
+
+        /* News link */
+        .news-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 12px 18px;
+            text-decoration: none;
+            margin: 10px 0 30px;
+            transition: border-color 0.2s;
         }
-        
-        /* Mobile Responsive */
+        .news-link:hover { border-color: #00a2ff; }
+        .news-link .nl-label {
+            font-size: 0.75em;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            display: block;
+        }
+        .news-link .nl-title {
+            font-size: 0.9em;
+            color: #cccccc;
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* Photo -->
+        .story-photo {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 10px;
+            margin: 40px 0;
+            display: block;
+        }
+
+        /* Timeline */
+        .timeline-section {
+            max-width: 820px;
+            margin: 70px auto 0;
+            padding: 0 25px;
+        }
+        .timeline-section h2 {
+            color: #00a2ff;
+            font-size: 1.3em;
+            border-bottom: 3px solid #1f1f1f;
+            padding-bottom: 12px;
+            margin-bottom: 0;
+        }
+        .timeline {
+            margin: 0;
+            padding: 0;
+        }
+        .tl-row {
+            display: flex;
+            gap: 0;
+            border-bottom: 1px solid #141414;
+        }
+        .tl-row:last-child { border-bottom: none; }
+        .tl-year {
+            color: #00a2ff;
+            font-size: 0.88em;
+            font-weight: 700;
+            min-width: 70px;
+            padding: 14px 16px 14px 0;
+            flex-shrink: 0;
+        }
+        .tl-event {
+            color: #888;
+            font-size: 0.88em;
+            padding: 14px 0;
+            line-height: 1.55;
+            border-left: 2px solid #1a1a1a;
+            padding-left: 20px;
+        }
+        .tl-row.marker .tl-event {
+            color: #cccccc;
+            border-left-color: #00a2ff;
+        }
+
         @media (max-width: 600px) {
-            .story-section {
-                padding: 1.5rem 1rem;
-            }
-            
-            .story-section h2 {
-                font-size: 1.4rem;
-            }
-            
-            .story-section p {
-                font-size: 1rem;
-            }
-            
-            .story-intro {
-                padding: 1.5rem;
-            }
-            
-            .timeline-table {
-                font-size: 0.9rem;
-            }
-            
-            .timeline-table th,
-            .timeline-table td {
-                padding: 0.75rem 0.6rem;
-            }
-            
-            .year-cell {
-                width: 100px;
-                font-size: 0.85rem;
-            }
-            
-            .topics-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .closing-statement {
-                padding: 1.5rem;
-            }
-            
-            .closing-statement p {
-                font-size: 1.1rem;
-            }
+            .story-hero h1 { font-size: 1.7em; }
+            .pull p { font-size: 1.05em; }
         }
     </style>
 </head>
 <body>
-    <!-- HEADER BANNER -->
-    <header>
-        <img src="images/banner.png" alt="Ottawa Skyline" class="banner">
-        <div class="header-overlay">
-            <h1>Josh Pearsall</h1>
-            <p class="tagline">Recovery Roofer</p>
-            <p class="subtitle">From the streets to the rooftops • Ottawa</p>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-container">
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn">Home</a>
+            <a href="story.html" class="nav-btn active">My Story</a>
+            <a href="continuum.html" class="nav-btn">Continuum of Care</a>
+            <a href="resources.html" class="nav-btn">Resources</a>
+            <a href="writing.html" class="nav-btn">Writing</a>
+            <a href="connect.html" class="nav-btn">Connect</a>
         </div>
-    </header>
+    </div>
+</nav>
 
-    <!-- NAV BAR -->
-    <nav>
-        <div class="nav-container">
-            <div class="nav-links">
-                <a href="index.html" class="nav-btn">Home</a>
-                <a href="story.html" class="nav-btn active">My Story</a>
-                <a href="resources.html" class="nav-btn">Resources</a>
-                <a href="writing.html" class="nav-btn">Writing</a>
-                <a href="connect.html" class="nav-btn">Connect</a>
-            </div>
+<!-- HERO -->
+<div class="story-hero">
+    <span class="kicker">My Story</span>
+    <h1>I thought I was different.<br>I wasn't.</h1>
+    <p class="lede">My life has moved between two very different worlds. One included university football, steady work, and the kind of opportunities people assume lead somewhere good. The other included addiction, homelessness, and federal prison. For a long time I moved back and forth between both.</p>
+    <div class="byline-row">
+        <img src="assets/img/5037.jpg" alt="Josh Pearsall">
+        <div class="bl">
+            <strong>Josh Pearsall</strong>
+            <span>Recovery Roofer · Ottawa · Updated 2024</span>
         </div>
-    </nav>
+    </div>
+</div>
 
-    <main class="story-section">
-        
-        <!-- INTRO -->
-        <div class="story-intro">
-            <p>My life has moved between two very different worlds.</p>
-            <p>One included university football, steady work, and the kind of opportunities people assume lead somewhere good. The other included addiction, homelessness, prison, and years of instability.</p>
-            <p>For a long time I moved back and forth between those two realities. This is the full story.</p>
-        </div>
+<!-- STORY BODY -->
+<div class="story-body">
 
-        <!-- CHAPTER 1 -->
-        <div class="chapter">
-            <h2>Football, Identity, and the First Cracks</h2>
-            
-            <p>In 2008 I left Ontario to attend Acadia University in Nova Scotia, where I joined the Acadia Axemen football program.</p>
-            
-            <p>Football had always been a major part of my identity. University football felt like a huge opportunity and a fresh start. Training camp was intense, the expectations were high, and the environment pushed you to compete constantly.</p>
-            
-            <p>By my second year things were going well. I had a strong season and ended up leading the team in touchdowns. The CFL covered some of those games in their   <a href="https://www.cfl.ca/2009/09/27/cis-football-week-4-in-review/" target="_blank" rel="noopener">
-        weekly roundup that season
-    </a>. Local media also followed the program—<a href="https://www.saltwire.com/atlantic-canada/football-axemen-ready-to-rumble-start-training-camp-85083" target="_blank" rel="noopener"> SaltWire wrote about training camp</a> and the team's expectations heading into the year.</p>
-            
-            <p>From the outside it looked like everything was lining up.</p>
-            
-            <p>But addiction rarely starts with a dramatic moment. It usually starts quietly.</p>
-            
-            <p>During breaks when I returned home to Ontario, I began experimenting with opioids. At first it seemed manageable. I would use during Christmas break or in the summer and then return to school and stop.</p>
-            
-            <p>That illusion didn't last.</p>
-        </div>
+    <h2>The Touchdown</h2>
 
-        <!-- CHAPTER 2 -->
-        <div class="chapter">
-            <h2>Leaving School and Losing Structure</h2>
-            
-            <p>Eventually football and university started to unravel. I left school before finishing my degree and returned to Ontario.</p>
-            
-            <p>Without the structure of football, addiction progressed quickly.</p>
-            
-            <p>What had once been occasional use became something much more serious. Over the next several years my life became unstable. There were periods of jail, attempts at treatment, and short stretches where things appeared to improve before falling apart again.</p>
-            
-            <p>During that time I also became a father. For a while I tried to build a normal life. I worked selling roofs and earned good money.</p>
-            
-            <p>On the surface it looked like things were improving.</p>
-            
-            <p>But addiction doesn't disappear simply because life becomes more stable.</p>
-        </div>
+    <p>"Quads right. Slice 9129."</p>
 
-        <!-- CHAPTER 3 -->
-        <div class="chapter">
-            <h2>Homelessness and Collapse</h2>
-            
-            <p>Eventually the instability returned.</p>
-            
-            <p>By 2016 my life had fallen apart again. After a breakup and losing my apartment, I ended up on the street and eventually hitchhiked to Owen Sound looking for help. I went through detox and then returned to Ottawa where I entered treatment and transitional housing.</p>
-            
-            <p>For a period things improved again. I worked, had my own place, and stayed mostly stable.</p>
-            
-            <p>But in 2018 everything collapsed.</p>
-            
-            <p>That year marked the worst period of homelessness and addiction I experienced. By then the addiction had progressed to intravenous drug use and daily survival revolved around avoiding withdrawal.</p>
-            
-            <p>Life had narrowed to a very small and dangerous world.</p>
-        </div>
+    <p>Keith calls it in the huddle. We break. I'm the second receiver. Pre-snap I see it — SAM linebacker's creeping up, he's blitzing. Ball snaps. He comes. I cut my slant high, ball hits me in stride. I plant, explode upfield. The safeties split for a second and I'm gone.</p>
 
-        <!-- CHAPTER 4 -->
-        <div class="chapter">
-            <h2>Prison</h2>
-            
-            <p>In May of 2019 I committed the offence that ultimately resulted in a federal prison sentence.</p>
-            
-            <p><a href="https://ottawacitizen.com/news/local-news/robber-jacked-getaway-car-on-strandherd-drive-police" target="_blank" rel="noopener">
-            
-            <p>I eventually received a 48-month penitentiary sentence.</p>
-            
-            <p>Prison forced a pause in a life that had been spiraling for years. During that time I completed programs and began thinking seriously about what the future might look like if I survived addiction.</p>
-        </div>
+    <p>First career touchdown. University of Montreal, second year. The crowd going crazy, my boys mobbing me. This was it. This was who I was. I scored almost every game after that — finished the season leading the team in touchdowns.</p>
 
-        <!-- CHAPTER 5 -->
-        <div class="chapter">
-            <h2>Release, Relapse, and a More Dangerous Drug Supply</h2>
-            
-            <p>I was released on parole in 2020 and spent the next few years rebuilding stability. I worked, followed my conditions, and tried to build a normal life again.</p>
-            
-            <p>But recovery is rarely a straight line.</p>
-            
-            <p>Near the end of my parole period I relapsed again. By then the drug supply had changed dramatically. The substances on the street were far more dangerous and unpredictable than they had been years earlier.</p>
-            
-            <div class="highlight-box">
-                <p>This is something people need to understand about Ottawa's current drug supply.</p>
-                <p>What's out there now isn't what it was five or ten years ago. Fentanyl and its analogues have made every use potentially fatal. Withdrawal has become more severe. The margin for error has disappeared.</p>
-            </div>
-            
-            <p>During that relapse I experienced seizures and serious health problems connected to withdrawal and the toxic drug supply.</p>
-            
-            <p>In late 2023 another series of poor decisions led to a short jail sentence.</p>
-        </div>
+    <div class="pull">
+        <p>I thought I had it all figured out. Thought I was untouchable. Thought I was different.</p>
+    </div>
 
-        <!-- CHAPTER 6 -->
-        <div class="chapter">
-            <h2>March 2024</h2>
-            
-            <p>When I was released in March 2024, I realized something had to change.</p>
-            
-            <p>Instead of trying to rebuild everything at once, I focused on a few simple priorities:</p>
-            
-            <ul class="priorities-list">
-                <li>Showing up to work</li>
-                <li>Maintaining recovery</li>
-                <li>Building stability one day at a time</li>
-            </ul>
-            
-            <p>I returned to roofing and began rebuilding my life through routine and consistency.</p>
-        </div>
+    <p>I'd headed to Acadia University from Ontario thinking I could outrun my problems. New environment, ditch the sketchy friends — fresh start. If I got far enough away, things would be different.</p>
 
-        <!-- WHY THIS SITE EXISTS -->
-        <div class="chapter">
-            <h2>Why This Site Exists</h2>
-            
-            <p>I created this site to document that process and to share what I've learned navigating addiction and recovery in Ottawa.</p>
-            
-            <p><strong style="color: var(--text-primary);">This isn't a perfect recovery story.</strong> It's an honest record of what addiction looked like, what recovery looks like now, and what I've learned along the way.</p>
-            
-            <p>If you're struggling with opioid addiction—or watching someone you care about struggle—I want you to know a few things:</p>
-            
-            <ul class="priorities-list">
-                <li>The modern drug supply is different. More dangerous. Less forgiving.</li>
-                <li>The systems meant to help (detox, treatment, transitional housing) have serious gaps.</li>
-                <li>Recovery is possible, but it rarely looks like a straight line.</li>
-                <li>Practical information and lived experience matter as much as clinical advice.</li>
-            </ul>
-            
-            <p>I'm not a counsellor or a medical professional. I'm someone who has been through the cycle of addiction, treatment, relapse, incarceration, and rebuilding more times than I'd like to count.</p>
-            
-            <p>What I can offer is honesty about what that looks like and practical insight into navigating recovery in Ottawa.</p>
-        </div>
+    <p>Wrong. I couldn't outrun myself. The common denominator in all my messes was me.</p>
 
-        <!-- THE WORK CONTINUES -->
-        <div class="chapter">
-            <h2>The Work Continues</h2>
-            
-            <p>Today my priorities are different.</p>
-            
-            <ul class="priorities-list">
-                <li>Work</li>
-                <li>Family</li>
-                <li>Health</li>
-                <li>Consistency</li>
-            </ul>
-            
-            <p>The life I'm building now is much quieter than the one that came before it. But it is also far more stable and meaningful.</p>
-            
-            <p>Recovery is not a single moment. For me, it has been a long series of decisions to keep moving forward.</p>
-        </div>
+    <h2>The First Cracks</h2>
 
-        <!-- TIMELINE -->
-        <div class="chapter">
-            <h2>Timeline</h2>
-            
-            <table class="timeline-table">
-                <thead>
-                    <tr>
-                        <th>Year</th>
-                        <th>What Happened</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="year-cell">2007</td>
-                        <td>First experimentation with opioids in high school</td>
-                    </tr>
-                    <tr>
-                        <td class="year-cell">2008–2009</td>
-                        <td>Attended Acadia University, played football for the Axemen</td>
-                    </tr>
-                    <tr>
-                        <td class="year-cell">2011</td>
-                        <td>First jail sentence as addiction escalates</td>
-                    </tr>
-                    <tr>
-                        <td class="year-cell">2012</td>
-                        <td>Continued use and further legal trouble</td>
-                    </tr>
-                    <tr>
-                        <td class="year-cell">2013</td>
-                        <td>Jail in the first half of the year, then treatment in Ottawa</td>
-                    </tr>
-                    <tr>
-                        <td class="year-cell">2014</td>
-                        <td>Period of stability—selling roofs, becoming a father</td>
-                    </tr>
-                    <tr>
-                        <td class="year-cell">2015</td>
-                        <td>Substance use begins escalating again</td>
-                    </tr>
-                    <tr>
-                        <td class="year-cell">2016</td>
-                        <td>Major collapse, homelessness, detox in Owen Sound, treatment in Ottawa</td>
-                    </tr>
-                    <tr>
-                        <td class="year-cell">2017</td>
-                        <td>Stable year with work and housing</td>
-                    </tr>
-                    <tr>
-                        <td class="year-cell">2018</td>
-                        <td>Severe relapse and homelessness</td>
-                    </tr>
-                    <tr>
-                        <td class="year-cell">May 2019</td>
-                        <td>Arrest connected to robbery and carjacking</td>
-                    </tr>
-                    <tr>
-                        <td class="year-cell">2020–2023</td>
-                        <td>Released on parole, period of stability</td>
-                    </tr>
-                    <tr>
-                        <td class="year-cell">Late 2023</td>
-                        <td>Relapse during more dangerous drug supply, health complications, short jail sentence</td>
-                    </tr>
-                    <tr>
-                        <td class="year-cell">Mar 2024+</td>
-                        <td>Recovery, returning to roofing, rebuilding stability</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <p>During breaks when I returned to Ontario I began experimenting with opioids. At first it seemed manageable. I'd use over Christmas or in the summer and then return to school and stop. That illusion didn't last long.</p>
 
-        <!-- WHAT I WRITE ABOUT -->
-        <div class="chapter">
-            <h2>What I Write About</h2>
-            
-            <div class="topics-grid">
-                <div class="topic-card">
-                    <strong>Addiction Progression</strong>
-                    <span>How occasional use becomes something unmanageable</span>
-                </div>
-                <div class="topic-card">
-                    <strong>Ottawa's Toxic Drug Supply</strong>
-                    <span>What's actually out there and why it matters</span>
-                </div>
-                <div class="topic-card">
-                    <strong>Gaps in Treatment</strong>
-                    <span>What the detox and rehab system looks like from the inside</span>
-                </div>
-                <div class="topic-card">
-                    <strong>Recovery Through Work</strong>
-                    <span>How routine and structure support long-term stability</span>
-                </div>
-                <div class="topic-card">
-                    <strong>Practical Harm Reduction</strong>
-                    <span>Real information for people who are still using</span>
-                </div>
-                <div class="topic-card">
-                    <strong>Navigating Ottawa Systems</strong>
-                    <span>Methadone, Suboxone, shelters, OHIP-funded rehab, re-entry</span>
-                </div>
-            </div>
-        </div>
+    <p>The real problem was that every time I went back to Guelph for holidays, I dove right back into heavier use — then detoxed cold turkey when I returned to campus. A vicious cycle I ignored because the field was my escape. As long as football was working, everything else got swept under the rug.</p>
 
-        <!-- RESOURCES -->
-        <div class="resources-box">
-            <h4>If You're in Crisis</h4>
-            <p>If you're in Ottawa and struggling right now, these are real options:</p>
-            <ul>
-                <li><strong>Ottawa Overdose Prevention Line:</strong> 1-888-853-8542</li>
-                <li><strong>Rideauwood Addiction & Family Services:</strong> 613-724-4881</li>
-                <li><strong>The Royal Ottawa Mental Health Centre:</strong> 613-722-6521</li>
-            </ul>
-            <p>I'm not a replacement for professional support. But if you want to connect with someone who's been through it, <a href="connect.html">reach out</a>.</p>
-        </div>
+    <p>In my second month as a freshman, after a rookie party, things escalated fast. I ended up with an assault charge — my first real bid. 30 days on weekends at Mimico Detention Center.</p>
 
-        <!-- CLOSING -->
-        <div class="closing-statement">
-            <p>Recovery is not a single moment. It's a long series of decisions to keep moving forward.</p>
-        </div>
+    <div class="pull dark">
+        <p>I remember sitting with two other guys from London. They were scheming about stealing a TV. I piped up, told them how stupid it sounded. They just laughed. They'd already pegged me as the fish who didn't get it. In my head I was screaming — don't these guys know I'm different? I play football. I'm in university. I have potential. I was offended as hell, but I didn't show it.</p>
+    </div>
 
-    </main>
+    <p>I kept playing. I kept using when I was home. I kept telling myself it was manageable.</p>
 
-    <footer>
-        <p>Made by Josh Pearsall • <a href="[recoveryroofer.ca](https://recoveryroofer.ca)">recoveryroofer.ca</a></p>
-    </footer>
+    <h2>Thanksgiving 2010 — The End of Football</h2>
 
-    <!-- Scroll reveal animation -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                    }
-                });
-            }, { 
-                threshold: 0.15,
-                rootMargin: "0px 0px -50px 0px"
-            });
+    <p>Thanksgiving weekend, third year. Supposed to be my breakout season. I borrowed a hundred bucks, drove my roommate to the airport, hit the casino. Won five hundred dollars. Right there I made the decision — we're flying back to Guelph for the weekend. I'd be back for practice.</p>
 
-            document.querySelectorAll(".chapter, .story-intro, .resources-box, .closing-statement").forEach(el => {
-                observer.observe(el);
-            });
-        });
-    </script>
-    <!-- FLOATING NEED HELP NOW CTA -->
-    <a href="tel:6132411525" class="floating-cta">
-        <span>🚨</span>
-        Need Help Now? 
-        <strong>(613) 241-1525</strong>
+    <p>I never went back.</p>
+
+    <p>A few weeks later my parents figured out I wasn't returning to school. They told me I couldn't stay. Bought me a bus ticket to Ottawa. Sent me to rehab.</p>
+
+    <p>Winter in Ottawa. I stepped off that bus with a hockey bag full of clothes and forty dollars. No phone. I had to ask someone where the shelter was.</p>
+
+    <p>I checked into detox. Then rehab. And I actually completed the program. Graduation day came and I was supposed to go to sober living, start fresh, do it right.</p>
+
+    <p>Instead I met up with Corey, Matt, and Joel — guys from the group ahead of me, already in second stage. They were using. So I used with them.</p>
+
+    <div class="pull dark">
+        <p>Within two years, all three of them were dead. I'm the only one left.</p>
+    </div>
+
+    <h2>Roofing, Fatherhood, and the Fentanyl Patches</h2>
+
+    <p>After leaving rehab I caught a break — got a roofing job. My dad helped me get an apartment. Sixty days in Ottawa and I had a place, income, a future that looked like something.</p>
+
+    <p>Then I met a girl. She got pregnant. I was going to be a dad.</p>
+
+    <p>I thought I'd turned it around. I was still using — smoking fentanyl patches — but I was working, selling roofs, bringing in money. Then one day she came downstairs, pregnant, and caught me bent over tinfoil with a straw. I tried to tell her it was weed.</p>
+
+    <p>She wasn't buying it. I left. Told myself it was because of my record. That was a lie I told myself. I left because the drugs mattered more.</p>
+
+    <p>Jack was born premature at 32 weeks. His mom called me — let's go to the hospital. I thought it was too early, that she was overreacting. By the time she got there she was dilated, transferred to CHEO. Jack was born within an hour. My parents drove down. I went to work.</p>
+
+    <p>Things were okay for a bit after that. A baby is a good distraction. Then the baby bonus came — six thousand dollars. Money for diapers, formula, everything a premature baby needs.</p>
+
+    <p>I spent it all in weeks. On dope.</p>
+
+    <p>We got evicted. She and Jack moved in with my parents. I wasn't allowed to come. I ended up in a shelter.</p>
+
+    <h2>The Elvis Judge</h2>
+
+    <p>That 2011 charge should have been a theft. I'd stolen someone's prescription — a guy who used to sell me pills. But I got charged with robbery. I was sick, mad at my parents for not bailing me out, and I said fuck it, I'll plead guilty. My lawyer Rhanny tried to stop me. I went through with it anyway.</p>
+
+    <p>The judge asked me what happened. I told the truth. He struck my guilty plea on the spot — said it sounded like a theft, not a robbery, and made the Crown take it back.</p>
+
+    <p>That judge was Douglas. The papers called him Stormin' Norman. Apparently he impersonated Elvis to relax. The Guelph Mercury ran a piece on him around that time — it mentioned he'd recently struck a guilty plea from a man addicted to OxyContin, telling him "so much is at stake for you that you would be nuts to plead guilty to robbery today."</p>
+
+    <p>That man was me. I didn't know enough to be grateful at the time.</p>
+
+    <a href="https://www.guelphmercury.com/news/tough-guelph-judge-impersonates-elvis-to-relax/article_45ba3f17-fe3f-5f7a-8a3a-66a763a16e9b.html" target="_blank" class="news-link">
+        <span class="nl-label">Guelph Mercury · July 19, 2011</span>
+        <span class="nl-title">Tough Guelph judge impersonates Elvis to relax →</span>
     </a>
+
+    <h2>2016 — Owen Sound and Back</h2>
+
+    <p>In 2016 I got clean again. A guy from Guelph picked me up, drove me to Owen Sound for detox. Then a 90-day program in Ottawa. Finished it. Got my own place. Eight months later I relapsed.</p>
+
+    <p>What followed was the worst stretch. 2018 into 2019. On the streets, injecting, doing whatever I had to do to get the next hit.</p>
+
+    <h2>Rock Bottom</h2>
+
+    <p>About three weeks before I went to prison, I went to help a kid named Booster Phil. A drug dealer had chained him to a fence. I knew everyone involved and I needed dope. I had fifty bucks my dad had given me.</p>
+
+    <p>I walked toward the safe injection site and they rushed me. Started beating me. One of them spotted the bill clenched in my fist.</p>
+
+    <div class="pull dark">
+        <p>"He's got a 50!"</p>
+    </div>
+
+    <p>I shoved that bill up my ass. They kept beating me — broke my nose, stole my shoes — but I didn't let go of the money. I walked into the safe injection site, went to the bathroom, fished it out so I could go cop.</p>
+
+    <p>A guy I knew from AA walked me out to make sure I didn't get jumped again. He asked me: "Don't you think this is rock bottom?"</p>
+
+    <p>I just wanted to get to the other safe injection site so I could use.</p>
+
+    <h2>May 6th, 2019</h2>
+
+    <p>I woke up sick. I needed money. I took a cab to Shoppers, stole a bunch of stuff. There was a commotion. I panicked, jumped in the back of someone's car and took it. High-speed chase.</p>
+
+    <p>I got high afterward. On Monday I turned myself in. Pled guilty. Got 48 months.</p>
+
+    <a href="https://ottawa.citynews.ca/2019/05/07/charges-laid-in-robbery-and-carjacking-in-barrhaven-1433185/" target="_blank" class="news-link">
+        <span class="nl-label">Ottawa CityNews · May 7, 2019</span>
+        <span class="nl-title">Charges laid in robbery and carjacking in Barrhaven →</span>
+    </a>
+
+    <div class="pull dark">
+        <p>Jail became my detox. I'd learned to love it in a twisted way. I needed to stop and I knew I was in a lot of trouble. I started at OCDC, sick as hell. Didn't ask for bail. I pled out, took the 48-month joint submission. Got transferred to Joyceville. Beaver Creek became my home institution.</p>
+    </div>
+
+    <h2>Parole, Relapse, and a More Dangerous Supply</h2>
+
+    <p>I was paroled in August 2020. Finished with no violations, no problems. Then two months before parole ended, I started using again.</p>
+
+    <p>By 2023 it was almost as bad as before — except faster. The drug supply had changed. Unregulated benzos, xylazine mixed into everything, unpredictable doses. I started having seizures. Withdrawal was more intense than anything I'd experienced before.</p>
+
+    <p>I was roofing with my brother, using every day. I tried to quit and the seizures got worse. Eventually I caught another charge — six months.</p>
+
+    <h2>March 2024</h2>
+
+    <p>When I was released in March 2024, something was different. I didn't try to rebuild everything at once. I focused on three things: show up to work, maintain recovery, build stability one day at a time.</p>
+
+    <p>I returned to roofing. I haven't missed a day or been late in over a year.</p>
+
+    <div class="pull">
+        <p>I didn't learn it in rehab. I didn't learn it in prison. I learned it by showing up. And I didn't stop throwing punches.</p>
+    </div>
+
+    <h2>What I Know Now</h2>
+
+    <p>You can't outrun yourself. I went from Ontario to Nova Scotia thinking a change of scenery would fix me. The common denominator in all my messes was me.</p>
+
+    <p>Rock bottom is a choice. I had a hundred rock bottoms. Shoving money up my ass with a broken nose wasn't enough. Stealing my son's baby bonus wasn't enough. The carjacking wasn't enough. You don't hit bottom because things get bad enough — you hit bottom when you decide you're done.</p>
+
+    <p>Recovery isn't about being tough. I spent years thinking I just needed to work harder, push through. I was already living life in fifth gear. What I needed was to learn how to exist in first or second. To sit with uncomfortable feelings instead of running from them.</p>
+
+    <p>If you're reading this and you think you're different — you're not. And that's actually good news. Because if I can claw my way out, so can you.</p>
+
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline-section">
+    <h2>Timeline</h2>
+    <div class="timeline">
+        <div class="tl-row">
+            <div class="tl-year">2007</div>
+            <div class="tl-event">First experimentation with opioids in high school</div>
+        </div>
+        <div class="tl-row">
+            <div class="tl-year">2008–09</div>
+            <div class="tl-event">Attended Acadia University, played for the Axemen. First assault charge, 30 days weekends at Mimico.</div>
+        </div>
+        <div class="tl-row">
+            <div class="tl-year">2010</div>
+            <div class="tl-event">Thanksgiving — left school, never returned. Detox and first rehab in Ottawa.</div>
+        </div>
+        <div class="tl-row">
+            <div class="tl-year">2011</div>
+            <div class="tl-event">First jail sentence as addiction escalates. Robbery charge reduced to theft by the judge.</div>
+        </div>
+        <div class="tl-row">
+            <div class="tl-year">2013</div>
+            <div class="tl-event">Jail in the first half of the year, then treatment in Ottawa.</div>
+        </div>
+        <div class="tl-row">
+            <div class="tl-year">2014</div>
+            <div class="tl-event">Period of stability — selling roofs, becoming a father. Jack born premature at 32 weeks.</div>
+        </div>
+        <div class="tl-row">
+            <div class="tl-year">2015–16</div>
+            <div class="tl-event">Substance use escalates. Major collapse, homelessness. Detox in Owen Sound, 90-day treatment in Ottawa.</div>
+        </div>
+        <div class="tl-row">
+            <div class="tl-year">2017</div>
+            <div class="tl-event">Stable year — work and housing.</div>
+        </div>
+        <div class="tl-row">
+            <div class="tl-year">2018</div>
+            <div class="tl-event">Severe relapse and homelessness. Intravenous drug use, daily survival.</div>
+        </div>
+        <div class="tl-row marker">
+            <div class="tl-year">May 2019</div>
+            <div class="tl-event">Carjacking in Barrhaven. Turned myself in Monday. Pled guilty — 48-month federal sentence.</div>
+        </div>
+        <div class="tl-row">
+            <div class="tl-year">2020–23</div>
+            <div class="tl-event">Released on parole. Period of stability, no violations. Then relapse — new drug supply, seizures, six months.</div>
+        </div>
+        <div class="tl-row marker">
+            <div class="tl-year">Mar 2024</div>
+            <div class="tl-event">Released. Back to roofing. Building something worth keeping.</div>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<section>
+    <h2>Why This Site Exists</h2>
+    <p>I'm not a counsellor or a medical professional. I'm someone who has been through the cycle of addiction, treatment, relapse, incarceration, and rebuilding more times than I'd like to count.</p>
+    <p>What I can offer is honesty about what that looks like — and practical insight into navigating recovery in Ottawa. If you're struggling or watching someone you care about struggle, <a href="connect.html" style="color:#00a2ff;">reach out</a>. Or start with the <a href="continuum.html" style="color:#00a2ff;">continuum of care page</a> to understand what options actually exist.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>Josh Pearsall · Recovery Roofer · Ottawa &nbsp;|&nbsp; <a href="connect.html">Get in touch</a></p>
+</footer>
+
+<!-- FLOATING CRISIS BTN -->
+<a href="resources.html" class="floating-cta">
+    <span>🚨</span> Need Help Now?
+</a>
+
 </body>
 </html>
