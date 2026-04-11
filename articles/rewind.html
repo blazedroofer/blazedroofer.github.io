@@ -4,439 +4,771 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rewind — A Reverse Timeline</title>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;1,400;1,600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --ink: #1a1714;
-    --paper: #f4f0e8;
-    --paper-dark: #e8e2d4;
-    --faded: #9a9080;
-    --accent: #8b2c2c;
-    --accent-light: #c4503a;
-    --gov-bg: #f0ede4;
-    --mono: 'DM Mono', monospace;
-    --serif: 'Libre Baskerville', Georgia, serif;
-  }
+:root {
+  --ink: #16130f;
+  --paper: #f2ede3;
+  --paper-mid: #e6dfd0;
+  --paper-dark: #d4cbbe;
+  --faded: #8a8070;
+  --ghost: #b8ad9e;
+  --accent: #7a2418;
+  --accent-warm: #c04830;
+  --amber: #c47820;
+  --serif: 'Playfair Display', Georgia, serif;
+  --body: 'Lora', Georgia, serif;
+  --mono: 'DM Mono', monospace;
+}
 
-  html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
 
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--serif);
-    font-size: 18px;
-    line-height: 1.8;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.85;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 1000;
-    opacity: 0.4;
-  }
+/* grain overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9000;
+  mix-blend-mode: overlay;
+}
 
-  .timeline-rail {
-    position: fixed;
-    left: 24px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    z-index: 100;
-  }
+/* progress */
+.progress-rail {
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: rgba(255,255,255,0.06);
+  z-index: 500;
+}
+.progress-fill {
+  position: absolute;
+  top: 0; left: 0; width: 100%;
+  background: var(--accent-warm);
+  transition: height 0.6s cubic-bezier(0.4,0,0.2,1);
+}
 
-  .rail-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    border: 1.5px solid var(--faded);
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
+/* chapter dots nav */
+.chapter-nav {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 500;
+}
+.c-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.c-dot.active {
+  background: var(--accent-warm);
+  transform: scale(1.6);
+}
+.c-dot.done { background: rgba(255,255,255,0.45); }
+.c-dot:hover::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ghost);
+  white-space: nowrap;
+  letter-spacing: 0.08em;
+}
 
-  .rail-dot.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    transform: scale(1.4);
-  }
+/* screen label */
+.screen-label {
+  position: fixed;
+  top: 22px; right: 28px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faded);
+  z-index: 500;
+}
 
-  .rail-dot.visited {
-    background: var(--faded);
-    border-color: var(--faded);
-  }
+/* screens */
+.screen {
+  display: none;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 28px 100px;
+  animation: arrive 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.screen.active { display: flex; }
 
-  .rail-dot:hover .rail-label {
-    opacity: 1;
-    transform: translateX(0);
-  }
+@keyframes arrive {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
-  .rail-label {
-    position: absolute;
-    left: 18px;
-    top: 50%;
-    transform: translateY(-50%) translateX(-4px);
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--faded);
-    white-space: nowrap;
-    opacity: 0;
-    transition: all 0.2s ease;
-    pointer-events: none;
-  }
+/* content wrapper */
+.content {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
 
-  .rail-line {
-    width: 1px;
-    height: 12px;
-    background: var(--faded);
-    margin: 0 auto;
-    opacity: 0.4;
-  }
+/* illustration */
+.illus {
+  width: 100%;
+  margin-bottom: 36px;
+  border-radius: 2px;
+  overflow: hidden;
+  opacity: 0.92;
+}
 
-  .screen {
-    min-height: 100vh;
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 24px 120px;
-    animation: fadeIn 0.7s ease forwards;
-    position: relative;
-  }
+/* chapter meta */
+.ch-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin-bottom: 6px;
+}
+.ch-title {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ghost);
+  margin-bottom: 36px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
 
-  .screen.active { display: flex; }
+/* prose */
+.prose p {
+  margin-bottom: 1.5em;
+  color: #c8bfb0;
+}
+.prose p:last-child { margin-bottom: 0; }
+.prose em { font-style: italic; color: #d8cfc0; }
+.prose strong { color: #e0d4c0; font-weight: 600; }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+/* rewind marker */
+.rewind-mark {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.18);
+  margin: 44px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-style: italic;
+}
 
-  .content {
-    max-width: 620px;
-    width: 100%;
-    margin: 0 auto;
-    padding-left: 20px;
-  }
+/* buttons */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 36px;
+}
 
-  .chapter-date {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--faded);
-    margin-bottom: 6px;
-  }
+.btn-rewind {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 11px 22px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  border-radius: 1px;
+}
+.btn-rewind:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.btn-rewind .arrow { transition: transform 0.2s; }
+.btn-rewind:hover .arrow { transform: translateX(-3px); }
 
-  .chapter-title {
-    font-size: 13px;
-    font-style: italic;
-    color: var(--faded);
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--paper-dark);
-  }
+.btn-ghost {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--faded);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+  padding: 4px 0;
+}
+.btn-ghost:hover { color: var(--ghost); }
 
-  .prose p {
-    margin-bottom: 1.5em;
-    color: var(--ink);
-  }
+/* ── LANDING ──────────────────────────────────────────── */
+#s0 {
+  background: var(--ink);
+  justify-content: flex-start;
+  padding-top: 0;
+  min-height: 100vh;
+}
+.landing-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.landing-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px 80px 80px;
+}
+.landing-right {
+  position: relative;
+  overflow: hidden;
+}
+.landing-right svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 
-  .prose em { font-style: italic; }
-  .prose strong { font-weight: 700; }
+.l-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faded);
+  margin-bottom: 20px;
+}
+.l-title {
+  font-family: var(--serif);
+  font-size: clamp(52px, 7vw, 88px);
+  line-height: 0.95;
+  font-weight: 700;
+  color: var(--paper);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+.l-subtitle {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ghost);
+  margin-bottom: 44px;
+  line-height: 1.55;
+  max-width: 340px;
+}
+.l-prose {
+  font-size: 14px;
+  line-height: 1.85;
+  color: #8a8070;
+  max-width: 360px;
+  margin-bottom: 48px;
+  font-family: var(--body);
+}
+.l-prose p { margin-bottom: 1em; }
 
-  .rewind-btn {
-    margin-top: 48px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-    background: none;
-    border: 1px solid var(--accent);
-    padding: 12px 24px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-  }
+.btn-start {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  padding: 16px 32px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border-radius: 1px;
+}
+.btn-start:hover { background: var(--accent-warm); }
+.btn-start .s-arrow { font-size: 15px; }
 
-  .rewind-btn:hover {
-    background: var(--accent);
-    color: var(--paper);
-  }
+/* ── DOCUMENT CARDS ─────────────────────────────────── */
+.doc-block { margin: 28px 0; }
 
-  .rewind-btn .arrow {
-    font-size: 16px;
-    transition: transform 0.2s;
-  }
+.doc-toggle {
+  width: 100%;
+  text-align: left;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 14px 18px;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ghost);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s;
+  border-radius: 1px;
+}
+.doc-toggle:hover { background: rgba(255,255,255,0.06); color: var(--paper); }
+.doc-toggle .tog-icon { transition: transform 0.2s; font-style: normal; flex-shrink: 0; }
+.doc-toggle.open .tog-icon { transform: rotate(90deg); }
 
-  .rewind-btn:hover .arrow { transform: translateX(-3px); }
+.doc-inner { display: none; }
+.doc-inner.open { display: block; }
 
-  .return-home {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--faded);
-    text-decoration: none;
-    border: 1px solid var(--faded);
-    padding: 8px 16px;
-    border-radius: 4px;
-    transition: all 0.25s ease;
-  }
+.doc-card {
+  background: #f0ebe0;
+  color: #2a2318;
+  padding: 32px 36px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  line-height: 1.75;
+  position: relative;
+  border-top: none;
+}
+.doc-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 28.5px, rgba(0,0,0,0.028) 28.5px, rgba(0,0,0,0.028) 29px);
+  pointer-events: none;
+}
+.doc-head {
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6a5a48;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.doc-hl {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1510;
+  margin-bottom: 16px;
+  line-height: 1.35;
+  font-style: normal;
+}
+.doc-body p { margin-bottom: 1em; color: #3a3020; }
+.doc-body ul { padding-left: 18px; color: #3a3020; }
+.doc-body li { margin-bottom: 4px; }
+.doc-body strong { color: #1a1510; }
+.doc-note {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(0,0,0,0.15);
+  font-style: italic;
+  color: #7a2418;
+  font-size: 10.5px;
+}
 
-  .return-home:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-  }
+/* ── FINAL SCREEN ───────────────────────────────────── */
+.final-text p {
+  color: #9a9080;
+  margin-bottom: 1.5em;
+  font-size: 16px;
+  line-height: 1.9;
+}
+.final-text p:last-child { margin-bottom: 0; }
 
-  .btn-row {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
-    margin-top: 48px;
-  }
+.btn-restart {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ghost);
+  background: none;
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 11px 22px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  border-radius: 1px;
+}
+.btn-restart:hover { color: var(--paper); border-color: rgba(255,255,255,0.3); }
 
-  .rewind-marker {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--faded);
-    letter-spacing: 0.1em;
-    margin: 40px 0 0;
-    padding-top: 24px;
-    border-top: 1px solid var(--paper-dark);
-    font-style: italic;
-  }
+/* interlude label */
+.interlude-label {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-warm);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.interlude-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+}
 
-  #screen-0 { background: var(--ink); color: var(--paper); }
-  #screen-0 .content { padding-left: 0; }
-
-  .landing-eyebrow {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--faded);
-    margin-bottom: 24px;
-  }
-
-  .landing-title {
-    font-size: clamp(36px, 6vw, 64px);
-    line-height: 1.1;
-    font-weight: 700;
-    color: var(--paper);
-    margin-bottom: 8px;
-  }
-
-  .landing-subtitle {
-    font-style: italic;
-    font-size: 18px;
-    color: var(--faded);
-    margin-bottom: 48px;
-    line-height: 1.5;
-  }
-
-  .landing-prose {
-    font-size: 16px;
-    line-height: 1.85;
-    color: #c8c0b0;
-    max-width: 520px;
-    margin-bottom: 48px;
-  }
-
-  .landing-prose p { margin-bottom: 1.2em; }
-
-  .start-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--paper);
-    background: var(--accent);
-    border: none;
-    padding: 16px 32px;
-    cursor: pointer;
-    transition: all 0.25s ease;
-  }
-
-  .start-btn:hover { background: var(--accent-light); }
-
-  .doc-wrapper { margin: 32px 0; }
-
-  .doc-toggle {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--faded);
-    background: none;
-    border: 1px dashed var(--paper-dark);
-    padding: 10px 16px;
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .doc-toggle:hover { border-color: var(--faded); color: var(--ink); }
-  .doc-toggle .toggle-icon { transition: transform 0.2s; font-style: normal; }
-  .doc-toggle.open .toggle-icon { transform: rotate(90deg); }
-
-  .doc-inner { display: none; margin-top: 2px; }
-  .doc-inner.open { display: block; }
-
-  .doc-paper {
-    background: var(--gov-bg);
-    border: 1px solid #d4cfc4;
-    padding: 36px 40px;
-    font-family: var(--mono);
-    font-size: 12px;
-    line-height: 1.7;
-    color: #3a3530;
-    position: relative;
-  }
-
-  .doc-paper::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(0,0,0,0.025) 27px, rgba(0,0,0,0.025) 28px);
-    pointer-events: none;
-  }
-
-  .progress-bar {
-    position: fixed;
-    top: 0; left: 0;
-    height: 2px;
-    background: var(--accent);
-    transition: width 0.4s ease;
-    z-index: 200;
-  }
-
-  .screen-label {
-    position: fixed;
-    top: 20px; right: 24px;
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--faded);
-    z-index: 100;
-  }
-
-  @media (max-width: 600px) {
-    .timeline-rail { display: none; }
-  }
+@media (max-width: 720px) {
+  .landing-wrap { grid-template-columns: 1fr; }
+  .landing-right { min-height: 260px; }
+  .landing-left { padding: 60px 28px; }
+  .chapter-nav { display: none; }
+  .l-title { font-size: 52px; }
+}
 </style>
 </head>
 <body>
 
-<div class="progress-bar" id="progress"></div>
-<div class="screen-label" id="screen-label"></div>
+<div class="progress-rail"><div class="progress-fill" id="pf"></div></div>
+<nav class="chapter-nav" id="cnav"></nav>
+<div class="screen-label" id="slabel"></div>
 
-<nav class="timeline-rail" id="rail" aria-label="Timeline navigation"></nav>
-
-<!-- SCREEN 0: LANDING - Only this part changed -->
-<section class="screen active" id="screen-0" role="main">
-  <div class="content">
-    <p class="landing-eyebrow">A reverse timeline</p>
-    <h1 class="landing-title">Rewind</h1>
-    <p class="landing-subtitle">Problems a roofer faces when housing becomes unstable</p>
-    <div class="landing-prose">
-      <p>October 2026. You’re back on roofs at sunrise, tools in hand. Substance use way down. Stable, for now.</p>
-      <p>This is where most stories end. This one starts here — and goes back.</p>
-      <p>Back through the eviction. The casino parking lot. The payphone at the shelter you swore you’d never see again. The policy decisions made in offices by people who would never sleep in a car off Coventry Road.</p>
-      <p>Back to where it actually started.</p>
+<!-- ════════════════════════════════════════════════════
+     SCREEN 0 — LANDING
+════════════════════════════════════════════════════ -->
+<section class="screen active" id="s0">
+  <div class="landing-wrap">
+    <div class="landing-left">
+      <p class="l-eyebrow">A reverse timeline</p>
+      <h1 class="l-title">Re&shy;wind</h1>
+      <p class="l-subtitle">Problems a roofer faces when housing becomes unstable</p>
+      <div class="l-prose">
+        <p>October 2026. You're back on roofs at sunrise, tools in hand. Substance use way down. Stable, for now.</p>
+        <p>This is where most stories end. This one starts here — and goes back.</p>
+        <p>Back through the eviction. The casino parking lot. The payphone at the shelter. The policy decisions made in offices by people who would never sleep in a car off Coventry Road.</p>
+        <p>Back to where it actually started.</p>
+      </div>
+      <button class="btn-start" onclick="goTo(1)">
+        Begin reading <span class="s-arrow">→</span>
+      </button>
     </div>
-    <button class="start-btn" onclick="goTo(1)">
-      Begin reading <span>→</span>
-    </button>
+    <div class="landing-right">
+      <!-- Landing illustration: Ottawa rooftop dawn -->
+      <svg viewBox="0 0 550 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <!-- sky -->
+        <rect width="550" height="700" fill="#0e0c09"/>
+        <!-- distant city glow -->
+        <ellipse cx="275" cy="480" rx="240" ry="60" fill="#1a0e06" opacity="0.9"/>
+        <!-- horizon glow -->
+        <rect x="0" y="430" width="550" height="10" fill="#2a1208" opacity="0.8"/>
+        <rect x="0" y="435" width="550" height="6" fill="#3a1a0a" opacity="0.6"/>
+        <!-- city skyline distant -->
+        <rect x="20" y="390" width="18" height="90" fill="#151210"/>
+        <rect x="42" y="370" width="24" height="110" fill="#121008"/>
+        <rect x="70" y="400" width="14" height="80" fill="#161310"/>
+        <rect x="88" y="380" width="20" height="100" fill="#131108"/>
+        <rect x="112" y="360" width="30" height="120" fill="#181410"/>
+        <rect x="146" y="395" width="16" height="85" fill="#151210"/>
+        <rect x="165" y="375" width="22" height="105" fill="#121008"/>
+        <rect x="191" y="410" width="12" height="70" fill="#161310"/>
+        <rect x="207" y="385" width="28" height="95" fill="#131108"/>
+        <rect x="240" y="355" width="35" height="125" fill="#1a1612"/>
+        <rect x="280" y="390" width="18" height="90" fill="#151210"/>
+        <rect x="302" y="368" width="26" height="112" fill="#121008"/>
+        <rect x="332" y="405" width="15" height="75" fill="#161310"/>
+        <rect x="350" y="378" width="22" height="102" fill="#131108"/>
+        <rect x="376" y="362" width="32" height="118" fill="#181410"/>
+        <rect x="412" y="392" width="16" height="88" fill="#151210"/>
+        <rect x="432" y="372" width="24" height="108" fill="#121008"/>
+        <rect x="460" y="408" width="12" height="72" fill="#161310"/>
+        <rect x="476" y="382" width="28" height="98" fill="#131108"/>
+        <rect x="508" y="395" width="18" height="85" fill="#151210"/>
+        <!-- window lights distant -->
+        <rect x="46" y="380" width="4" height="5" fill="#c88820" opacity="0.5"/>
+        <rect x="54" y="390" width="4" height="5" fill="#c88820" opacity="0.35"/>
+        <rect x="118" y="370" width="5" height="6" fill="#c88820" opacity="0.45"/>
+        <rect x="128" y="385" width="4" height="5" fill="#c88820" opacity="0.3"/>
+        <rect x="246" y="365" width="5" height="6" fill="#c88820" opacity="0.4"/>
+        <rect x="258" y="378" width="4" height="5" fill="#c88820" opacity="0.35"/>
+        <rect x="382" y="372" width="5" height="6" fill="#c88820" opacity="0.45"/>
+        <rect x="394" y="388" width="4" height="5" fill="#c88820" opacity="0.3"/>
+        <!-- cranes -->
+        <line x1="260" y1="200" x2="260" y2="360" stroke="#1e1a14" stroke-width="3"/>
+        <line x1="260" y1="208" x2="310" y2="220" stroke="#1e1a14" stroke-width="2"/>
+        <line x1="260" y1="208" x2="220" y2="218" stroke="#1e1a14" stroke-width="2"/>
+        <line x1="310" y1="220" x2="310" y2="228" stroke="#1e1a14" stroke-width="1.5"/>
+        <line x1="420" y1="240" x2="420" y2="365" stroke="#1a1712" stroke-width="2.5"/>
+        <line x1="420" y1="248" x2="465" y2="256" stroke="#1a1712" stroke-width="1.5"/>
+        <line x1="420" y1="248" x2="385" y2="255" stroke="#1a1712" stroke-width="1.5"/>
+        <!-- rooftop foreground -->
+        <rect x="0" y="460" width="550" height="240" fill="#111009"/>
+        <!-- roof edge detail -->
+        <rect x="0" y="458" width="550" height="5" fill="#1c1812"/>
+        <!-- ridge lines -->
+        <rect x="0" y="462" width="550" height="2" fill="#161310"/>
+        <!-- vent pipes -->
+        <rect x="80" y="430" width="8" height="32" fill="#141210" rx="1"/>
+        <ellipse cx="84" cy="430" rx="5" ry="3" fill="#181512"/>
+        <rect x="155" y="440" width="6" height="22" fill="#141210" rx="1"/>
+        <rect x="300" y="425" width="10" height="36" fill="#141210" rx="1"/>
+        <ellipse cx="305" cy="425" rx="6" ry="3" fill="#181512"/>
+        <rect x="430" y="438" width="7" height="24" fill="#141210" rx="1"/>
+        <!-- figure — person sitting on ridge -->
+        <!-- legs straddling ridge -->
+        <rect x="218" y="470" width="9" height="38" fill="#1e1a14" rx="2" transform="rotate(-8 218 470)"/>
+        <rect x="233" y="470" width="9" height="38" fill="#1e1a14" rx="2" transform="rotate(8 242 470)"/>
+        <!-- torso -->
+        <rect x="214" y="442" width="28" height="32" fill="#201c16" rx="3"/>
+        <!-- head -->
+        <ellipse cx="228" cy="436" rx="11" ry="12" fill="#1e1a14"/>
+        <!-- hard hat -->
+        <ellipse cx="228" cy="428" rx="13" ry="5" fill="#c04830"/>
+        <rect x="216" y="424" width="24" height="8" fill="#c04830" rx="2"/>
+        <!-- arm + coffee cup -->
+        <rect x="240" y="452" width="22" height="7" fill="#201c16" rx="3"/>
+        <rect x="260" y="448" width="8" height="14" fill="#2a2418" rx="2"/>
+        <!-- steam wisps -->
+        <path d="M263 446 Q265 440 263 435" fill="none" stroke="#3a3028" stroke-width="1.2"/>
+        <path d="M267 445 Q269 438 267 432" fill="none" stroke="#3a3028" stroke-width="1"/>
+        <!-- sunrise light hitting figure from left -->
+        <rect x="214" y="442" width="8" height="32" fill="#5a2210" rx="2" opacity="0.3"/>
+        <!-- tool belt suggestion -->
+        <rect x="214" y="467" width="28" height="5" fill="#2a2018" rx="1"/>
+        <!-- sunrise -->
+        <ellipse cx="90" cy="455" rx="38" ry="16" fill="#3a1a08" opacity="0.7"/>
+        <ellipse cx="90" cy="455" rx="22" ry="9" fill="#6a2e10" opacity="0.6"/>
+        <ellipse cx="90" cy="455" rx="10" ry="5" fill="#c04830" opacity="0.5"/>
+        <!-- light rays -->
+        <line x1="90" y1="440" x2="90" y2="420" stroke="#6a2e10" stroke-width="1" opacity="0.4"/>
+        <line x1="104" y1="448" x2="118" y2="434" stroke="#6a2e10" stroke-width="1" opacity="0.3"/>
+        <line x1="76" y1="448" x2="62" y2="434" stroke="#6a2e10" stroke-width="1" opacity="0.3"/>
+        <!-- Rideau river suggestion far below -->
+        <rect x="0" y="490" width="550" height="3" fill="#1a1a28" opacity="0.5"/>
+        <!-- stars fading -->
+        <circle cx="340" cy="60" r="1.2" fill="#c8c0a0" opacity="0.18"/>
+        <circle cx="180" cy="40" r="1" fill="#c8c0a0" opacity="0.14"/>
+        <circle cx="480" cy="90" r="1.2" fill="#c8c0a0" opacity="0.12"/>
+        <circle cx="420" cy="30" r="1" fill="#c8c0a0" opacity="0.15"/>
+        <circle cx="100" cy="80" r="1" fill="#c8c0a0" opacity="0.1"/>
+        <circle cx="310" cy="110" r="0.8" fill="#c8c0a0" opacity="0.12"/>
+        <!-- overlay gradient -->
+        <rect x="0" y="0" width="100" height="700" fill="url(#lg)" opacity="1"/>
+        <defs>
+          <linearGradient id="lg" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stop-color="#0e0c09" stop-opacity="1"/>
+            <stop offset="100%" stop-color="#0e0c09" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
   </div>
 </section>
 
-<!-- SCREEN 1: PRESENT -->
-<section class="screen" id="screen-1">
+<!-- ════════════════════════════════════════════════════
+     SCREEN 1 — PRESENT
+════════════════════════════════════════════════════ -->
+<section class="screen" id="s1">
   <div class="content">
-    <p class="chapter-date">October 2026</p>
-    <p class="chapter-title">Present — Stable housing, reduced use</p>
+    <!-- Rooftop illustration: looking out over Ottawa midday -->
+    <div class="illus">
+      <svg width="100%" viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+        <!-- sky -->
+        <rect width="600" height="180" fill="#1a1c28"/>
+        <!-- high noon slate sky -->
+        <rect x="0" y="0" width="600" height="100" fill="#181a26"/>
+        <!-- skyline -->
+        <rect x="0" y="80" width="600" height="100" fill="#0e0d0a"/>
+        <rect x="10" y="60" width="18" height="120" fill="#131110"/>
+        <rect x="32" y="45" width="28" height="135" fill="#111009"/>
+        <rect x="64" y="68" width="14" height="112" fill="#131110"/>
+        <rect x="82" y="50" width="22" height="130" fill="#111009"/>
+        <rect x="108" y="35" width="34" height="145" fill="#161310"/>
+        <rect x="146" y="62" width="16" height="118" fill="#131110"/>
+        <rect x="166" y="48" width="20" height="132" fill="#111009"/>
+        <rect x="190" y="70" width="12" height="110" fill="#131110"/>
+        <rect x="206" y="52" width="26" height="128" fill="#111009"/>
+        <rect x="236" y="38" width="36" height="142" fill="#181410"/>
+        <rect x="276" y="58" width="18" height="122" fill="#131110"/>
+        <rect x="298" y="44" width="24" height="136" fill="#111009"/>
+        <rect x="326" y="66" width="14" height="114" fill="#131110"/>
+        <rect x="344" y="46" width="22" height="134" fill="#111009"/>
+        <rect x="370" y="36" width="32" height="144" fill="#161310"/>
+        <rect x="406" y="60" width="16" height="120" fill="#131110"/>
+        <rect x="426" y="46" width="24" height="134" fill="#111009"/>
+        <rect x="454" y="72" width="12" height="108" fill="#131110"/>
+        <rect x="470" y="48" width="28" height="132" fill="#111009"/>
+        <rect x="502" y="55" width="20" height="125" fill="#131110"/>
+        <rect x="526" y="40" width="30" height="140" fill="#161310"/>
+        <rect x="560" y="62" width="16" height="118" fill="#131110"/>
+        <rect x="580" y="50" width="20" height="130" fill="#111009"/>
+        <!-- window lights -->
+        <rect x="40" y="56" width="5" height="6" fill="#c88820" opacity="0.5"/>
+        <rect x="116" y="46" width="5" height="6" fill="#c88820" opacity="0.4"/>
+        <rect x="244" y="48" width="5" height="6" fill="#c88820" opacity="0.45"/>
+        <rect x="378" y="46" width="5" height="6" fill="#c88820" opacity="0.4"/>
+        <rect x="534" y="50" width="5" height="6" fill="#c88820" opacity="0.35"/>
+        <!-- crane lights -->
+        <circle cx="300" cy="28" r="2" fill="#e8c040" opacity="0.6"/>
+        <circle cx="440" cy="38" r="1.5" fill="#e8c040" opacity="0.5"/>
+        <!-- roof foreground -->
+        <rect x="0" y="128" width="600" height="52" fill="#0e0c09"/>
+        <rect x="0" y="126" width="600" height="4" fill="#161310"/>
+        <!-- ridge detail -->
+        <rect x="0" y="130" width="600" height="1.5" fill="#1c1812"/>
+        <!-- vent pipes on roof -->
+        <rect x="60" y="112" width="7" height="18" fill="#131110" rx="1"/>
+        <rect x="200" y="118" width="6" height="12" fill="#131110" rx="1"/>
+        <rect x="380" y="110" width="8" height="20" fill="#131110" rx="1"/>
+        <rect x="510" y="116" width="6" height="14" fill="#131110" rx="1"/>
+        <!-- figure legs on ridge (sandwich perspective) -->
+        <rect x="278" y="128" width="8" height="32" fill="#1e1a14" rx="2" transform="rotate(-6 278 128)"/>
+        <rect x="294" y="128" width="8" height="32" fill="#1e1a14" rx="2" transform="rotate(6 302 128)"/>
+        <!-- lunch bag -->
+        <rect x="312" y="138" width="14" height="16" fill="#2a2418" rx="2"/>
+        <!-- cranes -->
+        <line x1="300" y1="0" x2="300" y2="100" stroke="#181412" stroke-width="2.5"/>
+        <line x1="300" y1="18" x2="348" y2="28" stroke="#181412" stroke-width="1.5"/>
+        <line x1="300" y1="18" x2="260" y2="26" stroke="#181412" stroke-width="1.5"/>
+        <line x1="440" y1="0" x2="440" y2="80" stroke="#161210" stroke-width="2"/>
+        <line x1="440" y1="22" x2="480" y2="30" stroke="#161210" stroke-width="1.5"/>
+        <!-- Trillium line suggestion -->
+        <rect x="0" y="150" width="600" height="2" fill="#1c1c2a" opacity="0.8"/>
+      </svg>
+    </div>
+
+    <p class="ch-eyebrow">October 2026</p>
+    <p class="ch-title">Present — Stable housing, reduced use</p>
     <div class="prose">
-      <p>The alarm doesn’t wake you anymore. Your body does it — 5:47, give or take — same as it did when you were seventeen and had to be at the yard before the foreman.</p>
+      <p>The alarm doesn't wake you anymore. Your body does it — 5:47, give or take — same as it did when you were seventeen and had to be at the yard before the foreman.</p>
       <p>You lie still for a moment. The ceiling is water-stained near the window, a brown halo from ice damming and poor soffit ventilation. You know exactly how to fix it. For now you just look at it. Evidence of a problem someone left for someone else.</p>
-      <p>The supportive housing unit smells faintly of garlic from down the hall and the industrial cleaner they use on Thursdays. It doesn’t smell like your old place in Vanier. Nothing does anymore.</p>
-      <p>You don’t use in the mornings anymore. You still think about it — probably will for a long time — but thinking and doing are two different addresses, and this morning they’re far apart.</p>
-      <p>From up here on the Gloucester job, Ottawa makes a different kind of sense. You can see the cranes along the Trillium line, the glass towers going up near Lansdowne, the units that will rent for $2,400 a month to people who work on the Hill. You’ve helped build three of them. You can see the logic from the roof — supply and demand, money flowing like water to the lowest point — and you can also see that the logic doesn’t care about you, has never cared about guys like you, and probably won’t. You used to find this enraging. Now it’s just weather.</p>
+      <p>The supportive housing unit smells faintly of garlic from down the hall and the industrial cleaner they use on Thursdays. It doesn't smell like your old place in Vanier. Nothing does anymore.</p>
+      <p>You don't use in the mornings anymore. You still think about it — probably will for a long time — but thinking and doing are two different addresses, and this morning they're far apart.</p>
+      <p>From up here on the Gloucester job, Ottawa makes a different kind of sense. You can see the cranes along the Trillium line, the glass towers going up near Lansdowne, the units that will rent for $2,400 a month to people who work on the Hill. You've helped build three of them.</p>
       <p>By noon your coffee is cold and your hands are warm from the work. You eat your sandwich sitting on the ridge, legs on either side, looking out over the Rideau.</p>
-      <p><em>This is what it took.</em></p>
-      <p>You mean all of it. The apartment you lost in Vanier, the car you slept in off Coventry Road, the shelter downtown where you learned to sleep with your boots tied to your ankles. The consumption site on Clarence that closed before you could get stable. The program with the three-month waitlist and no bus route. The housing list you almost didn’t stay on.</p>
-      <p>You mean the years.</p>
+      <p><em>This is what it took.</em> You mean all of it. The apartment you lost in Vanier, the car you slept in off Coventry Road, the shelter downtown where you learned to sleep with your boots tied to your ankles.</p>
       <p><em>We need to go back,</em> you think from the roof. <em>I need to show you where it actually started.</em></p>
     </div>
-    <div class="rewind-marker">[Rewind.]</div>
+    <div class="rewind-mark">[Rewind.]</div>
     <div class="btn-row">
-      <button class="rewind-btn" onclick="goTo(2)"><span class="arrow">←</span> Go back</button>
-      <a href="#" onclick="goTo(0); return false;" class="return-home">← Return to Start</a>
-      <a href="../../index.html" class="return-home">← Back to Main Site</a>
+      <button class="btn-rewind" onclick="goTo(2)"><span class="arrow">←</span> Go back</button>
+      <button class="btn-ghost" onclick="goTo(0)">← Return to start</button>
     </div>
   </div>
 </section>
 
-<!-- SCREEN 2: THE CORNER -->
-<section class="screen" id="screen-2">
+<!-- ════════════════════════════════════════════════════
+     SCREEN 2 — THE CORNER
+════════════════════════════════════════════════════ -->
+<section class="screen" id="s2">
   <div class="content">
-    <p class="chapter-date">March 2025</p>
-    <p class="chapter-title">The corner — substance use escalates as coping</p>
+    <!-- Kitchen cabinet illustration -->
+    <div class="illus">
+      <svg width="100%" viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg">
+        <rect width="600" height="160" fill="#0e0d0a"/>
+        <!-- kitchen wall -->
+        <rect x="0" y="0" width="600" height="160" fill="#131109"/>
+        <!-- cabinet structure -->
+        <rect x="160" y="0" width="280" height="130" fill="#1c1810" rx="1"/>
+        <rect x="164" y="4" width="272" height="122" fill="#181408" rx="1"/>
+        <!-- cabinet door divider -->
+        <rect x="298" y="4" width="2" height="122" fill="#131009"/>
+        <!-- left door -->
+        <rect x="168" y="8" width="126" height="114" fill="#1e1a0e" rx="1"/>
+        <rect x="172" y="12" width="118" height="106" fill="#1a160c" rx="1"/>
+        <!-- left door handle -->
+        <rect x="285" y="58" width="5" height="20" fill="#2a2418" rx="2"/>
+        <!-- right door — ajar -->
+        <rect x="300" y="8" width="126" height="114" fill="#201c10" rx="1" transform="rotate(-5 426 8)"/>
+        <rect x="304" y="12" width="118" height="106" fill="#1c1808" rx="1" transform="rotate(-5 422 12)"/>
+        <!-- inside cabinet (dark) -->
+        <rect x="300" y="8" width="50" height="114" fill="#0e0b06"/>
+        <!-- bottle visible in gap -->
+        <rect x="308" y="38" width="16" height="64" fill="#2a3818" rx="3"/>
+        <rect x="310" y="34" width="12" height="8" fill="#243014" rx="2"/>
+        <rect x="312" y="30" width="8" height="8" fill="#1e2810" rx="1"/>
+        <!-- amber liquid -->
+        <rect x="310" y="58" width="12" height="38" fill="#5a3808" rx="2" opacity="0.8"/>
+        <!-- label -->
+        <rect x="309" y="48" width="14" height="18" fill="#d4b870" rx="1" opacity="0.6"/>
+        <!-- other bottles/cans shadowy -->
+        <rect x="330" y="55" width="12" height="48" fill="#1a1808" rx="2" opacity="0.7"/>
+        <rect x="344" y="65" width="10" height="38" fill="#181608" rx="2" opacity="0.5"/>
+        <!-- single overhead light -->
+        <rect x="270" y="0" width="60" height="4" fill="#1c1a10"/>
+        <rect x="285" y="3" width="30" height="2" fill="#c8a030" opacity="0.5"/>
+        <!-- light pool on counter below -->
+        <ellipse cx="300" cy="132" rx="80" ry="14" fill="#3a2e10" opacity="0.25"/>
+        <!-- counter -->
+        <rect x="0" y="128" width="600" height="32" fill="#16130a"/>
+        <rect x="0" y="126" width="600" height="4" fill="#201c10"/>
+        <!-- left shadow -->
+        <rect x="0" y="0" width="160" height="160" fill="#0a0908" opacity="0.85"/>
+        <!-- right shadow -->
+        <rect x="440" y="0" width="160" height="160" fill="#0a0908" opacity="0.85"/>
+        <!-- right door handle -->
+        <rect x="304" y="58" width="5" height="20" fill="#2a2418" rx="2" transform="rotate(-5 307 68)"/>
+      </svg>
+    </div>
+
+    <p class="ch-eyebrow">March 2025</p>
+    <p class="ch-title">The corner — substance use escalates as coping</p>
     <div class="prose">
-      <p>The math isn’t hard. That’s the thing nobody tells you — the math is never hard. You can do it in your head in under thirty seconds, and the answer is always the same.</p>
+      <p>The math isn't hard. That's the thing nobody tells you — the math is never hard. You can do it in your head in under thirty seconds, and the answer is always the same.</p>
       <p>Rent: $1,740. Up from $1,490 fourteen months ago. The letter called it a <em>rent adjustment in accordance with provincial guidelines</em>.</p>
       <p>Take-home after deductions, average week: $1,180. Bad weeks, when weather or your back kept you off the roof, less. Physio was $85 a session and you stopped going in February.</p>
-      <p>The math doesn’t move.</p>
+      <p>The math doesn't move.</p>
       <p>You set a limit at the casino — $60, sometimes $80. You mostly keep to it. One Tuesday in late February you won $340 and for about four hours felt like a man whose problems were administrative rather than structural.</p>
-      <p>She’s on the couch when you get home, legs tucked under her. She does the quick read — eyes to yours — checking. You hate that you’re the reason for it.</p>
-      <p><em>You eat?</em> she asks.</p>
-      <p><em>Yeah,</em> you say. You haven’t.</p>
-      <p>At some point her head finds your shoulder. You stare at the ceiling and feel the low-frequency hum behind your sternum.</p>
-      <p>She’s already asleep when you get up.</p>
-      <p>You open the cabinet under the sink. There’s a bottle of rye back there. You’ve walked past it two hundred times.</p>
-      <p><em>Just tonight,</em> you think. It’s not quite a decision. More like a door you’ve been standing outside of long enough that going in starts to feel reasonable.</p>
+      <p>She's on the couch when you get home, legs tucked under her. She does the quick read — eyes to yours — checking. You hate that you're the reason for it.</p>
+      <p>You open the cabinet under the sink. There's a bottle of rye back there. You've walked past it two hundred times.</p>
+      <p><em>Just tonight,</em> you think. It's not quite a decision. More like a door you've been standing outside of long enough that going in starts to feel reasonable.</p>
       <p>You close the cabinet.</p>
       <p>You open it again.</p>
     </div>
-    <div class="rewind-marker">[Rewind.]</div>
+    <div class="rewind-mark">[Rewind.]</div>
     <div class="btn-row">
-      <button class="rewind-btn" onclick="goTo(3)"><span class="arrow">←</span> Go back further</button>
-      <a href="#" onclick="goTo(0); return false;" class="return-home">← Return to Start</a>
-      <a href="../../index.html" class="return-home">← Back to Main Site</a>
+      <button class="btn-rewind" onclick="goTo(3)"><span class="arrow">←</span> Go back further</button>
+      <button class="btn-ghost" onclick="goTo(0)">← Return to start</button>
     </div>
   </div>
 </section>
 
-<!-- SCREEN 3: SYSTEM EVIDENCE A -->
-<section class="screen" id="screen-3">
+<!-- ════════════════════════════════════════════════════
+     SCREEN 3 — SYSTEM EVIDENCE
+════════════════════════════════════════════════════ -->
+<section class="screen" id="s3">
   <div class="content">
-    <div class="interlude-tag">System Evidence — Interlude A</div>
+    <div class="interlude-label">System evidence — Interlude A</div>
 
-    <div class="doc-wrapper">
-      <button class="doc-toggle" onclick="toggleDoc('doc-a', this)">
-        <span class="toggle-icon">▶</span>
+    <div class="doc-block">
+      <button class="doc-toggle" onclick="toggleDoc('da',this)">
+        <span class="tog-icon">▶</span>
         Ontario Ministry of Health — News Release, Oct 15 2025
       </button>
-      <div class="doc-inner" id="doc-a">
-        <div class="doc-paper">
-          <div class="doc-letterhead">Ontario Ministry of Health &nbsp;·&nbsp; News Release &nbsp;·&nbsp; For Immediate Release &nbsp;·&nbsp; October 15, 2025</div>
-          <div class="doc-headline">Ontario Transitions Consumption and Treatment Services Sites to New Healing and Recovery Model</div>
+      <div class="doc-inner" id="da">
+        <div class="doc-card">
+          <div class="doc-head">Ontario Ministry of Health &nbsp;·&nbsp; News Release &nbsp;·&nbsp; For Immediate Release &nbsp;·&nbsp; October 15, 2025</div>
+          <div class="doc-hl">Ontario Transitions Consumption and Treatment Services Sites to New Healing and Recovery Model</div>
           <div class="doc-body">
             <p>TORONTO — The Ontario government announced today that it will be transitioning all Consumption and Treatment Services (CTS) sites to a new model of care centred on long-term healing, recovery, and community wellbeing.</p>
             <p>The new Homelessness and Addiction Recovery Treatment (HART) Hubs will provide wraparound supports designed to move individuals toward sustainable, abstinence-focused recovery.</p>
@@ -450,20 +782,20 @@
             </ul>
             <p>HART Hubs will be operational within the affected communities within <strong>12 to 18 months</strong> of site closure.</p>
           </div>
-          <div class="doc-margin-note">12–18 months. Where do they go in the meantime.</div>
+          <div class="doc-note">12–18 months. Where do they go in the meantime.</div>
         </div>
       </div>
     </div>
 
-    <div class="doc-wrapper">
-      <button class="doc-toggle" onclick="toggleDoc('doc-b', this)">
-        <span class="toggle-icon">▶</span>
+    <div class="doc-block">
+      <button class="doc-toggle" onclick="toggleDoc('db',this)">
+        <span class="tog-icon">▶</span>
         Ottawa Citizen Community Report — February 2026
       </button>
-      <div class="doc-inner" id="doc-b">
-        <div class="doc-paper">
-          <div class="doc-letterhead">Ottawa Citizen &nbsp;·&nbsp; Community Report &nbsp;·&nbsp; February 2026</div>
-          <div class="doc-headline">"We knew this would happen": Harm reduction workers describe life after Clarence Street closure</div>
+      <div class="doc-inner" id="db">
+        <div class="doc-card">
+          <div class="doc-head">Ottawa Citizen &nbsp;·&nbsp; Community Report &nbsp;·&nbsp; February 2026</div>
+          <div class="doc-hl">"We knew this would happen": Harm reduction workers describe life after Clarence Street closure</div>
           <div class="doc-body">
             <p>Three months after the province shuttered Ottawa's Clarence Street Consumption and Treatment Services site, outreach workers are still showing up — just without a building.</p>
             <p>"We're handing out naloxone on the sidewalk and hoping we get there in time," says one worker. "People who had a place to go, people we knew by name. Now we're finding them in encampments and Tim Hortons."</p>
@@ -471,159 +803,406 @@
             <p>The nearest low-barrier service is now across town, often inaccessible by transit.</p>
           </div>
         </div>
-        <div class="doc-torn"></div>
       </div>
     </div>
 
     <div class="btn-row">
-      <button class="rewind-btn" onclick="goTo(4)"><span class="arrow">←</span> Go back further</button>
-      <a href="#" onclick="goTo(0); return false;" class="return-home">← Return to Start</a>
-      <a href="../../index.html" class="return-home">← Back to Main Site</a>
+      <button class="btn-rewind" onclick="goTo(4)"><span class="arrow">←</span> Go back further</button>
+      <button class="btn-ghost" onclick="goTo(0)">← Return to start</button>
     </div>
   </div>
 </section>
 
-<!-- SCREEN 4: THE FLOOR -->
-<section class="screen" id="screen-4">
+<!-- ════════════════════════════════════════════════════
+     SCREEN 4 — THE FLOOR
+════════════════════════════════════════════════════ -->
+<section class="screen" id="s4">
   <div class="content">
-    <p class="chapter-date">January 2026</p>
-    <p class="chapter-title">The floor — structural displacement</p>
+    <!-- Truck in snow illustration -->
+    <div class="illus">
+      <svg width="100%" viewBox="0 0 600 180" xmlns="http://www.w3.org/2000/svg">
+        <rect width="600" height="180" fill="#0e0d0c"/>
+        <!-- night sky -->
+        <rect width="600" height="180" fill="#0c0b09"/>
+        <!-- road surface -->
+        <rect x="0" y="135" width="600" height="45" fill="#111009"/>
+        <rect x="0" y="133" width="600" height="4" fill="#161310"/>
+        <!-- road lines -->
+        <rect x="60" y="148" width="40" height="2" fill="#201e14" opacity="0.5"/>
+        <rect x="160" y="148" width="40" height="2" fill="#201e14" opacity="0.4"/>
+        <rect x="320" y="148" width="40" height="2" fill="#201e14" opacity="0.4"/>
+        <rect x="480" y="148" width="40" height="2" fill="#201e14" opacity="0.35"/>
+        <!-- distant diner warm glow -->
+        <rect x="490" y="68" width="88" height="70" fill="#1a1612" rx="1"/>
+        <rect x="493" y="72" width="82" height="62" fill="#181410" rx="1"/>
+        <!-- diner windows glowing amber -->
+        <rect x="497" y="78" width="28" height="32" fill="#c87820" rx="1" opacity="0.75"/>
+        <rect x="529" y="78" width="28" height="32" fill="#b86e18" rx="1" opacity="0.65"/>
+        <!-- diner sign light -->
+        <rect x="498" y="72" width="60" height="7" fill="#c08018" opacity="0.45"/>
+        <!-- diner window light spill onto street -->
+        <ellipse cx="534" cy="138" rx="55" ry="10" fill="#5a3808" opacity="0.2"/>
+        <!-- streetlamp pole -->
+        <rect x="92" y="48" width="4" height="88" fill="#1a1814"/>
+        <!-- lamp head -->
+        <rect x="84" y="44" width="20" height="8" fill="#1a1814" rx="2"/>
+        <!-- lamp glow -->
+        <ellipse cx="94" cy="50" rx="18" ry="10" fill="#c8a030" opacity="0.15"/>
+        <ellipse cx="94" cy="50" rx="8" ry="5" fill="#d4b040" opacity="0.3"/>
+        <!-- light cone on road -->
+        <polygon points="80,56 108,56 130,138 60,138" fill="#c8a030" opacity="0.04"/>
+        <!-- truck body -->
+        <rect x="170" y="95" width="210" height="58" fill="#181510" rx="2"/>
+        <!-- cab -->
+        <rect x="220" y="72" width="120" height="55" fill="#1c1912" rx="2"/>
+        <!-- cab roof line -->
+        <rect x="222" y="72" width="116" height="4" fill="#201d14" rx="1"/>
+        <!-- windshield (slightly frosted) -->
+        <rect x="228" y="78" width="80" height="36" fill="#1e1c14" rx="1"/>
+        <rect x="230" y="80" width="76" height="32" fill="#222018" rx="1" opacity="0.9"/>
+        <!-- frost on windshield -->
+        <rect x="230" y="80" width="76" height="10" fill="#2a2820" rx="1" opacity="0.4"/>
+        <!-- driver side window -->
+        <rect x="226" y="80" width="4" height="28" fill="#1a1812"/>
+        <!-- passenger window -->
+        <rect x="308" y="80" width="24" height="28" fill="#1e1c12" rx="1"/>
+        <!-- exhaust wisps from running engine -->
+        <path d="M170 118 Q155 112 148 105 Q142 100 148 96" fill="none" stroke="#2a2820" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M170 122 Q152 116 145 110 Q138 104 146 98" fill="none" stroke="#222018" stroke-width="1.8" stroke-linecap="round"/>
+        <!-- truck bed -->
+        <rect x="170" y="98" width="52" height="50" fill="#161310" rx="1"/>
+        <rect x="172" y="100" width="48" height="44" fill="#141109" rx="1"/>
+        <!-- wheel arches -->
+        <ellipse cx="208" cy="153" rx="22" ry="12" fill="#111009"/>
+        <ellipse cx="340" cy="153" rx="22" ry="12" fill="#111009"/>
+        <!-- wheels -->
+        <circle cx="208" cy="155" r="16" fill="#0e0c09" stroke="#1c1812" stroke-width="1"/>
+        <circle cx="208" cy="155" r="9" fill="#131109" stroke="#181410" stroke-width="0.5"/>
+        <circle cx="208" cy="155" r="3" fill="#1a1610"/>
+        <circle cx="340" cy="155" r="16" fill="#0e0c09" stroke="#1c1812" stroke-width="1"/>
+        <circle cx="340" cy="155" r="9" fill="#131109" stroke="#181410" stroke-width="0.5"/>
+        <circle cx="340" cy="155" r="3" fill="#1a1610"/>
+        <!-- headlights off -->
+        <rect x="374" y="110" width="8" height="14" fill="#1a1612" rx="1"/>
+        <!-- taillights dim red -->
+        <rect x="170" y="108" width="5" height="10" fill="#3a0a06" rx="1" opacity="0.7"/>
+        <!-- snow on truck roof -->
+        <rect x="220" y="70" width="120" height="4" fill="#c8c8c0" opacity="0.18" rx="1"/>
+        <rect x="170" y="93" width="210" height="4" fill="#c0c0b8" opacity="0.12" rx="1"/>
+        <!-- snowflakes falling -->
+        <line x1="80" y1="10" x2="78" y2="24" stroke="#c8ccd0" stroke-width="0.9" opacity="0.5"/>
+        <line x1="140" y1="5" x2="138" y2="20" stroke="#c8ccd0" stroke-width="0.9" opacity="0.45"/>
+        <line x1="210" y1="15" x2="208" y2="30" stroke="#c8ccd0" stroke-width="0.9" opacity="0.5"/>
+        <line x1="270" y1="8" x2="268" y2="22" stroke="#c8ccd0" stroke-width="0.9" opacity="0.4"/>
+        <line x1="350" y1="20" x2="348" y2="35" stroke="#c8ccd0" stroke-width="0.9" opacity="0.45"/>
+        <line x1="410" y1="12" x2="408" y2="27" stroke="#c8ccd0" stroke-width="0.9" opacity="0.5"/>
+        <line x1="460" y1="6" x2="458" y2="21" stroke="#c8ccd0" stroke-width="0.9" opacity="0.4"/>
+        <line x1="50" y1="35" x2="48" y2="50" stroke="#c8ccd0" stroke-width="0.9" opacity="0.35"/>
+        <line x1="310" y1="40" x2="308" y2="55" stroke="#c8ccd0" stroke-width="0.9" opacity="0.4"/>
+        <line x1="550" y1="15" x2="548" y2="30" stroke="#c8ccd0" stroke-width="0.9" opacity="0.45"/>
+        <line x1="380" y1="45" x2="378" y2="60" stroke="#c8ccd0" stroke-width="0.9" opacity="0.35"/>
+        <line x1="160" y1="50" x2="158" y2="65" stroke="#c8ccd0" stroke-width="0.9" opacity="0.3"/>
+        <!-- fuel gauge suggestion: interior detail -->
+        <circle cx="260" cy="95" r="5" fill="#1e1c12" stroke="#2a2618" stroke-width="0.5"/>
+        <!-- moon partial -->
+        <circle cx="42" cy="28" r="10" fill="#1e1c14"/>
+        <circle cx="38" cy="26" r="9" fill="#0e0d0b"/>
+        <!-- stars -->
+        <circle cx="120" cy="20" r="1" fill="#b8b090" opacity="0.18"/>
+        <circle cx="200" cy="14" r="1.2" fill="#b8b090" opacity="0.14"/>
+        <circle cx="440" cy="22" r="1" fill="#b8b090" opacity="0.16"/>
+        <circle cx="520" cy="10" r="1.2" fill="#b8b090" opacity="0.12"/>
+      </svg>
+    </div>
+
+    <p class="ch-eyebrow">January 2026</p>
+    <p class="ch-title">The floor — structural displacement</p>
     <div class="prose">
       <p>The notice is on the door when you get home from the Barrhaven job. White envelope, your name handwritten. You read it once, then again.</p>
-      <p>It’s an N13. Renoviction. The building has been purchased. Substantial renovations require vacant possession. You have 120 days.</p>
+      <p>It's an N13. Renoviction. The building has been purchased. Substantial renovations require vacant possession. You have 120 days.</p>
       <p><em>Substantial renovations</em> means <em>we can get more for this unit than you can pay.</em></p>
       <p>You sit at the kitchen table and start looking. Two-bedroom in Vanier: $2,100. One-bedroom: $1,800. Bachelor: $1,450 — first and last required. You have $340 in your account.</p>
       <p>Ottawa Community Housing waitlist for a one-bedroom: <strong>5 to 10 years.</strong> You are thirty-eight years old.</p>
-      <p>You tell her that night. She says <em>you can stay with me</em>, but you both hear the thing she isn’t saying — her place is already tight.</p>
-      <p>You couch-surf for a few weeks. Then Marco from the crew for ten days. Then you pack your bag before he wakes up and text him you’ll sort yourself out.</p>
       <p>The first night you sleep in your truck off Coventry Road. January cold is not a metaphor. You run the engine twenty minutes at a time and watch the gauge drop.</p>
-      <p>You don’t sleep.</p>
-      <p>At 4am you drive to a diner on Bank Street. The waitress doesn’t ask why you’re there at that hour. There’s another man two booths over doing the same thing. You don’t look at each other.</p>
-      <p>The shelter downtown Ottawa takes you one night. The smell hits you in the entrance — dirty laundry, feet, something biological. You know this smell from somewhere deeper than memory.</p>
-      <p>There’s a payphone beside the vending machine. You stare at it for a long time but don’t call anyone.</p>
+      <p>You don't sleep.</p>
+      <p>At 4am you drive to a diner on Bank Street. The waitress doesn't ask why you're there at that hour. There's another man two booths over doing the same thing. You don't look at each other.</p>
       <p>You find the room off Coventry Road through a guy on the crew. $600 a month, cash, no lease. The room is barely wider than the bed. There is a lock on the door.</p>
       <p>For tonight, that feels like enough.</p>
       <p>Outside, it starts to snow.</p>
     </div>
-    <div class="rewind-marker">[Rewind.]</div>
+    <div class="rewind-mark">[Rewind.]</div>
     <div class="btn-row">
-      <button class="rewind-btn" onclick="goTo(5)"><span class="arrow">←</span> Go back farther</button>
-      <a href="#" onclick="goTo(0); return false;" class="return-home">← Return to Start</a>
-      <a href="../../index.html" class="return-home">← Back to Main Site</a>
+      <button class="btn-rewind" onclick="goTo(5)"><span class="arrow">←</span> Go back farther</button>
+      <button class="btn-ghost" onclick="goTo(0)">← Return to start</button>
     </div>
   </div>
 </section>
 
-<!-- SCREEN 5: THE CALLS -->
-<section class="screen" id="screen-5">
+<!-- ════════════════════════════════════════════════════
+     SCREEN 5 — THE CALLS
+════════════════════════════════════════════════════ -->
+<section class="screen" id="s5">
   <div class="content">
-    <p class="chapter-date">February 2026</p>
-    <p class="chapter-title">The calls — trying to access treatment</p>
+    <!-- Phone screen illustration -->
+    <div class="illus">
+      <svg width="100%" viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg">
+        <rect width="600" height="160" fill="#0c0b09"/>
+        <!-- car interior darkness -->
+        <rect width="600" height="160" fill="#0e0c0a"/>
+        <!-- steering wheel suggestion left -->
+        <circle cx="90" cy="120" r="52" fill="none" stroke="#1c1814" stroke-width="10"/>
+        <circle cx="90" cy="120" r="24" fill="none" stroke="#1c1814" stroke-width="4"/>
+        <line x1="90" y1="68" x2="90" y2="96" stroke="#1c1814" stroke-width="4"/>
+        <line x1="90" y1="144" x2="90" y2="172" stroke="#1c1814" stroke-width="4"/>
+        <!-- dashboard glimmer -->
+        <rect x="0" y="128" width="600" height="32" fill="#111009"/>
+        <rect x="0" y="126" width="600" height="4" fill="#181410"/>
+        <!-- fuel gauge glow -->
+        <ellipse cx="160" cy="142" rx="24" ry="8" fill="#c04830" opacity="0.12"/>
+        <rect x="142" y="138" width="36" height="8" fill="#1c1510" rx="2"/>
+        <!-- E indicator on gauge -->
+        <rect x="144" y="140" width="6" height="4" fill="#c04830" opacity="0.7" rx="1"/>
+        <!-- phone in hand, center -->
+        <rect x="234" y="18" width="132" height="126" fill="#1a1814" rx="10"/>
+        <rect x="237" y="21" width="126" height="120" fill="#0e0d0c" rx="8"/>
+        <!-- phone screen lit -->
+        <rect x="239" y="23" width="122" height="116" fill="#18202e" rx="7"/>
+        <!-- status bar -->
+        <rect x="239" y="23" width="122" height="14" fill="#141c2a" rx="7"/>
+        <rect x="239" y="30" width="122" height="7" fill="#141c2a"/>
+        <!-- signal bars -->
+        <rect x="246" y="26" width="3" height="5" fill="#8090a8" rx="1" opacity="0.6"/>
+        <rect x="251" y="24" width="3" height="7" fill="#8090a8" rx="1" opacity="0.6"/>
+        <rect x="256" y="22" width="3" height="9" fill="#8090a8" rx="1" opacity="0.5"/>
+        <rect x="261" y="28" width="3" height="3" fill="#404858" rx="1" opacity="0.5"/>
+        <!-- time -->
+        <text x="300" y="32" font-family="monospace" font-size="10" fill="#8090a8" text-anchor="middle" opacity="0.7">4:17 AM</text>
+        <!-- battery -->
+        <rect x="347" y="26" width="12" height="6" fill="none" stroke="#8090a8" stroke-width="0.8" rx="1" opacity="0.5"/>
+        <rect x="349" y="27" width="4" height="4" fill="#3a4858" rx="0.5" opacity="0.5"/>
+        <rect x="359" y="28" width="2" height="2" fill="#8090a8" rx="0.5" opacity="0.4"/>
+        <!-- calling screen -->
+        <text x="300" y="68" font-family="monospace" font-size="11" fill="#6070a0" text-anchor="middle" opacity="0.8">ConnexOntario</text>
+        <text x="300" y="84" font-family="monospace" font-size="9" fill="#404860" text-anchor="middle" opacity="0.7">1-866-531-2600</text>
+        <!-- calling status -->
+        <text x="300" y="100" font-family="monospace" font-size="9" fill="#506080" text-anchor="middle" opacity="0.6">Calling...</text>
+        <!-- animated dots suggestion -->
+        <circle cx="288" cy="110" r="2" fill="#405070" opacity="0.5"/>
+        <circle cx="296" cy="110" r="2" fill="#506080" opacity="0.7"/>
+        <circle cx="304" cy="110" r="2" fill="#607090" opacity="0.5"/>
+        <!-- end call button -->
+        <circle cx="300" cy="128" r="10" fill="#8a1a14"/>
+        <rect x="294" y="126" width="12" height="3" fill="#fff" rx="1" opacity="0.8"/>
+        <!-- phone notch -->
+        <rect x="278" y="23" width="44" height="5" fill="#0e0d0c" rx="2"/>
+        <!-- window mist outside -->
+        <rect x="366" y="18" width="220" height="160" fill="#0c0b09" opacity="0.7"/>
+        <!-- streetlight blur through frosted glass -->
+        <ellipse cx="450" cy="80" rx="60" ry="55" fill="#3a2a08" opacity="0.08"/>
+        <ellipse cx="450" cy="80" rx="30" ry="28" fill="#4a3810" opacity="0.08"/>
+        <!-- condensation streaks on window -->
+        <line x1="380" y1="20" x2="375" y2="155" stroke="#181614" stroke-width="1.5" opacity="0.5"/>
+        <line x1="400" y1="18" x2="396" y2="155" stroke="#181614" stroke-width="1" opacity="0.4"/>
+        <line x1="428" y1="22" x2="424" y2="155" stroke="#181614" stroke-width="1.5" opacity="0.45"/>
+        <line x1="462" y1="20" x2="458" y2="155" stroke="#181614" stroke-width="1" opacity="0.35"/>
+        <line x1="500" y1="18" x2="496" y2="155" stroke="#181614" stroke-width="1.5" opacity="0.4"/>
+        <line x1="540" y1="24" x2="537" y2="155" stroke="#181614" stroke-width="1" opacity="0.35"/>
+      </svg>
+    </div>
+
+    <p class="ch-eyebrow">February 2026</p>
+    <p class="ch-title">The calls — trying to access treatment</p>
     <div class="prose">
       <p>You call ConnexOntario. The worker reads the options slowly: detox, residential treatment, outpatient assessment. They tell you the website has the full directory.</p>
       <p>You open it on your phone. Half the program links redirect somewhere else. Two of the programs listed no longer exist.</p>
       <p>You start calling anyway.</p>
-      <p><strong>Ottawa detox:</strong> full. “Try again tomorrow morning.”</p>
+      <p><strong>Ottawa detox:</strong> full. "Try again tomorrow morning."</p>
       <p>Tomorrow morning you're already on a roof in Gloucester.</p>
       <p><strong>Kingston detox:</strong> also full. The worker says if a bed opens you would need to arrive within a few hours. Kingston is two hours away. You say you can make it anyway.</p>
       <p>Then you learn something else. Most treatment programs require an <strong>OAARS assessment</strong>. The wait time is four to eight weeks unless you're already in detox or in a shelter stabilization program.</p>
       <p>You are in neither.</p>
+      <p>You sit in the truck, phone in your lap, screen gone dark. Somewhere a bed exists with your name eligible for it. The distance between you and that bed is not a number you know how to calculate.</p>
     </div>
-    <div class="rewind-marker">[Rewind.]</div>
+    <div class="rewind-mark">[Rewind.]</div>
     <div class="btn-row">
-      <button class="rewind-btn" onclick="goTo(6)"><span class="arrow">←</span> Go back farther</button>
-      <a href="#" onclick="goTo(0); return false;" class="return-home">← Return to Start</a>
-      <a href="../../index.html" class="return-home">← Back to Main Site</a>
+      <button class="btn-rewind" onclick="goTo(6)"><span class="arrow">←</span> Go back farther</button>
+      <button class="btn-ghost" onclick="goTo(0)">← Return to start</button>
     </div>
   </div>
 </section>
 
-<!-- SCREEN 6: TRUE ORIGIN -->
-<section class="screen" id="screen-final">
+<!-- ════════════════════════════════════════════════════
+     SCREEN 6 — THE BEGINNING
+════════════════════════════════════════════════════ -->
+<section class="screen" id="s6">
   <div class="content">
-    <p class="chapter-date" style="color: var(--faded);">The beginning</p>
-    <p class="chapter-title" style="color: #666; border-color: #333;">True origin — the unspoken starting point</p>
+    <!-- Empty street, city block -->
+    <div class="illus">
+      <svg width="100%" viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg">
+        <rect width="600" height="160" fill="#0e0c09"/>
+        <!-- pre-dawn sky -->
+        <rect width="600" height="100" fill="#0c0b08"/>
+        <!-- city block: row of houses/apartments -->
+        <!-- building 1 -->
+        <rect x="0" y="40" width="90" height="120" fill="#141110"/>
+        <rect x="4" y="55" width="18" height="24" fill="#1c1810" rx="1"/>
+        <rect x="6" y="57" width="14" height="20" fill="#c88820" rx="1" opacity="0.3"/>
+        <rect x="26" y="55" width="18" height="24" fill="#1c1810" rx="1"/>
+        <rect x="50" y="55" width="18" height="24" fill="#1c1810" rx="1"/>
+        <rect x="52" y="57" width="14" height="20" fill="#1a1609" rx="1"/>
+        <rect x="4" y="90" width="18" height="24" fill="#1c1810" rx="1"/>
+        <rect x="26" y="90" width="18" height="24" fill="#1c1810" rx="1"/>
+        <rect x="28" y="92" width="14" height="20" fill="#c88820" rx="1" opacity="0.2"/>
+        <rect x="50" y="90" width="18" height="24" fill="#1c1810" rx="1"/>
+        <!-- building 2 taller -->
+        <rect x="94" y="20" width="70" height="140" fill="#111009"/>
+        <rect x="98" y="35" width="14" height="18" fill="#1a1608" rx="1"/>
+        <rect x="116" y="35" width="14" height="18" fill="#1a1608" rx="1"/>
+        <rect x="134" y="35" width="18" height="18" fill="#1a1608" rx="1"/>
+        <rect x="98" y="60" width="14" height="18" fill="#c88820" rx="1" opacity="0.35"/>
+        <rect x="116" y="60" width="14" height="18" fill="#1a1608" rx="1"/>
+        <rect x="134" y="60" width="18" height="18" fill="#1a1608" rx="1"/>
+        <rect x="98" y="85" width="14" height="18" fill="#1a1608" rx="1"/>
+        <rect x="116" y="85" width="14" height="18" fill="#1a1608" rx="1"/>
+        <rect x="134" y="85" width="18" height="18" fill="#c88820" rx="1" opacity="0.2"/>
+        <rect x="98" y="110" width="14" height="18" fill="#1a1608" rx="1"/>
+        <rect x="116" y="110" width="14" height="18" fill="#1a1608" rx="1"/>
+        <!-- building 3 -->
+        <rect x="168" y="50" width="80" height="110" fill="#131109"/>
+        <rect x="172" y="64" width="16" height="20" fill="#1a1608" rx="1"/>
+        <rect x="192" y="64" width="16" height="20" fill="#c88820" rx="1" opacity="0.4"/>
+        <rect x="214" y="64" width="20" height="20" fill="#1a1608" rx="1"/>
+        <rect x="172" y="92" width="16" height="20" fill="#1a1608" rx="1"/>
+        <rect x="192" y="92" width="16" height="20" fill="#1a1608" rx="1"/>
+        <rect x="214" y="92" width="20" height="20" fill="#1a1608" rx="1"/>
+        <rect x="172" y="120" width="16" height="20" fill="#1a1608" rx="1"/>
+        <rect x="192" y="120" width="16" height="20" fill="#c88820" rx="1" opacity="0.25"/>
+        <!-- building 4 -->
+        <rect x="252" y="35" width="96" height="125" fill="#111009"/>
+        <rect x="256" y="48" width="18" height="22" fill="#1a1608" rx="1"/>
+        <rect x="278" y="48" width="18" height="22" fill="#c88820" rx="1" opacity="0.45"/>
+        <rect x="302" y="48" width="18" height="22" fill="#1a1608" rx="1"/>
+        <rect x="326" y="48" width="18" height="22" fill="#1a1608" rx="1"/>
+        <rect x="256" y="78" width="18" height="22" fill="#1a1608" rx="1"/>
+        <rect x="278" y="78" width="18" height="22" fill="#1a1608" rx="1"/>
+        <rect x="302" y="78" width="18" height="22" fill="#1a1608" rx="1"/>
+        <rect x="326" y="78" width="18" height="22" fill="#c88820" rx="1" opacity="0.3"/>
+        <rect x="256" y="108" width="18" height="22" fill="#1a1608" rx="1"/>
+        <rect x="278" y="108" width="18" height="22" fill="#1a1608" rx="1"/>
+        <rect x="302" y="108" width="18" height="22" fill="#1a1608" rx="1"/>
+        <!-- building 5 -->
+        <rect x="352" y="55" width="72" height="105" fill="#131109"/>
+        <rect x="356" y="68" width="16" height="20" fill="#1a1608" rx="1"/>
+        <rect x="376" y="68" width="16" height="20" fill="#1a1608" rx="1"/>
+        <rect x="396" y="68" width="20" height="20" fill="#c88820" rx="1" opacity="0.35"/>
+        <rect x="356" y="96" width="16" height="20" fill="#c88820" rx="1" opacity="0.2"/>
+        <rect x="376" y="96" width="16" height="20" fill="#1a1608" rx="1"/>
+        <rect x="396" y="96" width="20" height="20" fill="#1a1608" rx="1"/>
+        <!-- building 6 -->
+        <rect x="428" y="28" width="84" height="132" fill="#111009"/>
+        <rect x="432" y="42" width="16" height="20" fill="#1a1608" rx="1"/>
+        <rect x="452" y="42" width="16" height="20" fill="#c88820" rx="1" opacity="0.5"/>
+        <rect x="476" y="42" width="24" height="20" fill="#1a1608" rx="1"/>
+        <rect x="432" y="70" width="16" height="20" fill="#1a1608" rx="1"/>
+        <rect x="452" y="70" width="16" height="20" fill="#1a1608" rx="1"/>
+        <rect x="476" y="70" width="24" height="20" fill="#1a1608" rx="1"/>
+        <rect x="432" y="98" width="16" height="20" fill="#c88820" rx="1" opacity="0.3"/>
+        <rect x="452" y="98" width="16" height="20" fill="#1a1608" rx="1"/>
+        <rect x="476" y="98" width="24" height="20" fill="#1a1608" rx="1"/>
+        <!-- building 7 -->
+        <rect x="516" y="45" width="84" height="115" fill="#131109"/>
+        <rect x="520" y="58" width="16" height="20" fill="#1a1608" rx="1"/>
+        <rect x="540" y="58" width="16" height="20" fill="#1a1608" rx="1"/>
+        <rect x="560" y="58" width="20" height="20" fill="#c88820" rx="1" opacity="0.4"/>
+        <rect x="520" y="86" width="16" height="20" fill="#1a1608" rx="1"/>
+        <rect x="540" y="86" width="16" height="20" fill="#c88820" rx="1" opacity="0.25"/>
+        <rect x="560" y="86" width="20" height="20" fill="#1a1608" rx="1"/>
+        <!-- sidewalk -->
+        <rect x="0" y="140" width="600" height="20" fill="#131109"/>
+        <rect x="0" y="138" width="600" height="4" fill="#181510"/>
+        <!-- streetlamps -->
+        <rect x="145" y="58" width="3" height="82" fill="#181410"/>
+        <rect x="138" y="55" width="16" height="5" fill="#181410" rx="1"/>
+        <circle cx="146" cy="57" r="5" fill="#c8a030" opacity="0.25"/>
+        <rect x="430" y="48" width="3" height="90" fill="#181410"/>
+        <rect x="423" y="45" width="16" height="5" fill="#181410" rx="1"/>
+        <circle cx="431" cy="47" r="5" fill="#c8a030" opacity="0.2"/>
+        <!-- for rent sign in one window -->
+        <rect x="194" y="67" width="14" height="9" fill="#c04830" rx="1" opacity="0.6"/>
+        <!-- single figure on sidewalk, small, distant -->
+        <rect x="296" y="144" width="5" height="12" fill="#1e1a14" rx="1"/>
+        <circle cx="298" cy="143" r="3" fill="#1e1a14"/>
+        <!-- predawn tone across sky -->
+        <rect x="0" y="85" width="600" height="15" fill="#111520" opacity="0.3"/>
+      </svg>
+    </div>
+
+    <p class="ch-eyebrow" style="color: rgba(255,255,255,0.25);">The beginning</p>
+    <p class="ch-title" style="color: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.05);">True origin — the unspoken starting point</p>
     <div class="final-text">
-  <p>The national average two-bedroom rent hit $1,550 in 2025 — up 5.1% in a single year. Vacancy rates in the affordable segment sat near 1 to 2% in most Canadian cities.</p>
-  
-  <p>For a roofer earning solid but not elite wages, a large portion of income goes toward shelter. The trades sector needs hundreds of thousands of new workers by 2033, yet many of the people building the homes struggle to afford living in them.</p>
-  
-  <p>Renovictions became more common. The N13 is a legal document — but for some, it becomes the point where things start to unravel.</p>
-  
-  <p>Housing instability often arrives first. The stress, the isolation, and the substance use as a way to cope tend to follow.</p>
-  
-  <p>The media rarely starts the story at this point.</p>
-  
-  <p>This is where it actually started.</p>
-</div>
-    <div class="btn-row">
-      <button class="restart-btn" onclick="goTo(0)">↑ Read again from the present</button>
-      <a href="#" onclick="goTo(0); return false;" class="return-home">← Return to Start</a>
-      <a href="../../index.html" class="return-home">← Back to Main Site</a>
+      <p>The national average two-bedroom rent hit $1,550 in 2025 — up 5.1% in a single year. Vacancy rates in the affordable segment sat near 1 to 2% in most Canadian cities.</p>
+      <p>For a roofer earning solid but not elite wages, a large portion of income goes toward shelter. The trades sector needs hundreds of thousands of new workers by 2033, yet many of the people building the homes struggle to afford living in them.</p>
+      <p>Renovictions became more common. The N13 is a legal document — but for some, it becomes the point where things start to unravel.</p>
+      <p>Housing instability often arrives first. The stress, the isolation, and the substance use as a way to cope tend to follow.</p>
+      <p>The media rarely starts the story at this point.</p>
+      <p>This is where it actually started.</p>
+    </div>
+    <div class="btn-row" style="margin-top: 48px;">
+      <button class="btn-restart" onclick="goTo(0)">↑ Read again from the present</button>
+      <button class="btn-ghost" onclick="goTo(0)">← Back to start</button>
     </div>
   </div>
 </section>
 
 <script>
-  const screens = ['screen-0','screen-1','screen-2','screen-3','screen-4','screen-5','screen-final'];
-  const labels = ['', 'Oct 2026 — Present', 'Mar 2025 — The corner', 'System evidence', 'Jan 2026 — The floor', 'Feb 2026 — The calls', 'The beginning'];
-  const railLabels = ['Start','Present','Coping','Evidence','Eviction','Access','Origin'];
-  let current = 0;
+const SCREENS = ['s0','s1','s2','s3','s4','s5','s6'];
+const LABELS  = ['','Oct 2026','Mar 2025','Evidence','Jan 2026','Feb 2026','Origin'];
+const DOTS    = ['','Present','Coping','Evidence','Eviction','Calls','Origin'];
+let cur = 0;
 
-  const rail = document.getElementById('rail');
-  const progress = document.getElementById('progress');
-  const screenLabel = document.getElementById('screen-label');
+const pf = document.getElementById('pf');
+const sl = document.getElementById('slabel');
+const cnav = document.getElementById('cnav');
 
-  screens.forEach((_, i) => {
-    if (i === 0) return;
-    const dot = document.createElement('div');
-    dot.className = 'rail-dot';
-    dot.dataset.index = i;
-    dot.onclick = () => goTo(i);
-    const lbl = document.createElement('span');
-    lbl.className = 'rail-label';
-    lbl.textContent = railLabels[i];
-    dot.appendChild(lbl);
-    rail.appendChild(dot);
-    if (i < screens.length - 1) {
-      const line = document.createElement('div');
-      line.className = 'rail-line';
-      rail.appendChild(line);
-    }
+SCREENS.forEach((id, i) => {
+  if (i === 0) return;
+  const d = document.createElement('div');
+  d.className = 'c-dot';
+  d.dataset.label = DOTS[i];
+  d.onclick = () => goTo(i);
+  cnav.appendChild(d);
+  if (i < SCREENS.length - 1) {
+    const sp = document.createElement('div');
+    sp.style.cssText = 'width:1px;height:10px;background:rgba(255,255,255,0.08);margin:0 auto;';
+    cnav.appendChild(sp);
+  }
+});
+
+function goTo(idx) {
+  document.getElementById(SCREENS[cur]).classList.remove('active');
+  document.getElementById(SCREENS[idx]).classList.add('active');
+  cur = idx;
+  window.scrollTo(0,0);
+  sync();
+}
+
+function sync() {
+  const total = SCREENS.length - 1;
+  const pct = cur === 0 ? 0 : Math.round((cur / total) * 100);
+  pf.style.height = pct + '%';
+  sl.textContent = LABELS[cur] || '';
+  cnav.querySelectorAll('.c-dot').forEach((d, i) => {
+    const idx = i + 1;
+    d.className = 'c-dot' + (idx === cur ? ' active' : idx < cur ? ' done' : '');
   });
+}
 
-  function goTo(index) {
-    const prev = document.getElementById(screens[current]);
-    const next = document.getElementById(screens[index]);
-    if (!next) return;
-    prev.classList.remove('active');
-    next.classList.add('active');
-    current = index;
-    window.scrollTo(0, 0);
-    updateUI();
-  }
+function toggleDoc(id, btn) {
+  document.getElementById(id).classList.toggle('open');
+  btn.classList.toggle('open');
+}
 
-  function updateUI() {
-    const pct = current === 0 ? 0 : Math.round((current / (screens.length - 1)) * 100);
-    progress.style.width = pct + '%';
-    screenLabel.textContent = labels[current] || '';
-
-    const dots = rail.querySelectorAll('.rail-dot');
-    dots.forEach((dot, i) => {
-      const idx = parseInt(dot.dataset.index);
-      dot.classList.remove('active', 'visited');
-      if (idx === current) dot.classList.add('active');
-      else if (idx < current) dot.classList.add('visited');
-    });
-  }
-
-  function toggleDoc(id, btn) {
-    const inner = document.getElementById(id);
-    inner.classList.toggle('open');
-    btn.classList.toggle('open');
-  }
-
-  updateUI();
+sync();
 </script>
 </body>
 </html>
