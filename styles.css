@@ -215,7 +215,26 @@ p {
     transform: translateY(-3px);
     box-shadow: 0 12px 30px rgba(255, 59, 59, 0.45);
 }
+/* ==================== NAV LOGO ==================== */
+.nav-logo {
+    height: 55px;
+    width: auto;
+    display: block;
+    margin: 0;
+    border-radius: 0;
+}
 
+.nav-top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.nav-links {
+    justify-content: flex-start;
+}
 /* Mobile adjustments */
 @media (max-width: 768px) {
     .crisis-cta {
