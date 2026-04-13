@@ -5,121 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Lifelong Contract – Recovery Roofer</title>
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
     <style>
-        .article-header {
-            max-width: 820px;
-            margin: 50px auto 0;
-            padding: 0 25px;
-        }
-        .article-tag {
-            display: inline-block;
-            background: #1a1a1a;
-            color: #00a2ff;
-            font-size: 0.8em;
-            font-weight: 600;
-            padding: 4px 14px;
-            border-radius: 30px;
-            border: 1px solid #00a2ff;
-            margin-bottom: 18px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .article-header h1 {
-            font-size: 2em;
-            color: #ffffff;
-            line-height: 1.3;
-            margin-bottom: 14px;
-        }
-        .article-header .standfirst {
-            font-size: 1.15em;
-            color: #aaaaaa;
-            margin-bottom: 20px;
-            line-height: 1.65;
-        }
-        .article-byline {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 18px 0;
-            border-top: 1px solid #1f1f1f;
-            border-bottom: 1px solid #1f1f1f;
-            margin-bottom: 40px;
-        }
-        .article-byline img {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center top;
-            border: 2px solid #00a2ff;
-            margin: 0;
-        }
-        .byline-text {
-            font-size: 0.9em;
-        }
-        .byline-text strong {
-            color: #e0e0e0;
-            display: block;
-        }
-        .byline-text span {
-            color: #666;
-        }
+        body { background-color: #121212; color: #d4d4d4; }
+        .article-wrap { max-width: 720px; margin: 0 auto; padding: 0 25px 80px; }
 
-        /* Article body */
-        .article-body {
-            max-width: 820px;
-            margin: 0 auto;
-            padding: 0 25px;
-        }
-        .article-body h2 {
-            color: #00a2ff;
-            font-size: 1.4em;
-            margin-top: 50px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #1f1f1f;
-        }
-        .article-body h3 {
-            color: #cccccc;
-            font-size: 1.1em;
-            margin-top: 35px;
-            margin-bottom: 12px;
-        }
-        .article-body p {
-            color: #cccccc;
-            font-size: 1.05em;
-            line-height: 1.8;
-            margin-bottom: 22px;
-        }
-        .article-body blockquote {
-            border-left: 4px solid #00a2ff;
-            margin: 30px 0;
-            padding: 16px 24px;
-            background: #111;
-            border-radius: 0 8px 8px 0;
-        }
-        .article-body blockquote p {
-            color: #ffffff;
-            font-size: 1.1em;
-            font-style: italic;
-            margin: 0;
-        }
+        .breadcrumb { margin: 32px 0 28px; font-size: 0.82em; color: #444; }
+        .breadcrumb a { color: #444; text-decoration: none; }
+        .breadcrumb a:hover { color: #00a2ff; }
+        .breadcrumb span { margin: 0 6px; }
 
-        /* Back link */
-        .back-link {
-            max-width: 820px;
-            margin: 50px auto 0;
-            padding: 0 25px;
-        }
-        .back-link a {
-            color: #555;
-            font-size: 0.9em;
-            text-decoration: none;
-        }
-        .back-link a:hover { color: #00a2ff; }
+        .article-category { display: inline-block; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; margin-bottom: 14px; }
+        .cat-le { background: rgba(140,80,220,0.1); color: #a070e0; }
 
-        @media (max-width: 600px) {
-            .article-header h1 { font-size: 1.6em; }
-        }
+        .article-title { font-size: 1.85em; font-weight: 700; color: #ececec; line-height: 1.25; margin: 0 0 16px; }
+        .article-hook { font-size: 1.05em; color: #777; line-height: 1.7; margin: 0 0 22px; }
+
+        .article-meta-row { display: flex; align-items: center; gap: 10px; font-size: 0.82em; color: #3d3d3d; margin-bottom: 28px; flex-wrap: wrap; }
+        .meta-author-photo { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; object-position: center top; border: 1px solid #333; margin: 0; flex-shrink: 0; }
+        .meta-dot { color: #2a2a2a; }
+        .read-time-badge { background: #1c1c1c; border: 1px solid #2a2a2a; padding: 2px 9px; border-radius: 10px; color: #484848; }
+
+        .takeaways { background: #161616; border-left: 3px solid #00a2ff; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 0 0 28px; }
+        .takeaways-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #00a2ff; font-weight: 700; margin-bottom: 10px; }
+        .takeaways ul { list-style: none; padding: 0; margin: 0; }
+        .takeaways ul li { font-size: 0.9em; color: #c0c0c0; padding: 5px 0 5px 18px; position: relative; line-height: 1.55; border-bottom: 1px solid #1f1f1f; }
+        .takeaways ul li:last-child { border-bottom: none; }
+        .takeaways ul li::before { content: ""; position: absolute; left: 0; top: 12px; width: 5px; height: 5px; border-radius: 50%; background: #00a2ff; }
+
+        .article-body h2 { color: #00a2ff; font-size: 1.25em; font-weight: 700; margin: 44px 0 14px; padding-bottom: 8px; border-bottom: 1px solid #1e1e1e; }
+        .article-body p { font-size: 0.97em; line-height: 1.75; color: #b8b8b8; margin-bottom: 20px; max-width: 660px; }
+        .article-body p strong { color: #ddd; }
+
+        .pull-quote { font-size: 1.15em; font-weight: 700; color: #e0e0e0; border-left: 3px solid #00a2ff; padding: 14px 22px; margin: 32px 0; line-height: 1.5; font-style: italic; background: #161616; border-radius: 0 8px 8px 0; }
     </style>
 </head>
 <body>
@@ -127,120 +45,97 @@
 <nav>
     <div class="nav-container">
         <div class="nav-top">
-            <a href="../index.html">
-                <img src="../assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo">
-            </a>
+            <a href="../index.html"><img src="../assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo"></a>
             <div class="nav-links">
                 <a href="../index.html" class="nav-btn">Home</a>
                 <a href="../story.html" class="nav-btn">My Story</a>
                 <a href="../continuum.html" class="nav-btn">Continuum of Care</a>
                 <a href="../resources.html" class="nav-btn">Resources</a>
-                <a href="../writing.html" class="nav-btn">Writing</a>
+                <a href="../writing.html" class="nav-btn active">Writing</a>
                 <a href="../connect.html" class="nav-btn">Connect</a>
             </div>
         </div>
     </div>
 </nav>
 
-<!-- ARTICLE HEADER -->
-<div class="article-header">
+<div class="article-wrap">
 
-    <span class="article-tag">Lived Experience</span>
+    <div class="breadcrumb">
+        <a href="../writing.html">← Writing</a>
+        <span>/</span>
+        <span>Lived Experience</span>
+    </div>
 
-    <h1>The Lifelong Contract</h1>
+    <span class="article-category cat-le">Lived Experience</span>
 
-    <p class="standfirst">
+    <h1 class="article-title">The Lifelong Contract</h1>
+
+    <p class="article-hook">
         The same financial logic that created this epidemic is now running the treatment. Different investors, same math. We were worth more sick than healthy — and apparently we still are.
     </p>
 
-    <div class="article-byline">
-        <img src="../assets/img/5037.jpg" alt="Josh Pearsall">
-        <div class="byline-text">
-            <strong>Josh Pearsall</strong>
-            <span>April 2026 &nbsp;·&nbsp; Recovery Roofer</span>
-        </div>
+    <div class="article-meta-row">
+        <img src="../assets/img/5037.jpg" alt="Josh Pearsall" class="meta-author-photo">
+        <span style="color:#666;">Josh Pearsall</span>
+        <span class="meta-dot">·</span>
+        <span>April 2026</span>
+        <span class="meta-dot">·</span>
+        <span class="read-time-badge">10 min read</span>
+    </div>
+
+    <div class="takeaways">
+        <div class="takeaways-label">Here's what matters most</div>
+        <ul>
+            <li>The financial incentives in addiction treatment often reward long-term maintenance rather than full recovery.</li>
+            <li>Methadone kept me alive and functional, but for many it becomes a lifelong treatment with real side effects.</li>
+            <li>Large private equity-backed chains now dominate parts of the system, creating misaligned incentives.</li>
+            <li>Transparency about ownership, profits, and long-term outcomes is badly needed.</li>
+        </ul>
+    </div>
+
+    <div class="article-body">
+
+        <h2>My Entry Into the System</h2>
+        <p>I didn't choose methadone exactly. It was a condition of getting into Guelph's Drug Treatment Court, which was a condition of getting out of jail. I was the first person through when they launched it.</p>
+        <p>Methadone seemed excessive to me back then. We were on Oxys. I'd kicked it a few times. I wanted out of jail so I agreed. What I didn't understand was that I was signing a contract with my body. Methadone lingers. I'm a lifer. That's not a complaint. It's context.</p>
+
+        <h2>How We Got Here</h2>
+        <p>We grew up in the west end suburbs. Played hockey and football. Oxys had been marketed as a miracle pill. Then they banned the old OxyContin and brought in hydros and morphine. The supply changed. The need didn't.</p>
+        <p>Methadone was the answer. It was going to clean up the streets and save the system money. In the beginning that's enough.</p>
+
+        <h2>The Ceiling Nobody Talks About</h2>
+        <p>What doesn't get talked about is the ceiling. What do we do with the people who don't come off it? I never felt truly encouraged to taper. The clinical reasoning makes a kind of sense — you're safer here. But the question that never gets asked out loud is what does this system actually want for us long term?</p>
+
+        <h2>What I Discovered About Profit</h2>
+        <p>CATC — Canadian Addiction Treatment Centres — was sold to an American private equity firm. BayMark Health Services, backed by Webster Equity Partners, acquired them. In 2022 they added Trafalgar Addiction Treatment Centre. Industry reports had them marketing the operation again in 2025 with earnings around $75 million.</p>
+        <p>Seventy-five million dollars. In the middle of an opioid epidemic.</p>
+        <p>The incentives don't align. A private equity firm has a fiduciary responsibility to its investors. That obligation and a genuine orientation toward getting people off medication pull in opposite directions.</p>
+        <p>The most valuable patient in this model is the stable, long-term patient who keeps showing up. I am that patient. I am the lifelong contract.</p>
+
+        <h2>Where the Money Goes</h2>
+        <p>Ontario taxpayers fund this through OHIP and the Ontario Drug Benefit. Public money flows in, and after local costs, the upside travels south. Most people paying into this system have no idea.</p>
+
+        <h2>What I Actually Want</h2>
+        <p>I'm not writing this to tear down methadone or MAT programs. I've been on this medication for over a decade and it has kept me alive and functional. That's real.</p>
+        <p>But I've been watching this system since 2011. The clinics haven't fundamentally changed in the ways that matter most. Volume has increased. Accessibility has increased. But I still can't get into detox when I need it. The counseling often feels like data collection more than support.</p>
+        <p>Here is what I want: Transparency about who owns the clinics and where the profit flows. An honest accounting of long-term outcomes. Services that reflect what recovery actually requires — not just the dose, but housing help, consistent counseling, and a sense that someone is invested in where you end up.</p>
+
+        <h2>The Dark Through-Line</h2>
+        <p>There's a dark through-line in all of this. The original opioid crisis was the result of aggressive marketing and decisions made by people who profited enormously. Then the crisis hit and public money moved toward treatment. New system. Same logic. The investors repositioned.</p>
+        <p>Now instead of profiting off the pills, they profit off the people trying to survive them.</p>
+        <p>We were a revenue stream going in. We're a revenue stream coming out. The only people who never made money in any of this were us.</p>
+
     </div>
 
 </div>
 
-<!-- ARTICLE BODY -->
-<div class="article-body">
+<footer>
+    <p>Josh Pearsall · Recovery Roofer · Ottawa &nbsp;|&nbsp; <a href="../connect.html">Get in touch</a></p>
+</footer>
 
-    <p>The same financial logic that created this epidemic is now running the treatment. Different investors, same math. We were worth more to someone sick than we ever were healthy — and apparently we still are.</p>
+<a href="../resources.html" class="floating-cta">
+    <span>🚨</span> Need Help Right Now?
+</a>
 
-    <p>I know this because I've been inside the system since 2011. Not as a researcher. Not as a policy analyst. As a patient.</p>
-
-    <h2>My Entry Into the System</h2>
-
-    <p>I didn't choose methadone exactly. It was a condition of getting into Guelph's Drug Treatment Court, which was a condition of getting out of jail. I was the first person through when they launched it. At the time I was the only person.</p>
-
-    <p>Methadone seemed excessive to me back then. We were on Oxys. I'd kicked it a few times. I'd always go back and touch that stove again — always enduring, never learning. I wanted out of jail so I agreed. What I didn't understand was that I was signing a contract. Not a regular contract. A contract with my body. If you think coming off dope with a half-life of five hours is rough, methadone lingers. I'm a lifer. That's not a complaint. It's context.</p>
-
-    <h2>How We Got Here</h2>
-
-    <p>We grew up in the west end suburbs. Played hockey and football. Swam in our parents' friends' pools while they barbecued. 90 Carden came later.</p>
-
-    <p>Oxys had been marketed as a miracle pill — long-lasting, no health ramifications, practically harmless. Doctors believed it. Parents believed it. We believed it.</p>
-
-    <p>Then they banned Oxys and brought in hydros and morphine. Less abusable, they said. They had beads. I remember being annoyed — using paper lighters, whatever it took. I would have broken them one by one by hand if I had to. The supply changed. The need didn't.</p>
-
-    <p>Methadone was the answer. It was going to clean up the streets, save the kids, save the system money. The pitch was compelling, the timing was right, and we drank it. Literally.</p>
-
-    <p>And it sort of worked. People got stable. People got carries. People got their lives back, at least partially. In the beginning that's enough.</p>
-
-    <h2>The Ceiling Nobody Talks About</h2>
-
-    <p>What doesn't get talked about is the ceiling. What do we do with the people who don't come off it? I never felt truly encouraged to taper. The clinical reasoning makes a kind of sense — you could use, it's higher risk, you're safer here. Maybe that's true. But the question that never gets asked out loud is what does this system actually want for us long term? What does success look like, and is anyone tracking whether we get there?</p>
-
-    <!-- NEW RESEARCH SECTION -->
-    <p>Some research does exist on long-term outcomes, and it raises difficult questions. A large study of more than 14,000 patients in British Columbia found that only a small fraction of people successfully taper off methadone and remain out of treatment long-term — roughly 2.5% to 4.4%. Even among patients attempting a taper, relapse rates are high, particularly in the first six months after stopping. The research also shows that when tapering does succeed, it usually happens very slowly, often over a year or longer with periods of stabilization built in. None of this means methadone is ineffective — in many cases it clearly prevents overdose and keeps people alive. But it does suggest that for a large number of patients, methadone becomes a long-term or lifelong treatment. If that is the reality, we should be honest about it and design the surrounding system accordingly.</p>
-
-    <p>I started thinking about incentives.</p>
-
-    <h2>What I Discovered About Profit</h2>
-
-    <p>I assumed for years that if there was profit in this system it got reinvested. More treatment. Better supports. Help for the front-line workers, the nurses, the people who show up every day to a hard job. I thought if someone was making money it was some doctors, maybe a few clinic owners. That seemed reasonable.</p>
-
-    <p>I was not prepared for what I actually found.</p>
-
-    <p>CATC — Canadian Addiction Treatment Centres, the largest MAT provider in Canada — was sold to an American private equity firm. BayMark Health Services, backed by Webster Equity Partners out of the U.S., acquired them in 2018. In 2022 they added Trafalgar Addiction Treatment Centre, folding residential treatment into the portfolio alongside the outpatient methadone clinics. Industry reports had Webster marketing the whole operation again in 2025, with earnings around $75 million.</p>
-
-    <p>Seventy-five million dollars. In the middle of an opioid epidemic.</p>
-
-    <p>When I understood that, something clicked that I hadn't been able to articulate before. The incentives don't align. They structurally cannot. A private equity firm has a fiduciary responsibility to its investors — that is what it is, that's not a moral judgment. But that obligation and a genuine orientation toward getting people off medication they no longer need, or investing surplus into supports that actually move people forward — those two things pull in opposite directions. Private equity firms typically hold companies for five to seven years then sell. The goal is to increase the sale price. That is a different mission than resolving a public health crisis, and it's baked into the structure.</p>
-
-    <p>The most valuable patient in this model is the stable, long-term patient who keeps showing up. The one who never causes problems, never leaves, never stops needing the service.</p>
-
-    <p>I am that patient. I am the lifelong contract.</p>
-
-    <h2>Where the Money Goes</h2>
-
-    <p>Ontario taxpayers fund this through OHIP — the doctor visits, the medical oversight — and through the Ontario Drug Benefit, which covers the medication and dispensing fees. Public money from working Ontarians flows in, and after local costs, the upside travels south. Most people paying into this system have no idea.</p>
-
-    <h2>What I Actually Want</h2>
-
-    <p>I'm not writing this to tear down methadone or MAT programs. I've been on this medication for over a decade and it has kept me alive and functional in ways I couldn't manage on my own. That's real and I won't pretend otherwise.</p>
-
-    <p>But I've been watching this system since 2011 and I can map what I see. The clinics haven't fundamentally changed. Volume has increased. Accessibility has increased — I can get dosed same-day now, which matters. But I still can't get into detox when I need it. The counseling appointments feel like data collection more than support. Someone asks if I'm using, if I'm housed, and we move on. The underneath is still thin. That was true in 2011 and it's true now.</p>
-
-    <p>Here is what I want.</p>
-
-    <p>Transparency. Who owns the clinic. Where the profit flows. What the public is actually funding. That should not be a controversial ask for a service paid for by Ontario taxpayers.</p>
-
-    <p>An honest accounting of whether the rapid expansion of methadone treatment delivered what it promised. The original pitch was economic and social — divert people out of jail, reduce ER visits, reduce the burden on the system. I was Exhibit A. Drug Treatment Court, Guelph, 2011, diverted out of jail and onto a dose. Did it work? For me, in some ways, yes. For the system economically — I genuinely don't know, and I'm not sure anyone does, because we don't track it that way. We measure volume. We don't measure where people end up.</p>
-
-    <p>And services that actually reflect what recovery requires. Not just the dose. The housing help. The consistent counseling. The sense that someone is invested in where you end up, not just that you showed up today.</p>
-
-    <h2>The Dark Through-Line</h2>
-
-    <p>There's a dark through-line in all of this that I can't stop thinking about. The original opioid crisis wasn't a natural disaster. It was the result of aggressive marketing, heavy lobbying, and decisions made by people who profited enormously from what followed. Then the crisis hit, the pills got pulled, people moved to street drugs, people started dying, and the public money moved toward treatment. New system. Same logic. The investors who profit from suffering didn't go anywhere. They repositioned.</p>
-
-    <p>Now instead of profiting off the pills, they profit off the people trying to survive them.</p>
-
-    <p>We were a revenue stream going in. We're a revenue stream coming out. The only people who never made money in any of this were us.</p>
-
-    <p>Somewhere along the way the most stable recurring revenue stream in addiction treatment got sold to a U.S. private equity firm. Nobody asked the patients. Nobody asked the taxpayers either.</p>
-
-    <p>We both deserve a better answer than seventy-five million dollars heading south.</p>
-
-</div>
+</body>
+</html>

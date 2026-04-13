@@ -5,121 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ontario's $3.8B Problem — Who Profits When You Don't Recover? – Recovery Roofer</title>
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
     <style>
-        .article-header {
-            max-width: 820px;
-            margin: 50px auto 0;
-            padding: 0 25px;
-        }
-        .article-tag {
-            display: inline-block;
-            background: #1a1a1a;
-            color: #00a2ff;
-            font-size: 0.8em;
-            font-weight: 600;
-            padding: 4px 14px;
-            border-radius: 30px;
-            border: 1px solid #00a2ff;
-            margin-bottom: 18px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .article-header h1 {
-            font-size: 2em;
-            color: #ffffff;
-            line-height: 1.3;
-            margin-bottom: 14px;
-        }
-        .article-header .standfirst {
-            font-size: 1.15em;
-            color: #aaaaaa;
-            margin-bottom: 20px;
-            line-height: 1.65;
-        }
-        .article-byline {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 18px 0;
-            border-top: 1px solid #1f1f1f;
-            border-bottom: 1px solid #1f1f1f;
-            margin-bottom: 40px;
-        }
-        .article-byline img {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center top;
-            border: 2px solid #00a2ff;
-            margin: 0;
-        }
-        .byline-text {
-            font-size: 0.9em;
-        }
-        .byline-text strong {
-            color: #e0e0e0;
-            display: block;
-        }
-        .byline-text span {
-            color: #666;
-        }
+        body { background-color: #121212; color: #d4d4d4; }
+        .article-wrap { max-width: 720px; margin: 0 auto; padding: 0 25px 80px; }
 
-        /* Article body */
-        .article-body {
-            max-width: 820px;
-            margin: 0 auto;
-            padding: 0 25px;
-        }
-        .article-body h2 {
-            color: #00a2ff;
-            font-size: 1.4em;
-            margin-top: 50px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #1f1f1f;
-        }
-        .article-body h3 {
-            color: #cccccc;
-            font-size: 1.1em;
-            margin-top: 35px;
-            margin-bottom: 12px;
-        }
-        .article-body p {
-            color: #cccccc;
-            font-size: 1.05em;
-            line-height: 1.8;
-            margin-bottom: 22px;
-        }
-        .article-body blockquote {
-            border-left: 4px solid #00a2ff;
-            margin: 30px 0;
-            padding: 16px 24px;
-            background: #111;
-            border-radius: 0 8px 8px 0;
-        }
-        .article-body blockquote p {
-            color: #ffffff;
-            font-size: 1.1em;
-            font-style: italic;
-            margin: 0;
-        }
+        .breadcrumb { margin: 32px 0 28px; font-size: 0.82em; color: #444; }
+        .breadcrumb a { color: #444; text-decoration: none; }
+        .breadcrumb a:hover { color: #00a2ff; }
+        .breadcrumb span { margin: 0 6px; }
 
-        /* Back link */
-        .back-link {
-            max-width: 820px;
-            margin: 50px auto 0;
-            padding: 0 25px;
-        }
-        .back-link a {
-            color: #555;
-            font-size: 0.9em;
-            text-decoration: none;
-        }
-        .back-link a:hover { color: #00a2ff; }
+        .article-category { display: inline-block; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; margin-bottom: 14px; }
+        .cat-sp { background: rgba(77,166,255,0.1); color: #4da6ff; }
 
-        @media (max-width: 600px) {
-            .article-header h1 { font-size: 1.6em; }
-        }
+        .article-title { font-size: 1.85em; font-weight: 700; color: #ececec; line-height: 1.25; margin: 0 0 16px; }
+        .article-hook { font-size: 1.05em; color: #777; line-height: 1.7; margin: 0 0 22px; }
+
+        .article-meta-row { display: flex; align-items: center; gap: 10px; font-size: 0.82em; color: #3d3d3d; margin-bottom: 28px; flex-wrap: wrap; }
+        .meta-author-photo { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; object-position: center top; border: 1px solid #333; margin: 0; flex-shrink: 0; }
+        .meta-dot { color: #2a2a2a; }
+        .read-time-badge { background: #1c1c1c; border: 1px solid #2a2a2a; padding: 2px 9px; border-radius: 10px; color: #484848; }
+
+        .takeaways { background: #161616; border-left: 3px solid #00a2ff; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 0 0 28px; }
+        .takeaways-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #00a2ff; font-weight: 700; margin-bottom: 10px; }
+        .takeaways ul { list-style: none; padding: 0; margin: 0; }
+        .takeaways ul li { font-size: 0.9em; color: #c0c0c0; padding: 5px 0 5px 18px; position: relative; line-height: 1.55; border-bottom: 1px solid #1f1f1f; }
+        .takeaways ul li:last-child { border-bottom: none; }
+        .takeaways ul li::before { content: ""; position: absolute; left: 0; top: 12px; width: 5px; height: 5px; border-radius: 50%; background: #00a2ff; }
+
+        .article-body h2 { color: #00a2ff; font-size: 1.25em; font-weight: 700; margin: 44px 0 14px; padding-bottom: 8px; border-bottom: 1px solid #1e1e1e; }
+        .article-body p { font-size: 0.97em; line-height: 1.75; color: #b8b8b8; margin-bottom: 20px; max-width: 660px; }
+        .article-body p strong { color: #ddd; }
+
+        .pull-quote { font-size: 1.15em; font-weight: 700; color: #e0e0e0; border-left: 3px solid #00a2ff; padding: 14px 22px; margin: 32px 0; line-height: 1.5; font-style: italic; background: #161616; border-radius: 0 8px 8px 0; }
+
+        .article-body ul { padding-left: 0; list-style: none; margin: 0 0 24px; }
+        .article-body ul li { font-size: 0.93em; color: #aaa; padding: 6px 0 6px 22px; position: relative; line-height: 1.6; border-bottom: 1px solid #1a1a1a; }
+        .article-body ul li:last-child { border-bottom: none; }
+        .article-body ul li::before { content: ""; position: absolute; left: 0; top: 13px; width: 5px; height: 5px; border-radius: 50%; background: #00a2ff; }
     </style>
 </head>
 <body>
@@ -127,230 +50,123 @@
 <nav>
     <div class="nav-container">
         <div class="nav-top">
-            <a href="../index.html">
-                <img src="../assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo">
-            </a>
+            <a href="../index.html"><img src="../assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo"></a>
             <div class="nav-links">
                 <a href="../index.html" class="nav-btn">Home</a>
                 <a href="../story.html" class="nav-btn">My Story</a>
                 <a href="../continuum.html" class="nav-btn">Continuum of Care</a>
                 <a href="../resources.html" class="nav-btn">Resources</a>
-                <a href="../writing.html" class="nav-btn">Writing</a>
+                <a href="../writing.html" class="nav-btn active">Writing</a>
                 <a href="../connect.html" class="nav-btn">Connect</a>
             </div>
         </div>
     </div>
 </nav>
 
-<!-- ARTICLE HEADER -->
-<div class="article-header">
+<div class="article-wrap">
 
-    <!-- Change this to: System & Policy / Lived Experience / Practical Guide -->
-    <span class="article-tag">System & Policy</span>
+    <div class="breadcrumb">
+        <a href="../writing.html">← Writing</a>
+        <span>/</span>
+        <span>System & Policy</span>
+    </div>
 
-    <h1>Ontario's $3.8B Problem — Who Profits When You Don't Recover?</h1>
+    <span class="article-category cat-sp">System &amp; Policy</span>
 
-    <p class="standfirst">
-        Ontario spent $3.8 billion on addiction treatment. 
-The system is still broken. Here's where the money 
-went — and why it didn't reach the people who needed 
-it most.
+    <h1 class="article-title">Ontario's $3.8B Problem — Who Profits When You Don't Recover?</h1>
+
+    <p class="article-hook">
+        Ontario spent $3.8 billion on addiction treatment. The system is still broken. Here's where the money actually went — and why so many people keep cycling through without getting better.
     </p>
 
-    <div class="article-byline">
-        <img src="../assets/img/5037.jpg" alt="Josh Pearsall">
-        <div class="byline-text">
-            <strong>Josh Pearsall</strong>
-            <span>APRIL 2026 &nbsp;·&nbsp; Recovery Roofer</span>
+    <div class="article-meta-row">
+        <img src="../assets/img/5037.jpg" alt="Josh Pearsall" class="meta-author-photo">
+        <span style="color:#666;">Josh Pearsall</span>
+        <span class="meta-dot">·</span>
+        <span>April 2026</span>
+        <span class="meta-dot">·</span>
+        <span class="read-time-badge">10 min read</span>
+    </div>
+
+    <div class="takeaways">
+        <div class="takeaways-label">Here's what matters most</div>
+        <ul>
+            <li>Ontario spent $3.8 billion on mental health and addictions, but much of it went to hospitals, established organizations, and billable services rather than the people who needed it most.</li>
+            <li>Methadone clinics and fee-for-service models get paid when you show up — not when you recover. There is no billing code for success.</li>
+            <li>High-volume safer supply and MAT expansions were built for a simpler drug supply, not today's poly-dope reality.</li>
+            <li>The system is working exactly as designed for the people getting paid to run it — not for the person trying to get clean.</li>
+        </ul>
+    </div>
+
+    <div class="article-body">
+
+        <h2>The Hope at the Start</h2>
+        <p>The first time I went to detox, I believed them. That's the thing nobody talks about — how much hope there is at the start. Your parents believe them too. They'll pay anything, sign anything, drive anywhere. Nobody hands you a handbook. Nobody tells you what the system actually is or who's actually getting paid. They just tell you this is the answer.</p>
+
+        <h2>How We Got Here</h2>
+        <p>Ontario's addiction crisis didn't appear overnight. For two decades the landscape shifted while policy tried to catch up — and mostly missed.</p>
+
+        <p>In the early days, MAT (Medication Assisted Treatment) was the last resort. You had to prove chronic homelessness, HIV, Hepatitis C, or serious criminal history just to qualify. Then OxyContin happened. When the reformulated OxyNeo hit the market, it didn't solve the problem — it just pushed people toward heroin and eventually fentanyl.</p>
+
+        <p>The government's response was a massive expansion of MAT. Overnight it went from last resort to first line of defence. Fee-for-service clinics opened. Doctors billed for visits, urine tests, mandatory counselling, and supplemental medications. Every touchpoint became a billable moment.</p>
+
+        <div class="pull-quote">
+            Nobody got paid when you got better. They got paid when you showed up.
         </div>
+
+        <h2>The $3.8 Billion Number</h2>
+        <p>In 2020 Ontario announced $3.8 billion for mental health and addictions over ten years. When I heard that number my first thought was — where?</p>
+
+        <p>Peer support workers make $20 an hour. Detox beds have waitlists. People are still navigating four different intake forms to access the same broken system. The money went to hospitals, to CAMH, to established mental health organizations with lobbyists and infrastructure, to new HART Hubs, digital tools, and professional reports.</p>
+
+        <p>What it didn't go to — not enough of it anyway — was the person sitting in detox for the third time wondering why nothing is working.</p>
+
+        <h2>What It Didn't Fix</h2>
+        <p>They call it Medication Assisted Treatment. What they don't tell you is that for many people, the medication becomes the treatment — indefinitely. Methadone felt like liquid handcuffs. The same thing they promise will give you your life back is something you may never get off.</p>
+
+        <p>Clinics with strange hours. Can't travel without prior approval. Show up every day, drink it at the window. The stigma doesn't go away — it just gets a government stamp on it. Side effects like crashing testosterone and dental problems are common but rarely highlighted.</p>
+
+        <p>And when you do get stable, the system starts charging you for carries. Insulin is covered. SSRIs are covered. But methadone carries? That's on you.</p>
+
+        <h2>Too Many Chiefs, Not Enough Results</h2>
+        <p>Ontario closed supervised consumption sites and replaced them with HART Hubs — a shift toward recovery. In practice, many hubs are still only partially operational. Demand far exceeds capacity. In Hamilton, overdoses increased after the consumption site closed.</p>
+
+        <p>In Ottawa, I know this street level. The same people I used to use with hang out in front of the HART Hub. Same plot of land. Different sign.</p>
+
+        <p>We stopped giving people clean gear. Now we'll pay for the Hep C treatment later. The math doesn't work — unless you're the one billing for the treatment.</p>
+
+        <h2>Nobody Gets Paid When You Recover</h2>
+        <p>Here's the thing nobody wants to say out loud. The system isn't broken. It's working exactly as designed — for the people getting paid to run it.</p>
+
+        <p>Methadone clinics bill per visit. Urine screens are billable. Counselling sessions are billable. Intake appointments, assessments — all billable. The moment you recover and stop showing up, the revenue stops. There is no billing code for success.</p>
+
+        <div class="pull-quote">
+            Every stop on that loop is someone's revenue stream.
+        </div>
+
+        <p>Front line staff aren't the problem — most of them care. The problem is the funding models and incentive structures built from the top down. Too many organizations protecting their piece of the budget. Too many ministries with overlapping mandates.</p>
+
+        <h2>It Only Needs to Work Once</h2>
+        <p>Nobody gets it until it's them. Your friends, your family — they all know exactly what they would have done differently. It's easy to have the answer when it's not your kid, not your partner, not you at 3am making a decision you can't take back.</p>
+
+        <p>The system will frustrate you. It will hand you paperwork when you need a bed, and a bed when you need skills. But here's what I know after two decades: it only needs to work once.</p>
+
+        <p>If you're reading this for someone you love — don't give up on the click. Push for better information. Ask where the money goes. Demand more than a waiting list and a pamphlet.</p>
+
+        <p>And if you're reading this because it's you — I've got a son now. A job. I taught myself to type, learned hardware and software, built something from nothing. The system didn't do that. I did. But someone showed me it was possible.</p>
+
+        <p>That's all this is.</p>
+
     </div>
 
 </div>
 
-<!-- ARTICLE BODY -->
-<div class="article-body">
-
-    <p>The first time I went to detox, I believed them. That's 
-the thing nobody talks about — how much hope there is at 
-the start. Your parents believe them too. They'll pay 
-anything, sign anything, drive anywhere. Nobody hands you 
-a handbook. Nobody tells you what the system actually is 
-or who's actually getting paid. They just tell you this 
-is the answer.</p>
-
-<h2>How We Got Here</h2>
-
-<p>Ontario's addiction crisis didn't appear overnight. For 
-two decades the landscape shifted underneath people's feet 
-while policy tried to catch up — and mostly missed.</p>
-
-<p>In the early days, MAT — Medication Assisted Treatment — 
-was the last resort. You had to prove chronic homelessness, 
-HIV, Hepatitis C, or serious criminal history just to 
-qualify. Only specific doctors were authorized under Health 
-Canada to prescribe it. It was hard to access by design.</p>
-
-<p>Then OxyContin happened. And when the reformulated OxyNeo 
-hit the market — harder to crush, harder to abuse — it 
-didn't solve the problem. It just pushed people toward 
-heroin, and eventually fentanyl. The government's response 
-was a knee-jerk expansion of MAT. Overnight it went from 
-last resort to first line of defence. Fee-for-service 
-clinics opened. Doctors who could bill for it, did. Two 
-urine tests a week. Mandatory counselling. Supplemental 
-medications — senna, clonidine, whatever else they could 
-prescribe. Every touchpoint a billable moment.</p>
-
-<blockquote><p>Nobody got paid when you got better. 
-They got paid when you showed up.</p></blockquote>
-
-<h2>The Number</h2>
-
-<p>In 2020 Ontario announced $3.8 billion for mental health 
-and addictions over ten years. That's three thousand million 
-dollars and change. When I heard that number my first thought 
-was — where?</p>
-
-<p>Peer support workers make $20 an hour. Detox beds have 
-waitlists. People are still navigating four different intake 
-forms to access the same broken system they were in six 
-months ago. $3.8 billion sounds like progress. It's supposed 
-to. That's what it's designed to do.</p>
-
-<p>The money went to hospitals. To CAMH. To established mental 
-health organizations that already had infrastructure, lobbyists, 
-and government relationships. To new HART Hubs — Homelessness 
-and Addiction Recovery Treatment — a rebranding of community 
-care that shifted funding away from consumption sites toward 
-treatment-focused models. It went to digital tools and virtual 
-care platforms. To nonprofit annual reports with professional 
-layouts and mission statements. What it didn't go to — not 
-enough of it anyway — was the person sitting in detox for 
-the third time wondering why nothing is working.</p>
-
-<h2>What It Didn't Fix</h2>
-
-<p>They call it Medication Assisted Treatment. What they don't 
-tell you is that for many people, the medication becomes the 
-treatment — indefinitely. Methadone felt like liquid handcuffs. 
-The same thing they promise will give you your life back is 
-something you may never get off.</p>
-
-<p>Clinics with strange hours. Can't travel without prior 
-approval. Show up every day, drink it at the window, get 
-processed and leave. The community has a word for it. 
-Methadonian. Junkie with a prescription. The stigma doesn't 
-go away — it just gets a government stamp on it.</p>
-
-<p>Nobody warned me about the side effects either. Testosterone 
-levels tank in men — widely underreported. Your teeth 
-deteriorate. These aren't rare complications, they're common 
-ones. They just don't make it into the brochure.</p>
-
-<p>And when you do get stable — when you're actually doing 
-better — the system starts charging you. Carries aren't 
-covered once you're deemed functional enough to pay. Insulin 
-is covered. SSRIs are covered. But methadone carries? 
-That's on you. It's a class thing. That's the only honest 
-way to say it.</p>
-
-<h2>Too Many Chiefs</h2>
-
-<p>Ontario closed nine supervised consumption sites and 
-replaced them with HART Hubs. The government called it a 
-shift toward recovery. Critics called it a political decision 
-dressed up as a health one. A year in, many hubs are still 
-only partially operational. Demand far exceeds capacity and 
-promised services are still being rolled out.</p>
-
-<p>In Hamilton, overdoses increased after the consumption site 
-closed. Paramedics responded to a record number of suspected 
-overdose calls in January. The hub's own director said it 
-is not a direct replacement for what was lost.</p>
-
-<blockquote><p>In Ottawa, I know this street level. The same 
-people I used to use with hang out in front of the HART Hub. 
-Same plot of land. Different sign.</p></blockquote>
-
-<p>We stopped giving people clean gear. Now we'll pay for the 
-Hep C treatment later. The math doesn't work — unless you're 
-the one billing for the treatment.</p>
-
-<p>And the housing piece — the part that sounds most promising 
-on paper — misses something nobody in the boardroom seems to 
-understand. Putting someone from active addiction into a 
-supportive housing unit doesn't automatically give them the 
-skills to live independently. You can end up isolated in a 
-room, not knowing how to do dishes, with a dealer who figured 
-out your address before your caseworker did. That's not 
-recovery. That's warehousing.</p>
-
-<h2>Nobody Gets Paid When You Recover</h2>
-
-<p>Here's the thing nobody wants to say out loud. The system 
-isn't broken. It's working exactly as designed — for the 
-people getting paid to run it.</p>
-
-<p>Methadone clinics bill per visit. Urine screens are 
-billable. Counselling sessions are billable. Intake 
-appointments, assessments, transition planning — all 
-billable. The moment you recover and stop showing up, 
-the revenue stops. There is no billing code for success.</p>
-
-<p>Front line staff aren't the problem — most of them got 
-into this work because they care. The problem is above them. 
-It's in the policy, the funding models, the incentive 
-structures built into the system from the top down. Too many 
-organizations protecting their piece of the budget. Too many 
-ministries with overlapping mandates. Too many chiefs, not 
-enough people actually on the ground doing the work.</p>
-
-<blockquote><p>Every stop on that loop is someone's 
-revenue stream.</p></blockquote>
-
-<h2>It Only Needs to Work Once</h2>
-
-<p>Nobody gets it until it's them. Your friends, your 
-colleagues, your family — they all know exactly what they 
-would have done differently. It's easy to have the answer 
-when it's not your kid, not your partner, not you at 3am 
-making a decision you can't take back.</p>
-
-<p>The system will frustrate you. It will repeat itself. It 
-will hand you paperwork when you need a bed, and a bed when 
-you need skills, and skills when you need someone to just 
-show up.</p>
-
-<p>But here's what I know after two decades — street living, 
-federal and provincial time, psychosis, seizures on rooftops, 
-the whole ride: it only needs to work once.</p>
-
-<p>So if you're reading this for someone you love — don't give 
-up on the click. Push for better information. Ask where the 
-money goes. Demand more than a waiting list and a pamphlet.</p>
-
-<p>And if you're reading this because it's you — I've got a 
-son now. A job. I taught myself to type, learned hardware and 
-software, built something from nothing. The system didn't do 
-that. I did. But someone showed me it was possible.</p>
-
-<p>That's all this is.</p>
-
-<!-- BACK LINK -->
-<div class="back-link">
-    <a href="../writing.html">← Back to all writing</a>
-</div>
-
-<div class="divider"></div>
-
-<!-- FOOTER -->
 <footer>
     <p>Josh Pearsall · Recovery Roofer · Ottawa &nbsp;|&nbsp; <a href="../connect.html">Get in touch</a></p>
 </footer>
 
-<!-- FLOATING CRISIS BTN -->
 <a href="../resources.html" class="floating-cta">
-    <span>🚨</span> Need Help Now?
+    <span>🚨</span> Need Help Right Now?
 </a>
 
 </body>
