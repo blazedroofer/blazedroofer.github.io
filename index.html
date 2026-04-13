@@ -175,7 +175,7 @@
             color: #555;
         }
 
-        /* Article card grid with logo thumbnails */
+        /* Article card grid */
         .article-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -249,55 +249,17 @@
         footer a:hover {
             text-decoration: underline;
         }
+
         @media (max-width: 600px) {
-
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-        margin-top: 40px;
-    }
-
-    .hero-photo {
-        width: 120px;
-        height: 120px;
-    }
-
-    .hero-text h2 {
-        font-size: 1.4em;
-    }
-
-    .hero-text p {
-        font-size: 0.95em;
-    }
-
-    .featured-project {
-        padding: 22px 18px;
-        margin: 30px auto;
-    }
-
-    .three-cards {
-        grid-template-columns: 1fr;
-    }
-
-    .featured-article {
-        grid-template-columns: 1fr;
-    }
-
-    .feat-thumb {
-        height: 100px;
-    }
-
-    .article-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 400px) {
-    .article-grid {
-        grid-template-columns: 1fr;
-    }
-}
+            .hero { flex-direction: column; text-align: center; gap: 20px; margin-top: 40px; }
+            .hero-photo { width: 120px; height: 120px; }
+            .featured-article { grid-template-columns: 1fr; }
+            .feat-thumb { height: 100px; }
+            .article-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 400px) {
+            .article-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -361,21 +323,32 @@
 <div class="latest-writing">
     <h2>Latest Writing</h2>
 
-    <!-- Big Featured Thumbnail - Most Recent -->
-    <a href="articles/garden-path-consent.html" class="featured-article">
+    <!-- NEW FEATURED ARTICLE (Bumped to top) -->
+    <a href="articles/parole-rebellion-protocol.html" class="featured-article">
         <div class="feat-thumb">
             <img src="assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" style="height: 68px; opacity: 0.95;">
         </div>
         <div class="feat-body">
-            <span class="feat-tag" style="background:rgba(77,166,255,0.15); color:#4da6ff;">System & Policy</span>
-            <p class="feat-title">When Poly-Dope Withdrawal Breaks Informed Consent</p>
-            <p class="feat-desc">What happens when safer supply meets a drug it wasn't built for.</p>
-            <div class="feat-meta">April 2026 • 7 min read</div>
+            <span class="feat-tag" style="background:rgba(40,160,80,0.15); color:#3cbe64;">Practical Guides</span>
+            <p class="feat-title">When You Want to Challenge Everything: The Parole Rebellion Protocol I Built</p>
+            <p class="feat-desc">Day 1 on parole my brain screamed “I could disappear right now.” Here’s the exact 5-step protocol I used when every part of me wanted to run or push back.</p>
+            <div class="feat-meta">April 2026 • 15 min read</div>
         </div>
     </a>
 
-    <!-- Card Grid with bigger logo thumbnails -->
+    <!-- Rest of the articles (bumped down) -->
     <div class="article-grid">
+        <a href="articles/garden-path-consent.html" class="article-card">
+            <div class="card-thumb">
+                <img src="assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer">
+            </div>
+            <div class="card-body">
+                <p class="card-title">When Poly-Dope Withdrawal Breaks Informed Consent</p>
+                <p class="card-desc">What happens when safer supply meets a drug it wasn't built for.</p>
+                <div class="card-meta">April 2026 • 7 min read</div>
+            </div>
+        </a>
+
         <a href="articles/the-lifelong-contract.html" class="article-card">
             <div class="card-thumb">
                 <img src="assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer">
@@ -439,17 +412,6 @@
                 <p class="card-title">Life With a Record in Canada</p>
                 <p class="card-desc">How a criminal record locks the cycle in, and what perspective actually means after prison.</p>
                 <div class="card-meta">March 2026 • 9 min read</div>
-            </div>
-        </a>
-
-        <a href="articles/owen-sound-systems.html" class="article-card">
-            <div class="card-thumb">
-                <img src="assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer">
-            </div>
-            <div class="card-body">
-                <p class="card-title">When Small Systems Work</p>
-                <p class="card-desc">What Owen Sound taught me about continuum of care and why smaller can be better.</p>
-                <div class="card-meta">February 2026 • 6 min read</div>
             </div>
         </a>
     </div>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>When You Want to Challenge Everything: The Parole Rebellion Protocol I Built – Recovery Roofer</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <style>
+        body { background-color: #121212; color: #d4d4d4; }
+
+        .article-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 25px 80px;
+        }
+
+        /* All your existing styles remain unchanged */
+        .breadcrumb { margin: 32px 0 28px; font-size: 0.82em; color: #444; }
+        .breadcrumb a { color: #444; text-decoration: none; }
+        .breadcrumb a:hover { color: #00a2ff; }
+        .breadcrumb span { margin: 0 6px; }
+
+        .article-category {
+            display: inline-block;
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 3px 10px; border-radius: 4px;
+            margin-bottom: 14px;
+        }
+        .cat-sp { background: rgba(77,166,255,0.1); color: #4da6ff; }
+        .cat-le { background: rgba(140,80,220,0.1); color: #a070e0; }
+        .cat-pr { background: rgba(40,160,80,0.1); color: #3cbe64; }
+
+        .article-title {
+            font-size: 1.85em;
+            font-weight: 700;
+            color: #ececec;
+            line-height: 1.25;
+            margin: 0 0 16px;
+        }
+        .article-hook {
+            font-size: 1.05em;
+            color: #777;
+            line-height: 1.7;
+            margin: 0 0 22px;
+        }
+
+        .article-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.82em;
+            color: #3d3d3d;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+        .meta-author-photo {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 1px solid #333;
+            margin: 0;
+            flex-shrink: 0;
+        }
+        .meta-dot { color: #2a2a2a; }
+        .read-time-badge {
+            background: #1c1c1c; border: 1px solid #2a2a2a;
+            padding: 2px 9px; border-radius: 10px;
+            color: #484848;
+        }
+
+        .takeaways {
+            background: #161616;
+            border-left: 3px solid #00a2ff;
+            border-radius: 0 10px 10px 0;
+            padding: 16px 20px;
+            margin: 0 0 28px;
+        }
+        .takeaways-label {
+            font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: #00a2ff; font-weight: 700; margin-bottom: 10px;
+        }
+        .takeaways ul { list-style: none; padding: 0; margin: 0; }
+        .takeaways ul li {
+            font-size: 0.9em; color: #c0c0c0;
+            padding: 5px 0 5px 18px;
+            position: relative; line-height: 1.55;
+            border-bottom: 1px solid #1f1f1f;
+        }
+        .takeaways ul li:last-child { border-bottom: none; }
+        .takeaways ul li::before {
+            content: "";
+            position: absolute; left: 0; top: 12px;
+            width: 5px; height: 5px;
+            border-radius: 50%; background: #00a2ff;
+        }
+
+        .article-body h2 {
+            color: #00a2ff; font-size: 1.2em; font-weight: 700;
+            margin: 44px 0 14px; padding-bottom: 8px;
+            border-bottom: 1px solid #1e1e1e;
+        }
+        .article-body h3 {
+            color: #bbb; font-size: 1.0em; font-weight: 700;
+            margin: 28px 0 10px;
+        }
+        .article-body p {
+            font-size: 0.97em; line-height: 1.8;
+            color: #b8b8b8; margin-bottom: 18px; max-width: 660px;
+        }
+        .article-body p strong { color: #ddd; font-weight: 700; }
+
+        .pull-quote {
+            font-size: 1.18em; font-weight: 700;
+            color: #e0e0e0;
+            border-left: 3px solid #00a2ff;
+            padding: 12px 20px;
+            margin: 32px 0;
+            line-height: 1.5;
+            font-style: italic;
+            background: #161616;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-body ul, .article-body ol {
+            padding-left: 0; list-style: none; margin: 0 0 22px;
+        }
+        .article-body ul li, .article-body ol li {
+            font-size: 0.93em; color: #aaa;
+            padding: 6px 0 6px 22px;
+            position: relative; line-height: 1.6;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .article-body ul li:last-child,
+        .article-body ol li:last-child { border-bottom: none; }
+        .article-body ul li::before {
+            content: ""; position: absolute; left: 0; top: 13px;
+            width: 5px; height: 5px; border-radius: 50%; background: #00a2ff;
+        }
+        .article-body ol { counter-reset: ol-counter; }
+        .article-body ol li { counter-increment: ol-counter; }
+        .article-body ol li::before {
+            content: counter(ol-counter);
+            position: absolute; left: 0; top: 6px;
+            font-size: 10px; color: #00a2ff; font-weight: 700;
+            background: #1a1a1a; border-radius: 3px;
+            width: 16px; height: 16px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .art-divider { height: 1px; background: #1e1e1e; margin: 36px 0; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="nav-top">
+            <a href="../index.html">
+                <img src="../assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo">
+            </a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-btn">Home</a>
+                <a href="../story.html" class="nav-btn">My Story</a>
+                <a href="../continuum.html" class="nav-btn">Continuum of Care</a>
+                <a href="../resources.html" class="nav-btn">Resources</a>
+                <a href="../writing.html" class="nav-btn active">Writing</a>
+                <a href="../connect.html" class="nav-btn">Connect</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="article-wrap">
+
+    <div class="breadcrumb">
+        <a href="../writing.html">← Writing</a>
+        <span>/</span>
+        <span>Practical Guides</span>
+    </div>
+
+    <span class="article-category cat-pr">Practical Guides</span>
+
+    <h1 class="article-title">
+        When You Want to Challenge Everything: The Parole Rebellion Protocol I Built
+    </h1>
+
+    <p class="article-hook">
+        Day 1 on parole my brain screamed “I could disappear right now.”<br><br>
+        Everyone told me parole was a set-up. I believed them — until I lived it. 
+        Here’s the exact 5-step protocol I built when every part of me wanted to run or push back, 
+        and how I turned mandatory structure into something that actually helped my recovery.
+    </p>
+
+    <div class="article-meta-row">
+        <img src="../assets/img/5037.jpg" alt="Josh Pearsall" class="meta-author-photo">
+        <span style="color:#666;">Josh Pearsall</span>
+        <span class="meta-dot">·</span>
+        <span>April 2026</span>
+        <span class="meta-dot">·</span>
+        <span class="read-time-badge">15 min read</span>
+    </div>
+
+    <!-- Key Takeaways -->
+    <div class="takeaways">
+        <div class="takeaways-label">Here's what matters most</div>
+        <ul>
+            <li>The strongest rebellion urge usually hits when you feel zero control — delay the decision instead of fighting it.</li>
+            <li>Parole isn’t the enemy most people say it is — it actually gives stability, lower bills, and built-in accountability.</li>
+            <li>Compliance doesn’t mean being a rat — it can be your choice when you reframe the structure as something you’re using for now.</li>
+            <li>The hardest part isn’t the rules — it’s the relationship with yourself once the external structure disappears.</li>
+        </ul>
+    </div>
+
+    <div class="article-body">
+
+        <h2 id="section-1">The Fantasy vs Reality Gap</h2>
+        <p>While you’re doing time, it’s easy to build the perfect plan. No real constraints, no messy emotions. Gym every day, good job, time with my kid — everything lined up clean.</p>
+        <p><strong>It rarely goes that way once you’re out. At least it didn’t for me.</strong></p>
+
+        <p>I arrived at Maison Decision House in Ottawa late afternoon with nothing — no phone, no ID, barely any clothes. I’d just come from the streets and shelters. My parents dropped off basics the next week and I felt even again.</p>
+
+        <p>First night in the old neighborhood where I used, the whisper started: “I kind of miss the lifestyle… worst case I get caught and go back.” I made the tough-guy deal with myself: stay a day or two, then bounce if I wanted.</p>
+
+        <div class="pull-quote">
+            “Always the tough guy making deals. In this case the deal I made was stay a day or two and if I wanted to leave I would.”
+        </div>
+
+        <h2 id="section-2">The Parole Rebellion Protocol</h2>
+        <p>The biggest thing I had to figure out wasn’t the curfews or check-ins. It was how to handle the part of me that wanted to challenge everything or just disappear.</p>
+        <p>Here’s the exact 5-step protocol I built. It’s built around one core idea: <strong>delay the rebellion</strong>. Don’t fight the urge head-on. Delay the decision so it feels like it’s still your choice — you’re staying because <em>you</em> want to.</p>
+
+        <ol>
+            <li><strong>Name the Rebellion Impulse Immediately (60-Second Pause)</strong><br>The second the “fuck this, I’m out” feeling hits, name it. “This is the urge to bolt talking. I’ll stay a couple days and then decide if I really want to leave.”</li>
+            <li><strong>Separate the System from the Enemy</strong><br>Parole isn’t a personal war. It’s temporary rules. Remind yourself what the system is actually providing right now.</li>
+            <li><strong>Convert Mandatory Rules into Recovery Anchors — On Your Terms</strong><br>Check-ins became my weekly review. Curfews kept me out of old spots. I was choosing to use the structure while it served me.</li>
+            <li><strong>De-escalation Sequence for Near-Violations (Delay the Decision)</strong><br>Pause → Ask “If I delay 24 hours, do I still want to burn it down?” → Take the smallest compliant action instead.</li>
+            <li><strong>Redirect the Challenger Energy</strong><br>Use that “I don’t like being told what to do” fire to build your own systems instead of fighting theirs.</li>
+        </ol>
+
+        <h2 id="section-3">Why Parole Isn’t Actually the Enemy</h2>
+        <p>When you actually think about what parole does, it’s not the trap everyone warns you about.</p>
+        <p>It gives you a stable pathway, continuity, mandatory check-ins, lower bills, and a roof without having to figure everything out from zero.</p>
+        <p><strong>I actually enjoyed parole.</strong> At one point I asked to stay another six months. They told me no — they needed the bed for someone else. I had money saved and I was scared as hell to leave, but it wasn’t realistic to stay forever. You can’t live in that bubble indefinitely.</p>
+        <p>The funny part? My life now doesn’t feel that much different from parole in the ways that actually mattered. The discipline and responsibility stuck with me.</p>
+
+        <h2 id="section-4">Failure Modes & What Still Sucks</h2>
+        <p>Even with the protocol, transitions were brutal. The biggest struggle wasn’t the structure — it was the relationship with myself. My old survival software (distrust, stay small, create carnage) kept trying to boot back up.</p>
+        <p>The real test came when parole ended and the external rules disappeared. That’s when I had to carry the discipline myself. The life I wanted showed up through responsibility — the one thing I had never really tried before.</p>
+
+        <div class="art-divider"></div>
+
+        <h2 id="section-5">One-Page Quick Reference Template</h2>
+        <p><strong>Parole Rebellion Protocol – Use When the Urge Hits</strong></p>
+        <ol>
+            <li>Name it: “This is the rebellion urge. I’ll decide in 24 hours if I still want to burn it down.”</li>
+            <li>Separate system from enemy.</li>
+            <li>Choose one anchor: “I’m using this rule for now.”</li>
+            <li>Delay & take smallest compliant action.</li>
+            <li>Redirect the energy into building my own system.</li>
+        </ol>
+        <p><strong>Reminder:</strong> You’re not submitting. You’re choosing to stay while it serves you.</p>
+
+    </div>
+
+    <!-- Bottom Takeaways -->
+    <div class="takeaways-bottom takeaways">
+        <div class="takeaways-label">The bottom line</div>
+        <ul>
+            <li>Delay the rebellion instead of fighting it — make it feel like your choice.</li>
+            <li>Parole gave me more stability than I expected. The hardest part was learning to carry the responsibility myself.</li>
+            <li>Compliance isn’t weakness when you reframe it as something you’re choosing for now.</li>
+        </ul>
+    </div>
+
+    <!-- Related Articles (update links as needed) -->
+    <div class="related-section">
+        <div class="related-label">Read next</div>
+        <div class="related-grid">
+            <a href="LINK-TO-OTHER-ARTICLE.html" class="related-card">
+                <p>Another Practical System You Might Need</p>
+                <span>9 min read · Practical Guides</span>
+            </a>
+            <a href="LINK-TO-OTHER-ARTICLE.html" class="related-card">
+                <p>My Story: From Streets to Long-Term Recovery</p>
+                <span>12 min read · Lived Experience</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="bottom-cta">
+        <p>If you're on parole or probation right now and the urge to run or rebel is loud, you're not alone.</p>
+        <a href="../resources.html">Find Support Resources →</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>Josh Pearsall · Recovery Roofer · Ottawa &nbsp;|&nbsp; <a href="../connect.html">Get in touch</a></p>
+</footer>
+
+</body>
+</html>
