@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Drug Toxicity, Environment & Policy Gap | Recovery Roofer</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <style>
+        body { background-color: #121212; color: #d4d4d4; }
+
+        .article-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 25px 80px;
+        }
+
+        /* ── Breadcrumb ── */
+        .breadcrumb {
+            margin: 32px 0 28px;
+            font-size: 0.82em;
+            color: #444;
+        }
+        .breadcrumb a { color: #444; text-decoration: none; }
+        .breadcrumb a:hover { color: #00a2ff; }
+        .breadcrumb span { margin: 0 6px; }
+
+        /* ── Category tag ── */
+        .article-category {
+            display: inline-block;
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 3px 10px; border-radius: 4px;
+            margin-bottom: 14px;
+        }
+        .cat-sp { background: rgba(77,166,255,0.1); color: #4da6ff; }
+        .cat-le { background: rgba(140,80,220,0.1); color: #a070e0; }
+        .cat-pr { background: rgba(40,160,80,0.1); color: #3cbe64; }
+        .cat-ix { background: rgba(200,140,20,0.1); color: #dca028; }
+
+        /* ── Title + hook ── */
+        .article-title {
+            font-size: 1.85em;
+            font-weight: 700;
+            color: #ececec;
+            line-height: 1.25;
+            margin: 0 0 16px;
+        }
+        .article-hook {
+            font-size: 1.05em;
+            color: #777;
+            line-height: 1.7;
+            margin: 0 0 22px;
+        }
+
+        /* ── Meta row with author photo ── */
+        .article-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.82em;
+            color: #3d3d3d;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+        .meta-author-photo {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 1px solid #333;
+            margin: 0;
+            flex-shrink: 0;
+        }
+        .meta-dot { color: #2a2a2a; }
+        .read-time-badge {
+            background: #1c1c1c; border: 1px solid #2a2a2a;
+            padding: 2px 9px; border-radius: 10px;
+            color: #484848;
+        }
+
+        /* ── Key Takeaways box ── */
+        .takeaways {
+            background: #161616;
+            border-left: 3px solid #00a2ff;
+            border-radius: 0 10px 10px 0;
+            padding: 16px 20px;
+            margin: 0 0 28px;
+        }
+        .takeaways-label {
+            font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: #00a2ff; font-weight: 700; margin-bottom: 10px;
+        }
+        .takeaways ul { list-style: none; padding: 0; margin: 0; }
+        .takeaways ul li {
+            font-size: 0.9em; color: #c0c0c0;
+            padding: 5px 0 5px 18px;
+            position: relative; line-height: 1.55;
+            border-bottom: 1px solid #1f1f1f;
+        }
+        .takeaways ul li:last-child { border-bottom: none; }
+        .takeaways ul li::before {
+            content: "";
+            position: absolute; left: 0; top: 12px;
+            width: 5px; height: 5px;
+            border-radius: 50%; background: #00a2ff;
+        }
+
+        /* ── Video embed (optional) ── */
+        .video-embed {
+            background: #161616; border: 1px solid #222;
+            border-radius: 10px; padding: 20px;
+            margin: 0 0 28px;
+            display: flex; align-items: center; gap: 16px;
+        }
+        .play-btn {
+            width: 48px; height: 48px; border-radius: 50%;
+            background: #00a2ff;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; cursor: pointer;
+        }
+        .play-btn svg { margin-left: 3px; }
+        .video-info p { font-size: 0.9em; font-weight: 600; color: #ddd; margin: 0 0 3px; }
+        .video-info span { font-size: 0.78em; color: #555; }
+
+        /* ── TOC ── */
+        .toc {
+            background: #161616; border: 1px solid #1e1e1e;
+            border-radius: 10px; padding: 16px 20px;
+            margin: 0 0 32px;
+        }
+        .toc-label {
+            font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: #3a3a3a; font-weight: 700; margin-bottom: 12px;
+        }
+        .toc ol { list-style: none; padding: 0; margin: 0; }
+        .toc ol li {
+            display: flex; align-items: flex-start; gap: 10px;
+            padding: 5px 0; font-size: 0.85em;
+            border-bottom: 1px solid #1e1e1e;
+        }
+        .toc ol li:last-child { border-bottom: none; }
+        .toc-num {
+            font-size: 9px; color: #333;
+            flex-shrink: 0; margin-top: 3px; min-width: 16px;
+        }
+        .toc ol li a { color: #5a5a5a; text-decoration: none; line-height: 1.45; }
+        .toc ol li a:hover { color: #00a2ff; }
+
+        /* ── Article body ── */
+        .article-body h2 {
+            color: #00a2ff; font-size: 1.2em; font-weight: 700;
+            margin: 44px 0 14px; padding-bottom: 8px;
+            border-bottom: 1px solid #1e1e1e;
+        }
+        .article-body h3 {
+            color: #bbb; font-size: 1.0em; font-weight: 700;
+            margin: 28px 0 10px;
+        }
+        .article-body p {
+            font-size: 0.97em; line-height: 1.8;
+            color: #b8b8b8; margin-bottom: 18px; max-width: 660px;
+        }
+        .article-body p strong { color: #ddd; font-weight: 700; }
+
+        /* ── Pull quote ── */
+        .pull-quote {
+            font-size: 1.18em; font-weight: 700;
+            color: #e0e0e0;
+            border-left: 3px solid #00a2ff;
+            padding: 12px 20px;
+            margin: 32px 0;
+            line-height: 1.5;
+            font-style: italic;
+            background: #161616;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* ── Lists ── */
+        .article-body ul, .article-body ol {
+            padding-left: 0; list-style: none; margin: 0 0 22px;
+        }
+        .article-body ul li, .article-body ol li {
+            font-size: 0.93em; color: #aaa;
+            padding: 6px 0 6px 22px;
+            position: relative; line-height: 1.6;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .article-body ul li:last-child,
+        .article-body ol li:last-child { border-bottom: none; }
+        .article-body ul li::before {
+            content: ""; position: absolute; left: 0; top: 13px;
+            width: 5px; height: 5px; border-radius: 50%; background: #00a2ff;
+        }
+        .article-body ol { counter-reset: ol-counter; }
+        .article-body ol li { counter-increment: ol-counter; }
+        .article-body ol li::before {
+            content: counter(ol-counter);
+            position: absolute; left: 0; top: 6px;
+            font-size: 10px; color: #00a2ff; font-weight: 700;
+            background: #1a1a1a; border-radius: 3px;
+            width: 16px; height: 16px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        /* ── Myth/Reality ── */
+        .myth-reality {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 10px; margin: 24px 0;
+        }
+        .myth-box, .reality-box { border-radius: 8px; padding: 12px 14px; }
+        .myth-box { background: rgba(230,57,57,0.07); border: 1px solid rgba(230,57,57,0.15); }
+        .reality-box { background: rgba(40,160,80,0.07); border: 1px solid rgba(40,160,80,0.15); }
+        .myth-box .box-label { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: #c04040; margin-bottom: 6px; font-weight: 700; }
+        .reality-box .box-label { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: #3cbe64; margin-bottom: 6px; font-weight: 700; }
+        .myth-box p { font-size: 0.82em; color: #b06060; margin: 0; line-height: 1.5; }
+        .reality-box p { font-size: 0.82em; color: #60a870; margin: 0; line-height: 1.5; }
+
+        /* ── Divider ── */
+        .art-divider { height: 1px; background: #1e1e1e; margin: 36px 0; }
+
+        /* ── Bottom takeaways ── */
+        .takeaways-bottom {
+            background: #131a13;
+            border-left: 3px solid #3cbe64;
+            border-radius: 0 10px 10px 0;
+            padding: 16px 20px;
+            margin: 36px 0 32px;
+        }
+        .takeaways-bottom .takeaways-label { color: #3cbe64; }
+        .takeaways-bottom ul li::before { background: #3cbe64; }
+        .takeaways-bottom ul li { border-bottom-color: #1a201a; }
+
+        /* ── Related articles ── */
+        .related-section { margin: 36px 0 0; }
+        .related-label {
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: #444; font-weight: 700; margin-bottom: 14px;
+        }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .related-card {
+            background: #181818; border: 1px solid #222;
+            border-radius: 8px; padding: 12px 14px;
+            text-decoration: none; transition: border-color 0.2s ease;
+        }
+        .related-card:hover { border-color: #00a2ff; }
+        .related-card p { font-size: 0.85em; font-weight: 600; color: #bbb; margin: 0 0 4px; line-height: 1.35; }
+        .related-card span { font-size: 0.75em; color: #444; }
+        .related-card:hover p { color: #00a2ff; }
+
+        /* ── Bottom CTA ── */
+        .bottom-cta {
+            margin-top: 36px; background: #111a24;
+            border: 1px solid rgba(0,162,255,0.2);
+            border-radius: 10px; padding: 20px 22px; text-align: center;
+        }
+        .bottom-cta p { font-size: 0.88em; color: #888; margin: 0 0 12px; }
+        .bottom-cta a {
+            display: inline-block; background: #00a2ff; color: #fff;
+            font-weight: 700; font-size: 0.88em;
+            padding: 10px 24px; border-radius: 30px; text-decoration: none;
+        }
+        .bottom-cta a:hover { background: #0088dd; }
+
+        @media (max-width: 600px) {
+            .article-title { font-size: 1.5em; }
+            .myth-reality { grid-template-columns: 1fr; }
+            .related-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1LXCLXR34X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1LXCLXR34X');
+    </script>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="nav-top">
+            <a href="../index.html">
+                <img src="../assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo">
+            </a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-btn">Home</a>
+                <a href="../story.html" class="nav-btn">My Story</a>
+                <a href="../continuum.html" class="nav-btn">Continuum of Care</a>
+                <a href="../resources.html" class="nav-btn">Resources</a>
+                <a href="../writing.html" class="nav-btn active">Writing</a>
+                <a href="../connect.html" class="nav-btn">Connect</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="article-wrap">
+
+    <!-- ── BREADCRUMB ─────────────────────────────
+         Replace "SECTION NAME" with the real section:
+         System & Policy / Lived Experience / Practical Guides / Interactive
+    ──────────────────────────────────────────── -->
+    <div class="breadcrumb">
+        <a href="../writing.html">← Writing</a>
+        <span>/</span>
+        <span>System & Policy </span>
+    </div>
+
+    <!-- ── CATEGORY TAG ───────────────────────────
+         Swap the class to match the section:
+         cat-sp = System & Policy (blue)
+         cat-le = Lived Experience (purple)
+         cat-pr = Practical Guides (green)
+         cat-ix = Interactive (amber)
+    ──────────────────────────────────────────── -->
+    <span class="article-category cat-sp">System &amp; Policy</span>
+
+    <!-- ── TITLE ──────────────────────────────── -->
+    <h1 class="article-title">
+    The Drugs Got More Toxic, The Environment Got Harsher, and The Policy Response Got Softer
+</h1>
+
+    <!-- ── HOOK ───────────────────────────────────
+         Line 1: one punchy sentence. Stop scrolling energy.
+         Lines 2-3: 2–3 sentences of context — what happened,
+         what you found, why it matters right now.
+         Example:
+         Ontario spent $3.8 billion on addiction treatment last year.
+         Most of it didn't help people actually recover. Here's exactly
+         where the money went — and who got paid while people stayed sick.
+    ──────────────────────────────────────────── -->
+    <p class="article-hook">
+    The drugs got more toxic, the environment got harsher, and the policy response got softer.<br><br>
+    I’ve lived through Ottawa’s entire opioid shift — from OxyContin to fentanyl to today’s poly-drug supply involving benzos and xylazine. What I’m seeing on the ground now isn’t just addiction; it’s a changing form of medical instability that current systems aren’t designed to handle. That gap is now shaping outcomes more than the drugs themselves.
+</p>
+
+    <!-- ── META ROW ────────────────────────────── -->
+    <div class="article-meta-row">
+        <img src="../assets/img/5037.jpg" alt="Josh Pearsall" class="meta-author-photo">
+        <span style="color:#666;">Josh Pearsall</span>
+        <span class="meta-dot">·</span>
+        <span>April 2026</span>
+        <span class="meta-dot">·</span>
+        <span class="read-time-badge">8 min read</span>
+        <!-- Read time guide: ~200 words/min. 1000w = 5 min, 1600w = 8 min, 2400w = 12 min -->
+    </div>
+
+    <!-- ── KEY TAKEAWAYS (TOP) ─────────────────────
+         Label options (pick one, delete the rest):
+         "Here's what matters most"
+         "The bottom line"
+         "What you'll actually take away"
+         Keep to 3–5 bullets. Specific, not vague.
+    ──────────────────────────────────────────── -->
+   <div class="takeaways">
+    <div class="takeaways-label">Here's what matters most</div>
+    <ul>
+        <li>The drug supply has shifted from single-substance opioid risk to a multi-drug toxic system (fentanyl, benzos, xylazine) that changes behaviour and cognition.</li>
+        <li>What looks like instability or aggression on the street is often medically driven impairment that current systems are not designed to handle.</li>
+        <li>Ontario’s HART Hub model expands access points but lacks sufficient detox capacity, creating a structural gap at the most critical stage of care.</li>
+        <li>Existing frontline institutions are operating at capacity and still doing meaningful work, but they are being asked to manage problems without upstream infrastructure.</li>
+        <li>Recovery outcomes improve when there is immediate structure combined with clinical support timed to the individual’s moment of readiness, not abstract long-term planning.</li>
+    </ul>
+</div>
+
+    <!-- ── VIDEO EMBED (optional) ─────────────────
+         Uncomment when you have a short clip ready.
+         Keep clips 60–90 seconds. Summary of the article.
+    ──────────────────────────────────────────── -->
+    <!--
+    <div class="video-embed">
+        <div class="play-btn">
+            <svg width="14" height="16" viewBox="0 0 14 16" fill="none">
+                <path d="M1 1l12 7L1 15V1z" fill="white"/>
+            </svg>
+        </div>
+        <div class="video-info">
+            <p>90-second summary: [clip title here]</p>
+            <span>Watch before reading, or jump straight in</span>
+        </div>
+    </div>
+    -->
+
+  
+
+    <!-- ══════════════════════════════════════════
+         ARTICLE BODY
+
+         Ground rules:
+         · Paragraphs: 3–4 lines max, then break
+         · H2 every 250–350 words (blue, with underline)
+         · H3 for sub-points within a section (gray)
+         · Bold the single most important sentence per paragraph
+         · Pull quote = the single most powerful line in the piece
+         · Myth/Reality boxes when correcting misconceptions
+         · Numbered lists for steps, timelines, processes
+         · Bullet lists for facts, key points, what worked/didn't
+    ══════════════════════════════════════════ -->
+   <div class="article-body">
+
+    <p>
+        I moved to Ottawa in 2011. Went straight to the Mission, then to the Montreal Road detox, then to a sobriety house. Got kicked out on graduation day — the actual day — before I could move into second stage housing.
+    </p>
+
+    <p>
+        Went back to Guelph. Dealt with court. Did drug treatment court for a while before that fell apart too. At one point I ran from Stonehenge — a treatment centre in rural Ontario — through a cornfield and ten kilometres down Highway 24. After my bid I tried to go to my parents. They said no. Sent me back to Ottawa.
+    </p>
+
+    <p>
+        <strong>I'm telling you this not for sympathy. I'm telling you so you know who's talking.</strong>
+    </p>
+
+    <p>
+        I've been frontline through this whole thing. I was popping OxyContin in high school. I watched the switch from OCs to heroin, from heroin to fentanyl, from fentanyl to whatever's in the supply now. I was there for every new framework, every new doctor, every new medication protocol. I've lived inside this system as it changed shape around me more times than I can count.
+    </p>
+
+    <p>
+        So when I say things have gotten worse, I'm not reading that from a report.
+    </p>
+
+    <div class="art-divider"></div>
+
+    <h2 id="section-1">The Drugs</h2>
+
+    <p>
+        Everyone talks about fentanyl. And yes, fentanyl can kill you — fast, without warning, in doses you can't see or measure. That's real.
+    </p>
+
+    <p>
+        <strong>But in my opinion, fentanyl is not the worst part of what's on the street right now.</strong>
+    </p>
+
+    <div class="pull-quote">
+        Fentanyl is manageable with proper medication assisted treatment. Sublocade works. The withdrawal is brutal but there's a medical path through it.
+    </div>
+
+    <p>
+        What people aren't talking about enough is what the benzos and xylazine are doing to people's cognition. Long term. Quietly. Xylazine — tranq — is a veterinary sedative showing up in the supply whether people know it or not. The street benzos are unregulated, unknown doses, unknown compounds. Unlike fentanyl, there's no reversal agent. There's no clean medical pathway out that we've built real capacity around.
+    </p>
+
+    <p>
+        The cognitive destruction I'm watching happen to people — the confusion, the memory loss, the inability to sequence basic tasks or regulate basic behaviour — that's not just being high. That's damage accumulating. And we're not talking about it seriously because fentanyl gets all the headlines.
+    </p>
+
+    <div class="art-divider"></div>
+
+    <h2 id="section-2">The Environment</h2>
+
+    <p>
+        I drive through Ottawa every day. I work on houses. I see what's happening on the ground.
+    </p>
+
+    <p>
+        <strong>Manners have changed. Community functioning has changed.</strong>
+    </p>
+
+    <p>
+        I was an intense person when I was using — I wanted my dope and I wanted it now — but I was polite. I moved through the world with some basic social awareness still intact. What I'm watching now is different. The aggression, the unpredictability, the inability to read a room or a situation.
+    </p>
+
+    <p>
+        When you're combining fentanyl, xylazine, unregulated benzos, and alcohol in doses nobody measured, you are not just high. You are medically unwell in ways that look like something else from the outside.
+    </p>
+
+    <p>
+        Society has also just gotten harder in general. Post-pandemic, screens, everyone quick to anger and slow to extend basic trust. The street didn't create that, but it absorbs it.
+    </p>
+
+    <p>
+        Both things are true. The environment got harsher and the drugs got more toxic and those two things together are producing something we haven't quite seen before.
+    </p>
+
+    <div class="art-divider"></div>
+
+    <h2 id="section-3">The Policy Response</h2>
+
+    <p>
+        Ontario has been rolling out HART Hubs. Homelessness and Addiction Recovery Treatment Hubs. There are ones operating in Ottawa now — Bells Corners, Somerset West. The province is pushing toward 28 or 29 of them.
+    </p>
+
+    <p>
+        <strong>The language around them is good. Low barrier, trauma informed, integrated care.</strong>
+    </p>
+
+    <p>
+        And I want to be clear about something: the people inside these systems are not the problem. The front line workers, the nurses, the doctors, the NPs, the police officers, the judges, the lawyers — everyone is stretched and trying. The Royal is an excellent facility. The detox on its own is trying as hard as one door can try. The staff at the Mission, the Sal, the Shepherd's basement — they show up every day for people in the hardest moments of their lives.
+    </p>
+
+    <p>
+        But the HART Hubs have no detox.
+    </p>
+
+    <p>
+        That's a structural problem, not a people problem. We are responding to a high-risk medical crisis with low-intensity infrastructure. People combining multiple substances in unregulated doses, withdrawal that can include fatal seizures, cognitive impairment that requires real clinical intervention — and the policy response is navigation hubs and frameworks.
+    </p>
+
+    <p>
+        What ends up happening is predictable. One detox as the starting point. The Royal at the top — excellent when you can access it, but it's the highest level of the system, not the entry point. And a lot of people finding themselves resigned to stabilization in between. The Mission. The Sal. The Shepherd's basement.
+    </p>
+
+    <p>
+        Not because those places aren't trying, but because that's where the current takes you when the real foundation isn't built.
+    </p>
+
+    <p>
+        I understand it on the ground too. People can't use a washroom in my community. Communities are exhausted and stretched and out of patience. But that's exactly the point — we keep managing the surface because we never built the foundation.
+    </p>
+
+    <div class="art-divider"></div>
+
+    <h2 id="section-4">What Actually Worked</h2>
+
+    <p>
+        I used jail. I'm going to say that plainly.
+    </p>
+
+    <p>
+        <strong>When I was on recognizance or probation and I couldn't stop using even though I wasn't supposed to be — and I wanted to stop — I would go talk to the police.</strong>
+    </p>
+
+    <p>
+        Tell them what was happening. Tell them I was dependent, that I was on conditions, that I couldn't get clean on my own right now.
+    </p>
+
+    <p>
+        Yeah, you get charged. That's how it works.
+    </p>
+
+    <p>
+        But judges aren't dumb. When you're the one reaching out, admitting it, showing the effort even while you're slipping, they see that. They see the difference between someone gaming the system and someone who is sick and fighting.
+    </p>
+
+    <p>
+        Inside there are 24/7 doctors and nurses. They do walks. If you're really sick you go to the hole and they check you out in admission and discharge. That sounds extreme. It is extreme. But it's fast, and it acts when I want to act, and sometimes that window is everything.
+    </p>
+
+    <div class="pull-quote">
+        Honest effort meeting real support. That's the spine of it. Not effort alone. Not support alone.
+    </div>
+
+    <div class="art-divider"></div>
+
+    <h2 id="section-5">What We Actually Need</h2>
+
+    <p>
+        We have a building code in this country. If you want to put up a structure it has to meet standards — graded ground, solid foundation, proper load bearing.
+    </p>
+
+    <p>
+        You cannot build recovery on unstable ground.
+    </p>
+
+    <p>
+        The mission, the stabilization bed, the framework with no detox attached — they're sand. And we keep building on them and wondering why nothing holds.
+    </p>
+
+    <p>
+        What we actually need is graded, solid ground. Detox beds built for the complexity of what's on the street right now — not the heroin era, the xylazine and benzo and fentanyl combined era. Medically staffed. Government resourced. Actual housing that gets constructed, not navigated toward. Paths to work and purpose as part of recovery.
+    </p>
+
+    <p>
+        Swinging a hammer every day saved my life as much as anything clinical did.
+    </p>
+
+    <p>
+        And honest conversation about what's actually in the supply. Not just fentanyl awareness. The cognitive piece. The xylazine piece. The unregulated benzo piece.
+    </p>
+
+    <p>
+        The drugs got more toxic. The environment got harsher. The policy response got softer.
+    </p>
+
+    <p>
+        You can't build on a beach. Start with the ground.
+    </p>
+
+</div>
+
+    <!-- BOTTOM TAKEAWAYS -->
+    <div class="takeaways-bottom takeaways">
+        <div class="takeaways-label">The bottom line</div>
+        <ul>
+            <li>The street supply is now causing serious long-term cognitive damage</li>
+            <li>We need real detox infrastructure, not softer frameworks</li>
+            <li>Recovery requires solid ground: honest effort + real medical support</li>
+        </ul>
+    </div>
+
+   
+    <!-- BOTTOM CTA -->
+    <div class="bottom-cta">
+        <p>If you're trying to navigate the system right now, start here.</p>
+        <a href="../resources.html">Find Support Resources →</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>Josh Pearsall · Recovery Roofer · Ottawa &nbsp;|&nbsp; <a href="../connect.html">Get in touch</a></p>
+</footer>
+
+<a href="../resources.html" class="floating-cta">
+    <span>🚨</span> Need Help Right Now?
+</a>
+
+</body>
+</html>
