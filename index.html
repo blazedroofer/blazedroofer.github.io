@@ -16,13 +16,14 @@
 
         /* Hero */
         .hero {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            max-width: 820px;
-            margin: 60px auto 0;
-            padding: 0 25px;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    max-width: 820px;
+    margin: 60px auto 0;
+    padding: 0 25px;
+}
         .hero-photo {
             width: 160px;
             height: 160px;
@@ -43,10 +44,22 @@
             line-height: 1.65;
             margin-bottom: 20px;
         }
-        .hero-text a {
-            color: #00a2ff;
-            font-weight: 600;
-        }
+        .hero-text {
+    flex: 1;
+    max-width: 520px;
+}
+.hero-text h2 {
+    color: #ffffff;
+    font-size: 1.75em;
+    margin-bottom: 16px;
+}
+
+.hero-text p {
+    color: #cccccc;
+    font-size: 1.05em;
+    line-height: 1.65;
+    margin-bottom: 18px;
+}
 
         /* Featured Project */
         .featured-project {
@@ -232,7 +245,7 @@
             font-size: 0.78em;
             color: #555;
         }
-
+      
         /* Footer */
         footer {
             max-width: 820px;
@@ -290,12 +303,49 @@
 <!-- HERO -->
 <div class="hero">
     <img class="hero-photo" src="assets/img/5037.jpg" alt="Josh Pearsall">
+
     <div class="hero-text">
         <h2>Josh Pearsall</h2>
-        <p>I got clean, kept roofing, and started writing about what the system actually looks like from inside it. No clinical distance. No stock photos. Just what I've actually seen.</p>
-        <a href="story.html">Read my full story →</a>
+
+        <p>
+            I got clean, kept roofing, and started writing about what the system actually looks like from inside it.
+        </p>
+
+        <div style="margin-top:12px;">
+            <a href="continuum.html" style="display:block; font-size:1.05em; color:#00a2ff; font-weight:600;">
+                Start with the system map →
+            </a>
+
+            <a href="story.html" style="display:block; margin-top:6px; color:#ccc;">
+                My story (how I got here) →
+            </a>
+        </div>
+
+        <p style="color:#777; font-size:0.92em; margin-top:12px; line-height:1.5;">
+            System breakdowns, recovery pathways, and real-world policy gaps in Ontario.
+        </p>
     </div>
 </div>
+
+<!-- THREE CARDS -->
+<div class="three-cards">
+    <div class="card">
+        <h3>My Story</h3>
+        <p>From a fight at 18 to federal time to Ottawa. How I got clean, stayed working, and what I learned the hard way.</p>
+        <a href="story.html">Read more →</a>
+    </div>
+    <div class="card">
+        <h3>Continuum of Care</h3>
+        <p>A clear map of how the recovery system actually works in Ontario — and where it breaks down.</p>
+        <a href="continuum.html">See the map →</a>
+    </div>
+    <div class="card">
+        <h3>Writing</h3>
+        <p>Raw observations about addiction, recovery, safer supply, housing, and the gaps nobody talks about.</p>
+        <a href="writing.html">Read the articles →</a>
+    </div>
+</div>
+
 <!-- NEW SERIES - EASY TO SPOT -->
 <div style="max-width: 820px; margin: 55px auto 0; padding: 0 25px;">
     <div style="background: #1a1a1a; border-left: 6px solid #00a2ff; border-radius: 12px; padding: 34px 32px;">
@@ -334,26 +384,6 @@
                 Start the full series here →
             </a>
         </p>
-    </div>
-</div>
-
-
-<!-- THREE CARDS -->
-<div class="three-cards">
-    <div class="card">
-        <h3>My Story</h3>
-        <p>From a fight at 18 to federal time to Ottawa. How I got clean, stayed working, and what I learned the hard way.</p>
-        <a href="story.html">Read more →</a>
-    </div>
-    <div class="card">
-        <h3>Continuum of Care</h3>
-        <p>A clear map of how the recovery system actually works in Ontario — and where it breaks down.</p>
-        <a href="continuum.html">See the map →</a>
-    </div>
-    <div class="card">
-        <h3>Writing</h3>
-        <p>Raw observations about addiction, recovery, safer supply, housing, and the gaps nobody talks about.</p>
-        <a href="writing.html">Read the articles →</a>
     </div>
 </div>
 
