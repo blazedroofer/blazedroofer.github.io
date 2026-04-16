@@ -15,69 +15,15 @@
         h1,h2,h3,p { margin: 0; padding: 0; }
         a { text-decoration: none; }
 
-        /* ── NAV ── */
-        nav {
-            background: #111;
-            border-bottom: 1px solid #1e1e1e;
-            padding: 16px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .nav-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-            flex-wrap: wrap;
-        }
-        .nav-logo-wrap {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-shrink: 0;
-        }
-        .nav-logo-wrap img {
-            height: 44px;
-            width: auto;
-            display: block;
-        }
-        .nav-links {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        .nav-btn {
-            background: transparent;
-            color: #888;
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 0.88rem;
-            border: 1px solid #222;
-            letter-spacing: 0.5px;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-        .nav-btn:hover, .nav-btn.active {
-            background: #00a2ff;
-            color: #fff;
-            border-color: #00a2ff;
-        }
-
-        /* ── HERO ── */
+        /* ── HERO (contains nav) ── */
         .hero {
             background: #111;
-            padding: 72px 24px 60px;
+            padding: 0 0 64px;
             text-align: center;
             border-bottom: 1px solid #1a1a1a;
             position: relative;
             overflow: hidden;
         }
-        /* Radiating chalk lines from peak */
         .hero-bg {
             position: absolute;
             top: 0; left: 0;
@@ -85,6 +31,60 @@
             pointer-events: none;
             opacity: 0.03;
         }
+
+        /* ── NAV inside hero ── */
+        .hero-nav {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px 36px;
+    border-bottom: 1px solid #1a1a1a;
+    margin-bottom: 52px;
+
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+        .nav-logo-wrap img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+        .nav-links {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .nav-btn {
+            background: transparent;
+            color: #555;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-family: Arial, sans-serif;
+            font-weight: 700;
+            font-size: 0.82rem;
+            border: 1px solid #222;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .nav-btn:hover {
+            background: #1a1a1a;
+            color: #aaa;
+            border-color: #333;
+        }
+        .nav-btn.active {
+            background: #00a2ff;
+            color: #fff;
+            border-color: #00a2ff;
+        }
+
         .hero-eyebrow {
             font-family: Arial, sans-serif;
             font-size: 11px;
@@ -93,6 +93,7 @@
             color: #00a2ff;
             text-transform: uppercase;
             margin-bottom: 28px;
+            position: relative;
         }
         .hero-roof {
             margin: 0 auto 32px;
@@ -186,31 +187,78 @@
         /* ── INTRO BLOCK ── */
         .intro-block {
             padding: 60px 0 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-items: start;
         }
-        .intro-block h2 {
+        .intro-bio {
+            background: #161616;
+            border-radius: 10px;
+            border-left: 4px solid #00a2ff;
+            padding: 28px 26px;
+        }
+        .intro-bio h2 {
             font-family: 'Arial Black', sans-serif;
-            font-size: 1.1em;
-            color: #f0ece0;
+            font-size: 0.8em;
+            color: #00a2ff;
             font-weight: 900;
-            margin-bottom: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .intro-bio p {
+            color: #888;
+            font-size: 0.97em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .intro-bio .intro-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9em;
+            font-weight: 700;
+            margin-bottom: 10px;
             letter-spacing: 0.5px;
         }
-        .intro-block p {
-            color: #888;
-            font-size: 1.02em;
+        .intro-bio .intro-links a.primary { color: #00a2ff; }
+        .intro-bio .intro-links a.secondary { color: #444; }
+        .intro-bio .intro-links a:hover { color: #00a2ff; }
+        .intro-bio .intro-links { display: flex; flex-direction: column; }
+        .intro-quote {
+            background: #161616;
+            border-radius: 10px;
+            border-left: 4px solid #222;
+            padding: 28px 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .intro-quote blockquote {
+            color: #ccc;
+            font-size: 1.05em;
             line-height: 1.7;
-            max-width: 580px;
-            margin-bottom: 18px;
+            font-style: italic;
+            margin: 0 0 16px;
+            border: none;
+            padding: 0;
         }
-        .intro-links a {
-            display: block;
-            font-size: 1.02em;
-            font-weight: 600;
-            margin-bottom: 8px;
+        .intro-quote blockquote em {
+            color: #00a2ff;
+            font-style: normal;
+            font-weight: 700;
         }
-        .intro-links a.primary { color: #00a2ff; }
-        .intro-links a.secondary { color: #555; }
-        .intro-links a:hover { color: #00a2ff; }
+        .intro-quote cite {
+            color: #444;
+            font-size: 0.82em;
+            font-style: normal;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        @media (max-width: 640px) {
+            .intro-block { grid-template-columns: 1fr; }
+        }
 
         /* ── DIVIDER ── */
         .divider {
@@ -463,9 +511,10 @@
 </head>
 <body>
 
-<!-- ==================== NAV ==================== -->
-<nav>
-    <div class="nav-container">
+<!-- ==================== HERO (nav inside) ==================== -->
+<div class="hero">
+    <!-- Nav bar inside hero -->
+    <div class="hero-nav">
         <div class="nav-logo-wrap">
             <a href="index.html">
                 <img src="assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer">
@@ -480,10 +529,7 @@
             <a href="connect.html" class="nav-btn">Connect</a>
         </div>
     </div>
-</nav>
 
-<!-- ==================== HERO ==================== -->
-<div class="hero">
     <!-- Radiating bg lines -->
     <svg class="hero-bg" viewBox="0 0 900 500" preserveAspectRatio="xMidYMid slice">
         <line x1="450" y1="500" x2="0" y2="0" stroke="#fff" stroke-width="0.5"/>
@@ -543,13 +589,21 @@
 
     <!-- INTRO -->
     <div class="intro-block">
-        <h2>Josh Pearsall</h2>
-        <p>
-            I got clean, kept roofing, and started writing about what the system actually looks like from inside it. System breakdowns, recovery pathways, and the real-world policy gaps nobody talks about in Ontario.
-        </p>
-        <div class="intro-links">
-            <a href="continuum.html" class="primary">Start with the system map →</a>
-            <a href="story.html" class="secondary">My story — how I got here →</a>
+        <div class="intro-bio">
+            <h2>Josh Pearsall</h2>
+            <p>
+                I got clean, kept roofing, and started writing about what the system actually looks like from inside it — recovery pathways, policy gaps, and the stuff nobody talks about in Ontario.
+            </p>
+            <div class="intro-links">
+                <a href="continuum.html" class="primary">Start with the system map →</a>
+                <a href="story.html" class="secondary">My story — how I got here →</a>
+            </div>
+        </div>
+        <div class="intro-quote">
+            <blockquote>
+                "A solid roof is shelter. A solid recovery is the same thing — built <em>piece by piece</em>, nail by nail, day by day."
+            </blockquote>
+            <cite>— Josh Pearsall, Ottawa</cite>
         </div>
     </div>
 
