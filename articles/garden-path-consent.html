@@ -3,59 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Improvements -->
+
     <title>Poly-Dope Withdrawal Is Breaking Informed Consent – A Roofer's View</title>
     <meta name="description" content="When withdrawal from today's toxic poly-drug mix (fentanyl, benzos, xylazine) becomes so severe it destroys a person's ability to give real informed consent. Why old arguments about choice and willpower are falling apart.">
 
-    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
     <style>
-        body { background-color: #121212; color: #d4d4d4; }
+        /* ---------- ARTICLE-SPECIFIC STYLES ---------- */
         .article-wrap { max-width: 720px; margin: 0 auto; padding: 0 25px 80px; }
 
         .breadcrumb { margin: 32px 0 28px; font-size: 0.82em; color: #444; }
-        .breadcrumb a { color: #444; text-decoration: none; }
-        .breadcrumb a:hover { color: #00a2ff; }
+        .breadcrumb a { color: #444; }
+        .breadcrumb a:hover { color: var(--blue); }
         .breadcrumb span { margin: 0 6px; }
 
-        .article-category { display: inline-block; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; margin-bottom: 14px; }
+        .article-category {
+            display: inline-block;
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 3px 10px; border-radius: 4px;
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
         .cat-sp { background: rgba(77,166,255,0.1); color: #4da6ff; }
 
         .article-title { font-size: 1.85em; font-weight: 700; color: #ececec; line-height: 1.25; margin: 0 0 16px; }
         .article-hook { font-size: 1.05em; color: #777; line-height: 1.7; margin: 0 0 22px; }
 
-        .article-meta-row { display: flex; align-items: center; gap: 10px; font-size: 0.82em; color: #3d3d3d; margin-bottom: 28px; flex-wrap: wrap; }
-        .meta-author-photo { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; object-position: center top; border: 1px solid #333; margin: 0; flex-shrink: 0; }
+        .article-meta-row {
+            display: flex; align-items: center; gap: 10px;
+            font-size: 0.82em; color: #3d3d3d;
+            margin-bottom: 28px; flex-wrap: wrap;
+        }
+        .meta-author-photo {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 1px solid #333;
+            flex-shrink: 0;
+        }
         .meta-dot { color: #2a2a2a; }
-        .read-time-badge { background: #1c1c1c; border: 1px solid #2a2a2a; padding: 2px 9px; border-radius: 10px; color: #484848; }
+        .read-time-badge {
+            background: #1c1c1c; border: 1px solid #2a2a2a;
+            padding: 2px 9px; border-radius: 10px;
+            color: #484848;
+        }
 
-        .takeaways { background: #161616; border-left: 3px solid #00a2ff; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 0 0 28px; }
-        .takeaways-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #00a2ff; font-weight: 700; margin-bottom: 10px; }
+        .takeaways {
+            background: var(--surface-2);
+            border-left: 3px solid var(--blue);
+            border-radius: 0 10px 10px 0;
+            padding: 16px 20px;
+            margin: 0 0 28px;
+        }
+        .takeaways-label {
+            font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--blue); font-weight: 700; margin-bottom: 10px;
+        }
         .takeaways ul { list-style: none; padding: 0; margin: 0; }
-        .takeaways ul li { font-size: 0.9em; color: #c0c0c0; padding: 5px 0 5px 18px; position: relative; line-height: 1.55; border-bottom: 1px solid #1f1f1f; }
+        .takeaways ul li {
+            font-size: 0.9em; color: #c0c0c0;
+            padding: 5px 0 5px 18px;
+            position: relative; line-height: 1.55;
+            border-bottom: 1px solid #1f1f1f;
+        }
         .takeaways ul li:last-child { border-bottom: none; }
-        .takeaways ul li::before { content: ""; position: absolute; left: 0; top: 12px; width: 5px; height: 5px; border-radius: 50%; background: #00a2ff; }
+        .takeaways ul li::before {
+            content: "";
+            position: absolute; left: 0; top: 12px;
+            width: 5px; height: 5px;
+            border-radius: 50%; background: var(--blue);
+        }
 
-        .article-body h2 { color: #00a2ff; font-size: 1.25em; font-weight: 700; margin: 44px 0 14px; padding-bottom: 8px; border-bottom: 1px solid #1e1e1e; }
-        .article-body p { font-size: 0.97em; line-height: 1.75; color: #b8b8b8; margin-bottom: 20px; max-width: 660px; }
+        .article-body h2 {
+            color: var(--blue); font-size: 1.25em; font-weight: 700;
+            margin: 44px 0 14px; padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .article-body p {
+            font-size: 0.97em; line-height: 1.75;
+            color: #b8b8b8; margin-bottom: 20px; max-width: 660px;
+        }
         .article-body p strong { color: #ddd; }
+        .article-body a { color: var(--blue); }
+        .article-body a:hover { text-decoration: underline; }
 
-        .pull-quote { font-size: 1.15em; font-weight: 700; color: #e0e0e0; border-left: 3px solid #00a2ff; padding: 14px 22px; margin: 32px 0; line-height: 1.5; font-style: italic; background: #161616; border-radius: 0 8px 8px 0; }
+        .pull-quote {
+            font-size: 1.15em; font-weight: 700;
+            color: #e0e0e0;
+            border-left: 3px solid var(--blue);
+            padding: 14px 22px;
+            margin: 32px 0;
+            line-height: 1.5;
+            font-style: italic;
+            background: var(--surface-2);
+            border-radius: 0 8px 8px 0;
+        }
 
         .article-body ul { padding-left: 0; list-style: none; margin: 0 0 24px; }
-        .article-body ul li { font-size: 0.93em; color: #aaa; padding: 6px 0 6px 22px; position: relative; line-height: 1.6; border-bottom: 1px solid #1a1a1a; }
+        .article-body ul li {
+            font-size: 0.93em; color: #aaa;
+            padding: 6px 0 6px 22px;
+            position: relative; line-height: 1.6;
+            border-bottom: 1px solid #1a1a1a;
+        }
         .article-body ul li:last-child { border-bottom: none; }
-        .article-body ul li::before { content: ""; position: absolute; left: 0; top: 13px; width: 5px; height: 5px; border-radius: 50%; background: #00a2ff; }
+        .article-body ul li::before {
+            content: ""; position: absolute; left: 0; top: 13px;
+            width: 5px; height: 5px; border-radius: 50%; background: var(--blue);
+        }
+
+        .bottom-cta {
+            margin-top: 36px; background: #111a24;
+            border: 1px solid rgba(0,162,255,0.2);
+            border-radius: 10px; padding: 20px 22px; text-align: center;
+        }
+        .bottom-cta p { font-size: 0.88em; color: #888; margin: 0 0 12px; }
+        .bottom-cta a {
+            display: inline-block; background: var(--blue); color: #fff;
+            font-weight: 700; font-size: 0.88em;
+            padding: 10px 24px; border-radius: 30px;
+        }
+        .bottom-cta a:hover { background: var(--blue-hover); }
+
+        @media (max-width: 600px) {
+            .article-title { font-size: 1.5em; }
+        }
     </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1LXCLXR34X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1LXCLXR34X');
+    </script>
 </head>
 <body>
 
-<nav>
+<!-- ============ SHARED NAV ============ -->
+<nav class="site-nav">
     <div class="nav-container">
         <div class="nav-top">
-            <a href="../index.html"><img src="../assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo"></a>
+            <a href="../index.html">
+                <img src="../assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo">
+            </a>
             <div class="nav-links">
                 <a href="../index.html" class="nav-btn">Home</a>
                 <a href="../story.html" class="nav-btn">My Story</a>
@@ -73,7 +169,7 @@
     <div class="breadcrumb">
         <a href="../writing.html">← Writing</a>
         <span>/</span>
-        <span>System & Policy</span>
+        <span>System &amp; Policy</span>
     </div>
 
     <span class="article-category cat-sp">System &amp; Policy</span>
@@ -146,12 +242,19 @@
 
     </div>
 
+    <div class="bottom-cta">
+        <p>If you're trying to navigate the system right now, start here.</p>
+        <a href="../resources.html">Find Support Resources →</a>
+    </div>
+
 </div>
 
-<footer>
-    <p>Josh Pearsall · Recovery Roofer · Ottawa &nbsp;|&nbsp; <a href="../connect.html">Get in touch</a></p>
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+    <p>Josh Pearsall <span class="dot">&bull;</span> Recovery Roofer <span class="dot">&bull;</span> Ottawa, ON &nbsp;|&nbsp; <a href="../connect.html">Get in touch</a></p>
 </footer>
 
+<!-- ============ CRISIS CTA ============ -->
 <a href="../resources.html" class="floating-cta">
     <span>🚨</span> Need Help Right Now?
 </a>
