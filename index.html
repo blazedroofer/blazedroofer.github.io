@@ -5,22 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recovery Roofer | Raw Recovery Stories, Policy Breakdowns & Real Talk from Ottawa</title>
     <meta name="description" content="Josh Pearsall - Clean roofer writing honestly about addiction, recovery systems, housing, safer supply, criminal records, and the gaps in Ontario's treatment system. No fluff. Just real experience.">
-    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <style>
-        /* ── RESET ── */
-        *, *::before, *::after { box-sizing: border-box; }
-        body { background: #111; color: #e0e0e0; font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; }
-        h1,h2,h3,p { margin: 0; padding: 0; }
-        a { text-decoration: none; }
-
-        /* ── HERO (contains nav) ── */
+        /* ---------- HERO (page-specific) ---------- */
         .hero {
-            background: #111;
-            padding: 0 0 64px;
+            padding: 70px 24px 64px;
             text-align: center;
-            border-bottom: 1px solid #1a1a1a;
+            border-bottom: 1px solid var(--border);
             position: relative;
             overflow: hidden;
         }
@@ -31,66 +26,12 @@
             pointer-events: none;
             opacity: 0.03;
         }
-
-        /* ── NAV inside hero ── */
-        .hero-nav {
-    position: relative;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
-    padding: 20px 36px;
-    border-bottom: 1px solid #1a1a1a;
-    margin-bottom: 52px;
-
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-        .nav-logo-wrap img {
-            height: 40px;
-            width: auto;
-            display: block;
-        }
-        .nav-links {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        .nav-btn {
-            background: transparent;
-            color: #555;
-            padding: 8px 18px;
-            border-radius: 30px;
-            font-family: Arial, sans-serif;
-            font-weight: 700;
-            font-size: 0.82rem;
-            border: 1px solid #222;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-        .nav-btn:hover {
-            background: #1a1a1a;
-            color: #aaa;
-            border-color: #333;
-        }
-        .nav-btn.active {
-            background: #00a2ff;
-            color: #fff;
-            border-color: #00a2ff;
-        }
-
         .hero-eyebrow {
             font-family: Arial, sans-serif;
             font-size: 11px;
             font-weight: 700;
             letter-spacing: 5px;
-            color: #00a2ff;
+            color: var(--blue);
             text-transform: uppercase;
             margin-bottom: 28px;
             position: relative;
@@ -109,13 +50,13 @@
             margin-bottom: 4px;
         }
         .hero-title-blue {
-            color: #00a2ff;
+            color: var(--blue);
             display: block;
         }
         .hero-sub {
             font-family: Arial, sans-serif;
             font-size: 15px;
-            color: #666;
+            color: var(--muted);
             max-width: 420px;
             margin: 22px auto 34px;
             line-height: 1.65;
@@ -128,7 +69,7 @@
             flex-wrap: wrap;
         }
         .btn-primary {
-            background: #00a2ff;
+            background: var(--blue);
             color: #fff;
             padding: 13px 30px;
             font-family: 'Arial Black', sans-serif;
@@ -141,7 +82,7 @@
             cursor: pointer;
             transition: background 0.2s;
         }
-        .btn-primary:hover { background: #0090e0; }
+        .btn-primary:hover { background: var(--blue-hover); }
         .btn-ghost {
             background: transparent;
             color: #555;
@@ -158,13 +99,13 @@
         }
         .btn-ghost:hover { border-color: #444; color: #888; }
 
-        /* ── STRIP BAR ── */
+        /* ---------- STRIP BAR ---------- */
         .strip {
             display: flex;
             justify-content: center;
             gap: 48px;
             padding: 22px 24px;
-            border-bottom: 1px solid #1a1a1a;
+            border-bottom: 1px solid var(--border);
             flex-wrap: wrap;
         }
         .strip-item {
@@ -172,19 +113,19 @@
             font-size: 11px;
             font-weight: 700;
             letter-spacing: 3px;
-            color: #333;
+            color: var(--muted-3);
             text-transform: uppercase;
         }
-        .strip-item span { color: #00a2ff; margin-right: 8px; }
+        .strip-item span { color: var(--blue); margin-right: 8px; }
 
-        /* ── MAIN CONTENT ── */
+        /* ---------- MAIN CONTENT WRAP ---------- */
         .content-wrap {
             max-width: 860px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* ── INTRO BLOCK ── */
+        /* ---------- INTRO BLOCK ---------- */
         .intro-block {
             padding: 60px 0 0;
             display: grid;
@@ -193,15 +134,15 @@
             align-items: start;
         }
         .intro-bio {
-            background: #161616;
+            background: var(--surface-2);
             border-radius: 10px;
-            border-left: 4px solid #00a2ff;
+            border-left: 4px solid var(--blue);
             padding: 28px 26px;
         }
         .intro-bio h2 {
             font-family: 'Arial Black', sans-serif;
             font-size: 0.8em;
-            color: #00a2ff;
+            color: var(--blue);
             font-weight: 900;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -213,6 +154,7 @@
             line-height: 1.7;
             margin-bottom: 20px;
         }
+        .intro-bio .intro-links { display: flex; flex-direction: column; }
         .intro-bio .intro-links a {
             display: inline-flex;
             align-items: center;
@@ -222,14 +164,14 @@
             margin-bottom: 10px;
             letter-spacing: 0.5px;
         }
-        .intro-bio .intro-links a.primary { color: #00a2ff; }
-        .intro-bio .intro-links a.secondary { color: #444; }
-        .intro-bio .intro-links a:hover { color: #00a2ff; }
-        .intro-bio .intro-links { display: flex; flex-direction: column; }
+        .intro-bio .intro-links a.primary { color: var(--blue); }
+        .intro-bio .intro-links a.secondary { color: var(--muted-2); }
+        .intro-bio .intro-links a:hover { color: var(--blue); }
+
         .intro-quote {
-            background: #161616;
+            background: var(--surface-2);
             border-radius: 10px;
-            border-left: 4px solid #222;
+            border-left: 4px solid var(--border-soft);
             padding: 28px 26px;
             display: flex;
             flex-direction: column;
@@ -241,16 +183,14 @@
             line-height: 1.7;
             font-style: italic;
             margin: 0 0 16px;
-            border: none;
-            padding: 0;
         }
         .intro-quote blockquote em {
-            color: #00a2ff;
+            color: var(--blue);
             font-style: normal;
             font-weight: 700;
         }
         .intro-quote cite {
-            color: #444;
+            color: var(--muted-2);
             font-size: 0.82em;
             font-style: normal;
             letter-spacing: 2px;
@@ -260,23 +200,23 @@
             .intro-block { grid-template-columns: 1fr; }
         }
 
-        /* ── DIVIDER ── */
+        /* ---------- DIVIDER ---------- */
         .divider {
             height: 1px;
-            background: #1a1a1a;
+            background: var(--border);
             margin: 56px 0;
         }
 
-        /* ── CIA SERIES BLOCK ── */
+        /* ---------- CIA SERIES BLOCK ---------- */
         .series-block {
-            background: #161616;
-            border-left: 5px solid #00a2ff;
+            background: var(--surface-2);
+            border-left: 5px solid var(--blue);
             border-radius: 10px;
             padding: 32px 30px;
             margin-bottom: 56px;
         }
         .series-badge {
-            background: #00a2ff;
+            background: var(--blue);
             color: #000;
             font-size: 0.78em;
             font-weight: 700;
@@ -296,7 +236,7 @@
             margin-bottom: 12px;
         }
         .series-block > p {
-            color: #bbb;
+            color: var(--text-soft);
             line-height: 1.65;
             max-width: 620px;
             margin-bottom: 22px;
@@ -306,12 +246,11 @@
             background: #111;
             border-radius: 8px;
             padding: 20px 22px;
-            text-decoration: none;
-            border: 1px solid #1e1e1e;
+            border: 1px solid var(--border);
             transition: border-color 0.2s;
             margin-bottom: 18px;
         }
-        .series-article-link:hover { border-color: #00a2ff; }
+        .series-article-link:hover { border-color: var(--blue); }
         .series-article-link .part-label {
             color: #3cbe64;
             font-size: 0.88em;
@@ -330,19 +269,19 @@
             line-height: 1.6;
         }
         .series-article-link .read-more {
-            color: #00a2ff;
+            color: var(--blue);
             font-weight: 600;
             font-size: 0.92em;
             display: inline-block;
             margin-top: 14px;
         }
         .series-footer {
-            color: #666;
+            color: var(--muted);
             font-size: 0.9em;
             margin-top: 18px;
         }
 
-        /* ── BLOG SECTION HEADER ── */
+        /* ---------- BLOG SECTION HEADER ---------- */
         .blog-header {
             display: flex;
             align-items: baseline;
@@ -358,25 +297,24 @@
             text-transform: uppercase;
         }
         .blog-header a {
-            color: #00a2ff;
+            color: var(--blue);
             font-size: 0.9em;
             font-weight: 600;
         }
         .blog-header a:hover { text-decoration: underline; }
 
-        /* ── FEATURED ARTICLE ── */
+        /* ---------- FEATURED ARTICLE ---------- */
         .featured-article {
             display: grid;
             grid-template-columns: 160px 1fr;
-            background: #161616;
-            border: 1px solid #222;
+            background: var(--surface-2);
+            border: 1px solid var(--border-soft);
             border-radius: 10px;
             overflow: hidden;
             margin-bottom: 28px;
-            text-decoration: none;
             transition: border-color 0.2s;
         }
-        .featured-article:hover { border-color: #00a2ff; }
+        .featured-article:hover { border-color: var(--blue); }
         .feat-thumb {
             background: #0a1a2a;
             display: flex;
@@ -405,9 +343,9 @@
             margin: 0 0 10px;
         }
         .feat-desc { color: #777; font-size: 0.9em; line-height: 1.55; }
-        .feat-meta { margin-top: 12px; font-size: 0.8em; color: #444; }
+        .feat-meta { margin-top: 12px; font-size: 0.8em; color: var(--muted-2); }
 
-        /* ── ARTICLE GRID ── */
+        /* ---------- ARTICLE GRID ---------- */
         .article-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -415,15 +353,14 @@
             margin-bottom: 36px;
         }
         .article-card {
-            background: #161616;
-            border: 1px solid #1e1e1e;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
             border-radius: 10px;
             overflow: hidden;
-            text-decoration: none;
             transition: border-color 0.2s;
         }
-        .article-card:hover { border-color: #00a2ff; }
-        .article-card:hover .card-title { color: #00a2ff; }
+        .article-card:hover { border-color: var(--blue); }
+        .article-card:hover .card-title { color: var(--blue); }
         .card-thumb {
             height: 100px;
             background: #0a1a2a;
@@ -442,67 +379,14 @@
             margin: 0 0 6px;
             transition: color 0.2s;
         }
-        .card-desc { color: #666; font-size: 0.84em; line-height: 1.5; }
-        .card-meta { margin-top: 10px; font-size: 0.77em; color: #444; }
+        .card-desc { color: var(--muted); font-size: 0.84em; line-height: 1.5; }
+        .card-meta { margin-top: 10px; font-size: 0.77em; color: var(--muted-2); }
 
-        /* ── FOOTER ── */
-        .footer-bar {
-            border-top: 1px solid #1a1a1a;
-            padding: 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 900px;
-            margin: 80px auto 0;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-        .footer-bar img { height: 30px; opacity: 0.8; }
-        .footer-bar p {
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            color: #333;
-            letter-spacing: 1px;
-        }
-        .footer-bar p a { color: #00a2ff; }
-        .footer-bar .dot { color: #00a2ff; margin: 0 6px; }
-        footer.bottom {
-            text-align: center;
-            padding: 24px 20px 48px;
-            color: #2a2a2a;
-            font-size: 0.88em;
-        }
-
-        /* ── FLOATING CTA ── */
-        .floating-cta {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: #e63939;
-            color: white;
-            padding: 14px 22px;
-            border-radius: 9999px;
-            box-shadow: 0 8px 24px rgba(230,57,57,0.35);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            z-index: 10000;
-            transition: all 0.2s ease;
-        }
-        .floating-cta:hover { transform: translateY(-3px) scale(1.04); }
-
-        /* ── MOBILE ── */
         @media (max-width: 640px) {
-            .hero { padding: 52px 20px 44px; }
             .strip { gap: 24px; }
             .featured-article { grid-template-columns: 1fr; }
             .feat-thumb { height: 90px; }
             .article-grid { grid-template-columns: 1fr 1fr; }
-            .footer-bar { justify-content: center; text-align: center; }
-            .nav-container { gap: 14px; }
         }
         @media (max-width: 400px) {
             .article-grid { grid-template-columns: 1fr; }
@@ -511,26 +395,27 @@
 </head>
 <body>
 
-<!-- ==================== HERO (nav inside) ==================== -->
-<div class="hero">
-    <!-- Nav bar inside hero -->
-    <div class="hero-nav">
-        <div class="nav-logo-wrap">
+<!-- ============ SHARED NAV (same on every page) ============ -->
+<nav class="site-nav">
+    <div class="nav-container">
+        <div class="nav-top">
             <a href="index.html">
-                <img src="assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer">
+                <img src="assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo">
             </a>
-        </div>
-        <div class="nav-links">
-            <a href="index.html" class="nav-btn active">Home</a>
-            <a href="story.html" class="nav-btn">My Story</a>
-            <a href="continuum.html" class="nav-btn">Continuum of Care</a>
-            <a href="resources.html" class="nav-btn">Resources</a>
-            <a href="writing.html" class="nav-btn">Blog</a>
-            <a href="connect.html" class="nav-btn">Connect</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-btn active">Home</a>
+                <a href="story.html" class="nav-btn">My Story</a>
+                <a href="continuum.html" class="nav-btn">Continuum of Care</a>
+                <a href="resources.html" class="nav-btn">Resources</a>
+                <a href="writing.html" class="nav-btn">Writing</a>
+                <a href="connect.html" class="nav-btn">Connect</a>
+            </div>
         </div>
     </div>
+</nav>
 
-    <!-- Radiating bg lines -->
+<!-- ============ HERO ============ -->
+<div class="hero">
     <svg class="hero-bg" viewBox="0 0 900 500" preserveAspectRatio="xMidYMid slice">
         <line x1="450" y1="500" x2="0" y2="0" stroke="#fff" stroke-width="0.5"/>
         <line x1="450" y1="500" x2="900" y2="0" stroke="#fff" stroke-width="0.5"/>
@@ -544,7 +429,6 @@
 
     <p class="hero-eyebrow">Ottawa &bull; Est. 2024 &bull; Lived Experience</p>
 
-    <!-- Roof mark -->
     <svg class="hero-roof" width="180" height="118" viewBox="0 0 180 118" fill="none" xmlns="http://www.w3.org/2000/svg">
         <polygon points="90,14 8,82 172,82" fill="#1d1d1d" stroke="#2e2e2e" stroke-width="1.5"/>
         <polygon points="90,14 8,82 24,82 90,32" fill="#252525"/>
@@ -576,7 +460,7 @@
     </div>
 </div>
 
-<!-- ==================== STRIP BAR ==================== -->
+<!-- ============ STRIP BAR ============ -->
 <div class="strip">
     <div class="strip-item"><span>&#9679;</span>Raw &amp; honest writing</div>
     <div class="strip-item"><span>&#9679;</span>Recovery resources</div>
@@ -584,7 +468,7 @@
     <div class="strip-item"><span>&#9679;</span>Lived experience only</div>
 </div>
 
-<!-- ==================== MAIN CONTENT ==================== -->
+<!-- ============ MAIN CONTENT ============ -->
 <div class="content-wrap">
 
     <!-- INTRO -->
@@ -624,7 +508,7 @@
             <span class="read-more">Read Part 1 →</span>
         </a>
 
-        <p class="series-footer">This is the start of a bigger series. More parts coming as I finish them. &nbsp;<a href="articles/cia-overview.html" style="color:#00a2ff; font-weight:600;">Start here →</a></p>
+        <p class="series-footer">This is the start of a bigger series. More parts coming as I finish them. &nbsp;<a href="articles/cia-overview.html" style="color:var(--blue); font-weight:600;">Start here →</a></p>
     </div>
 
     <!-- BLOG -->
@@ -633,7 +517,6 @@
         <a href="writing.html">See all posts →</a>
     </div>
 
-    <!-- Featured post -->
     <a href="articles/toxic-drugs.html" class="featured-article">
         <div class="feat-thumb">
             <svg width="52" height="44" viewBox="0 0 52 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -651,7 +534,6 @@
         </div>
     </a>
 
-    <!-- Article grid -->
     <div class="article-grid">
 
         <a href="articles/parole-rebellion-protocol.html" class="article-card">
@@ -733,24 +615,18 @@
 
     </div>
 
-    <p style="text-align:center; margin-bottom: 20px;">
-        <a href="writing.html" style="color:#00a2ff; font-weight:700; font-size:0.95em; letter-spacing:1px;">SEE ALL POSTS →</a>
+    <p style="text-align:center; margin-bottom: 60px;">
+        <a href="writing.html" style="color:var(--blue); font-weight:700; font-size:0.95em; letter-spacing:1px;">SEE ALL POSTS →</a>
     </p>
 
 </div><!-- /content-wrap -->
 
-<!-- ==================== FOOTER ==================== -->
-<div class="footer-bar">
-    <img src="assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer">
-    <p>Josh Pearsall <span class="dot">&bull;</span> Recovery Roofer <span class="dot">&bull;</span> Ottawa, ON</p>
-    <p><a href="connect.html">Get in touch</a></p>
-</div>
-
-<footer class="bottom">
-    &copy; 2024 Recovery Roofer
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+    <p>Josh Pearsall <span class="dot">&bull;</span> Recovery Roofer <span class="dot">&bull;</span> Ottawa, ON &nbsp;|&nbsp; <a href="connect.html">Get in touch</a></p>
 </footer>
 
-<!-- CRISIS CTA -->
+<!-- ============ CRISIS CTA ============ -->
 <a href="resources.html" class="floating-cta">
     <span>🚨</span> Need Help Right Now?
 </a>

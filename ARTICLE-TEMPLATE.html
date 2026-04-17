@@ -3,41 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARTICLE TITLE – Recovery Roofer</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
-    <style>
-        body { background-color: #121212; color: #d4d4d4; }
 
+    <!-- ══════════════════════════════════════════
+         FILL THESE IN FOR EACH NEW ARTICLE
+    ══════════════════════════════════════════ -->
+    <title>{{ARTICLE TITLE}} – Recovery Roofer</title>
+    <meta name="description" content="{{ARTICLE DESCRIPTION — 1–2 SENTENCES FOR SEARCH ENGINES}}">
+
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <style>
+        /* ---------- ARTICLE-SPECIFIC STYLES ---------- */
         .article-wrap {
             max-width: 720px;
             margin: 0 auto;
             padding: 0 25px 80px;
         }
 
-        /* ── Breadcrumb ── */
+        /* Breadcrumb */
         .breadcrumb {
             margin: 32px 0 28px;
             font-size: 0.82em;
             color: #444;
         }
-        .breadcrumb a { color: #444; text-decoration: none; }
-        .breadcrumb a:hover { color: #00a2ff; }
+        .breadcrumb a { color: #444; }
+        .breadcrumb a:hover { color: var(--blue); }
         .breadcrumb span { margin: 0 6px; }
 
-        /* ── Category tag ── */
+        /* Category tag */
         .article-category {
             display: inline-block;
             font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
             padding: 3px 10px; border-radius: 4px;
             margin-bottom: 14px;
+            font-weight: 700;
         }
         .cat-sp { background: rgba(77,166,255,0.1); color: #4da6ff; }
         .cat-le { background: rgba(140,80,220,0.1); color: #a070e0; }
         .cat-pr { background: rgba(40,160,80,0.1); color: #3cbe64; }
         .cat-ix { background: rgba(200,140,20,0.1); color: #dca028; }
 
-        /* ── Title + hook ── */
+        /* Title + hook */
         .article-title {
             font-size: 1.85em;
             font-weight: 700;
@@ -52,7 +61,7 @@
             margin: 0 0 22px;
         }
 
-        /* ── Meta row with author photo ── */
+        /* Meta row */
         .article-meta-row {
             display: flex;
             align-items: center;
@@ -68,7 +77,6 @@
             object-fit: cover;
             object-position: center top;
             border: 1px solid #333;
-            margin: 0;
             flex-shrink: 0;
         }
         .meta-dot { color: #2a2a2a; }
@@ -78,17 +86,17 @@
             color: #484848;
         }
 
-        /* ── Key Takeaways box ── */
+        /* Key Takeaways */
         .takeaways {
-            background: #161616;
-            border-left: 3px solid #00a2ff;
+            background: var(--surface-2);
+            border-left: 3px solid var(--blue);
             border-radius: 0 10px 10px 0;
             padding: 16px 20px;
             margin: 0 0 28px;
         }
         .takeaways-label {
             font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
-            color: #00a2ff; font-weight: 700; margin-bottom: 10px;
+            color: var(--blue); font-weight: 700; margin-bottom: 10px;
         }
         .takeaways ul { list-style: none; padding: 0; margin: 0; }
         .takeaways ul li {
@@ -102,19 +110,19 @@
             content: "";
             position: absolute; left: 0; top: 12px;
             width: 5px; height: 5px;
-            border-radius: 50%; background: #00a2ff;
+            border-radius: 50%; background: var(--blue);
         }
 
-        /* ── Video embed (optional) ── */
+        /* Video embed (optional) */
         .video-embed {
-            background: #161616; border: 1px solid #222;
+            background: var(--surface-2); border: 1px solid var(--border-soft);
             border-radius: 10px; padding: 20px;
             margin: 0 0 28px;
             display: flex; align-items: center; gap: 16px;
         }
         .play-btn {
             width: 48px; height: 48px; border-radius: 50%;
-            background: #00a2ff;
+            background: var(--blue);
             display: flex; align-items: center; justify-content: center;
             flex-shrink: 0; cursor: pointer;
         }
@@ -122,9 +130,9 @@
         .video-info p { font-size: 0.9em; font-weight: 600; color: #ddd; margin: 0 0 3px; }
         .video-info span { font-size: 0.78em; color: #555; }
 
-        /* ── TOC ── */
+        /* TOC */
         .toc {
-            background: #161616; border: 1px solid #1e1e1e;
+            background: var(--surface-2); border: 1px solid var(--border);
             border-radius: 10px; padding: 16px 20px;
             margin: 0 0 32px;
         }
@@ -136,21 +144,21 @@
         .toc ol li {
             display: flex; align-items: flex-start; gap: 10px;
             padding: 5px 0; font-size: 0.85em;
-            border-bottom: 1px solid #1e1e1e;
+            border-bottom: 1px solid var(--border);
         }
         .toc ol li:last-child { border-bottom: none; }
         .toc-num {
             font-size: 9px; color: #333;
             flex-shrink: 0; margin-top: 3px; min-width: 16px;
         }
-        .toc ol li a { color: #5a5a5a; text-decoration: none; line-height: 1.45; }
-        .toc ol li a:hover { color: #00a2ff; }
+        .toc ol li a { color: #5a5a5a; line-height: 1.45; }
+        .toc ol li a:hover { color: var(--blue); }
 
-        /* ── Article body ── */
+        /* Article body */
         .article-body h2 {
-            color: #00a2ff; font-size: 1.2em; font-weight: 700;
+            color: var(--blue); font-size: 1.2em; font-weight: 700;
             margin: 44px 0 14px; padding-bottom: 8px;
-            border-bottom: 1px solid #1e1e1e;
+            border-bottom: 1px solid var(--border);
         }
         .article-body h3 {
             color: #bbb; font-size: 1.0em; font-weight: 700;
@@ -162,20 +170,20 @@
         }
         .article-body p strong { color: #ddd; font-weight: 700; }
 
-        /* ── Pull quote ── */
+        /* Pull quote */
         .pull-quote {
             font-size: 1.18em; font-weight: 700;
             color: #e0e0e0;
-            border-left: 3px solid #00a2ff;
+            border-left: 3px solid var(--blue);
             padding: 12px 20px;
             margin: 32px 0;
             line-height: 1.5;
             font-style: italic;
-            background: #161616;
+            background: var(--surface-2);
             border-radius: 0 8px 8px 0;
         }
 
-        /* ── Lists ── */
+        /* Lists */
         .article-body ul, .article-body ol {
             padding-left: 0; list-style: none; margin: 0 0 22px;
         }
@@ -189,20 +197,20 @@
         .article-body ol li:last-child { border-bottom: none; }
         .article-body ul li::before {
             content: ""; position: absolute; left: 0; top: 13px;
-            width: 5px; height: 5px; border-radius: 50%; background: #00a2ff;
+            width: 5px; height: 5px; border-radius: 50%; background: var(--blue);
         }
         .article-body ol { counter-reset: ol-counter; }
         .article-body ol li { counter-increment: ol-counter; }
         .article-body ol li::before {
             content: counter(ol-counter);
             position: absolute; left: 0; top: 6px;
-            font-size: 10px; color: #00a2ff; font-weight: 700;
+            font-size: 10px; color: var(--blue); font-weight: 700;
             background: #1a1a1a; border-radius: 3px;
             width: 16px; height: 16px;
             display: flex; align-items: center; justify-content: center;
         }
 
-        /* ── Myth/Reality ── */
+        /* Myth / Reality */
         .myth-reality {
             display: grid; grid-template-columns: 1fr 1fr;
             gap: 10px; margin: 24px 0;
@@ -215,10 +223,10 @@
         .myth-box p { font-size: 0.82em; color: #b06060; margin: 0; line-height: 1.5; }
         .reality-box p { font-size: 0.82em; color: #60a870; margin: 0; line-height: 1.5; }
 
-        /* ── Divider ── */
-        .art-divider { height: 1px; background: #1e1e1e; margin: 36px 0; }
+        /* Divider */
+        .art-divider { height: 1px; background: var(--border); margin: 36px 0; }
 
-        /* ── Bottom takeaways ── */
+        /* Bottom takeaways */
         .takeaways-bottom {
             background: #131a13;
             border-left: 3px solid #3cbe64;
@@ -230,7 +238,7 @@
         .takeaways-bottom ul li::before { background: #3cbe64; }
         .takeaways-bottom ul li { border-bottom-color: #1a201a; }
 
-        /* ── Related articles ── */
+        /* Related articles */
         .related-section { margin: 36px 0 0; }
         .related-label {
             font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
@@ -238,16 +246,16 @@
         }
         .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .related-card {
-            background: #181818; border: 1px solid #222;
+            background: #181818; border: 1px solid var(--border-soft);
             border-radius: 8px; padding: 12px 14px;
-            text-decoration: none; transition: border-color 0.2s ease;
+            transition: border-color 0.2s ease;
         }
-        .related-card:hover { border-color: #00a2ff; }
+        .related-card:hover { border-color: var(--blue); }
         .related-card p { font-size: 0.85em; font-weight: 600; color: #bbb; margin: 0 0 4px; line-height: 1.35; }
         .related-card span { font-size: 0.75em; color: #444; }
-        .related-card:hover p { color: #00a2ff; }
+        .related-card:hover p { color: var(--blue); }
 
-        /* ── Bottom CTA ── */
+        /* Bottom CTA */
         .bottom-cta {
             margin-top: 36px; background: #111a24;
             border: 1px solid rgba(0,162,255,0.2);
@@ -255,11 +263,11 @@
         }
         .bottom-cta p { font-size: 0.88em; color: #888; margin: 0 0 12px; }
         .bottom-cta a {
-            display: inline-block; background: #00a2ff; color: #fff;
+            display: inline-block; background: var(--blue); color: #fff;
             font-weight: 700; font-size: 0.88em;
-            padding: 10px 24px; border-radius: 30px; text-decoration: none;
+            padding: 10px 24px; border-radius: 30px;
         }
-        .bottom-cta a:hover { background: #0088dd; }
+        .bottom-cta a:hover { background: var(--blue-hover); }
 
         @media (max-width: 600px) {
             .article-title { font-size: 1.5em; }
@@ -278,7 +286,8 @@
 </head>
 <body>
 
-<nav>
+<!-- ==================== SHARED NAV ==================== -->
+<nav class="site-nav">
     <div class="nav-container">
         <div class="nav-top">
             <a href="../index.html">
@@ -299,13 +308,13 @@
 <div class="article-wrap">
 
     <!-- ── BREADCRUMB ─────────────────────────────
-         Replace "SECTION NAME" with the real section:
+         Replace {{SECTION NAME}} with one of:
          System & Policy / Lived Experience / Practical Guides / Interactive
     ──────────────────────────────────────────── -->
     <div class="breadcrumb">
         <a href="../writing.html">← Writing</a>
         <span>/</span>
-        <span>SECTION NAME</span>
+        <span>{{SECTION NAME}}</span>
     </div>
 
     <!-- ── CATEGORY TAG ───────────────────────────
@@ -315,26 +324,21 @@
          cat-pr = Practical Guides (green)
          cat-ix = Interactive (amber)
     ──────────────────────────────────────────── -->
-    <span class="article-category cat-sp">System &amp; Policy</span>
+    <span class="article-category cat-sp">{{CATEGORY LABEL}}</span>
 
     <!-- ── TITLE ──────────────────────────────── -->
     <h1 class="article-title">
-        Your Full Article Title Goes Here
+        {{ARTICLE TITLE GOES HERE}}
     </h1>
 
     <!-- ── HOOK ───────────────────────────────────
-         Line 1: one punchy sentence. Stop scrolling energy.
-         Lines 2-3: 2–3 sentences of context — what happened,
+         Line 1: one punchy sentence. Stop-scrolling energy.
+         Lines 2–3: 2–3 sentences of context — what happened,
          what you found, why it matters right now.
-         Example:
-         Ontario spent $3.8 billion on addiction treatment last year.
-         Most of it didn't help people actually recover. Here's exactly
-         where the money went — and who got paid while people stayed sick.
     ──────────────────────────────────────────── -->
     <p class="article-hook">
-        One sentence that makes someone stop scrolling.<br><br>
-        Then 2–3 sentences of context. What happened, what you found,
-        why it matters to someone reading this right now.
+        {{ONE SENTENCE THAT MAKES SOMEONE STOP SCROLLING.}}<br><br>
+        {{2–3 SENTENCES OF CONTEXT. WHAT HAPPENED, WHAT YOU FOUND, WHY IT MATTERS RIGHT NOW.}}
     </p>
 
     <!-- ── META ROW ────────────────────────────── -->
@@ -342,34 +346,26 @@
         <img src="../assets/img/5037.jpg" alt="Josh Pearsall" class="meta-author-photo">
         <span style="color:#666;">Josh Pearsall</span>
         <span class="meta-dot">·</span>
-        <span>April 2026</span>
+        <span>{{MONTH YEAR}}</span>
         <span class="meta-dot">·</span>
-        <span class="read-time-badge">8 min read</span>
+        <span class="read-time-badge">{{X}} min read</span>
         <!-- Read time guide: ~200 words/min. 1000w = 5 min, 1600w = 8 min, 2400w = 12 min -->
     </div>
 
     <!-- ── KEY TAKEAWAYS (TOP) ─────────────────────
-         Label options (pick one, delete the rest):
-         "Here's what matters most"
-         "The bottom line"
-         "What you'll actually take away"
-         Keep to 3–5 bullets. Specific, not vague.
+         Label options: "Here's what matters most" / "The bottom line" /
+         "What you'll actually take away". Keep to 3–5 specific bullets.
     ──────────────────────────────────────────── -->
     <div class="takeaways">
         <div class="takeaways-label">Here's what matters most</div>
         <ul>
-            <li>First core point — what the reader will understand after reading</li>
-            <li>Second core point — a specific fact, finding, or argument</li>
-            <li>Third core point — something actionable or reframing</li>
-            <li>Fourth point if needed</li>
-            <li>Fifth point if needed</li>
+            <li>{{FIRST CORE POINT — WHAT THE READER WILL UNDERSTAND AFTER READING}}</li>
+            <li>{{SECOND CORE POINT — A SPECIFIC FACT, FINDING, OR ARGUMENT}}</li>
+            <li>{{THIRD CORE POINT — SOMETHING ACTIONABLE OR REFRAMING}}</li>
         </ul>
     </div>
 
-    <!-- ── VIDEO EMBED (optional) ─────────────────
-         Uncomment when you have a short clip ready.
-         Keep clips 60–90 seconds. Summary of the article.
-    ──────────────────────────────────────────── -->
+    <!-- ── VIDEO EMBED (optional — uncomment when ready) ─── -->
     <!--
     <div class="video-embed">
         <div class="play-btn">
@@ -378,7 +374,7 @@
             </svg>
         </div>
         <div class="video-info">
-            <p>90-second summary: [clip title here]</p>
+            <p>90-second summary: {{CLIP TITLE}}</p>
             <span>Watch before reading, or jump straight in</span>
         </div>
     </div>
@@ -386,15 +382,14 @@
 
     <!-- ── TABLE OF CONTENTS ──────────────────────
          Only use for articles 800+ words.
-         Update the link text to match your actual H2 headings below.
-         The href="#section-1" links to id="section-1" on the H2.
+         The href="#section-1" links to id="section-1" on the H2 below.
     ──────────────────────────────────────────── -->
     <div class="toc">
         <div class="toc-label">Jump to section</div>
         <ol>
-            <li><span class="toc-num">01</span><a href="#section-1">Your first section heading</a></li>
-            <li><span class="toc-num">02</span><a href="#section-2">Your second section heading</a></li>
-            <li><span class="toc-num">03</span><a href="#section-3">Your third section heading</a></li>
+            <li><span class="toc-num">01</span><a href="#section-1">{{FIRST SECTION HEADING}}</a></li>
+            <li><span class="toc-num">02</span><a href="#section-2">{{SECOND SECTION HEADING}}</a></li>
+            <li><span class="toc-num">03</span><a href="#section-3">{{THIRD SECTION HEADING}}</a></li>
             <li><span class="toc-num">04</span><a href="#section-4">What this means for you</a></li>
         </ol>
     </div>
@@ -415,96 +410,83 @@
     <div class="article-body">
 
         <p>
-            Opening paragraph. Set the scene in 2–3 sentences.
-            What's happening, what's the problem, why does it exist.
+            {{OPENING PARAGRAPH. SET THE SCENE IN 2–3 SENTENCES.
+            WHAT'S HAPPENING, WHAT'S THE PROBLEM, WHY DOES IT EXIST.}}
         </p>
         <p>
-            Second paragraph. Don't bury the point.
-            <strong>The single most important sentence in this paragraph goes bold like this.</strong>
-            Keep it moving.
+            {{SECOND PARAGRAPH. DON'T BURY THE POINT.}}
+            <strong>{{THE SINGLE MOST IMPORTANT SENTENCE IN THIS PARAGRAPH GOES BOLD.}}</strong>
+            {{KEEP IT MOVING.}}
         </p>
 
         <div class="art-divider"></div>
 
         <!-- SECTION 1 — href in TOC above must match this id -->
-        <h2 id="section-1">Your First Section Heading</h2>
+        <h2 id="section-1">{{YOUR FIRST SECTION HEADING}}</h2>
 
         <p>
-            Body text. 3–4 lines then break.
-            Write the way you talk — not like a report.
+            {{BODY TEXT. 3–4 LINES THEN BREAK.
+            WRITE THE WAY YOU TALK — NOT LIKE A REPORT.}}
         </p>
 
         <!-- Pull quote: the single best line in this section -->
         <div class="pull-quote">
-            "The most powerful sentence in this section. One line. No hedging."
+            "{{THE MOST POWERFUL SENTENCE IN THIS SECTION. ONE LINE. NO HEDGING.}}"
         </div>
 
         <p>
-            Follow-up paragraph. What does that mean in practice?
-            What did you see? What does the reader need next?
+            {{FOLLOW-UP PARAGRAPH. WHAT DOES THAT MEAN IN PRACTICE?
+            WHAT DID YOU SEE? WHAT DOES THE READER NEED NEXT?}}
         </p>
 
         <ul>
-            <li>First point — 1–2 lines, specific and concrete</li>
-            <li>Second point — something that surprises or reframes</li>
-            <li>Third point — grounded in your actual experience</li>
-            <li>Fourth point if needed</li>
+            <li>{{FIRST POINT — 1–2 LINES, SPECIFIC AND CONCRETE}}</li>
+            <li>{{SECOND POINT — SOMETHING THAT SURPRISES OR REFRAMES}}</li>
+            <li>{{THIRD POINT — GROUNDED IN YOUR ACTUAL EXPERIENCE}}</li>
         </ul>
 
         <div class="art-divider"></div>
 
         <!-- SECTION 2 -->
-        <h2 id="section-2">Your Second Section Heading</h2>
+        <h2 id="section-2">{{YOUR SECOND SECTION HEADING}}</h2>
 
         <p>
-            New angle. What's the next part of the argument or story?
+            {{NEW ANGLE. WHAT'S THE NEXT PART OF THE ARGUMENT OR STORY?}}
         </p>
 
-        <h3>A sub-point within this section</h3>
+        <h3>{{A SUB-POINT WITHIN THIS SECTION}}</h3>
         <p>
-            Use H3 when one idea inside a section needs its own space.
-            Keeps long sections from becoming walls of text.
+            {{USE H3 WHEN ONE IDEA INSIDE A SECTION NEEDS ITS OWN SPACE.
+            KEEPS LONG SECTIONS FROM BECOMING WALLS OF TEXT.}}
         </p>
 
         <!-- Myth/Reality: use when correcting common misconceptions -->
         <div class="myth-reality">
             <div class="myth-box">
                 <div class="box-label">Myth</div>
-                <p>What people wrongly believe about this</p>
+                <p>{{WHAT PEOPLE WRONGLY BELIEVE ABOUT THIS}}</p>
             </div>
             <div class="reality-box">
                 <div class="box-label">Reality</div>
-                <p>What actually happens, from what you've seen</p>
-            </div>
-        </div>
-
-        <div class="myth-reality">
-            <div class="myth-box">
-                <div class="box-label">Myth</div>
-                <p>Another misconception worth correcting</p>
-            </div>
-            <div class="reality-box">
-                <div class="box-label">Reality</div>
-                <p>The specific truth from lived experience</p>
+                <p>{{WHAT ACTUALLY HAPPENS, FROM WHAT YOU'VE SEEN}}</p>
             </div>
         </div>
 
         <div class="art-divider"></div>
 
         <!-- SECTION 3 -->
-        <h2 id="section-3">Your Third Section Heading</h2>
+        <h2 id="section-3">{{YOUR THIRD SECTION HEADING}}</h2>
 
         <p>
-            By now the reader is invested. Go deeper.
-            <strong>If there's a sentence that captures the whole section, bold it.</strong>
+            {{BY NOW THE READER IS INVESTED. GO DEEPER.}}
+            <strong>{{IF THERE'S A SENTENCE THAT CAPTURES THE WHOLE SECTION, BOLD IT.}}</strong>
         </p>
 
         <!-- Numbered list: steps, timelines, processes -->
         <ol>
-            <li>First step or stage — what does this actually look like</li>
-            <li>Second step — what changes, what happens next</li>
-            <li>Third step — be specific, not general</li>
-            <li>Fourth if needed</li>
+            <li>{{FIRST STEP OR STAGE — WHAT DOES THIS ACTUALLY LOOK LIKE}}</li>
+            <li>{{SECOND STEP — WHAT CHANGES, WHAT HAPPENS NEXT}}</li>
+            <li>{{THIRD STEP — BE SPECIFIC, NOT GENERAL}}</li>
         </ol>
 
         <div class="art-divider"></div>
@@ -513,47 +495,40 @@
         <h2 id="section-4">What This Means for You</h2>
 
         <p>
-            End on the specific, not the abstract.
-            Who does this affect? What can someone actually do with this?
+            {{END ON THE SPECIFIC, NOT THE ABSTRACT.
+            WHO DOES THIS AFFECT? WHAT CAN SOMEONE ACTUALLY DO WITH THIS?}}
         </p>
 
         <ul>
-            <li>One concrete thing to know or do</li>
-            <li>Second concrete takeaway</li>
-            <li>Something they can hold onto or share</li>
+            <li>{{ONE CONCRETE THING TO KNOW OR DO}}</li>
+            <li>{{SECOND CONCRETE TAKEAWAY}}</li>
+            <li>{{SOMETHING THEY CAN HOLD ONTO OR SHARE}}</li>
         </ul>
 
     </div>
     <!-- ══════════ END ARTICLE BODY ══════════ -->
 
-    <!-- ── BOTTOM TAKEAWAYS ───────────────────────
-         Green = you've landed, here's the recap.
-         Mirror the top box but shorter — 3 bullets max.
-         Different framing: "now that you've read it..."
-    ──────────────────────────────────────────── -->
+    <!-- ── BOTTOM TAKEAWAYS ──────────────────────── -->
     <div class="takeaways-bottom takeaways">
         <div class="takeaways-label">The bottom line</div>
         <ul>
-            <li>The single most important thing to remember</li>
-            <li>Second core point — now that they've read it all</li>
-            <li>Something actionable or shareable</li>
+            <li>{{THE SINGLE MOST IMPORTANT THING TO REMEMBER}}</li>
+            <li>{{SECOND CORE POINT — NOW THAT THEY'VE READ IT ALL}}</li>
+            <li>{{SOMETHING ACTIONABLE OR SHAREABLE}}</li>
         </ul>
     </div>
 
-    <!-- ── RELATED ARTICLES ───────────────────────
-         Update both hrefs and titles for each article.
-         Aim for one same-category, one cross-category.
-    ──────────────────────────────────────────── -->
+    <!-- ── RELATED ARTICLES ──────────────────────── -->
     <div class="related-section">
         <div class="related-label">Read next</div>
         <div class="related-grid">
-            <a href="LINK-TO-ARTICLE.html" class="related-card">
-                <p>Related Article Title One</p>
-                <span>6 min read · System &amp; Policy</span>
+            <a href="{{LINK-TO-ARTICLE}}.html" class="related-card">
+                <p>{{RELATED ARTICLE TITLE ONE}}</p>
+                <span>{{X}} min read · {{SECTION}}</span>
             </a>
-            <a href="LINK-TO-ARTICLE.html" class="related-card">
-                <p>Related Article Title Two</p>
-                <span>8 min read · Lived Experience</span>
+            <a href="{{LINK-TO-ARTICLE}}.html" class="related-card">
+                <p>{{RELATED ARTICLE TITLE TWO}}</p>
+                <span>{{X}} min read · {{SECTION}}</span>
             </a>
         </div>
     </div>
@@ -566,10 +541,12 @@
 
 </div><!-- /article-wrap -->
 
-<footer>
-    <p>Josh Pearsall · Recovery Roofer · Ottawa &nbsp;|&nbsp; <a href="../connect.html">Get in touch</a></p>
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer">
+    <p>Josh Pearsall <span class="dot">&bull;</span> Recovery Roofer <span class="dot">&bull;</span> Ottawa, ON &nbsp;|&nbsp; <a href="../connect.html">Get in touch</a></p>
 </footer>
 
+<!-- ==================== CRISIS CTA ==================== -->
 <a href="../resources.html" class="floating-cta">
     <span>🚨</span> Need Help Right Now?
 </a>

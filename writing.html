@@ -7,79 +7,22 @@
     <meta name="description" content="Raw, honest writing from Josh Pearsall — a clean roofer in Ottawa. Articles on addiction, recovery systems, safer supply, housing, criminal records, and the gaps in Ontario's treatment system.">
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+        /* ---------- PAGE-SPECIFIC COLOUR THEMES ---------- */
         :root {
-            --blue: #00a2ff;
-            --blue-dim: rgba(0,162,255,0.1);
             --purple: #a070e0;
             --purple-dim: rgba(140,80,220,0.1);
             --green: #3cbe64;
             --green-dim: rgba(40,160,80,0.1);
             --gold: #dca028;
             --gold-dim: rgba(200,140,20,0.1);
-            --bg: #0a0a0a;
-            --surface: #111111;
-            --surface2: #161616;
-            --border: #1e1e1e;
-            --border2: #252525;
-            --text: #e8e8e8;
-            --muted: #666;
-            --muted2: #444;
+            --border-2: #252525;
         }
 
-        html { scroll-behavior: smooth; }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Barlow', sans-serif;
-            font-size: 16px;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        /* ── NAV ── */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(10,10,10,0.9);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-        }
-        .nav-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        .nav-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 58px;
-            gap: 20px;
-        }
-        .nav-logo { height: 28px; width: auto; display: block; }
-        .nav-links { display: flex; align-items: center; gap: 4px; }
-        .nav-btn {
-            color: #888;
-            text-decoration: none;
-            font-size: 0.78em;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 6px 14px;
-            border-radius: 30px;
-            transition: color 0.2s, background 0.2s;
-        }
-        .nav-btn:hover { color: #fff; background: #1a1a1a; }
-        .nav-btn.active { color: #fff; background: var(--blue); }
-
-        /* ── HERO / WRITER INTRO ── */
+        /* ---------- HERO / WRITER INTRO ---------- */
         .hero {
             max-width: 820px;
             margin: 0 auto;
@@ -133,13 +76,12 @@
         }
         .hero h1 span { color: var(--blue); }
 
-        /* ── ARTICLE SECTIONS ── */
+        /* ---------- ARTICLE SECTIONS ---------- */
         .article-section {
             max-width: 820px;
             margin: 0 auto;
             padding: 0 28px 70px;
         }
-
         .section-header {
             display: flex;
             align-items: baseline;
@@ -158,8 +100,8 @@
             font-size: 0.72em;
             font-weight: 600;
             letter-spacing: 0.1em;
-            color: var(--muted2);
-            background: var(--surface2);
+            color: var(--muted-2);
+            background: var(--surface-2);
             border: 1px solid var(--border);
             padding: 2px 10px;
             border-radius: 20px;
@@ -167,27 +109,26 @@
         }
         .section-divider { height: 1px; background: var(--border); margin: 10px 0 18px; }
         .section-desc {
-            color: var(--muted2);
+            color: var(--muted-2);
             font-size: 0.85em;
             margin-bottom: 24px;
             line-height: 1.5;
         }
 
-        /* ── COLOR THEMES ── */
+        /* ---------- COLOR THEMES ---------- */
         .section-le .section-header h2 { color: var(--purple); }
         .section-pr .section-header h2 { color: var(--green); }
         .section-ix .section-header h2 { color: var(--gold); }
 
-        /* ── FEATURED CARD (horizontal) ── */
+        /* ---------- FEATURED CARD (horizontal) ---------- */
         .featured-card {
             display: grid;
             grid-template-columns: 140px 1fr;
             background: var(--surface);
-            border: 1px solid var(--border2);
+            border: 1px solid var(--border-2);
             border-radius: 12px;
             overflow: hidden;
             margin-bottom: 14px;
-            text-decoration: none;
             transition: border-color 0.2s, box-shadow 0.2s;
         }
         .featured-card:hover { border-color: var(--blue); box-shadow: 0 0 0 1px rgba(0,162,255,0.12); }
@@ -247,17 +188,17 @@
             gap: 10px;
             margin-top: 4px;
         }
-        .card-date { font-size: 0.75em; color: var(--muted2); }
+        .card-date { font-size: 0.75em; color: var(--muted-2); }
         .read-time {
             font-size: 0.72em;
-            color: var(--muted2);
-            background: var(--surface2);
+            color: var(--muted-2);
+            background: var(--surface-2);
             border: 1px solid var(--border);
             padding: 1px 8px;
             border-radius: 10px;
         }
 
-        /* ── CARD GRID ── */
+        /* ---------- CARD GRID ---------- */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
@@ -268,7 +209,6 @@
             border: 1px solid var(--border);
             border-radius: 10px;
             overflow: hidden;
-            text-decoration: none;
             display: flex;
             flex-direction: column;
             transition: border-color 0.2s;
@@ -308,7 +248,7 @@
             padding-top: 10px;
         }
 
-        /* ── THUMB COLOUR THEMES ── */
+        /* ---------- THUMB COLOUR THEMES ---------- */
         .thumb-sp { background: linear-gradient(135deg, #0a1e38, #0d2f5a); }
         .thumb-sp .thumb-label, .thumb-sp .feat-thumb-label { color: rgba(77,166,255,0.3); }
         .tag-sp { background: rgba(77,166,255,0.1); color: #4da6ff; }
@@ -325,40 +265,8 @@
         .thumb-ix .thumb-label, .thumb-ix .feat-thumb-label { color: rgba(220,160,40,0.3); }
         .tag-ix { background: rgba(200,140,20,0.1); color: #dca028; }
 
-        /* ── FOOTER ── */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 28px;
-            text-align: center;
-        }
-        footer p { color: var(--muted2); font-size: 0.85em; }
-        footer a { color: var(--muted); text-decoration: none; }
-        footer a:hover { color: var(--blue); }
-
-        /* ── FLOATING CTA ── */
-        .floating-cta {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background: #c0392b;
-            color: #fff;
-            padding: 12px 20px;
-            border-radius: 50px;
-            font-size: 0.85em;
-            font-weight: 700;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 20px rgba(192,57,43,0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
-            z-index: 200;
-        }
-        .floating-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(192,57,43,0.5); }
-
-        /* ── RESPONSIVE ── */
+        /* ---------- RESPONSIVE ---------- */
         @media (max-width: 600px) {
-            .nav-btn { font-size: 0.7em; padding: 5px 10px; }
             .hero { padding: 50px 20px 40px; }
             .article-section { padding-left: 20px; padding-right: 20px; }
             .writer-block { flex-direction: column; text-align: center; }
@@ -379,8 +287,8 @@
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
+<!-- ============ SHARED NAV ============ -->
+<nav class="site-nav">
     <div class="nav-container">
         <div class="nav-top">
             <a href="index.html">
@@ -398,7 +306,7 @@
     </div>
 </nav>
 
-<!-- HERO -->
+<!-- ============ HERO ============ -->
 <div class="hero">
     <div class="hero-eyebrow">
         <span>Ottawa · 4 Years Clean · No Clinical Distance</span>
@@ -410,9 +318,7 @@
     <h1>Writing from<br><span>inside it</span></h1>
 </div>
 
-<!-- ══════════════════════════════════
-     SYSTEM & POLICY
-══════════════════════════════════════ -->
+<!-- ============ SYSTEM & POLICY ============ -->
 <div class="article-section">
     <div class="section-header">
         <h2>System &amp; Policy</h2>
@@ -500,9 +406,7 @@
     </div>
 </div>
 
-<!-- ══════════════════════════════════
-     LIVED EXPERIENCE
-══════════════════════════════════════ -->
+<!-- ============ LIVED EXPERIENCE ============ -->
 <div class="article-section section-le">
     <div class="section-header">
         <h2>Lived Experience</h2>
@@ -575,9 +479,7 @@
     </div>
 </div>
 
-<!-- ══════════════════════════════════
-     PRACTICAL GUIDES
-══════════════════════════════════════ -->
+<!-- ============ PRACTICAL GUIDES ============ -->
 <div class="article-section section-pr">
     <div class="section-header">
         <h2>Practical Guides</h2>
@@ -620,9 +522,7 @@
     </div>
 </div>
 
-<!-- ══════════════════════════════════
-     INTERACTIVE & EXPERIMENTAL
-══════════════════════════════════════ -->
+<!-- ============ INTERACTIVE & EXPERIMENTAL ============ -->
 <div class="article-section section-ix">
     <div class="section-header">
         <h2>Interactive &amp; Experimental</h2>
@@ -648,12 +548,12 @@
     </a>
 </div>
 
-<!-- FOOTER -->
-<footer>
-    <p>Josh Pearsall · Recovery Roofer · Ottawa &nbsp;|&nbsp; <a href="connect.html">Get in touch</a></p>
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+    <p>Josh Pearsall <span class="dot">&bull;</span> Recovery Roofer <span class="dot">&bull;</span> Ottawa, ON &nbsp;|&nbsp; <a href="connect.html">Get in touch</a></p>
 </footer>
 
-<!-- FLOATING CTA -->
+<!-- ============ CRISIS CTA ============ -->
 <a href="resources.html" class="floating-cta">
     <span>🚨</span> Need Help Now?
 </a>
