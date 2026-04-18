@@ -5,127 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect with Josh Pearsall – Recovery Roofer</title>
     <meta name="description" content="Get in touch with Josh Pearsall (Recovery Roofer). Questions about recovery, the Ontario system, writing, or just want to talk? Reach out here.">
-   <!-- ── OPEN GRAPH / SOCIAL SHARING ── -->
+
+    <!-- ── OPEN GRAPH / SOCIAL SHARING ── -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Recovery Roofer">
-    <meta property="og:title" content="Continuum of Care | Recovery Roofer">
-    <meta property="og:description" content="The real map of Ottawa's recovery system — three paths through detox, treatment, and housing, with honest notes on each step.">
-    <meta property="og:url" content="https://www.recoveryroofer.ca/continuum.html">
+    <meta property="og:title" content="Get in Touch | Recovery Roofer">
+    <meta property="og:description" content="Reach out to Josh Pearsall directly. I'll talk to anyone — and point you toward the right door if I can.">
+    <meta property="og:url" content="https://www.recoveryroofer.ca/connect.html">
     <meta property="og:image" content="https://www.recoveryroofer.ca/assets/img/og-default.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Continuum of Care | Recovery Roofer">
-    <meta name="twitter:description" content="The real map of Ottawa's recovery system — three paths through detox, treatment, and housing, with honest notes on each step.">
+    <meta name="twitter:title" content="Get in Touch | Recovery Roofer">
+    <meta name="twitter:description" content="Reach out to Josh Pearsall directly. I'll talk to anyone — and point you toward the right door if I can.">
     <meta name="twitter:image" content="https://www.recoveryroofer.ca/assets/img/og-default.jpg">
 
-    <link rel="canonical" href="https://www.recoveryroofer.ca/continuum.html">
+    <link rel="canonical" href="https://www.recoveryroofer.ca/connect.html">
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+        /* ---------- CONNECT PAGE — PAGE-SPECIFIC STYLES ---------- */
         :root {
-            --blue: #00a2ff;
             --blue-dim: rgba(0,162,255,0.12);
-            --bg: #0a0a0a;
-            --surface: #111111;
-            --surface2: #161616;
-            --border: #1e1e1e;
-            --text: #e8e8e8;
-            --muted: #666;
-            --muted2: #444;
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Barlow', sans-serif;
-            font-size: 16px;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        /* ── NAV ── */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(10,10,10,0.9);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-        }
-        .nav-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        .nav-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 58px;
-            gap: 20px;
-        }
-        .nav-logo {
-            height: 28px;
-            width: auto;
-            display: block;
-        }
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .nav-btn {
-            color: #888;
-            text-decoration: none;
-            font-size: 0.78em;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 6px 14px;
-            border-radius: 30px;
-            transition: color 0.2s, background 0.2s;
-        }
-        .nav-btn:hover { color: #fff; background: #1a1a1a; }
-        .nav-btn.active {
-            color: #fff;
-            background: var(--blue);
         }
 
         /* ── HERO ── */
-        .hero {
+        .connect-hero {
             max-width: 820px;
             margin: 0 auto;
             padding: 80px 28px 60px;
         }
-        .hero-eyebrow {
+        .connect-hero-eyebrow {
             display: flex;
             align-items: center;
             gap: 10px;
             margin-bottom: 20px;
         }
-        .hero-eyebrow span {
+        .connect-hero-eyebrow span {
             font-size: 0.72em;
             font-weight: 700;
             letter-spacing: 0.14em;
             text-transform: uppercase;
             color: var(--blue);
         }
-        .hero-eyebrow::after {
+        .connect-hero-eyebrow::after {
             content: '';
             flex: 1;
             height: 1px;
             background: var(--border);
             max-width: 120px;
         }
-        .hero h1 {
+        .connect-hero h1 {
             font-family: 'Barlow Condensed', sans-serif;
             font-size: clamp(2.4em, 6vw, 4em);
             font-weight: 900;
@@ -135,8 +69,8 @@
             margin-bottom: 24px;
             letter-spacing: -0.01em;
         }
-        .hero h1 span { color: var(--blue); }
-        .hero p {
+        .connect-hero h1 span { color: var(--blue); }
+        .connect-hero p {
             color: var(--muted);
             font-size: 1.05em;
             line-height: 1.8;
@@ -156,6 +90,7 @@
             font-size: 0.88em;
             text-decoration: none;
         }
+        .hero-crisis:hover { border-color: var(--blue); }
         .hero-crisis strong { color: #fff; }
 
         /* ── CONTACT CARDS ── */
@@ -216,31 +151,11 @@
         }
         .contact-card a:hover { text-decoration: underline; }
 
-        /* ── DIVIDER ── */
-        .section-rule {
-            max-width: 820px;
-            margin: 0 auto 50px;
-            padding: 0 28px;
-        }
-        .section-rule hr {
-            border: none;
-            border-top: 1px solid var(--border);
-        }
-
-        /* ── WHAT TO EXPECT ── */
+        /* ── INFO / WHAT TO EXPECT ── */
         .info-section {
             max-width: 820px;
             margin: 0 auto;
             padding: 0 28px 60px;
-        }
-        .section-label {
-            font-size: 0.72em;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--blue);
-            margin-bottom: 16px;
-            display: block;
         }
         .info-section h2 {
             font-family: 'Barlow Condensed', sans-serif;
@@ -350,45 +265,14 @@
         }
         .x-pill:hover { border-color: var(--blue); color: var(--blue); }
 
-        /* ── FOOTER ── */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 28px;
-            text-align: center;
-        }
-        footer p {
-            color: var(--muted2);
-            font-size: 0.85em;
-        }
-        footer a { color: var(--muted); text-decoration: none; }
-        footer a:hover { color: var(--blue); }
-
-        /* ── FLOATING CTA ── */
-        .floating-cta {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background: #c0392b;
-            color: #fff;
-            padding: 12px 20px;
-            border-radius: 50px;
-            font-size: 0.85em;
-            font-weight: 700;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 20px rgba(192,57,43,0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
-            z-index: 200;
-        }
-        .floating-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(192,57,43,0.5); }
-
         /* ── RESPONSIVE ── */
         @media (max-width: 600px) {
-            .nav-btn { font-size: 0.7em; padding: 5px 10px; }
-            .hero { padding: 50px 20px 40px; }
-            .contact-section, .info-section, .about-section, .why-section, .elsewhere-section, .section-rule { padding-left: 20px; padding-right: 20px; }
+            .connect-hero { padding: 50px 20px 40px; }
+            .contact-section,
+            .info-section,
+            .about-section,
+            .why-section,
+            .elsewhere-section { padding-left: 20px; padding-right: 20px; }
             .about-inner { flex-direction: column; align-items: center; text-align: center; }
         }
     </style>
@@ -404,29 +288,29 @@
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
+<!-- ============ SHARED NAV ============ -->
+<nav class="site-nav">
     <div class="nav-container">
         <div class="nav-top">
             <a href="index.html">
                 <img src="assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo">
             </a>
             <div class="nav-links">
-    <a href="index.html" class="nav-btn">Home</a>
-    <a href="story.html" class="nav-btn">My Story</a>
-    <a href="continuum.html" class="nav-btn">Continuum of Care</a>
-    <a href="resources.html" class="nav-btn">Resources</a>
-    <a href="writing.html" class="nav-btn">Writing</a>
-    <a href="connect.html" class="nav-btn active">Connect</a>
-    <a href="resources.html" class="nav-help">Need Help</a>
-</div>
+                <a href="index.html" class="nav-btn">Home</a>
+                <a href="story.html" class="nav-btn">My Story</a>
+                <a href="continuum.html" class="nav-btn">Continuum of Care</a>
+                <a href="resources.html" class="nav-btn">Resources</a>
+                <a href="writing.html" class="nav-btn">Writing</a>
+                <a href="connect.html" class="nav-btn active">Connect</a>
+                <a href="resources.html" class="nav-help">Need Help</a>
+            </div>
         </div>
     </div>
 </nav>
 
 <!-- HERO -->
-<div class="hero">
-    <div class="hero-eyebrow">
+<div class="connect-hero">
+    <div class="connect-hero-eyebrow">
         <span>Ottawa · Ontario · Lived Experience</span>
     </div>
     <h1>If something I've written<br><span>landed with you</span></h1>
@@ -510,7 +394,7 @@
     </a>
 </div>
 
-<!-- FOOTER -->
+<!-- ============ FOOTER ============ -->
 <footer class="site-footer-rich">
     <div class="footer-inner">
 
@@ -549,7 +433,7 @@
     </p>
 </footer>
 
-<!-- FLOATING CRISIS BTN -->
+<!-- ============ CRISIS CTA ============ -->
 <a href="resources.html" class="floating-cta">
     <span>🚨</span> Need Help Now?
 </a>
