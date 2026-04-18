@@ -139,6 +139,23 @@ img { max-width: 100%; height: auto; display: block; }
     transform: translateY(-2px);
     box-shadow: 0 6px 28px rgba(192,57,43,0.5);
 }
+/* ---------- SHARED NEXT-PART / SERIES LINK BUTTON ---------- */
+
+.next-part-link {
+    display: inline-block;
+    margin-top: 14px;
+    background: var(--blue);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9em;
+    letter-spacing: 0.02em;
+    padding: 10px 22px;
+    border-radius: 30px;
+    transition: background 0.2s;
+}
+.next-part-link:hover {
+    background: var(--blue-hover);
+}
 
 /* ---------- PAGE CONTAINER HELPERS ---------- */
 .page-wrap {

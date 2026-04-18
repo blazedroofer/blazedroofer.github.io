@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Harm Threshold: Who Gets Pulled Into the System – Recovery Roofer</title>
+    <meta name="description" content="Part 2 of a section-by-section breakdown of the Compassionate Intervention Act. How 'harm' is defined, where the language opens up, and why the practice matters more than the statute.">
+
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <style>
+        /* ---------- ARTICLE-SPECIFIC STYLES ---------- */
+        .article-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 25px 80px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin: 32px 0 28px;
+            font-size: 0.82em;
+            color: #444;
+        }
+        .breadcrumb a { color: #444; }
+        .breadcrumb a:hover { color: var(--blue); }
+        .breadcrumb span { margin: 0 6px; }
+
+        /* Category tag */
+        .article-category {
+            display: inline-block;
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 3px 10px; border-radius: 4px;
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
+        .cat-sp { background: rgba(77,166,255,0.1); color: #4da6ff; }
+        .cat-le { background: rgba(140,80,220,0.1); color: #a070e0; }
+        .cat-pr { background: rgba(40,160,80,0.1); color: #3cbe64; }
+        .cat-ix { background: rgba(200,140,20,0.1); color: #dca028; }
+
+        /* Title + hook */
+        .article-title {
+            font-size: 1.85em;
+            font-weight: 700;
+            color: #ececec;
+            line-height: 1.25;
+            margin: 0 0 16px;
+        }
+        .article-hook {
+            font-size: 1.05em;
+            color: #777;
+            line-height: 1.7;
+            margin: 0 0 22px;
+        }
+
+        /* Meta row */
+        .article-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.82em;
+            color: #3d3d3d;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+        .meta-author-photo {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 1px solid #333;
+            flex-shrink: 0;
+        }
+        .meta-dot { color: #2a2a2a; }
+        .read-time-badge {
+            background: #1c1c1c; border: 1px solid #2a2a2a;
+            padding: 2px 9px; border-radius: 10px;
+            color: #484848;
+        }
+
+        /* Key Takeaways */
+        .takeaways {
+            background: var(--surface-2);
+            border-left: 3px solid var(--blue);
+            border-radius: 0 10px 10px 0;
+            padding: 16px 20px;
+            margin: 0 0 28px;
+        }
+        .takeaways-label {
+            font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--blue); font-weight: 700; margin-bottom: 10px;
+        }
+        .takeaways ul { list-style: none; padding: 0; margin: 0; }
+        .takeaways ul li {
+            font-size: 0.9em; color: #c0c0c0;
+            padding: 5px 0 5px 18px;
+            position: relative; line-height: 1.55;
+            border-bottom: 1px solid #1f1f1f;
+        }
+        .takeaways ul li:last-child { border-bottom: none; }
+        .takeaways ul li::before {
+            content: "";
+            position: absolute; left: 0; top: 12px;
+            width: 5px; height: 5px;
+            border-radius: 50%; background: var(--blue);
+        }
+
+        /* TOC */
+        .toc {
+            background: var(--surface-2); border: 1px solid var(--border);
+            border-radius: 10px; padding: 16px 20px;
+            margin: 0 0 32px;
+        }
+        .toc-label {
+            font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: #3a3a3a; font-weight: 700; margin-bottom: 12px;
+        }
+        .toc ol { list-style: none; padding: 0; margin: 0; }
+        .toc ol li {
+            display: flex; align-items: flex-start; gap: 10px;
+            padding: 5px 0; font-size: 0.85em;
+            border-bottom: 1px solid var(--border);
+        }
+        .toc ol li:last-child { border-bottom: none; }
+        .toc-num {
+            font-size: 9px; color: #333;
+            flex-shrink: 0; margin-top: 3px; min-width: 16px;
+        }
+        .toc ol li a { color: #5a5a5a; line-height: 1.45; }
+        .toc ol li a:hover { color: var(--blue); }
+
+        /* Article body */
+        .article-body h2 {
+            color: var(--blue); font-size: 1.2em; font-weight: 700;
+            margin: 44px 0 14px; padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .article-body h3 {
+            color: #bbb; font-size: 1.0em; font-weight: 700;
+            margin: 28px 0 10px;
+        }
+        .article-body p {
+            font-size: 0.97em; line-height: 1.8;
+            color: #b8b8b8; margin-bottom: 18px; max-width: 660px;
+        }
+        .article-body p strong { color: #ddd; font-weight: 700; }
+        .article-body p em { color: #c8c8c8; font-style: italic; }
+
+        /* Pull quote */
+        .pull-quote {
+            font-size: 1.18em; font-weight: 700;
+            color: #e0e0e0;
+            border-left: 3px solid var(--blue);
+            padding: 12px 20px;
+            margin: 32px 0;
+            line-height: 1.5;
+            font-style: italic;
+            background: var(--surface-2);
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Block quote (for statute text) */
+        .statute-quote {
+            font-size: 0.95em;
+            color: #9a9a9a;
+            border-left: 3px solid #2a2a2a;
+            padding: 8px 18px;
+            margin: 18px 0;
+            line-height: 1.6;
+            font-style: italic;
+            background: #131313;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Divider */
+        .art-divider { height: 1px; background: var(--border); margin: 36px 0; }
+
+        /* Bottom takeaways */
+        .takeaways-bottom {
+            background: #131a13;
+            border-left: 3px solid #3cbe64;
+            border-radius: 0 10px 10px 0;
+            padding: 16px 20px;
+            margin: 36px 0 32px;
+        }
+        .takeaways-bottom .takeaways-label { color: #3cbe64; }
+        .takeaways-bottom ul li::before { background: #3cbe64; }
+        .takeaways-bottom ul li { border-bottom-color: #1a201a; }
+
+        /* Related articles */
+        .related-section { margin: 36px 0 0; }
+        .related-label {
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: #444; font-weight: 700; margin-bottom: 14px;
+        }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .related-card {
+            background: #181818; border: 1px solid var(--border-soft);
+            border-radius: 8px; padding: 12px 14px;
+            transition: border-color 0.2s ease;
+        }
+        .related-card:hover { border-color: var(--blue); }
+        .related-card p { font-size: 0.85em; font-weight: 600; color: #bbb; margin: 0 0 4px; line-height: 1.35; }
+        .related-card span { font-size: 0.75em; color: #444; }
+        .related-card:hover p { color: var(--blue); }
+
+        /* Bottom CTA */
+        .bottom-cta {
+            margin-top: 36px; background: #111a24;
+            border: 1px solid rgba(0,162,255,0.2);
+            border-radius: 10px; padding: 20px 22px; text-align: center;
+        }
+        .bottom-cta p { font-size: 0.88em; color: #888; margin: 0 0 12px; }
+        .bottom-cta a {
+            display: inline-block; background: var(--blue); color: #fff;
+            font-weight: 700; font-size: 0.88em;
+            padding: 10px 24px; border-radius: 30px;
+        }
+        .bottom-cta a:hover { background: var(--blue-hover); }
+
+        @media (max-width: 600px) {
+            .article-title { font-size: 1.5em; }
+            .related-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1LXCLXR34X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1LXCLXR34X');
+    </script>
+</head>
+<body>
+
+<!-- ==================== SHARED NAV ==================== -->
+<nav class="site-nav">
+    <div class="nav-container">
+        <div class="nav-top">
+            <a href="../index.html">
+                <img src="../assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo">
+            </a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-btn">Home</a>
+                <a href="../story.html" class="nav-btn">My Story</a>
+                <a href="../continuum.html" class="nav-btn">Continuum of Care</a>
+                <a href="../resources.html" class="nav-btn">Resources</a>
+                <a href="../writing.html" class="nav-btn active">Writing</a>
+                <a href="../connect.html" class="nav-btn">Connect</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="article-wrap">
+
+    <!-- ── BREADCRUMB ───────────────────────────── -->
+    <div class="breadcrumb">
+        <a href="../writing.html">← Writing</a>
+        <span>/</span>
+        <span>System &amp; Policy</span>
+    </div>
+
+    <!-- ── CATEGORY TAG ─────────────────────────── -->
+    <span class="article-category cat-sp">Compassionate Intervention Act · Part 2</span>
+
+    <!-- ── TITLE ──────────────────────────────── -->
+    <h1 class="article-title">
+        The Harm Threshold: Who Gets Pulled Into the System
+    </h1>
+
+    <!-- ── HOOK ───────────────────────────────── -->
+    <p class="article-hook">
+        Part 1 showed the full pipeline. Now we reach the first real decision: who actually gets pulled in.<br><br>
+        Before anyone is apprehended, assessed, or held in a facility, a single question has to be answered — is this person likely to cause harm without intervention? That question is the gate. Everything else only opens once someone answers yes. So the real question isn't what the Act does after someone is in the system. It's what counts as "harm" in the first place.
+    </p>
+
+    <!-- ── META ROW ────────────────────────────── -->
+    <div class="article-meta-row">
+        <img src="../assets/img/5037.jpg" alt="Josh Pearsall" class="meta-author-photo">
+        <span style="color:#666;">Josh Pearsall</span>
+        <span class="meta-dot">·</span>
+        <span>April 2026</span>
+        <span class="meta-dot">·</span>
+        <span class="read-time-badge">9 min read</span>
+    </div>
+
+    <!-- ── KEY TAKEAWAYS (TOP) ─────────────────── -->
+    <div class="takeaways">
+        <div class="takeaways-label">Here's what matters most</div>
+        <ul>
+            <li>The Act's "harm threshold" is written to sound narrow — <em>substantial</em>, <em>severe</em>, <em>poorly controlled</em> — but none of those words are actually defined in the statute.</li>
+            <li>That leaves the real line to be drawn by the people reading each application, under pressure, at scale.</li>
+            <li>A lot of Ottawa's shelter and encampment population could potentially fit the description — especially mid-month — without being the people this Act was built for.</li>
+        </ul>
+    </div>
+
+    <!-- ── TABLE OF CONTENTS ────────────────────── -->
+    <div class="toc">
+        <div class="toc-label">Jump to section</div>
+        <ol>
+            <li><span class="toc-num">01</span><a href="#section-1">What the Act actually says</a></li>
+            <li><span class="toc-num">02</span><a href="#section-2">Where it looks tight — and where it opens up</a></li>
+            <li><span class="toc-num">03</span><a href="#section-3">Why that matters in practice</a></li>
+            <li><span class="toc-num">04</span><a href="#section-4">The homelessness problem</a></li>
+            <li><span class="toc-num">05</span><a href="#section-5">The core issue</a></li>
+        </ol>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         ARTICLE BODY
+    ══════════════════════════════════════════ -->
+    <div class="article-body">
+
+        <p>
+            I was a university athlete on a full ride. Strong grades, full scholarship, everything moving in the right direction. Then came the prescription after an injury. At first my parents noticed small changes — sleeping more, missing a practice here and there — but they wrote it off as normal college stress. Within months I was caught using. I dropped out of school. I stopped hanging with my old teammates and started spending time downtown with older guys who were already deep in it. I quit every pro-social thing that used to define me. My parents didn't know what to do. Eventually I caught a charge — a light robbery that got dropped to theft. I got sick in jail, got bailed out, and my parents drove me straight to a treatment center an hour away. Thirty-six hours later I was supposed to be at an AA meeting. Instead I was in the bathroom shooting opiates intravenously.
+        </p>
+
+        <p>
+            That's the moment the question hits every family: <strong><em>at what point do we intervene?</em></strong>
+        </p>
+
+        <p>
+            I can only imagine what that was like for my parents. I'm a father now. I can't picture having to call the police on my first-born son — in front of our neighbours, his friends, his brother's friends' sisters. Driving him to rehab while you're worried he's going to inject something and die in the next twenty-four hours. Worried he's going to hurt someone, or get hurt himself. And the whole time you're fighting the voice that says <em>he just needs to want it more. He just needs to try harder. Compete. Whatever your operating mode is.</em>
+        </p>
+
+        <p>
+            When is it bad enough? Do you intervene early and risk playing <em>Minority Report</em> — trying to stop a life before it's even fully gone off the rails? Would I have gotten the girl? Ended up in the CFL? It's easy to say if I'd gone left instead of right I'd have the dream, the castle, the whole life. Harder to know when someone has lost the ability to choose left at all.
+        </p>
+
+        <p>
+            How many Canadian families are living in that question tonight? What are their options when nothing is working and you suspect you could intervene — but you're terrified of what that means?
+        </p>
+
+        <p>
+            One note before going further. <strong>The statute and the system aren't the same thing.</strong> The law says one thing on the page. The system does something slightly different once it's running. This piece is about the gap between them — so you'll see both sides pressed against each other throughout. That's the point, not a contradiction.
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 1 -->
+        <h2 id="section-1">What the Act actually says</h2>
+
+        <p>
+            Sections 2 through 5 set the eligibility criteria. The core requirement is that the person must be likely to cause <em>substantial harm</em> to themselves or others because of their substance use or addiction — and for adults, that harm has to be expected "within a reasonable time."
+        </p>
+
+        <p>
+            From there, the Act lists factors used to judge whether someone actually meets the threshold. For adults, those factors include the severity of the addiction, history of overdoses or frequent paramedic and ER contact, substantial mental or physical deterioration, a substantially diminished ability to meet basic needs, prior admission to a compassionate intervention facility, damage to health or employment or relationships, high-risk behaviour, and a catch-all for "any other factor the Commission considers relevant."
+        </p>
+
+        <p>
+            Layered on top of that is a severity test: whether the person shows a pattern of severe intoxication, a poorly controlled medical condition tied to their use, or an inability to meet basic needs of daily living.
+        </p>
+
+        <p>
+            <strong>That's the full gate.</strong>
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 2 -->
+        <h2 id="section-2">Where it looks tight — and where it opens up</h2>
+
+        <p>
+            On the surface, the language sounds narrow. The Act uses words like <em>substantial</em>, <em>severe</em>, <em>poorly controlled</em>, <em>substantially diminished</em>. It's clearly trying to aim at the most serious end of the spectrum — chronic, high-acuity cases where voluntary help isn't working and the person is deteriorating fast. If you read the statute on its own, it reads like a high bar.
+        </p>
+
+        <p>
+            And here's the honest part: somebody like the version of me in that bathroom would probably meet it. That's not a criticism of the Act. That's the case it's built for — people who are actively destroying themselves and can't stop long enough to make a different decision. My family was desperate for exactly that kind of pause. So the question isn't whether the threshold should exist. It's whether the line can be held where it was drawn.
+        </p>
+
+        <p>
+            The problem isn't the words. It's that they could mean many different things. <strong>"Substantial harm" isn't defined. "Substantially diminished ability to meet basic needs" isn't defined. "High-risk behaviour" isn't defined. "Severe" isn't defined.</strong> Each of these has to be judged by someone — an applicant, the statutory director, a Commission member — based on the record in front of them.
+        </p>
+
+        <p>
+            And the final factor in both the adult and minor harm lists is this:
+        </p>
+
+        <div class="statute-quote">
+            any other factor related to the individual's substance use or addiction that the Commission considers relevant.
+        </div>
+
+        <p>
+            That's a catch-all. It means the list of harm factors isn't actually a closed list. It's a starting point. So the threshold isn't fixed. It's a <em>frame</em> that gets filled in by whoever is applying it.
+        </p>
+
+        <div class="pull-quote">
+            "The question isn't whether the threshold should exist. It's whether the line can be held where it was drawn."
+        </div>
+
+        <p>
+            Something else worth naming here. <strong>The same person can look completely different depending on who's describing them.</strong> I know because I was that person. The police saw one version of me. The shelter saw another. The drug subculture saw a third. Prison saw a fourth. Treatment saw a fifth. I wasn't lying in any of them — I was reading the room. Good manners go a long way on the street when you're trying to access resources. So does the right posture in front of a cop, the right answers in intake, the right quiet in a cell. Everyone I dealt with was seeing a real slice of me. Nobody was seeing all of it.
+        </p>
+
+        <p>
+            Now imagine that same dynamic inside an application under this Act. The shelter worker writing one up. The police officer writing one up. The family member writing one up. Each of them is honest. Each of them sees a real person. But the person on the page is going to look different in each version — and the version that gets approved is the one that lands in front of the right reviewer on the right day.
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 3 -->
+        <h2 id="section-3">Why that matters in practice</h2>
+
+        <p>
+            When a threshold depends on how people read it, the real line gets drawn by the people reading it — not by the law.
+        </p>
+
+        <p>
+            A few things shape where that bar lands. The first is <strong>how applicants frame the case.</strong> The first read of the situation happens in the application itself, and a shelter worker writing up a long-term resident and a police officer writing up the same person after a call can produce very different pictures of "harm." Both can be accurate. Both can also be shaped by context, fatigue, or frustration.
+        </p>
+
+        <p>
+            The second is <strong>what the intake system starts treating as normal.</strong> If the review process routinely accepts homelessness plus visible substance use as evidence of "inability to meet basic needs," the threshold drops — not by changing the law, but by changing the pattern.
+        </p>
+
+        <p>
+            The third is <strong>pressure on the people running it.</strong> Reviewers under volume load rely on pattern matching. Applications that look like other approved applications get approved. That's how people stop being individuals and start being groups.
+        </p>
+
+        <div class="pull-quote">
+            "None of this is personal. It's how systems work when they're operating at scale with high stakes, immediate consequences, and the power to take someone's freedom."
+        </div>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 4 -->
+        <h2 id="section-4">The homelessness problem</h2>
+
+        <p>
+            This is the pressure point I keep coming back to. Read the severity test again:
+        </p>
+
+        <div class="statute-quote">
+            an inability to meet the individual's basic needs of daily living.
+        </div>
+
+        <p>
+            A big portion of people currently in Ottawa's shelter system, or in the encampments around the city, could potentially fit that description. Especially in the middle of the month. When benefits run low, people get more desperate and more sick. <strong>The calendar matters more than people realize</strong> — Trillium hits the 10th, baby bonus the 20th, GST the 5th, ODSP at the end of the month. When those dates stack or fall short, you can watch the whole street-level ecosystem change. Someone who looked stable on the 2nd can look very different by the 28th.
+        </p>
+
+        <p>
+            Combine that with the harm factors — overdose history, frequent paramedic contact, physical deterioration, high-risk behaviour — and I could probably build a qualifying case for a lot of people, depending on when I framed it and how. That's the part that worries me.
+        </p>
+
+        <p>
+            Because the truth is, people aren't the same. I used to assume everyone wanted what I wanted — to get clean, to get back. I was wrong about that. We're all different. Not good or bad. <em>Apples to carrots.</em>
+        </p>
+
+        <p>
+            There's a real difference between someone dependent on fentanyl cut with unregulated benzos — where, in my own experience, informed consent deteriorated day by day as withdrawal kicked in, and I was too ashamed to tell anyone — and someone who waits for their cheque, hangs out in front of the pharmacy, maybe chips a safe supply script, and keeps going. Both are using. Both are at risk. <strong>But one of them is drowning and can't say so. The other is living a life you might not choose for them, but it's theirs.</strong>
+        </p>
+
+        <p>
+            The Act is a coercive tool, not a general-purpose one. It matters which group it's aimed at. And the statute doesn't spell out how to tell them apart.
+        </p>
+
+        <p>
+            That's the gap.
+        </p>
+
+        <div class="art-divider"></div>
+
+        <h3>What would actually tighten this</h3>
+
+        <p>
+            A few things would meaningfully narrow the threshold without rewriting the Act. A clear definition of "substantial harm" in regulation, with examples of what does and doesn't qualify. Medical validation before proceeding past intake, not just at the 72-hour assessment stage. A requirement to distinguish acute crisis from chronic severe addiction in the application itself. And some guidance on how prior treatment history should be weighed — looking at the quality of past care, not just the quantity of attempts.
+        </p>
+
+        <p>
+            None of that exists on the face of the Act. It would have to come from regulation or policy. <strong>Which means the strength of the threshold depends entirely on what gets built around the statute, not what's in it.</strong>
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 5 -->
+        <h2 id="section-5">The core issue</h2>
+
+        <p>
+            The Act is trying to do something specific: create a narrow, time-limited intervention for people in severe chronic addiction who can't access help on their own. The harm threshold is where that intent either holds or slips.
+        </p>
+
+        <p>
+            If "harm" stays tightly defined in practice, the system reaches people like me at the moment my family was praying for a door to open. If it drifts, the same language pulls in people who aren't there yet — people whose instability is visible, documented, and easy to frame. Both directions cost something. Go too wide and the Act becomes a sorting mechanism for people who are poor and visible. Go too narrow and families stay stuck in the waiting room, watching someone disappear one choice at a time, with nothing left to reach for.
+        </p>
+
+        <p>
+            I don't know the perfect line. <strong>I just know my parents were standing right on it the day they drove me to that treatment center, and I know thousands of Canadian families are standing on it tonight.</strong>
+        </p>
+
+        <p>
+            The words on the page don't decide which way it goes. The practice does.
+        </p>
+
+    </div>
+    <!-- ══════════ END ARTICLE BODY ══════════ -->
+
+    <!-- ── BOTTOM TAKEAWAYS ──────────────────────── -->
+    <div class="takeaways-bottom takeaways">
+        <div class="takeaways-label">The bottom line</div>
+        <ul>
+            <li>The harm threshold is the first gate. Everything the Act does downstream depends on how that gate gets interpreted in practice.</li>
+            <li>The words in the statute sound narrow. The decision space around them isn't. That's where drift happens.</li>
+            <li>The next layer of risk lives in who gets to apply in the first place — personal relationships, institutional pressure, conflicts of interest. Part 3 works through Section 17.</li>
+        </ul>
+    </div>
+
+    <!-- ── RELATED ARTICLES ──────────────────────── -->
+    <div class="related-section">
+        <div class="related-label">Read next</div>
+        <div class="related-grid">
+            <a href="cia-overview.html" class="related-card">
+                <p>Part 1: Breaking Down the Compassionate Intervention Act</p>
+                <span>8 min read · System &amp; Policy</span>
+            </a>
+            <a href="housing-first-ottawa.html" class="related-card">
+                <p>Housing First in Ottawa</p>
+                <span>System &amp; Policy</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ── BOTTOM CTA ──────────────────────────── -->
+    <div class="bottom-cta">
+        <p>If you're trying to navigate the system right now, start here.</p>
+        <a href="../resources.html">Find Support Resources →</a>
+    </div>
+
+</div><!-- /article-wrap -->
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer">
+    <img src="../assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="footer-logo">
+    <p>Josh Pearsall <span class="dot">&bull;</span> Recovery Roofer <span class="dot">&bull;</span> Ottawa, ON &nbsp;|&nbsp; <a href="../connect.html">Get in touch</a></p>
+</footer>
+
+<!-- ==================== CRISIS CTA ==================== -->
+<a href="../resources.html" class="floating-cta">
+    <span>🚨</span> Need Help Right Now?
+</a>
+
+</body>
+</html>
