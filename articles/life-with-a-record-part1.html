@@ -3,61 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Improvements -->
-    <title>Life With a Criminal Record in Canada: It Doesn't Go Away – Recovery Roofer</title>
+
+    <title>Life with a Record in Canada: The Cycle, the Fear, and the Long Way Back – Recovery Roofer</title>
     <meta name="description" content="How a criminal record in Canada quietly keeps the addiction cycle alive — even after you're clean. Jobs, housing, trust, and daily fear from someone who's lived it in Ottawa.">
 
-    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
     <style>
-
-
-        body { background-color: #121212; color: #d4d4d4; }
+        /* ---------- ARTICLE-SPECIFIC STYLES ---------- */
         .article-wrap { max-width: 720px; margin: 0 auto; padding: 0 25px 80px; }
 
         .breadcrumb { margin: 32px 0 28px; font-size: 0.82em; color: #444; }
-        .breadcrumb a { color: #444; text-decoration: none; }
-        .breadcrumb a:hover { color: #00a2ff; }
+        .breadcrumb a { color: #444; }
+        .breadcrumb a:hover { color: var(--blue); }
         .breadcrumb span { margin: 0 6px; }
 
-        .article-category { display: inline-block; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; margin-bottom: 14px; }
+        .article-category {
+            display: inline-block;
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 3px 10px; border-radius: 4px;
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
         .cat-le { background: rgba(140,80,220,0.1); color: #a070e0; }
 
-        .article-title { font-size: 1.85em; font-weight: 700; color: #ececec; line-height: 1.25; margin: 0 0 16px; }
-        .article-hook { font-size: 1.05em; color: #777; line-height: 1.7; margin: 0 0 22px; }
+        .article-title {
+            font-size: 1.85em; font-weight: 700;
+            color: #ececec; line-height: 1.25;
+            margin: 0 0 16px;
+        }
+        .article-hook {
+            font-size: 1.05em; color: #777;
+            line-height: 1.7; margin: 0 0 22px;
+        }
 
-        .article-meta-row { display: flex; align-items: center; gap: 10px; font-size: 0.82em; color: #3d3d3d; margin-bottom: 28px; flex-wrap: wrap; }
-        .meta-author-photo { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; object-position: center top; border: 1px solid #333; margin: 0; flex-shrink: 0; }
+        .article-meta-row {
+            display: flex; align-items: center; gap: 10px;
+            font-size: 0.82em; color: #3d3d3d;
+            margin-bottom: 28px; flex-wrap: wrap;
+        }
+        .meta-author-photo {
+            width: 28px; height: 28px; border-radius: 50%;
+            object-fit: cover; object-position: center top;
+            border: 1px solid #333; flex-shrink: 0;
+        }
         .meta-dot { color: #2a2a2a; }
-        .read-time-badge { background: #1c1c1c; border: 1px solid #2a2a2a; padding: 2px 9px; border-radius: 10px; color: #484848; }
+        .read-time-badge {
+            background: #1c1c1c; border: 1px solid #2a2a2a;
+            padding: 2px 9px; border-radius: 10px; color: #484848;
+        }
 
-        .takeaways { background: #161616; border-left: 3px solid #00a2ff; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 0 0 28px; }
-        .takeaways-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #00a2ff; font-weight: 700; margin-bottom: 10px; }
+        /* Purple variant for Lived Experience category */
+        .takeaways {
+            background: var(--surface-2);
+            border-left: 3px solid #a070e0;
+            border-radius: 0 10px 10px 0;
+            padding: 16px 20px; margin: 0 0 28px;
+        }
+        .takeaways-label {
+            font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: #a070e0; font-weight: 700; margin-bottom: 10px;
+        }
         .takeaways ul { list-style: none; padding: 0; margin: 0; }
-        .takeaways ul li { font-size: 0.9em; color: #c0c0c0; padding: 5px 0 5px 18px; position: relative; line-height: 1.55; border-bottom: 1px solid #1f1f1f; }
+        .takeaways ul li {
+            font-size: 0.9em; color: #c0c0c0;
+            padding: 5px 0 5px 18px; position: relative;
+            line-height: 1.55; border-bottom: 1px solid #1f1f1f;
+        }
         .takeaways ul li:last-child { border-bottom: none; }
-        .takeaways ul li::before { content: ""; position: absolute; left: 0; top: 12px; width: 5px; height: 5px; border-radius: 50%; background: #00a2ff; }
+        .takeaways ul li::before {
+            content: ""; position: absolute; left: 0; top: 12px;
+            width: 5px; height: 5px; border-radius: 50%;
+            background: #a070e0;
+        }
 
-        .article-body h2 { color: #00a2ff; font-size: 1.25em; font-weight: 700; margin: 44px 0 14px; padding-bottom: 8px; border-bottom: 1px solid #1e1e1e; }
-        .article-body p { font-size: 0.97em; line-height: 1.75; color: #b8b8b8; margin-bottom: 20px; max-width: 660px; }
-        .article-body p strong { color: #ddd; }
+        .toc {
+            background: var(--surface-2); border: 1px solid var(--border);
+            border-radius: 10px; padding: 16px 20px;
+            margin: 0 0 32px;
+        }
+        .toc-label {
+            font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: #3a3a3a; font-weight: 700; margin-bottom: 12px;
+        }
+        .toc ol { list-style: none; padding: 0; margin: 0; }
+        .toc ol li {
+            display: flex; align-items: flex-start; gap: 10px;
+            padding: 5px 0; font-size: 0.85em;
+            border-bottom: 1px solid var(--border);
+        }
+        .toc ol li:last-child { border-bottom: none; }
+        .toc-num {
+            font-size: 9px; color: #333;
+            flex-shrink: 0; margin-top: 3px; min-width: 16px;
+        }
+        .toc ol li a { color: #5a5a5a; line-height: 1.45; }
+        .toc ol li a:hover { color: #a070e0; }
 
-        .pull-quote { font-size: 1.15em; font-weight: 700; color: #e0e0e0; border-left: 3px solid #00a2ff; padding: 14px 22px; margin: 32px 0; line-height: 1.5; font-style: italic; background: #161616; border-radius: 0 8px 8px 0; }
+        .article-body h2 {
+            color: #a070e0; font-size: 1.2em; font-weight: 700;
+            margin: 44px 0 14px; padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .article-body h3 {
+            color: #bbb; font-size: 1.0em; font-weight: 700;
+            margin: 28px 0 10px;
+        }
+        .article-body p {
+            font-size: 0.97em; line-height: 1.8;
+            color: #b8b8b8; margin-bottom: 18px; max-width: 660px;
+        }
+        .article-body p strong { color: #ddd; font-weight: 700; }
+        .article-body p em { color: #c8c8c8; font-style: italic; }
 
-        .article-body ul { padding-left: 0; list-style: none; margin: 0 0 24px; }
-        .article-body ul li { font-size: 0.93em; color: #aaa; padding: 6px 0 6px 22px; position: relative; line-height: 1.6; border-bottom: 1px solid #1a1a1a; }
-        .article-body ul li:last-child { border-bottom: none; }
-        .article-body ul li::before { content: ""; position: absolute; left: 0; top: 13px; width: 5px; height: 5px; border-radius: 50%; background: #00a2ff; }
+        .pull-quote {
+            font-size: 1.18em; font-weight: 700;
+            color: #e0e0e0;
+            border-left: 3px solid #a070e0;
+            padding: 12px 20px; margin: 32px 0;
+            line-height: 1.5; font-style: italic;
+            background: var(--surface-2);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .art-divider { height: 1px; background: var(--border); margin: 36px 0; }
+
+        .takeaways-bottom {
+            background: #131a13;
+            border-left: 3px solid #3cbe64;
+            border-radius: 0 10px 10px 0;
+            padding: 16px 20px; margin: 36px 0 32px;
+        }
+        .takeaways-bottom .takeaways-label { color: #3cbe64; }
+        .takeaways-bottom ul li::before { background: #3cbe64; }
+        .takeaways-bottom ul li { border-bottom-color: #1a201a; }
+
+        .related-section { margin: 36px 0 0; }
+        .related-label {
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: #444; font-weight: 700; margin-bottom: 14px;
+        }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .related-card {
+            background: #181818; border: 1px solid var(--border-soft);
+            border-radius: 8px; padding: 12px 14px;
+            transition: border-color 0.2s ease;
+        }
+        .related-card:hover { border-color: #a070e0; }
+        .related-card p { font-size: 0.85em; font-weight: 600; color: #bbb; margin: 0 0 4px; line-height: 1.35; }
+        .related-card span { font-size: 0.75em; color: #444; }
+        .related-card:hover p { color: #a070e0; }
+
+        .bottom-cta {
+            margin-top: 36px; background: #1a1424;
+            border: 1px solid rgba(160,112,224,0.2);
+            border-radius: 10px; padding: 20px 22px; text-align: center;
+        }
+        .bottom-cta p { font-size: 0.88em; color: #888; margin: 0 0 12px; }
+        .bottom-cta a {
+            display: inline-block; background: #a070e0; color: #fff;
+            font-weight: 700; font-size: 0.88em;
+            padding: 10px 24px; border-radius: 30px;
+        }
+        .bottom-cta a:hover { background: #8c5fd0; }
+
+        .footer-logo {
+            height: 28px; width: auto;
+            display: block; margin: 0 auto 12px;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 600px) {
+            .article-title { font-size: 1.5em; }
+            .related-grid { grid-template-columns: 1fr; }
+        }
     </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1LXCLXR34X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1LXCLXR34X');
+    </script>
 </head>
 <body>
 
-<nav>
+<nav class="site-nav">
     <div class="nav-container">
         <div class="nav-top">
-            <a href="../index.html"><img src="../assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo"></a>
+            <a href="../index.html">
+                <img src="../assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo">
+            </a>
             <div class="nav-links">
                 <a href="../index.html" class="nav-btn">Home</a>
                 <a href="../story.html" class="nav-btn">My Story</a>
@@ -80,10 +220,12 @@
 
     <span class="article-category cat-le">Lived Experience</span>
 
-    <h1 class="article-title">Life with a Record in Canada: The Cycle, the Fear, and the Long Way Back</h1>
+    <h1 class="article-title">
+        Life with a Record in Canada: The Cycle, the Fear, and the Long Way Back
+    </h1>
 
     <p class="article-hook">
-        From Guelph to federal time to Ottawa — and what perspective actually means after prison. A grocery store line can still make your nervous system scream "threat" long after you're out.
+        From Guelph to federal time to Ottawa — and what perspective actually means after prison. A grocery store line can still make your nervous system scream "threat" long after you're out. This is about why.
     </p>
 
     <div class="article-meta-row">
@@ -98,74 +240,192 @@
     <div class="takeaways">
         <div class="takeaways-label">Here's what matters most</div>
         <ul>
-            <li>A criminal record doesn't just close doors — it narrows your options in ways that push you back toward the same environments that created the problem.</li>
-            <li>Ottawa is one of the hardest cities in Canada to restart in with a record because so much of the economy depends on security clearances.</li>
-            <li>The hypervigilance you learn inside (policing lines, scanning for threats) doesn't disappear when you get out — learning to read that signal is part of the work.</li>
+            <li>A criminal record doesn't just close doors. It narrows your options in ways that push you back toward the same environments that created the problem.</li>
+            <li>Ottawa is one of the hardest cities in Canada to restart in with a record — so much of the economy runs on security clearance.</li>
+            <li>The hypervigilance you learn inside (policing lines, scanning for threats) doesn't disappear when you get out. Learning to read that signal is part of the work.</li>
             <li>Record suspension helps, but it doesn't erase bias or the economic pressure that keeps the cycle going.</li>
         </ul>
     </div>
 
+    <div class="toc">
+        <div class="toc-label">Jump to section</div>
+        <ol>
+            <li><span class="toc-num">01</span><a href="#section-1">How the record actually built itself</a></li>
+            <li><span class="toc-num">02</span><a href="#section-2">Ottawa with a record: the wrong city for a fresh start</a></li>
+            <li><span class="toc-num">03</span><a href="#section-3">What a record does to your options</a></li>
+            <li><span class="toc-num">04</span><a href="#section-4">The fear that keeps you silent</a></li>
+            <li><span class="toc-num">05</span><a href="#section-5">Ratting vs. reporting</a></li>
+            <li><span class="toc-num">06</span><a href="#section-6">Record suspension: what it does and what it doesn't</a></li>
+            <li><span class="toc-num">07</span><a href="#section-7">Perspective is the work</a></li>
+        </ol>
+    </div>
+
     <div class="article-body">
 
-        <h2>How the Record Actually Built Itself</h2>
-        <p>My record didn't come from one bad night. It came from a progression, and that progression has a logic worth being honest about.</p>
+        <!-- SECTION 1 -->
+        <h2 id="section-1">How the record actually built itself</h2>
 
-        <p>The first charge was assault causing bodily harm at 18 — a stupid fight after high school. The second was the same, but this time I was on ecstasy at a rookie party and blacked out. Then football ended. I quit school. The structure disappeared and nothing replaced it. The charges that followed were theft and robbery — supporting myself the only way that felt available.</p>
+        <p>
+            My record didn't come from one bad night. It came from a progression, and that progression has a logic worth being honest about.
+        </p>
 
-        <p>I stayed in Guelph like that until 2013. Then I moved to Ottawa. That was the first real decision I made that pointed somewhere different. Not recovery yet, but a direction that wasn't the same wall I kept hitting.</p>
+        <p>
+            The first charge was assault causing bodily harm at 18 — a stupid fight after high school. The second was the same, but this time I was on ecstasy at a rookie party and blacked out. Then football ended. I quit school. <strong>The structure disappeared and nothing replaced it.</strong> The charges that followed were theft and robbery — supporting myself the only way that felt available.
+        </p>
+
+        <p>
+            I stayed in Guelph like that until 2013. Then I moved to Ottawa. That was the first real decision I made that pointed somewhere different. Not recovery yet, but a direction that wasn't the same wall I kept hitting.
+        </p>
 
         <div class="pull-quote">
-            Sometimes the first step isn't insight. It's just geography — a decision to stop being somewhere that isn't working.
+            "Sometimes the first step isn't insight. It's just geography — a decision to stop being somewhere that isn't working."
         </div>
 
-        <h2>Ottawa with a Record: The Wrong City for a Fresh Start</h2>
-        <p>I moved to Ottawa thinking geography was enough. What I didn't understand yet was that I'd picked one of the hardest cities in Canada to land in with a criminal record.</p>
+        <div class="art-divider"></div>
 
-        <p>Ottawa's economy runs on trust. The federal public service, defence contractors, cybersecurity firms — almost all of it is built on security clearance. A record doesn't just close some doors here. It closes the dominant industry of the entire city.</p>
+        <!-- SECTION 2 -->
+        <h2 id="section-2">Ottawa with a record: the wrong city for a fresh start</h2>
 
-        <p>The jobs that have historically absorbed people with records — warehousing, logistics, entry-level trades, food service — are being compressed by automation and AI. At the same time, Ottawa's cost of living has tracked upward with government expansion. You're being asked to survive in a city that wasn't built with any margin for you.</p>
+        <p>
+            I moved to Ottawa thinking geography was enough. What I didn't understand yet was that I'd picked one of the hardest cities in Canada to land in with a criminal record.
+        </p>
 
-        <p>The move was the right instinct. But arriving here clarified something: leaving the environment wasn't enough if the new environment had its own version of the same walls, just cleaner and quieter.</p>
+        <p>
+            <strong>Ottawa's economy runs on trust.</strong> The federal public service, defence contractors, cybersecurity firms — almost all of it is built on security clearance. A record doesn't just close some doors here. It closes the dominant industry of the entire city.
+        </p>
 
-        <h2>What a Record Does to Your Options</h2>
-        <p>By the time I understood the full shape of my record, the walls it built were already standing. Security clearances were gone. A lot of entry-level jobs were gone. So I drifted into construction and roofing — sectors that often need bodies willing to grind and don't always run thorough checks.</p>
+        <p>
+            The jobs that have historically absorbed people with records — warehousing, logistics, entry-level trades, food service — are being compressed by automation and AI. At the same time, Ottawa's cost of living has tracked upward with government expansion. You're being asked to survive in a city that wasn't built with any margin for you.
+        </p>
 
-        <p>What I didn't see then was that the same environment giving me work was also normalizing the substances that helped build the record in the first place. The cycle kept running: use, trouble, charges, fewer options, more stress, more use.</p>
+        <p>
+            The move was the right instinct. But arriving here clarified something: leaving the environment wasn't enough if the new environment had its own version of the same walls, just cleaner and quieter.
+        </p>
 
-        <p>A criminal record doesn't just follow you. It narrows the field in ways that push you back toward the same conditions that created the problem.</p>
+        <div class="art-divider"></div>
 
-        <h2>The Fear That Keeps You Silent</h2>
-        <p>The grocery store hypervigilance doesn't stay in grocery stores. It follows you into job sites, parole offices, any room where you already feel like you're at a disadvantage.</p>
+        <!-- SECTION 3 -->
+        <h2 id="section-3">What a record does to your options</h2>
 
-        <p>For me that fear showed up as silence. When I was struggling, the last thing I wanted was to raise my hand. Bringing a problem to anyone official felt like handing them another reason to see me as unreliable. So I stayed quiet and let things fester until they couldn't anymore.</p>
+        <p>
+            By the time I understood the full shape of my record, the walls it built were already standing. Security clearances were gone. A lot of entry-level jobs were gone. So I drifted into construction and roofing — sectors that often need bodies willing to grind and don't always run thorough checks.
+        </p>
 
-        <p>Federal time hardened that instinct. The code inside is simple: you never rat. That mindset followed me out. With a record already against me I felt permanently marked.</p>
+        <p>
+            What I didn't see then was that the same environment giving me work was also normalizing the substances that helped build the record in the first place. <strong>The cycle kept running: use, trouble, charges, fewer options, more stress, more use.</strong>
+        </p>
 
-        <h2>Ratting vs. Reporting: Getting That Straight</h2>
-        <p>The shift that changed how I operated most practically was finally separating ratting from reporting.</p>
+        <p>
+            A criminal record doesn't just follow you. It narrows the field in ways that push you back toward the same conditions that created the problem. That's not bad luck. That's the system's actual design.
+        </p>
 
-        <p>Ratting is using someone else's vulnerability for personal gain. Reporting is protecting yourself, your family, your stability when something genuinely threatens them.</p>
+        <div class="art-divider"></div>
 
-        <p>Once I got that distinction clear I started erring hard toward compliance. I follow the rules now, even the small ones. I flag problems early instead of letting them become breaches. Silence has never once made things better.</p>
+        <!-- SECTION 4 -->
+        <h2 id="section-4">The fear that keeps you silent</h2>
 
-        <h2>Record Suspension: What It Does and What It Doesn't</h2>
-        <p>A record suspension keeps your criminal record separate from other records. Once granted, it's removed from most standard employment and CPIC background checks. It doesn't erase the conviction, but it removes the automatic red flag.</p>
+        <p>
+            The grocery store hypervigilance doesn't stay in grocery stores. It follows you into job sites, parole offices, any room where you already feel like you're at a disadvantage. You scan lines. You track exits. You register who's watching you before you register what they're actually doing.
+        </p>
 
-        <p>To be eligible you have to complete your full sentence, then wait five years for summary offences or ten years for indictable ones, with no new convictions. Processing takes six to eighteen months.</p>
+        <p>
+            For me that fear showed up as silence. When I was struggling, the last thing I wanted was to raise my hand. Bringing a problem to anyone official felt like handing them another reason to see me as unreliable. So I stayed quiet and let things fester until they couldn't anymore.
+        </p>
 
-        <p>For many people it's worth pursuing. It opens more doors in trades and removes the constant weight. But it doesn't make bias disappear. Employers can still discriminate informally. Steady employment is one of the strongest protections against relapse. When records keep closing doors, people cycle back into the same environments.</p>
+        <p>
+            Federal time hardened that instinct. The code inside is simple: you never rat. <strong>That mindset followed me out.</strong> With a record already against me I felt permanently marked — and people who feel permanently marked stop asking for help, because asking feels like confirming what people already think.
+        </p>
 
-        <h2>Perspective Is the Work</h2>
-        <p>The Ottawa move in 2013 wasn't recovery. It was just a different direction. What came after — learning to read my own signals, to tell the difference between a real threat and a grocery store line, to report instead of going quiet — that took a lot longer. It still does.</p>
+        <div class="art-divider"></div>
 
-        <p>How you see yourself. How you see others. How you play a role in both. That's the work. It doesn't finish. But it has a direction.</p>
+        <!-- SECTION 5 -->
+        <h2 id="section-5">Ratting vs. reporting</h2>
 
+        <p>
+            The shift that changed how I operated most practically was finally separating ratting from reporting.
+        </p>
+
+        <p>
+            Ratting is using someone else's vulnerability for personal gain. Reporting is protecting yourself, your family, your stability when something genuinely threatens them. <strong>Those aren't the same thing and they never were.</strong> Prison culture collapses them on purpose because a culture where nobody reports anything is a culture where whoever has the most power runs unchecked.
+        </p>
+
+        <p>
+            Once I got that distinction clear, I started erring hard toward compliance. I follow the rules now, even the small ones. I flag problems early instead of letting them become breaches. Silence has never once made things better — not inside, not outside.
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 6 -->
+        <h2 id="section-6">Record suspension: what it does and what it doesn't</h2>
+
+        <p>
+            A record suspension keeps your criminal record separate from other records. Once granted, it's removed from most standard employment and CPIC background checks. It doesn't erase the conviction, but it removes the automatic red flag.
+        </p>
+
+        <p>
+            To be eligible you have to complete your full sentence, then wait five years for summary offences or ten years for indictable ones, with no new convictions. Processing takes six to eighteen months.
+        </p>
+
+        <p>
+            For many people it's worth pursuing. It opens more doors in trades and removes the constant weight. <strong>But it doesn't make bias disappear.</strong> Employers can still discriminate informally. And steady employment is one of the strongest protections against relapse, which means when records keep closing doors, people cycle back into the same environments that caused the problem in the first place.
+        </p>
+
+        <p>
+            The suspension is a tool. It's not a solution. The solution would be a job market willing to see the person instead of the file.
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 7 -->
+        <h2 id="section-7">Perspective is the work</h2>
+
+        <p>
+            The Ottawa move in 2013 wasn't recovery. It was just a different direction. What came after — learning to read my own signals, to tell the difference between a real threat and a grocery store line, to report instead of going quiet — that took a lot longer. It still does.
+        </p>
+
+        <p>
+            How you see yourself. How you see others. How you play a role in both. That's the work.
+        </p>
+
+        <p>
+            I'm writing this from a roof between jobs, in a city where my record is technically still there and functionally still there and — on a good day — finally something I can talk about instead of hide from. <strong>It doesn't finish. But it has a direction.</strong> That's more than I had for a long time, and it's what I'd want anyone else carrying one of these to know: the weight doesn't go away. The way you carry it can change.
+        </p>
+
+    </div>
+
+    <div class="takeaways-bottom takeaways">
+        <div class="takeaways-label">The bottom line</div>
+        <ul>
+            <li>A record in Canada isn't a thing that happened to you. It's a thing that keeps happening to you — in every application, every clearance check, every room where you have to decide whether to bring it up.</li>
+            <li>Silence feels safer. It isn't. The separation between ratting and reporting is the difference between carrying a code that was built for prison and carrying one that works outside of it.</li>
+            <li>The work isn't getting rid of the record. It's changing what you do with the nervous system the record built.</li>
+        </ul>
+    </div>
+
+    <div class="related-section">
+        <div class="related-label">Read next</div>
+        <div class="related-grid">
+            <a href="motivation-window.html" class="related-card">
+                <p>Shedding the Prison Identity</p>
+                <span>6 min read · Lived Experience</span>
+            </a>
+            <a href="parole-rebellion-protocol.html" class="related-card">
+                <p>The Parole Rebellion Protocol</p>
+                <span>15 min read · Practical Guides</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="bottom-cta">
+        <p>If you're navigating a record and trying to restart, start here.</p>
+        <a href="../resources.html">Find Support Resources →</a>
     </div>
 
 </div>
 
-<footer>
-    <p>Josh Pearsall · Recovery Roofer · Ottawa &nbsp;|&nbsp; <a href="../connect.html">Get in touch</a></p>
+<footer class="site-footer">
+    <img src="../assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="footer-logo">
+    <p>Josh Pearsall <span class="dot">&bull;</span> Recovery Roofer <span class="dot">&bull;</span> Ottawa, ON &nbsp;|&nbsp; <a href="../connect.html">Get in touch</a></p>
 </footer>
 
 <a href="../resources.html" class="floating-cta">

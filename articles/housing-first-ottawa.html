@@ -3,59 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Improvements -->
-    <title>Housing First in Ottawa: Why Just Giving Keys Isn't Enough – Recovery Roofer</title>
-    <meta name="description" content="What I've seen from the inside about Housing First in Ottawa. Why handing someone keys alone often fails, what a real continuum of care needs, and the gaps that keep people stuck. Raw observations from a roofer in recovery.">
 
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>Housing First in Ottawa: Why Just Giving Keys Isn't Enough – Recovery Roofer</title>
+    <meta name="description" content="What I've seen from the inside about Housing First in Ottawa. Why handing someone keys alone often fails, what a real continuum of care needs, and the gaps that keep people stuck.">
+
     <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
     <style>
-        body { background-color: #121212; color: #d4d4d4; }
+        /* ---------- ARTICLE-SPECIFIC STYLES ---------- */
         .article-wrap { max-width: 720px; margin: 0 auto; padding: 0 25px 80px; }
 
         .breadcrumb { margin: 32px 0 28px; font-size: 0.82em; color: #444; }
-        .breadcrumb a { color: #444; text-decoration: none; }
-        .breadcrumb a:hover { color: #00a2ff; }
+        .breadcrumb a { color: #444; }
+        .breadcrumb a:hover { color: var(--blue); }
         .breadcrumb span { margin: 0 6px; }
 
-        .article-category { display: inline-block; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; margin-bottom: 14px; }
+        .article-category {
+            display: inline-block;
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 3px 10px; border-radius: 4px;
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
         .cat-sp { background: rgba(77,166,255,0.1); color: #4da6ff; }
 
-        .article-title { font-size: 1.85em; font-weight: 700; color: #ececec; line-height: 1.25; margin: 0 0 16px; }
-        .article-hook { font-size: 1.05em; color: #777; line-height: 1.7; margin: 0 0 22px; }
+        .article-title {
+            font-size: 1.85em; font-weight: 700;
+            color: #ececec; line-height: 1.25;
+            margin: 0 0 16px;
+        }
+        .article-hook {
+            font-size: 1.05em; color: #777;
+            line-height: 1.7; margin: 0 0 22px;
+        }
 
-        .article-meta-row { display: flex; align-items: center; gap: 10px; font-size: 0.82em; color: #3d3d3d; margin-bottom: 28px; flex-wrap: wrap; }
-        .meta-author-photo { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; object-position: center top; border: 1px solid #333; margin: 0; flex-shrink: 0; }
+        .article-meta-row {
+            display: flex; align-items: center; gap: 10px;
+            font-size: 0.82em; color: #3d3d3d;
+            margin-bottom: 28px; flex-wrap: wrap;
+        }
+        .meta-author-photo {
+            width: 28px; height: 28px; border-radius: 50%;
+            object-fit: cover; object-position: center top;
+            border: 1px solid #333; flex-shrink: 0;
+        }
         .meta-dot { color: #2a2a2a; }
-        .read-time-badge { background: #1c1c1c; border: 1px solid #2a2a2a; padding: 2px 9px; border-radius: 10px; color: #484848; }
+        .read-time-badge {
+            background: #1c1c1c; border: 1px solid #2a2a2a;
+            padding: 2px 9px; border-radius: 10px; color: #484848;
+        }
 
-        .takeaways { background: #161616; border-left: 3px solid #00a2ff; border-radius: 0 10px 10px 0; padding: 16px 20px; margin: 0 0 28px; }
-        .takeaways-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: #00a2ff; font-weight: 700; margin-bottom: 10px; }
+        .takeaways {
+            background: var(--surface-2);
+            border-left: 3px solid var(--blue);
+            border-radius: 0 10px 10px 0;
+            padding: 16px 20px; margin: 0 0 28px;
+        }
+        .takeaways-label {
+            font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--blue); font-weight: 700; margin-bottom: 10px;
+        }
         .takeaways ul { list-style: none; padding: 0; margin: 0; }
-        .takeaways ul li { font-size: 0.9em; color: #c0c0c0; padding: 5px 0 5px 18px; position: relative; line-height: 1.55; border-bottom: 1px solid #1f1f1f; }
+        .takeaways ul li {
+            font-size: 0.9em; color: #c0c0c0;
+            padding: 5px 0 5px 18px; position: relative;
+            line-height: 1.55; border-bottom: 1px solid #1f1f1f;
+        }
         .takeaways ul li:last-child { border-bottom: none; }
-        .takeaways ul li::before { content: ""; position: absolute; left: 0; top: 12px; width: 5px; height: 5px; border-radius: 50%; background: #00a2ff; }
+        .takeaways ul li::before {
+            content: ""; position: absolute; left: 0; top: 12px;
+            width: 5px; height: 5px; border-radius: 50%;
+            background: var(--blue);
+        }
 
-        .article-body h2 { color: #00a2ff; font-size: 1.25em; font-weight: 700; margin: 44px 0 14px; padding-bottom: 8px; border-bottom: 1px solid #1e1e1e; }
-        .article-body p { font-size: 0.97em; line-height: 1.75; color: #b8b8b8; margin-bottom: 20px; max-width: 660px; }
-        .article-body p strong { color: #ddd; }
+        .toc {
+            background: var(--surface-2); border: 1px solid var(--border);
+            border-radius: 10px; padding: 16px 20px;
+            margin: 0 0 32px;
+        }
+        .toc-label {
+            font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: #3a3a3a; font-weight: 700; margin-bottom: 12px;
+        }
+        .toc ol { list-style: none; padding: 0; margin: 0; }
+        .toc ol li {
+            display: flex; align-items: flex-start; gap: 10px;
+            padding: 5px 0; font-size: 0.85em;
+            border-bottom: 1px solid var(--border);
+        }
+        .toc ol li:last-child { border-bottom: none; }
+        .toc-num {
+            font-size: 9px; color: #333;
+            flex-shrink: 0; margin-top: 3px; min-width: 16px;
+        }
+        .toc ol li a { color: #5a5a5a; line-height: 1.45; }
+        .toc ol li a:hover { color: var(--blue); }
 
-        .pull-quote { font-size: 1.15em; font-weight: 700; color: #e0e0e0; border-left: 3px solid #00a2ff; padding: 14px 22px; margin: 32px 0; line-height: 1.5; font-style: italic; background: #161616; border-radius: 0 8px 8px 0; }
+        .article-body h2 {
+            color: var(--blue); font-size: 1.2em; font-weight: 700;
+            margin: 44px 0 14px; padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .article-body h3 {
+            color: #bbb; font-size: 1.0em; font-weight: 700;
+            margin: 28px 0 10px;
+        }
+        .article-body p {
+            font-size: 0.97em; line-height: 1.8;
+            color: #b8b8b8; margin-bottom: 18px; max-width: 660px;
+        }
+        .article-body p strong { color: #ddd; font-weight: 700; }
+        .article-body p em { color: #c8c8c8; font-style: italic; }
 
-        .article-body ul { padding-left: 0; list-style: none; margin: 0 0 24px; }
-        .article-body ul li { font-size: 0.93em; color: #aaa; padding: 6px 0 6px 22px; position: relative; line-height: 1.6; border-bottom: 1px solid #1a1a1a; }
-        .article-body ul li:last-child { border-bottom: none; }
-        .article-body ul li::before { content: ""; position: absolute; left: 0; top: 13px; width: 5px; height: 5px; border-radius: 50%; background: #00a2ff; }
+        .pull-quote {
+            font-size: 1.18em; font-weight: 700;
+            color: #e0e0e0;
+            border-left: 3px solid var(--blue);
+            padding: 12px 20px; margin: 32px 0;
+            line-height: 1.5; font-style: italic;
+            background: var(--surface-2);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .art-divider { height: 1px; background: var(--border); margin: 36px 0; }
+
+        .takeaways-bottom {
+            background: #131a13;
+            border-left: 3px solid #3cbe64;
+            border-radius: 0 10px 10px 0;
+            padding: 16px 20px; margin: 36px 0 32px;
+        }
+        .takeaways-bottom .takeaways-label { color: #3cbe64; }
+        .takeaways-bottom ul li::before { background: #3cbe64; }
+        .takeaways-bottom ul li { border-bottom-color: #1a201a; }
+
+        /* Personal note / gratitude block */
+        .personal-note {
+            background: #141218;
+            border-left: 3px solid #a070e0;
+            border-radius: 0 10px 10px 0;
+            padding: 18px 22px; margin: 36px 0 0;
+        }
+        .personal-note-label {
+            font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: #a070e0; font-weight: 700; margin-bottom: 10px;
+        }
+        .personal-note p {
+            font-size: 0.92em; color: #b8b0c4;
+            line-height: 1.75; margin: 0;
+            font-style: italic;
+        }
+
+        .related-section { margin: 36px 0 0; }
+        .related-label {
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: #444; font-weight: 700; margin-bottom: 14px;
+        }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .related-card {
+            background: #181818; border: 1px solid var(--border-soft);
+            border-radius: 8px; padding: 12px 14px;
+            transition: border-color 0.2s ease;
+        }
+        .related-card:hover { border-color: var(--blue); }
+        .related-card p { font-size: 0.85em; font-weight: 600; color: #bbb; margin: 0 0 4px; line-height: 1.35; }
+        .related-card span { font-size: 0.75em; color: #444; }
+        .related-card:hover p { color: var(--blue); }
+
+        .bottom-cta {
+            margin-top: 36px; background: #111a24;
+            border: 1px solid rgba(0,162,255,0.2);
+            border-radius: 10px; padding: 20px 22px; text-align: center;
+        }
+        .bottom-cta p { font-size: 0.88em; color: #888; margin: 0 0 12px; }
+        .bottom-cta a {
+            display: inline-block; background: var(--blue); color: #fff;
+            font-weight: 700; font-size: 0.88em;
+            padding: 10px 24px; border-radius: 30px;
+        }
+        .bottom-cta a:hover { background: var(--blue-hover); }
+
+        .footer-logo {
+            height: 28px; width: auto;
+            display: block; margin: 0 auto 12px;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 600px) {
+            .article-title { font-size: 1.5em; }
+            .related-grid { grid-template-columns: 1fr; }
+        }
     </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1LXCLXR34X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1LXCLXR34X');
+    </script>
 </head>
 <body>
 
-<nav>
+<nav class="site-nav">
     <div class="nav-container">
         <div class="nav-top">
-            <a href="../index.html"><img src="../assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo"></a>
+            <a href="../index.html">
+                <img src="../assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo">
+            </a>
             <div class="nav-links">
                 <a href="../index.html" class="nav-btn">Home</a>
                 <a href="../story.html" class="nav-btn">My Story</a>
@@ -73,15 +231,17 @@
     <div class="breadcrumb">
         <a href="../writing.html">← Writing</a>
         <span>/</span>
-        <span>System & Policy</span>
+        <span>System &amp; Policy</span>
     </div>
 
     <span class="article-category cat-sp">System &amp; Policy</span>
 
-    <h1 class="article-title">Housing First in Ottawa: Why Housing Alone Isn't Enough</h1>
+    <h1 class="article-title">
+        Housing First in Ottawa: Why Just Giving Keys Isn't Enough
+    </h1>
 
     <p class="article-hook">
-        Housing matters. Everyone needs a safe place to start rebuilding. But after years moving through rehabs, jails, shelters, and the streets, I've learned that handing someone keys without the right supports often sets them up to fail.
+        Housing matters. Everyone needs a safe place to start rebuilding. But after years moving through rehabs, jails, shelters, and the streets, I've learned that handing someone keys without the right supports often sets them up to fail — and the city pays for that gap every day.
     </p>
 
     <div class="article-meta-row">
@@ -96,75 +256,193 @@
     <div class="takeaways">
         <div class="takeaways-label">Here's what matters most</div>
         <ul>
-            <li>Housing First gives people a roof quickly, but without strong medical stabilization and life skills training, many struggle to keep it together.</li>
-            <li>Coming from structured environments (rehabs, jail, shelters), a lot of us never learned basic adult skills like cleaning, budgeting, or maintaining a home.</li>
-            <li>The current model can feel reactive — crises land on police, ERs, and neighbours instead of being prevented upstream.</li>
-            <li>Ontario's shift away from supervised consumption sites toward recovery-focused centres with integrated supports is a step in the right direction.</li>
+            <li>Housing First gets people indoors fast. Without medical stabilization and life skills underneath, a lot of people can't hold it together once they're there.</li>
+            <li>People coming out of rehabs, jails, and shelters often never learned basic adult skills — cleaning, budgeting, maintaining a place. That's a gap the system has to actually fill, not assume away.</li>
+            <li>The current model runs reactive. Crises land on police, ERs, neighbours, and frontline workers instead of getting prevented upstream.</li>
+            <li>Ontario's shift toward recovery-focused centres with integrated supports is the right direction. Whether it actually builds a continuum is the open question.</li>
         </ul>
+    </div>
+
+    <div class="toc">
+        <div class="toc-label">Jump to section</div>
+        <ol>
+            <li><span class="toc-num">01</span><a href="#section-1">What my family did right, and what still went wrong</a></li>
+            <li><span class="toc-num">02</span><a href="#section-2">How Housing First works in Ottawa</a></li>
+            <li><span class="toc-num">03</span><a href="#section-3">Where the model strains</a></li>
+            <li><span class="toc-num">04</span><a href="#section-4">A shift that has promise</a></li>
+            <li><span class="toc-num">05</span><a href="#section-5">What a real pathway would look like</a></li>
+            <li><span class="toc-num">06</span><a href="#section-6">The foundation</a></li>
+        </ol>
     </div>
 
     <div class="article-body">
 
-        <h2>What My Family Did Right, and What Still Went Wrong</h2>
-        <p>I grew up with parents who always showed up. When my addiction started, they got me into programs, paid for rehabs, and believed the promises that service providers made. They poured in love, money, and real hope.</p>
+        <!-- SECTION 1 -->
+        <h2 id="section-1">What my family did right, and what still went wrong</h2>
 
-        <p>So did I, at least in my better moments.</p>
+        <p>
+            I grew up with parents who always showed up. When my addiction started, they got me into programs. They paid for rehabs. They believed the promises that service providers made. They poured in love, money, and real hope.
+        </p>
 
-        <p>But somewhere in all those years of closed systems — structured rehabs, jail, shelters — I never learned basic life skills. Cleaning. Hygiene. Budgeting. Cooking. Keeping a place together. Everything was provided for me. When I eventually got housing, I tried. And I still struggled. Things broke. Messes built up. Money got mismanaged. It felt like slowly wasting the very resources meant to help me turn a corner.</p>
+        <p>
+            So did I, at least in my better moments.
+        </p>
+
+        <p>
+            But somewhere in all those years of closed systems — structured rehabs, jail, shelters — <strong>I never actually learned how to run a life.</strong> Cleaning. Hygiene. Budgeting. Cooking. Keeping a place together. Everything was provided for me. When I eventually got housing, I tried. And I still struggled. Things broke. Messes built up. Money got mismanaged. It felt like slowly wasting the very resources meant to help me turn a corner.
+        </p>
 
         <div class="pull-quote">
-            That gap between a roof and real stability is something I think about a lot.
+            "That gap between a roof and real stability is something I think about a lot."
         </div>
 
-        <h2>How Housing First Works in Ottawa</h2>
-        <p>Today, Housing First is the main model in this city. The City of Ottawa's Housing Services Branch runs it through a Coordinated Access system, partnering with nonprofits like CMHA Ottawa, Options Bytown, The Ottawa Mission, and the Salvation Army, as well as Indigenous organizations including Minwaashin Lodge, Wabano, and Tungasuvvingat Inuit.</p>
+        <div class="art-divider"></div>
 
-        <p>The core idea is straightforward: get people into permanent housing quickly, without requiring sobriety or treatment as a condition. Supports like case management follow after.</p>
+        <!-- SECTION 2 -->
+        <h2 id="section-2">How Housing First works in Ottawa</h2>
 
-        <p>In theory, that early stability helps people get their footing. I understand the reasoning.</p>
+        <p>
+            Housing First is the main model in this city. The City of Ottawa's Housing Services Branch runs it through a Coordinated Access system, partnering with nonprofits like CMHA Ottawa, Options Bytown, The Ottawa Mission, and the Salvation Army, as well as Indigenous organizations including Minwaashin Lodge, Wabano, and Tungasuvvingat Inuit.
+        </p>
 
-        <p>In practice, especially with drugs like fentanyl now in the mix, the gaps become hard to ignore. Crises — overdoses, open dealing, property damage, safety incidents — often land on Ottawa Police, ER nurses, outreach workers, and building communities. Frontline people are burning out. Neighbours in higher-density buildings deal with the fallout. Dealers target housed addicts because they now have an address.</p>
+        <p>
+            The core idea is straightforward: get people into permanent housing quickly, without requiring sobriety or treatment as a condition. Supports like case management follow after.
+        </p>
 
-        <p>The system still feels reactive to me. Different agencies, separate waitlists, scattered supports. Steps get missed. There is no strong continuum from medical stabilization through to structured support, life skills, and eventually independent living.</p>
+        <p>
+            In theory, that early stability helps people get their footing. I understand the reasoning.
+        </p>
 
-        <h2>A Shift Is Coming – and It Has Promise</h2>
-        <p>Ontario is making a significant change. The province is ending funding for supervised consumption sites in Ottawa. The two remaining ones — at Sandy Hill and Ottawa Inner City Health — are closing in June 2026.</p>
+        <div class="art-divider"></div>
 
-        <p>In their place, the province is moving toward recovery-focused centres with primary care, mental health support, substance use treatment, and housing navigation under one roof. Two are already operating in Ottawa, at Pinecrest-Queensway and on Eccles Street.</p>
+        <!-- SECTION 3 -->
+        <h2 id="section-3">Where the model strains</h2>
 
-        <p>The goal is more treatment and less simply enabling ongoing use. I think that direction makes sense. But I also think it needs to go further to actually work.</p>
+        <p>
+            In practice, especially with drugs like fentanyl now in the mix, the gaps become hard to ignore.
+        </p>
 
-        <h2>What a Real Pathway Would Look Like</h2>
-        <p>Based on what I lived through, here is what I believe a fuller continuum needs to include.</p>
+        <p>
+            Crises — overdoses, open dealing, property damage, safety incidents — land on Ottawa Police, ER nurses, outreach workers, and building communities. <strong>Frontline people are burning out.</strong> Neighbours in higher-density buildings deal with the fallout. Dealers target housed addicts because they now have an address.
+        </p>
 
-        <p><strong>Start with accessible medical detox and withdrawal management.</strong> When I was in deep withdrawal, my brain felt like it was running at IQ 0. Pure survival instinct. You cannot make good decisions or learn anything in that state. Medical stabilization has to come first.</p>
+        <p>
+            The system still feels reactive to me. Different agencies, separate waitlists, scattered supports. Steps get missed. There is no strong continuum from medical stabilization through to structured support, life skills, and eventually independent living.
+        </p>
 
-        <p><strong>Build in life skills training.</strong> Most people coming from the street or from shelters were never taught how to clean an apartment, manage a grocery budget, or build a basic routine. I wasn't. That isn't a character flaw — it's a gap that needs to be directly filled, not assumed away.</p>
+        <p>
+            That's not a knock on the people working it. Most of them are trying to do the right thing with the tools they've been given. It's a knock on the shape of the tools.
+        </p>
 
-        <p><strong>Add real guard rails and accountability.</strong> Housing units get damaged. Communities get hurt. Pretending that doesn't happen doesn't help anyone, including the people being housed. Accountability, done respectfully, is part of real support.</p>
+        <div class="art-divider"></div>
 
-        <p><strong>Once someone is stabilized, encourage contribution.</strong> Labour crews for cleanup, maintenance, and needle pickup are meaningful. This matters practically too — needles on the ground are a real problem, and hepatitis C treatment is expensive.</p>
+        <!-- SECTION 4 -->
+        <h2 id="section-4">A shift that has promise</h2>
 
-        <h2>The Foundation My Parents Taught Me</h2>
-        <p>My parents showed me, through everything they tried, that love and resources alone are not enough without the right tools and structure. Good intentions matter. They are not sufficient.</p>
+        <p>
+            Ontario is making a significant change. The province is ending funding for supervised consumption sites in Ottawa. The two remaining ones — at Sandy Hill and Ottawa Inner City Health — are closing in June 2026.
+        </p>
 
-        <p>Housing First has housed people who needed it, and that is real. But without a stronger medical and skills-based foundation underneath, too many people cycle through the same problems.</p>
+        <p>
+            In their place, the province is moving toward recovery-focused centres with primary care, mental health support, substance use treatment, and housing navigation under one roof. Two are already operating in Ottawa, at Pinecrest-Queensway and on Eccles Street.
+        </p>
 
-        <p>Ontario's shift is a step toward recovery rather than just harm reduction. The question now is whether the transition actually builds a full continuum — so that someone who walks through the door has a genuine path forward, not just a place to land.</p>
+        <p>
+            The direction makes sense to me. More treatment, fewer spaces that simply enable ongoing use without any path forward. But direction alone isn't enough. It needs to go further to actually work.
+        </p>
 
-        <p>No one should fall through the cracks between the pieces.</p>
+        <div class="art-divider"></div>
 
-        <p style="margin-top: 30px; font-style: italic; color: #aaa;">I would genuinely like to hear from frontline workers, policymakers, and others with lived experience: How do we make supports in Ottawa actually help people build lasting stability? What is working, and what keeps getting in the way?</p>
+        <!-- SECTION 5 -->
+        <h2 id="section-5">What a real pathway would look like</h2>
 
-        <h2>A Personal Note of Gratitude</h2>
-        <p>None of this journey happened alone. I want to thank my mom and dad, my sister, and my brothers Snake and Luke for never giving up on me, even when I gave them every reason to. To my son's mom and my girlfriend — thank you for your patience and your belief in me. To my friends Zac and Rich, and to the crew at Magnum Roofing — Steve, Dave, Shawn, Matt, and Jason — and the team at Geerts Roofing — you gave me purpose and a place to show up every day. To Serenity House, Clarence Street, the trailer, The Ottawa Mission, and the Salvation Army — each of those places was a chapter, and I needed every one of them. To the Ottawa Police, OCDC, and CSC — the system is hard, but there were people inside it who treated me like a human being, and that mattered more than you know. I carry all of you with me.</p>
+        <p>
+            Based on what I lived through, here's what a fuller continuum actually needs.
+        </p>
 
+        <h3>Start with accessible medical detox and withdrawal management</h3>
+        <p>
+            When I was in deep withdrawal, my brain felt like it was running at IQ zero. Pure survival instinct. <strong>You cannot make good decisions or learn anything in that state.</strong> Medical stabilization has to come first. Anything we build on top of a person who hasn't been stabilized is building on sand.
+        </p>
+
+        <h3>Build in life skills training</h3>
+        <p>
+            Most people coming from the street or from shelters were never taught how to clean an apartment, manage a grocery budget, or build a basic routine. I wasn't. That isn't a character flaw — it's a gap that has to be directly filled, not assumed away. Adults who were taken care of in every structured environment they lived in need to be taught the things those environments did for them.
+        </p>
+
+        <h3>Add real guard rails and accountability</h3>
+        <p>
+            Housing units get damaged. Communities get hurt. Pretending that doesn't happen doesn't help anyone, including the people being housed. <strong>Accountability, done respectfully, is part of real support.</strong> The absence of it isn't kindness — it's the system deciding someone isn't capable of being held to anything, which is its own kind of writing-off.
+        </p>
+
+        <h3>Once someone is stabilized, encourage contribution</h3>
+        <p>
+            Labour crews for cleanup, maintenance, and needle pickup are meaningful. They give people something to show up for, a reason to be out of the apartment, a way to re-enter the working world gradually. This matters practically too — needles on the ground are a real problem, and hepatitis C treatment is expensive. A stabilized person doing paid work to clean their own neighbourhood is both recovery and policy.
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 6 -->
+        <h2 id="section-6">The foundation</h2>
+
+        <p>
+            My parents showed me, through everything they tried, that love and resources alone aren't enough without the right tools and structure. Good intentions matter. They aren't sufficient.
+        </p>
+
+        <p>
+            Housing First has housed people who needed it, and that's real. But without a stronger medical and skills-based foundation underneath, too many of us cycle through the same problems. A key in your hand isn't the same as knowing what to do with the room it opens.
+        </p>
+
+        <p>
+            Ontario's shift is a step toward recovery rather than just harm reduction. <strong>The question now is whether the transition actually builds a full continuum — so that someone who walks through the door has a genuine path forward, not just a place to land.</strong>
+        </p>
+
+        <p>
+            No one should fall through the cracks between the pieces. There are too many pieces, and too many cracks.
+        </p>
+
+    </div>
+
+    <div class="takeaways-bottom takeaways">
+        <div class="takeaways-label">The bottom line</div>
+        <ul>
+            <li>A roof is a necessary starting point, not a finish line. Housing First without wraparound supports leaves people holding keys they don't know how to use.</li>
+            <li>Medical detox → life skills → accountability → contribution. That's the continuum. Every stage left missing is a stage the person has to figure out alone or fail at.</li>
+            <li>The work going forward isn't choosing between harm reduction and recovery. It's building the bridge between them so no one falls between the two.</li>
+        </ul>
+    </div>
+
+    <div class="personal-note">
+        <div class="personal-note-label">A personal note</div>
+        <p>
+            None of this happened alone. Thank you to my mom and dad, my sister, and my brothers Snake and Luke for never giving up on me even when I gave them every reason to. To my son's mom and my girlfriend — thank you for your patience and your belief. To Zac and Rich, and to the crews at Magnum Roofing and Geerts Roofing — Steve, Dave, Shawn, Matt, Jason — you gave me purpose and a place to show up every day. To Serenity House, Clarence Street, the trailer, The Ottawa Mission, and the Salvation Army — each of those places was a chapter, and I needed every one of them. To the Ottawa Police, OCDC, and CSC — the system is hard, but there were people inside it who treated me like a human being, and that mattered more than you know. I carry all of you with me.
+        </p>
+    </div>
+
+    <div class="related-section">
+        <div class="related-label">Read next</div>
+        <div class="related-grid">
+            <a href="cia-overview.html" class="related-card">
+                <p>Breaking Down the Compassionate Intervention Act — Part 1</p>
+                <span>8 min read · System &amp; Policy</span>
+            </a>
+            <a href="cia-part2-harm-threshold.html" class="related-card">
+                <p>The Harm Threshold — CIA Part 2</p>
+                <span>9 min read · System &amp; Policy</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="bottom-cta">
+        <p>If you're trying to navigate the system right now, start here.</p>
+        <a href="../resources.html">Find Support Resources →</a>
     </div>
 
 </div>
 
-<footer>
-    <p>Josh Pearsall · Recovery Roofer · Ottawa &nbsp;|&nbsp; <a href="../connect.html">Get in touch</a></p>
+<footer class="site-footer">
+    <img src="../assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="footer-logo">
+    <p>Josh Pearsall <span class="dot">&bull;</span> Recovery Roofer <span class="dot">&bull;</span> Ottawa, ON &nbsp;|&nbsp; <a href="../connect.html">Get in touch</a></p>
 </footer>
 
 <a href="../resources.html" class="floating-cta">
