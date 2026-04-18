@@ -265,3 +265,44 @@ img { max-width: 100%; height: auto; display: block; }
         font-size: 0.82em;
     }
 }
+/* ---------- INLINE NAV "NEED HELP" BUTTON ---------- */
+.site-nav .nav-help {
+    margin-left: 8px;
+    background: var(--danger);
+    color: #fff !important;
+    font-size: 0.75em;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 7px 14px;
+    border-radius: 30px;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+.site-nav .nav-help:hover {
+    background: #d84838;
+    transform: translateY(-1px);
+}
+.site-nav .nav-help::before {
+    content: "●";
+    color: #ffb3b3;
+    font-size: 0.8em;
+    animation: navPulse 2s infinite;
+}
+@keyframes navPulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.3; }
+}
+
+/* On mobile: shrink inline button and hide the floating bubble */
+@media (max-width: 720px) {
+    .site-nav .nav-help {
+        padding: 6px 10px;
+        font-size: 0.7em;
+    }
+    .site-nav .nav-help::before { display: none; }
+    .floating-cta { display: none; }
+}
