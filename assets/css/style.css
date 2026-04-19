@@ -297,15 +297,7 @@ img { max-width: 100%; height: auto; display: block; }
     50%      { opacity: 0.3; }
 }
 
-/* On mobile: shrink inline button and hide the floating bubble */
-@media (max-width: 720px) {
-    .site-nav .nav-help {
-        padding: 6px 10px;
-        font-size: 0.7em;
-    }
-    .site-nav .nav-help::before { display: none; }
-    .floating-cta { display: none; }
-}
+
 /* ---------- UPGRADED RICH FOOTER ---------- */
 .site-footer-rich {
     border-top: 1px solid var(--border);

@@ -298,26 +298,25 @@
         }
 
         /* ---------- BLOG SECTION HEADER ---------- */
+        /* FIX 2: removed top-right "See all posts" link; heading now stands alone */
         .blog-header {
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
         .blog-header h2 {
             font-family: 'Arial Black', sans-serif;
-            font-size: 1.1em;
+            font-size: 0.95em;
             font-weight: 900;
-            color: #f0ece0;
+            color: #b8b4a8;
             letter-spacing: 3px;
             text-transform: uppercase;
         }
-        .blog-header a {
-            color: var(--blue);
-            font-size: 0.9em;
-            font-weight: 600;
+        .blog-header .blog-subtitle {
+            color: var(--muted-2);
+            font-size: 0.78em;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-top: 4px;
         }
-        .blog-header a:hover { text-decoration: underline; }
 
         /* ---------- FEATURED ARTICLE ---------- */
         .featured-article {
@@ -327,7 +326,7 @@
             border: 1px solid var(--border-soft);
             border-radius: 10px;
             overflow: hidden;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
             transition: border-color 0.2s;
         }
         .featured-article:hover { border-color: var(--blue); }
@@ -339,7 +338,7 @@
             padding: 20px;
         }
         .feat-thumb svg { opacity: 0.8; }
-        .feat-body { padding: 22px 24px; }
+        .feat-body { padding: 20px 22px; }
         .feat-tag {
             display: inline-block;
             font-size: 10px;
@@ -352,21 +351,22 @@
             color: #3cbe64;
         }
         .feat-title {
-            color: #ddd;
-            font-size: 1.15em;
+            color: #ccc;
+            font-size: 1.02em;
             font-weight: 700;
-            line-height: 1.35;
-            margin: 0 0 10px;
+            line-height: 1.4;
+            margin: 0 0 8px;
         }
-        .feat-desc { color: #777; font-size: 0.9em; line-height: 1.55; }
-        .feat-meta { margin-top: 12px; font-size: 0.8em; color: var(--muted-2); }
+        .feat-desc { color: #777; font-size: 0.85em; line-height: 1.55; }
+        .feat-meta { margin-top: 10px; font-size: 0.75em; color: var(--muted-2); }
 
         /* ---------- ARTICLE GRID ---------- */
+        /* FIX (optional tightening): blog cards slightly smaller/lighter than CIA series cards */
         .article-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 16px;
-            margin-bottom: 36px;
+            gap: 14px;
+            margin-bottom: 32px;
         }
         .article-card {
             background: var(--surface-2);
@@ -378,25 +378,25 @@
         .article-card:hover { border-color: var(--blue); }
         .article-card:hover .card-title { color: var(--blue); }
         .card-thumb {
-            height: 100px;
+            height: 90px;
             background: #0a1a2a;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 16px;
+            padding: 14px;
         }
-        .card-thumb svg { opacity: 0.7; }
-        .card-body { padding: 14px 16px; }
+        .card-thumb svg { opacity: 0.6; }
+        .card-body { padding: 13px 15px; }
         .card-title {
-            color: #ccc;
-            font-size: 0.97em;
-            font-weight: 700;
+            color: #b8b8b8;
+            font-size: 0.9em;
+            font-weight: 600;
             line-height: 1.4;
-            margin: 0 0 6px;
+            margin: 0 0 5px;
             transition: color 0.2s;
         }
-        .card-desc { color: var(--muted); font-size: 0.84em; line-height: 1.5; }
-        .card-meta { margin-top: 10px; font-size: 0.77em; color: var(--muted-2); }
+        .card-desc { color: var(--muted); font-size: 0.8em; line-height: 1.5; }
+        .card-meta { margin-top: 9px; font-size: 0.72em; color: var(--muted-2); }
 
         @media (max-width: 640px) {
             .strip { gap: 24px; }
@@ -412,6 +412,7 @@
 <body>
 
 <!-- ============ SHARED NAV (same on every page) ============ -->
+<!-- FIX 3: removed duplicate "Need Help" nav item — floating CTA + Resources link are enough -->
 <nav class="site-nav">
     <div class="nav-container">
         <div class="nav-top">
@@ -425,7 +426,6 @@
     <a href="resources.html" class="nav-btn">Resources</a>
     <a href="writing.html" class="nav-btn">Writing</a>
     <a href="connect.html" class="nav-btn">Connect</a>
-    <a href="resources.html" class="nav-help">Need Help</a>
 </div>
         </div>
     </div>
@@ -444,7 +444,7 @@
         <line x1="450" y1="500" x2="600" y2="0" stroke="#fff" stroke-width="0.5"/>
     </svg>
 
-    <p class="hero-eyebrow">Ottawa &bull; Est. 2024 &bull; Lived Experience</p>
+    <p class="hero-eyebrow">Ottawa &bull; Est. 2024</p>
 
     <svg class="hero-roof" width="180" height="118" viewBox="0 0 180 118" fill="none" xmlns="http://www.w3.org/2000/svg">
         <polygon points="90,14 8,82 172,82" fill="#1d1d1d" stroke="#2e2e2e" stroke-width="1.5"/>
@@ -482,7 +482,7 @@
     <div class="strip-item"><span>&#9679;</span>Raw &amp; honest writing</div>
     <div class="strip-item"><span>&#9679;</span>Recovery resources</div>
     <div class="strip-item"><span>&#9679;</span>Ottawa &amp; Ontario focus</div>
-    <div class="strip-item"><span>&#9679;</span>Lived experience only</div>
+    <div class="strip-item"><span>&#9679;</span>Written from inside it</div>
 </div>
 
 <!-- ============ MAIN CONTENT ============ -->
@@ -543,9 +543,11 @@
 </div>
 
     <!-- BLOG -->
+    <!-- FIX 2: collapsed top-right CTA — heading stands alone, single CTA at bottom -->
+    <!-- FIX 1: CIA Part 1 and Part 2 cards removed — they live in the series block above -->
 <div class="blog-header">
-    <h2>Blog</h2>
-    <a href="writing.html">See all posts →</a>
+    <h2>More Writing</h2>
+    <div class="blog-subtitle">Archive — outside the series</div>
 </div>
 
 <a href="articles/toxic-drugs.html" class="featured-article">
@@ -566,28 +568,6 @@
 </a>
 
 <div class="article-grid">
-
-    <a href="articles/cia-part2-harm-threshold.html" class="article-card">
-        <div class="card-thumb">
-            <svg width="40" height="34" viewBox="0 0 40 34" fill="none"><polygon points="20,3 2,24 38,24" fill="#1d1d1d" stroke="#2e2e2e" stroke-width="1.5"/><polygon points="20,3 2,24 7,24 20,10" fill="#252525"/><polygon points="20,3 38,24 33,24 20,10" fill="#222"/><polygon points="20,0 17,7 23,7" fill="#00a2ff"/></svg>
-        </div>
-        <div class="card-body">
-            <p class="card-title">The Harm Threshold — CIA Part 2</p>
-            <p class="card-desc">Who qualifies for intervention, how "harm" gets defined, and why the real line is drawn by the people reading each application.</p>
-            <div class="card-meta">April 2026 &bull; 9 min read</div>
-        </div>
-    </a>
-
-    <a href="articles/cia-overview.html" class="article-card">
-        <div class="card-thumb">
-            <svg width="40" height="34" viewBox="0 0 40 34" fill="none"><polygon points="20,3 2,24 38,24" fill="#1d1d1d" stroke="#2e2e2e" stroke-width="1.5"/><polygon points="20,3 2,24 7,24 20,10" fill="#252525"/><polygon points="20,3 38,24 33,24 20,10" fill="#222"/><polygon points="20,0 17,7 23,7" fill="#00a2ff"/></svg>
-        </div>
-        <div class="card-body">
-            <p class="card-title">Breaking Down the Compassionate Intervention Act — Part 1</p>
-            <p class="card-desc">A section-by-section walkthrough — what it's designed to do, how the system actually flows, and where it could break.</p>
-            <div class="card-meta">April 2026 &bull; 8 min read</div>
-        </div>
-    </a>
 
     <a href="articles/ontario-3point8-billion-who-profits.html" class="article-card">
         <div class="card-thumb">
@@ -664,12 +644,13 @@
 </div><!-- /content-wrap -->
 
 <!-- ============ FOOTER ============ -->
+<!-- FIX 1: Popular Posts no longer duplicates CIA Part 1/2 — those live in the featured series block -->
 <footer class="site-footer-rich">
     <div class="footer-inner">
 
         <div class="footer-about">
             <h4>Recovery Roofer</h4>
-            <p>Josh Pearsall — working roofer in Ottawa writing honestly about addiction, recovery systems, and what actually works from inside it. Lived experience only, no stock photos.</p>
+            <p>Josh Pearsall — working roofer in Ottawa writing honestly about addiction, recovery systems, and what actually works from inside it.</p>
         </div>
 
         <div>
@@ -687,9 +668,9 @@
         <div>
             <h4>Popular Posts</h4>
             <ul>
-                <li><a href="articles/cia-overview.html">CIA Part 1 — Overview</a></li>
-                <li><a href="articles/cia-part2-harm-threshold.html">CIA Part 2 — Harm Threshold</a></li>
                 <li><a href="articles/toxic-drugs.html">Toxic Drugs, Softer Policy</a></li>
+                <li><a href="articles/ontario-3point8-billion-who-profits.html">Ontario's $3.8B Problem</a></li>
+                <li><a href="articles/the-lifelong-contract.html">The Lifelong Contract</a></li>
                 <li><a href="articles/housing-first-ottawa.html">Housing First in Ottawa</a></li>
                 <li><a href="articles/parole-rebellion-protocol.html">The Parole Rebellion Protocol</a></li>
             </ul>
