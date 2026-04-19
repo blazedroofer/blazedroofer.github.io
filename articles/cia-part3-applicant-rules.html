@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Compassionate Intervention Act Part 3: Who Can Pull the Trigger – Recovery Roofer</title>
+    <meta name="description" content="Section 17 of Alberta's Compassionate Intervention Act limits who can apply for an assessment order. On paper the list sounds narrow. In practice, the door is wider than it looks.">
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="CIA Part 3: Who Can Pull the Trigger — Applicant Rules of Section 17">
+    <meta property="og:description" content="The list of people who can apply to have someone involuntarily committed sounds narrow. A methadone nurse, a shelter social worker, a designated 'family' member — who actually qualifies is wider than the law suggests.">
+    <meta property="og:image" content="../assets/img/cia-part3/cia-part3-01-cover.png">
+    <meta property="og:site_name" content="Recovery Roofer">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <style>
+        /* ---------- ARTICLE-SPECIFIC STYLES ---------- */
+        .article-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 25px 80px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            margin: 32px 0 28px;
+            font-size: 0.82em;
+            color: #444;
+        }
+        .breadcrumb a { color: #444; }
+        .breadcrumb a:hover { color: var(--blue); }
+        .breadcrumb span { margin: 0 6px; }
+
+        /* Category tag */
+        .article-category {
+            display: inline-block;
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 3px 10px; border-radius: 4px;
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
+        .cat-sp { background: rgba(77,166,255,0.1); color: #4da6ff; }
+        .cat-le { background: rgba(140,80,220,0.1); color: #a070e0; }
+        .cat-pr { background: rgba(40,160,80,0.1); color: #3cbe64; }
+        .cat-ix { background: rgba(200,140,20,0.1); color: #dca028; }
+
+        /* Title + hook */
+        .article-title {
+            font-size: 1.85em;
+            font-weight: 700;
+            color: #ececec;
+            line-height: 1.25;
+            margin: 0 0 16px;
+        }
+        .article-hook {
+            font-size: 1.05em;
+            color: #777;
+            line-height: 1.7;
+            margin: 0 0 22px;
+        }
+
+        /* Meta row */
+        .article-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.82em;
+            color: #3d3d3d;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+        .meta-author-photo {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 1px solid #333;
+            flex-shrink: 0;
+        }
+        .meta-dot { color: #2a2a2a; }
+        .read-time-badge {
+            background: #1c1c1c; border: 1px solid #2a2a2a;
+            padding: 2px 9px; border-radius: 10px;
+            color: #484848;
+        }
+
+        /* Key Takeaways */
+        .takeaways {
+            background: var(--surface-2);
+            border-left: 3px solid var(--blue);
+            border-radius: 0 10px 10px 0;
+            padding: 16px 20px;
+            margin: 0 0 28px;
+        }
+        .takeaways-label {
+            font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--blue); font-weight: 700; margin-bottom: 10px;
+        }
+        .takeaways ul { list-style: none; padding: 0; margin: 0; }
+        .takeaways ul li {
+            font-size: 0.9em; color: #c0c0c0;
+            padding: 5px 0 5px 18px;
+            position: relative; line-height: 1.55;
+            border-bottom: 1px solid #1f1f1f;
+        }
+        .takeaways ul li:last-child { border-bottom: none; }
+        .takeaways ul li::before {
+            content: "";
+            position: absolute; left: 0; top: 12px;
+            width: 5px; height: 5px;
+            border-radius: 50%; background: var(--blue);
+        }
+
+        /* TOC */
+        .toc {
+            background: var(--surface-2); border: 1px solid var(--border);
+            border-radius: 10px; padding: 16px 20px;
+            margin: 0 0 32px;
+        }
+        .toc-label {
+            font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: #3a3a3a; font-weight: 700; margin-bottom: 12px;
+        }
+        .toc ol { list-style: none; padding: 0; margin: 0; }
+        .toc ol li {
+            display: flex; align-items: flex-start; gap: 10px;
+            padding: 5px 0; font-size: 0.85em;
+            border-bottom: 1px solid var(--border);
+        }
+        .toc ol li:last-child { border-bottom: none; }
+        .toc-num {
+            font-size: 9px; color: #333;
+            flex-shrink: 0; margin-top: 3px; min-width: 16px;
+        }
+        .toc ol li a { color: #5a5a5a; line-height: 1.45; }
+        .toc ol li a:hover { color: var(--blue); }
+
+        /* Article body */
+        .article-body h2 {
+            color: var(--blue); font-size: 1.2em; font-weight: 700;
+            margin: 44px 0 14px; padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .article-body h3 {
+            color: #bbb; font-size: 1.0em; font-weight: 700;
+            margin: 28px 0 10px;
+        }
+        .article-body p {
+            font-size: 0.97em; line-height: 1.8;
+            color: #b8b8b8; margin-bottom: 18px; max-width: 660px;
+        }
+        .article-body p strong { color: #ddd; font-weight: 700; }
+
+        /* Pull quote */
+        .pull-quote {
+            font-size: 1.18em; font-weight: 700;
+            color: #e0e0e0;
+            border-left: 3px solid var(--blue);
+            padding: 12px 20px;
+            margin: 32px 0;
+            line-height: 1.5;
+            font-style: italic;
+            background: var(--surface-2);
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Lists */
+        .article-body ul, .article-body ol {
+            padding-left: 0; list-style: none; margin: 0 0 22px;
+        }
+        .article-body ul li, .article-body ol li {
+            font-size: 0.93em; color: #aaa;
+            padding: 6px 0 6px 22px;
+            position: relative; line-height: 1.6;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .article-body ul li:last-child,
+        .article-body ol li:last-child { border-bottom: none; }
+        .article-body ul li::before {
+            content: ""; position: absolute; left: 0; top: 13px;
+            width: 5px; height: 5px; border-radius: 50%; background: var(--blue);
+        }
+        .article-body ol { counter-reset: ol-counter; }
+        .article-body ol li { counter-increment: ol-counter; }
+        .article-body ol li::before {
+            content: counter(ol-counter);
+            position: absolute; left: 0; top: 6px;
+            font-size: 10px; color: var(--blue); font-weight: 700;
+            background: #1a1a1a; border-radius: 3px;
+            width: 16px; height: 16px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        /* Myth / Reality */
+        .myth-reality {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 10px; margin: 24px 0;
+        }
+        .myth-box, .reality-box { border-radius: 8px; padding: 12px 14px; }
+        .myth-box { background: rgba(230,57,57,0.07); border: 1px solid rgba(230,57,57,0.15); }
+        .reality-box { background: rgba(40,160,80,0.07); border: 1px solid rgba(40,160,80,0.15); }
+        .myth-box .box-label { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: #c04040; margin-bottom: 6px; font-weight: 700; }
+        .reality-box .box-label { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: #3cbe64; margin-bottom: 6px; font-weight: 700; }
+        .myth-box p { font-size: 0.82em; color: #b06060; margin: 0; line-height: 1.5; }
+        .reality-box p { font-size: 0.82em; color: #60a870; margin: 0; line-height: 1.5; }
+
+        /* Divider */
+        .art-divider { height: 1px; background: var(--border); margin: 36px 0; }
+
+        /* Bottom takeaways */
+        .takeaways-bottom {
+            background: #131a13;
+            border-left: 3px solid #3cbe64;
+            border-radius: 0 10px 10px 0;
+            padding: 16px 20px;
+            margin: 36px 0 32px;
+        }
+        .takeaways-bottom .takeaways-label { color: #3cbe64; }
+        .takeaways-bottom ul li::before { background: #3cbe64; }
+        .takeaways-bottom ul li { border-bottom-color: #1a201a; }
+
+        /* Related articles */
+        .related-section { margin: 36px 0 0; }
+        .related-label {
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: #444; font-weight: 700; margin-bottom: 14px;
+        }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .related-card {
+            background: #181818; border: 1px solid var(--border-soft);
+            border-radius: 8px; padding: 12px 14px;
+            transition: border-color 0.2s ease;
+        }
+        .related-card:hover { border-color: var(--blue); }
+        .related-card p { font-size: 0.85em; font-weight: 600; color: #bbb; margin: 0 0 4px; line-height: 1.35; }
+        .related-card span { font-size: 0.75em; color: #444; }
+        .related-card:hover p { color: var(--blue); }
+
+        /* Bottom CTA */
+        .bottom-cta {
+            margin-top: 36px; background: #111a24;
+            border: 1px solid rgba(0,162,255,0.2);
+            border-radius: 10px; padding: 20px 22px; text-align: center;
+        }
+        .bottom-cta p { font-size: 0.88em; color: #888; margin: 0 0 12px; }
+        .bottom-cta a {
+            display: inline-block; background: var(--blue); color: #fff;
+            font-weight: 700; font-size: 0.88em;
+            padding: 10px 24px; border-radius: 30px;
+        }
+        .bottom-cta a:hover { background: var(--blue-hover); }
+
+        /* Slide gallery (optional carousel on web) */
+        .slide-gallery {
+            margin: 36px 0;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .slide-gallery-label {
+            font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--blue); font-weight: 700; margin-bottom: 14px;
+        }
+        .slide-gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border: 1px solid var(--border-soft);
+        }
+        .slide-gallery img:last-child { margin-bottom: 0; }
+        .slide-gallery-hint {
+            font-size: 0.8em; color: #555;
+            margin-top: 12px; font-style: italic;
+        }
+
+        @media (max-width: 600px) {
+            .article-title { font-size: 1.5em; }
+            .myth-reality { grid-template-columns: 1fr; }
+            .related-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1LXCLXR34X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1LXCLXR34X');
+    </script>
+</head>
+<body>
+
+<!-- ==================== SHARED NAV ==================== -->
+<nav class="site-nav">
+    <div class="nav-container">
+        <div class="nav-top">
+            <a href="../index.html">
+                <img src="../assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo">
+            </a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-btn">Home</a>
+                <a href="../story.html" class="nav-btn">My Story</a>
+                <a href="../continuum.html" class="nav-btn">Continuum of Care</a>
+                <a href="../resources.html" class="nav-btn">Resources</a>
+                <a href="../writing.html" class="nav-btn active">Writing</a>
+                <a href="../connect.html" class="nav-btn">Connect</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="article-wrap">
+
+    <!-- ── BREADCRUMB ───────────────────────────── -->
+    <div class="breadcrumb">
+        <a href="../writing.html">← Writing</a>
+        <span>/</span>
+        <span>System &amp; Policy</span>
+    </div>
+
+    <!-- ── CATEGORY TAG ───────────────────────── -->
+    <span class="article-category cat-sp">Compassionate Intervention Act · Part 3</span>
+
+    <!-- ── TITLE ──────────────────────────────── -->
+    <h1 class="article-title">
+        Who Can Pull the Trigger: The Applicant Rules of Section 17
+    </h1>
+
+    <!-- ── HOOK ───────────────────────────────── -->
+    <p class="article-hook">
+        Part 2 was about what gets someone pulled in. Part 3 is about who's allowed to pull the rope — and what it feels like for the person on the other end while the paperwork moves in silence.<br><br>
+        Section 17 lists three groups who can apply for an assessment order: family, regulated professionals with a care history, and police. On paper that sounds narrow. Once you look at how each of those categories actually works in practice — and once you notice when the person being named on actually gets to hear about any of it — the picture looks different.
+    </p>
+
+    <!-- ── META ROW ────────────────────────────── -->
+    <div class="article-meta-row">
+        <img src="../assets/img/josh-avatar.jpg" alt="Josh Pearsall" class="meta-author-photo">
+        <span style="color:#666;">Josh Pearsall</span>
+        <span class="meta-dot">·</span>
+        <span>April 2026</span>
+        <span class="meta-dot">·</span>
+        <span class="read-time-badge">12 min read</span>
+    </div>
+
+    <!-- ── KEY TAKEAWAYS (TOP) ─────────────────── -->
+    <div class="takeaways">
+        <div class="takeaways-label">Here's what matters most</div>
+        <ul>
+            <li>Section 17 sounds strict — only family, regulated professionals with a care history, and police can apply. But "care history" can be as thin as a single documented visit.</li>
+            <li>Section 18 lets the Commission designate almost anyone as "family," with no published conflict-of-interest rules or appeal path for the person on the receiving end.</li>
+            <li>Section 17(5) prohibits false or malicious applications, but the Act doesn't say whether that's a criminal offence, a regulatory issue, or anything at all. A prohibition without a consequence is a suggestion.</li>
+            <li>The Act gives a right to counsel at the hearing — but the client has to ask for it after admission, and Legal Aid coverage isn't confirmed in the statute. The Canadian Bar Association raised both gaps in May 2025.</li>
+        </ul>
+    </div>
+
+    <!-- ── TABLE OF CONTENTS ────────────────────── -->
+    <div class="toc">
+        <div class="toc-label">Jump to section</div>
+        <ol>
+            <li><span class="toc-num">01</span><a href="#section-1">The gate, on paper</a></li>
+            <li><span class="toc-num">02</span><a href="#section-2">The gate, in practice</a></li>
+            <li><span class="toc-num">03</span><a href="#section-3">Section 18: the "family" hatch</a></li>
+            <li><span class="toc-num">04</span><a href="#section-4">The rule with no teeth</a></li>
+            <li><span class="toc-num">05</span><a href="#section-5">The one built-in pause</a></li>
+            <li><span class="toc-num">06</span><a href="#section-6">What a hold looks like from inside one</a></li>
+            <li><span class="toc-num">07</span><a href="#section-7">What this means for you</a></li>
+        </ol>
+    </div>
+
+    <!-- ══════════ ARTICLE BODY ══════════ -->
+    <div class="article-body">
+
+        <p>
+            If Part 2 was about where the harm threshold is drawn, Part 3 is about whose hand is on the application. Because before any of the system's downstream decisions happen — the review, the apprehension, the 72-hour hold, the hearing — somebody has to decide to start. Section 17 is the list of people allowed to do that.
+        </p>
+        <p>
+            On a first read, it looks like the Act thought carefully about this. The applicant list is short. There's a pre-application information session. There's a rule against bad-faith filings. <strong>Every safeguard in the section sounds real until you ask who's enforcing it.</strong>
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 1 -->
+        <h2 id="section-1">The gate, on paper</h2>
+
+        <p>
+            Section 17 names three groups who can apply for an assessment order.
+        </p>
+
+        <ol>
+            <li><strong>Adult family members</strong> — or anyone the Commission designates as family under Section 18. We'll come back to that second half.</li>
+            <li><strong>Regulated healthcare professionals</strong> who have provided care directly related to the person's addiction. Nurses, doctors, social workers, psychologists, paramedics, addiction counsellors — provided they're regulated and have a documented care relationship.</li>
+            <li><strong>Police or peace officers</strong> based on a relevant interaction with the person. A welfare check, a street contact, an arrest.</li>
+        </ol>
+
+        <p>
+            Everyone else is locked out. A landlord can't apply. A neighbour can't apply. An employer can't apply. A shelter worker without a regulated designation can't apply. A peer support worker usually can't apply. A concerned stranger definitely can't.
+        </p>
+
+        <p>
+            Sounds narrow. Sounds safe. Keep reading.
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 2 -->
+        <h2 id="section-2">The gate, in practice</h2>
+
+        <p>
+            The two words doing all the work in that list are "provided care." That's the phrase that's supposed to filter out casual contact and reserve applications for people with a real treatment relationship. It doesn't.
+        </p>
+
+        <p>
+            In most regulated settings, a single documented interaction is enough to establish a care relationship. One methadone clinic visit. One shelter intake. One paramedic call that ended at the hospital. Once there's a chart note with your name on it, somebody in that building can honestly say they've provided care. That's the gate.
+        </p>
+
+        <div class="pull-quote">
+            "A 'care relationship' can be thinner than a single appointment. That's not a filter. That's a rubber stamp."
+        </div>
+
+        <p>
+            Three scenarios make this concrete.
+        </p>
+
+        <h3>The methadone nurse</h3>
+        <p>
+            You walk into a clinic once. Your name goes in the chart. Weeks later, if the same clinic wants to apply, they have a care history. The system medicating you is now one of the bodies that can apply to have you committed. There's no firewall between the two.
+        </p>
+
+        <h3>The shelter social worker</h3>
+        <p>
+            A lot of shelter staff hold regulated designations. Registered social workers, registered nurses, addiction counsellors. If you've slept in the building and signed an intake form, the person running the shelter can apply on the person in the bed. Think about the dynamic that creates. The shelter is the one with the data, the documentation, and the discretion.
+        </p>
+
+        <h3>The same provider, both sides</h3>
+        <p>
+            This is the one that doesn't get talked about enough. In Alberta's current system, the same organizations that deliver opioid agonist therapy, withdrawal management, and residential treatment are also positioned to be applicants. The clinic medicating you can also apply to have you involuntarily assessed. There is no published conflict-of-interest rule against it.
+        </p>
+
+        <p>
+            None of this is an accusation. Most of the nurses, doctors, and social workers in those buildings are trying to help. But the Act doesn't rely on their good intentions. It just lets them apply. And when you let the same organization deliver care, collect data, and initiate involuntary process, you've built a loop.
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 3 -->
+        <h2 id="section-3">Section 18: the "family" hatch</h2>
+
+        <p>
+            Section 18 is the part that nobody talks about when they describe the applicant list. It sits quietly under Section 17 and says, in effect, that the Commission can designate someone as "family" for the purposes of applying — even if they aren't blood-related, married, or legally connected to the person.
+        </p>
+
+        <p>
+            That's a sensible idea on its face. Real families aren't always legal ones. A grandparent who raised you. A best friend who's been closer than a sibling for twenty years. A chosen family in a queer community. A sponsor who's been to more of your hearings than your actual parents. The law acknowledging that is reasonable.
+        </p>
+
+        <p>
+            The problem is what's missing around it.
+        </p>
+
+        <div class="myth-reality">
+            <div class="myth-box">
+                <div class="box-label">What you'd expect</div>
+                <p>Designation requires a hearing, published criteria, conflict-of-interest disclosure, and an appeal path for the person being named on.</p>
+            </div>
+            <div class="reality-box">
+                <div class="box-label">What the Act says</div>
+                <p>The Commission can designate. No published criteria. No mandatory disclosure. No hearing before designation. No clear appeal for the person affected.</p>
+            </div>
+        </div>
+
+        <p>
+            An ex with a grudge becomes "family" on paper if they know how to frame the application. A former roommate who wants someone out of a house. A sponsor who's burned out and tired. Someone running a recovery house who stands to gain from the bed. The discretion lives with the Commission, and the rules the Commission uses to exercise that discretion aren't published in the statute.
+        </p>
+
+        <p>
+            <strong>Discretion isn't bad. Unreviewable discretion is.</strong>
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 4 -->
+        <h2 id="section-4">Section 17(5): the rule with no teeth</h2>
+
+        <p>
+            Buried in Section 17 is a clause that prohibits false, frivolous, vexatious, or malicious applications. That sounds like a safeguard. Read it carefully and a question appears that the Act doesn't answer.
+        </p>
+
+        <p>
+            And then what?
+        </p>
+
+        <p>
+            Is making a false application a criminal offence? The Act doesn't say. Is there a fine? Not stated. Does the Commission investigate, refer to a regulator, or publish a finding? Not stated. Can the person who was falsely named sue? Not stated.
+        </p>
+
+        <div class="pull-quote">
+            "A prohibition without a consequence is a suggestion."
+        </div>
+
+        <p>
+            Compare that to how other statutes handle bad-faith filings. Perjury is a criminal offence with a maximum sentence. Filing a false report to police has its own section in the Criminal Code. Making a vexatious complaint to a regulator has specific professional consequences. Section 17(5) doesn't tell you where it sits. It just says don't do it. The Act doesn't say whether a violation is criminal, regulatory, or civil. In practice, the main consequence appears to be that the application can be rejected — after the process has already started moving.
+        </p>
+
+        <p>
+            The practical effect is that an applicant with a grudge takes on no real risk. If the application fails, they walk away. If the application succeeds, the person on the receiving end has already been apprehended, assessed, and run through the system before anyone asks whether the filing was honest. The cost falls entirely on the target.
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 5 -->
+        <h2 id="section-5">The one built-in pause</h2>
+
+        <p>
+            Credit where it's due. The Act does require applicants to complete a pre-application information session before filing. A mandatory pause before anyone can start the process. On paper, that's a safeguard.
+        </p>
+
+        <p>
+            It's the one built-in moment of friction in the whole section. A training. A walk-through. A chance for an applicant to hear what they're about to do to another person's freedom and reconsider. If it's delivered honestly, it could stop a real number of bad applications before they start.
+        </p>
+
+        <p>
+            If it's delivered by the same system that benefits from referral volume, it stops being a brake and becomes an onboarding call.
+        </p>
+
+        <p>
+            The Act doesn't specify who delivers the session. It doesn't require the trainer to be independent from the referral pipeline. It doesn't publish the content. It doesn't say whether a contracted provider — a clinic, a treatment centre, a ministry vendor — could be the one running it. <strong>Independence of the trainer is the whole safeguard.</strong> Without that, the pre-application session could easily drift into the opposite of what it's supposed to be: a sales funnel for the beds waiting at the other end.
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 6: testimony -->
+        <h2 id="section-6">What a hold looks like from inside one</h2>
+
+        <p>
+            I wasn't apprehended under this Act. It didn't exist yet. But I've been on the inside of an involuntary hold, and I know what the words on the page look like from the bed.
+        </p>
+
+        <p>
+            In 2023, I was arrested. I went through admission and discharge into minimum security and was put on the standard withdrawal protocol until MAT took over. Around day three my condition worsened. I was moved. At some point I stopped trusting the medication and refused it. I don't remember most of what happened next — the memory is in pieces, and the transfers between facilities are the skeleton of a story my brain didn't fully record. The transfers themselves are a matter of record. What happened in between them is harder to reconstruct.
+        </p>
+
+        <p>
+            What I do remember is waking up at Ottawa General, handcuffed and shackled, not knowing how I got there. I was there about a week. I couldn't tell what was real. I'd have dreams and think they were happening, then catch a flicker of awareness that something was off, then lose it again. The shame of not knowing was its own kind of damage. When I was discharged I thought I was going to treatment. I was taken back to jail.
+        </p>
+
+        <p>
+            I'm not telling this to compare jail and the CIA. They aren't the same. The point is narrower and it matters: <strong>the version of me in that bed could not have spoken for himself.</strong> Not to a lawyer. Not to a panel. Not to a reviewer checking my harm threshold against a list. I had the vocabulary and I had the instinct — on day one I probably could have explained what was happening to me. By day three I was somewhere else. The system was making decisions about me in a window when I was the least equipped to have an opinion on them.
+        </p>
+
+        <p>
+            That's the part of this Act that keeps pulling me back. It targets people in severe addiction — people who, by the time anything moves, are usually not at their sharpest. And the first stretch of the process — the applicant filing, the reviewer deciding, the apprehension order being issued — happens ex parte. The person being named on isn't in the room. They don't know it's happening. The Canadian Bar Association flagged this exact point in their May 2025 letter on Bill 53: the application stage offers no representation because the client isn't part of it yet.
+        </p>
+
+        <p>
+            Once the person is admitted to a facility, the treatment team must inform them of their right to counsel. If they <em>ask</em>, the team must arrange it. Read that again. The person who just woke up shackled in a hospital bed is the one expected to know to ask. In family court, you can Google the Legal Aid number. In criminal court at bail, a duty counsel lawyer is already standing there when you arrive — stationed at the courthouse, paid for by Legal Aid, available to anyone who asks a court officer. They explain the process, speak to the Crown for you, and can run the hearing themselves if you can't. Under this Act, the burden of initiating contact with a lawyer sits with the person least equipped to initiate anything.
+        </p>
+
+        <p>
+            And here's the deeper problem, the one that doesn't have a clean fix. Duty counsel works at bail court because the person in front of them is usually oriented enough to participate — they can give their name, describe what happened, say whether they have a place to go. The lawyer has a client who can instruct them, even if roughly. This Act is aimed at people whose capacity to do that has deteriorated to the point where the state thinks they can't decide for themselves. That's the threshold — diminished ability to meet basic needs, severe condition, unable to stop on their own. By the Act's own logic, the person walking into a lawyer conversation under this framework is precisely the person least able to have one. Fixing the access problem — putting a lawyer in the room at admission — doesn't fix that. It just makes it visible.
+        </p>
+
+        <p>
+            And then there's the money question. Most of the people this Act targets — unhoused, on income assistance, cycling through withdrawal — would qualify for Legal Aid on income alone. They're the exact population Legal Aid Alberta exists for. But the Act doesn't say whether Legal Aid coverage is confirmed, how it gets arranged, or who pays when a person can't. The Canadian Bar Association asked that question directly in their letter. It still hasn't been answered.
+        </p>
+
+        <div class="pull-quote">
+            "By the Act's own logic, the person least able to instruct a lawyer is the person most likely to be assigned one."
+        </div>
+
+        <p>
+            I'm not saying the Act gives no right to counsel. It does — at the hearing, and at reviews. What I'm saying is that the right exists in two different places where it can't do what a right to counsel is supposed to do. Before admission, the client isn't there. After admission, the client may not be present enough to use it. The version of me in that hospital bed, in 2023, in psychosis, could not have told a lawyer his own name on day one, let alone given instructions on whether the application's facts were accurate. A lot of the people this Act is aimed at will be in some version of that state when the paperwork starts moving. That's not an argument the system can fix by offering counsel harder. It's an argument the system has to answer structurally — in who can apply, how applications get verified, and what happens before the person in the bed becomes the person in the hearing.
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 7: land the piece -->
+        <h2 id="section-7">What this means for you</h2>
+
+        <p>
+            If you're a family member trying to decide whether to apply, none of this should scare you off from doing something that might save a life. The Act exists for a reason. My parents would have used it. A lot of parents would. That's not what this piece is arguing against.
+        </p>
+
+        <p>
+            What it's arguing is that the same tool built for that moment — your kid, your sibling, your partner, dying in front of you — is also available to a lot of other people whose motives aren't that clean. A shelter under pressure to move beds. A clinic getting paid per referral. A designated "family member" with a grudge. An applicant filing under s.17(5) with no enforceable consequence if the claim turns out to be false. And the person being named on doesn't know any of it is happening until after the order has been signed.
+        </p>
+
+        <p>
+            The questions below don't have answers in the statute. Any one of them would meaningfully tighten Section 17 if it got answered in regulation.
+        </p>
+
+        <ul>
+            <li><strong>Is Legal Aid Alberta coverage confirmed for clients under this Act? The Canadian Bar Association asked this in May 2025. It still hasn't been answered publicly.</strong></li>
+            <li><strong>Why does the statute require the client to <em>ask</em> for counsel after admission, instead of presenting one — the way duty counsel is presented at criminal bail court?</strong></li>
+            <li>Is the information in an application verified independently before an apprehension order is issued?</li>
+            <li>The CBA flagged that adjournment rules could hold a client for up to 17 days before they make substantive submissions. Is that the intended design, or a drafting gap?</li>
+            <li><strong>Do applicants have to disclose financial, professional, or relational conflicts of interest? Is there a form, and is it public?</strong></li>
+            <li>Are staff bonuses or performance metrics ever allowed to be tied to referral volume under this Act?</li>
+            <li><strong>Who trains and oversees the pre-application information session — and are they independent from any body that benefits from referrals?</strong></li>
+            <li>What, concretely, happens when someone files a false or malicious application? Criminal? Regulatory? Civil? Or just a rejected form?</li>
+        </ul>
+
+        <p>
+            Silence on any of these isn't a detail. It's a design choice.
+        </p>
+
+        <p>
+            The list of people who can pull the trigger looks short. The door behind it is wide. What holds the line isn't the words in Section 17 — it's whether the regulations, the training, and the oversight that get built around it actually close the gaps this section leaves open. And whether the person on the receiving end gets a voice at the moment they most need one, or only later, once the machine is already moving.
+        </p>
+
+    </div>
+    <!-- ══════════ END ARTICLE BODY ══════════ -->
+
+    <!-- ── BOTTOM TAKEAWAYS ──────────────────────── -->
+    <div class="takeaways-bottom takeaways">
+        <div class="takeaways-label">The bottom line</div>
+        <ul>
+            <li>The applicant list looks narrow. Once "care history" can mean one visit and "family" can be designated, the door is wider than the statute suggests.</li>
+            <li>Section 17(5) bans false applications without naming a consequence. The risk sits on the target, not the applicant.</li>
+            <li>Duty counsel stands in front of you at criminal bail. Under this Act, the client has to ask for a lawyer after admission — and Legal Aid coverage for that lawyer isn't confirmed in the statute.</li>
+            <li>Next: Part 4 steps inside the 72-hour assessment window — what actually happens after an apprehension order is issued.</li>
+        </ul>
+    </div>
+
+    <!-- ── RELATED ARTICLES ──────────────────────── -->
+   <div class="related-section">
+    <div class="related-label">Read next</div>
+    <div class="related-grid">
+        <a href="cia-part2-harm-threshold.html" class="related-card">
+            <p>CIA Part 2: The Harm Threshold</p>
+            <span>9 min read · System &amp; Policy</span>
+        </a>
+        <div class="related-card" style="border: 1px dashed #4ea8d8; background: transparent;">
+            <p style="color: #4ea8d8;">Part 4 · Coming soon</p>
+            <span>Inside the 72-Hour Assessment</span>
+        </div>
+    </div>
+</div>
+
+    <!-- ── BOTTOM CTA ──────────────────────────── -->
+    <div class="bottom-cta">
+        <p>If you're trying to navigate the system right now, start here.</p>
+        <a href="../resources.html">Find Support Resources →</a>
+    </div>
+
+</div><!-- /article-wrap -->
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer-rich">
+    <div class="footer-inner">
+
+        <div class="footer-about">
+            <h4>Recovery Roofer</h4>
+            <p>Josh Pearsall — working roofer in Ottawa writing honestly about addiction, recovery systems, and what actually works from inside it. Lived experience only, no stock photos.</p>
+        </div>
+
+        <div>
+            <h4>Site</h4>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../story.html">My Story</a></li>
+                <li><a href="../continuum.html">Continuum of Care</a></li>
+                <li><a href="../writing.html">Writing</a></li>
+                <li><a href="../resources.html">Resources</a></li>
+                <li><a href="../connect.html">Get in touch</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Popular Posts</h4>
+            <ul>
+                <li><a href="cia-overview.html">CIA Part 1 — Overview</a></li>
+                <li><a href="cia-part2-harm-threshold.html">CIA Part 2 — Harm Threshold</a></li>
+                <li><a href="cia-part3-applicant-rules.html">CIA Part 3 — Applicant Rules</a></li>
+                <li><a href="toxic-drugs.html">Toxic Drugs, Softer Policy</a></li>
+                <li><a href="housing-first-ottawa.html">Housing First in Ottawa</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <p class="footer-bottom">
+        Josh Pearsall <span class="dot">●</span> Ottawa, ON <span class="dot">●</span> Est. 2024
+        &nbsp;|&nbsp; <a href="../connect.html">Get in touch</a>
+    </p>
+</footer>
+
+<!-- ==================== CRISIS CTA ==================== -->
+<a href="../resources.html" class="floating-cta">
+    <span>🚨</span> Need Help Right Now?
+</a>
+
+</body>
+</html>
