@@ -227,6 +227,93 @@
             margin: 56px 0;
         }
 
+        /* ---------- START HERE BLOCK ---------- */
+        .start-here {
+            background: var(--surface-2);
+            border-left: 5px solid #3cbe64;
+            border-radius: 10px;
+            padding: 32px 30px;
+            margin-bottom: 56px;
+        }
+        .start-here-badge {
+            background: #3cbe64;
+            color: #000;
+            font-size: 0.78em;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 30px;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 18px;
+        }
+        .start-here h2 {
+            color: #fff;
+            font-size: 1.55em;
+            font-family: 'Arial Black', sans-serif;
+            font-weight: 900;
+            line-height: 1.25;
+            margin-bottom: 22px;
+        }
+        .doors {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+        .door {
+            display: block;
+            background: #111;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px 20px 18px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .door:hover {
+            border-color: #3cbe64;
+            transform: translateY(-2px);
+        }
+        .door-num {
+            color: #3cbe64;
+            font-family: 'Arial Black', sans-serif;
+            font-size: 0.78em;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .door-title {
+            color: #fff;
+            font-size: 1.08em;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .door-desc {
+            color: #888;
+            font-size: 0.88em;
+            line-height: 1.55;
+            margin-bottom: 14px;
+        }
+        .door-arrow {
+            color: #3cbe64;
+            font-weight: 700;
+            font-size: 0.9em;
+        }
+        .start-here-footnote {
+            color: var(--muted);
+            font-size: 0.9em;
+            margin-top: 22px;
+            margin-bottom: 0;
+        }
+        .start-here-footnote a {
+            color: var(--blue);
+            font-weight: 600;
+        }
+        .start-here-footnote a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 640px) {
+            .doors { grid-template-columns: 1fr; }
+        }
+
         /* ---------- CIA SERIES BLOCK ---------- */
         .series-block {
             background: var(--surface-2);
@@ -544,9 +631,9 @@
             <p>
                 I got clean, kept roofing, and started writing about what the system actually looks like from inside it — recovery pathways, policy gaps, and the stuff nobody talks about in Ontario.
             </p>
-            <div class="intro-links">
-                <a href="continuum.html" class="primary">Start with the system map →</a>
-                <a href="story.html" class="secondary">My story — how I got here →</a>
+          <div class="intro-links">
+                <a href="writing.html" class="primary">Read the full archive →</a>
+                <a href="connect.html" class="primary">Get in touch →</a>
             </div>
         </div>
         <div class="intro-quote">
@@ -558,6 +645,35 @@
     </div>
 
     <div class="divider"></div>
+
+    <!-- START HERE -->
+    <div class="start-here">
+        <span class="start-here-badge">New Here?</span>
+        <h2>Start with the door that fits you</h2>
+        <div class="doors">
+            <a href="story.html" class="door">
+                <div class="door-num">01</div>
+                <div class="door-title">My Story</div>
+                <p class="door-desc">How I got clean, kept roofing, and started writing about it.</p>
+                <span class="door-arrow">Read it →</span>
+            </a>
+            <a href="resources.html" class="door">
+                <div class="door-num">02</div>
+                <div class="door-title">Need Help Now</div>
+                <p class="door-desc">Ottawa &amp; Ontario crisis lines, detox, shelters, safer supply.</p>
+                <span class="door-arrow">Get resources →</span>
+            </a>
+            <a href="continuum.html" class="door">
+                <div class="door-num">03</div>
+                <div class="door-title">The System</div>
+                <p class="door-desc">The continuum of care — how recovery actually maps out.</p>
+                <span class="door-arrow">See the map →</span>
+            </a>
+        </div>
+        <p class="start-here-footnote">
+            Want my writing on current policy? <a href="articles/cia-overview.html">Start the CIA series →</a>
+        </p>
+    </div>
 
     <!-- CIA SERIES -->
 <div class="series-block">
