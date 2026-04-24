@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CIA Part 4: Inside the 72-Hour Window – Recovery Roofer</title>
+    <meta name="description" content="What actually happens in the 72 hours between apprehension and the care plan hearing under Alberta's Compassionate Intervention Act — and why the safeguards are built for a person who isn't there.">
+
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <style>
+        /* ---------- ARTICLE-SPECIFIC STYLES ---------- */
+        .article-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 25px 80px;
+        }
+
+        .breadcrumb {
+            margin: 32px 0 28px;
+            font-size: 0.82em;
+            color: #444;
+        }
+        .breadcrumb a { color: #444; }
+        .breadcrumb a:hover { color: var(--blue); }
+        .breadcrumb span { margin: 0 6px; }
+
+        .article-category {
+            display: inline-block;
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 3px 10px; border-radius: 4px;
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
+        .cat-sp { background: rgba(77,166,255,0.1); color: #4da6ff; }
+
+        .article-title {
+            font-size: 1.85em;
+            font-weight: 700;
+            color: #ececec;
+            line-height: 1.25;
+            margin: 0 0 16px;
+        }
+        .article-hook {
+            font-size: 1.05em;
+            color: #777;
+            line-height: 1.7;
+            margin: 0 0 22px;
+        }
+
+        .article-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.82em;
+            color: #3d3d3d;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+        .meta-author-photo {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 1px solid #333;
+            flex-shrink: 0;
+        }
+        .meta-dot { color: #2a2a2a; }
+        .read-time-badge {
+            background: #1c1c1c; border: 1px solid #2a2a2a;
+            padding: 2px 9px; border-radius: 10px;
+            color: #484848;
+        }
+
+        .takeaways {
+            background: var(--surface-2);
+            border-left: 3px solid var(--blue);
+            border-radius: 0 10px 10px 0;
+            padding: 16px 20px;
+            margin: 0 0 28px;
+        }
+        .takeaways-label {
+            font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--blue); font-weight: 700; margin-bottom: 10px;
+        }
+        .takeaways ul { list-style: none; padding: 0; margin: 0; }
+        .takeaways ul li {
+            font-size: 0.9em; color: #c0c0c0;
+            padding: 5px 0 5px 18px;
+            position: relative; line-height: 1.55;
+            border-bottom: 1px solid #1f1f1f;
+        }
+        .takeaways ul li:last-child { border-bottom: none; }
+        .takeaways ul li::before {
+            content: "";
+            position: absolute; left: 0; top: 12px;
+            width: 5px; height: 5px;
+            border-radius: 50%; background: var(--blue);
+        }
+
+        .toc {
+            background: var(--surface-2); border: 1px solid var(--border);
+            border-radius: 10px; padding: 16px 20px;
+            margin: 0 0 32px;
+        }
+        .toc-label {
+            font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: #3a3a3a; font-weight: 700; margin-bottom: 12px;
+        }
+        .toc ol { list-style: none; padding: 0; margin: 0; }
+        .toc ol li {
+            display: flex; align-items: flex-start; gap: 10px;
+            padding: 5px 0; font-size: 0.85em;
+            border-bottom: 1px solid var(--border);
+        }
+        .toc ol li:last-child { border-bottom: none; }
+        .toc-num {
+            font-size: 9px; color: #333;
+            flex-shrink: 0; margin-top: 3px; min-width: 16px;
+        }
+        .toc ol li a { color: #5a5a5a; line-height: 1.45; }
+        .toc ol li a:hover { color: var(--blue); }
+
+        .article-body h2 {
+            color: var(--blue); font-size: 1.2em; font-weight: 700;
+            margin: 44px 0 14px; padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .article-body h3 {
+            color: #bbb; font-size: 1.0em; font-weight: 700;
+            margin: 28px 0 10px;
+        }
+        .article-body p {
+            font-size: 0.97em; line-height: 1.8;
+            color: #b8b8b8; margin-bottom: 18px; max-width: 660px;
+        }
+        .article-body p strong { color: #ddd; font-weight: 700; }
+        .article-body p em { color: #ccc; font-style: italic; }
+
+        .pull-quote {
+            font-size: 1.18em; font-weight: 700;
+            color: #e0e0e0;
+            border-left: 3px solid var(--blue);
+            padding: 12px 20px;
+            margin: 32px 0;
+            line-height: 1.5;
+            font-style: italic;
+            background: var(--surface-2);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .art-divider { height: 1px; background: var(--border); margin: 36px 0; }
+
+        .takeaways-bottom {
+            background: #131a13;
+            border-left: 3px solid #3cbe64;
+            border-radius: 0 10px 10px 0;
+            padding: 16px 20px;
+            margin: 36px 0 32px;
+        }
+        .takeaways-bottom .takeaways-label { color: #3cbe64; }
+        .takeaways-bottom ul li::before { background: #3cbe64; }
+        .takeaways-bottom ul li { border-bottom-color: #1a201a; }
+
+        .related-section { margin: 36px 0 0; }
+        .related-label {
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: #444; font-weight: 700; margin-bottom: 14px;
+        }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .related-card {
+            background: #181818; border: 1px solid var(--border-soft);
+            border-radius: 8px; padding: 12px 14px;
+            transition: border-color 0.2s ease;
+        }
+        .related-card:hover { border-color: var(--blue); }
+        .related-card p { font-size: 0.85em; font-weight: 600; color: #bbb; margin: 0 0 4px; line-height: 1.35; }
+        .related-card span { font-size: 0.75em; color: #444; }
+        .related-card:hover p { color: var(--blue); }
+
+        .bottom-cta {
+            margin-top: 36px; background: #111a24;
+            border: 1px solid rgba(0,162,255,0.2);
+            border-radius: 10px; padding: 20px 22px; text-align: center;
+        }
+        .bottom-cta p { font-size: 0.88em; color: #888; margin: 0 0 12px; }
+        .bottom-cta a {
+            display: inline-block; background: var(--blue); color: #fff;
+            font-weight: 700; font-size: 0.88em;
+            padding: 10px 24px; border-radius: 30px;
+        }
+        .bottom-cta a:hover { background: var(--blue-hover); }
+
+        @media (max-width: 600px) {
+            .article-title { font-size: 1.5em; }
+            .related-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1LXCLXR34X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1LXCLXR34X');
+    </script>
+
+</head>
+<body>
+
+<!-- ==================== SHARED NAV ==================== -->
+<nav class="site-nav">
+    <div class="nav-container">
+        <div class="nav-top">
+            <a href="../index.html">
+                <img src="../assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo">
+            </a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-btn">Home</a>
+                <a href="../story.html" class="nav-btn">My Story</a>
+                <a href="../continuum.html" class="nav-btn">Continuum of Care</a>
+                <a href="../resources.html" class="nav-btn">Resources</a>
+                <a href="../writing.html" class="nav-btn active">Writing</a>
+                <a href="../connect.html" class="nav-btn">Connect</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="article-wrap">
+
+    <!-- ── BREADCRUMB ── -->
+    <div class="breadcrumb">
+        <a href="../writing.html">← Writing</a>
+        <span>/</span>
+        <span>System &amp; Policy</span>
+    </div>
+
+    <!-- ── CATEGORY ── -->
+    <span class="article-category cat-sp">Compassionate Intervention Act · Part 4</span>
+
+    <!-- ── TITLE ── -->
+    <h1 class="article-title">
+        Inside the 72-Hour Window: What Actually Happens Once the Door Closes
+    </h1>
+
+    <!-- ── HOOK ── -->
+    <p class="article-hook">
+        Part 3 was about who gets to pull the trigger. Part 4 is about what happens right after it gets pulled — the stretch of time between apprehension and the hearing that decides whether someone stays under the Act or goes home.<br><br>
+        On paper, the 72-hour window is where the Act does its real clinical work. Stabilization, medical assessment, a written report, a panel decision. In practice, it's also the window where the person is most exposed and least equipped to respond to what's being done to them.
+    </p>
+
+    <!-- ── META ── -->
+    <div class="article-meta-row">
+        <img src="../assets/img/josh-avatar.jpg" alt="Josh Pearsall" class="meta-author-photo">
+        <span style="color:#666;">Josh Pearsall</span>
+        <span class="meta-dot">·</span>
+        <span>April 2026</span>
+        <span class="meta-dot">·</span>
+        <span class="read-time-badge">11 min read</span>
+    </div>
+
+    <!-- ── KEY TAKEAWAYS ── -->
+    <div class="takeaways">
+        <div class="takeaways-label">Here's what matters most</div>
+        <ul>
+            <li>The "72-hour window" is actually two clocks — the assessment report is due in <strong>48 hours</strong>, and the hearing has to start by <strong>72</strong>. Not a lot of time when the person is still in withdrawal.</li>
+            <li>The right to refuse treatment is real, but s.80(2) carves out a category the client can't refuse — including certain drugs administered by order of the Commission.</li>
+            <li>s.82 authorizes "control" of a client without consent using reasonable force, mechanical means, or medication. What "minimal" and "reasonable" mean in practice is a policy decision, not a statutory one.</li>
+            <li>If the treatment team decides the client "lacks capacity," a substitute decision-maker can consent on their behalf — and the team making the capacity call is also the team delivering treatment. Common in healthcare generally, worth noticing here specifically.</li>
+            <li>The client isn't in the room when the assessment report gets drafted. They see it before the hearing. That's their first real chance to push back.</li>
+        </ul>
+    </div>
+
+    <!-- ── TOC ── -->
+    <div class="toc">
+        <div class="toc-label">Jump to section</div>
+        <ol>
+            <li><span class="toc-num">01</span><a href="#section-1">The clock, unpacked</a></li>
+            <li><span class="toc-num">02</span><a href="#section-2">What happens on arrival</a></li>
+            <li><span class="toc-num">03</span><a href="#section-3">The assessment report</a></li>
+            <li><span class="toc-num">04</span><a href="#section-4">The right to refuse — and the hole in it</a></li>
+            <li><span class="toc-num">05</span><a href="#section-5">Capacity, and who decides</a></li>
+            <li><span class="toc-num">06</span><a href="#section-6">Control: force, mechanical, medication</a></li>
+            <li><span class="toc-num">07</span><a href="#section-7">Before the statute, there's the family</a></li>
+            <li><span class="toc-num">08</span><a href="#section-8">What this looked like from inside</a></li>
+            <li><span class="toc-num">09</span><a href="#section-9">What this means going in</a></li>
+        </ol>
+    </div>
+
+    <!-- ==================== ARTICLE BODY ==================== -->
+    <div class="article-body">
+
+        <p>
+            If you read <a href="cia-part3-applicant-rules.html" style="color:var(--blue);">Part 3</a>, you know how the machine gets started. A family member, a regulated professional, or a police officer files an application. A lawyer member of the Commission reviews it. If they're satisfied on a balance of probabilities that the person is likely to cause harm without intervention, they issue an apprehension order and an assessment order at the same time. Police find the person, apprehend them, convey them to a compassionate intervention facility.
+        </p>
+        <p>
+            <strong>That's where Part 4 picks up. The person is now inside.</strong>
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 1 -->
+        <h2 id="section-1">The clock, unpacked</h2>
+
+        <p>
+            Most coverage of this Act talks about "the 72-hour window" like it's one thing. It isn't. Two clocks start running the moment someone is apprehended.
+        </p>
+        <p>
+            The assessment report is due in <strong>48 hours</strong> (s.39). The treatment team has two days to do a substance use and addiction assessment, write it up, and submit it to the medical director and statutory director. The report includes the team's findings, their view on whether the client is likely to cause harm without intervention, and a treatment recommendation — or a recommendation to discharge.
+        </p>
+        <p>
+            The care plan hearing has to start within <strong>72 hours</strong> (s.41-42). A three-member panel gets convened and the hearing itself begins inside that window unless it's adjourned or deferred.
+        </p>
+        <p>
+            So day one is apprehension and stabilization. By day two the report is being written. By day three the hearing is happening.
+        </p>
+
+        <div class="pull-quote">
+            The assessment report gets written while the person it's about may still be in active withdrawal. Then it gets used to decide what happens to them next.
+        </div>
+
+        <p>
+            There are outs. If the medical director thinks the report can't be done in 48 hours because of the client's medical situation, the statutory director can apply for an adjournment (s.39(4), s.44). The Commission can defer the hearing entirely if medical needs exceed facility capacity (s.46). And s.47 automatically terminates the orders if the hearing doesn't start within 72 hours or hasn't properly adjourned inside 17 days.
+        </p>
+        <p>
+            The 72-hour figure has real teeth on the outside of the window. Inside it, the clock runs fast. And the first full day is the day the client is in the worst shape.
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 2 -->
+        <h2 id="section-2">What happens on arrival</h2>
+
+        <p>
+            Section 36 walks through admission. The client gets admitted, stabilized, given a basic medical assessment, given a copy of the assessment order and the reasons for it. If medical care exceeds what the facility can provide, they get conveyed to a hospital under s.78. Guardians of minors get notified. Guardians of adults get notified when there is one to notify.
+        </p>
+        <p>
+            Section 37 is the rights list. As soon as practicable after admission, the treatment team has to inform the client of their right to counsel, their right to contact the Mental Health Patient Advocate, their right to refuse treatment (subject to s.80(2) — more on that below), their right to communicate, and their rights at the hearing.
+        </p>
+        <p>
+            <strong>That's the paper version. Here's the real version.</strong>
+        </p>
+        <p>
+            The person walking into that room is in early withdrawal. They just got apprehended, often by police, often with force. They've been transported, processed, admitted. Someone is now reading them a list of rights while they're trying to hold themselves together. The Canadian Bar Association flagged this exact point in their Bill 53 letter — rights notification happens at the moment the person is least able to absorb it.
+        </p>
+
+        <div class="pull-quote">
+            You can read somebody their rights at the worst moment of their week. It doesn't mean they heard you.
+        </div>
+
+        <p>
+            Same structural problem as Part 3. Duty counsel stands in front of you at criminal bail because the system figured out a long time ago that a person in crisis shouldn't have to know the phone number. Under this Act, the client has to ask — and Legal Aid Alberta coverage still isn't confirmed in the statute. The CBA asked in May 2025. Still open.
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 3 -->
+        <h2 id="section-3">The assessment report</h2>
+
+        <p>
+            Section 39 is the operational heart of the window. Inside 48 hours, the treatment team conducts a substance use and addiction assessment, writes it up, and submits it to the medical director and statutory director. The assessment can include clinical interviews, lab tests, and psychological evaluations — subject to the client's right to refuse. The report sets out findings, the team's view on likelihood of harm without intervention, and either a treatment recommendation or a recommendation to discharge.
+        </p>
+        <p>
+            Three things worth pausing on.
+        </p>
+
+        <h3>The team writing the report is the same team delivering treatment</h3>
+        <p>
+            The Act doesn't build in an independent assessor. The people doing the clinical work and the people documenting it are the same people, unless regulations end up imposing a separation. Not necessarily a problem — it's efficient — but there's no second set of eyes built into the statute itself.
+        </p>
+
+        <h3>The client isn't in the room for the drafting</h3>
+        <p>
+            They're present for parts of the assessment, obviously. But they don't see the report before it's submitted. The statutory director gives them a copy before the hearing. <strong>That's the first real chance to push back on anything that's wrong.</strong>
+        </p>
+
+        <h3>The report can recommend discharge</h3>
+        <p>
+            If the treatment team decides the client is no longer likely to cause harm without intervention, they can submit an application for a discharge order under s.40 at any point before the hearing. A lawyer member reviews it on a balance of probabilities. If granted, the orders terminate and the client is released immediately.
+        </p>
+        <p>
+            That last one matters. The window isn't always a one-way door. Whether that path actually gets used will depend entirely on how treatment teams see themselves — as assessors looking for reasons to hold, or reasons to release. The statute doesn't say.
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 4 -->
+        <h2 id="section-4">The right to refuse — and the hole in it</h2>
+
+        <p>
+            Section 80(1) says a client with capacity has the right to refuse treatment. Section 80(2) is where the line moves. There are three things a client cannot refuse: observation and assessment (fine — can't run the Act without it), clinical advice (you can refuse the advice, just not being given it), and <strong>Schedule 1 drugs authorized by the Commission in the order, administered by a regulated professional for the purpose of treating substance use or addiction</strong>.
+        </p>
+        <p>
+            That third one is the lever. Schedule 1 under the Pharmacy and Drug Act is a broad category. If the Commission authorizes a specific drug in the order itself, the client cannot refuse it. Section 80(3) overrides the normal informed-consent requirements under the Health Professions Act — a regulated member "may provide treatment without consent" when acting under this section.
+        </p>
+
+        <div class="pull-quote">
+            The right to refuse treatment doesn't include the right to refuse the treatment. Not when it's authorized in the order.
+        </div>
+
+        <p>
+            This isn't always wrong. There are real clinical situations in early withdrawal where refusing medication is dangerous and the team reasonably needs authority to act. The point is just to be honest about what the statute says. The headline — "clients have the right to refuse treatment" — is not what the fine print delivers.
+        </p>
+        <p>
+            Whether this works out okay depends almost entirely on the regulations. A short, specific, clinically-justified list of drugs keeps the exception small. A broad list, or one left to medical director policy, and the exception starts eating the rule.
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 5 -->
+        <h2 id="section-5">Capacity, and who decides</h2>
+
+        <p>
+            If the treatment team determines the client lacks capacity, a substitute decision-maker steps in under s.81 — an agent under the Personal Directives Act, a guardian, an adult family member, or the Public Guardian if none of those exist. Minors are presumed to lack capacity unless the team decides otherwise.
+        </p>
+        <p>
+            Two things stand out.
+        </p>
+
+        <h3>The treatment team makes the capacity call</h3>
+        <p>
+            The same team delivering the treatment. The same team writing the assessment report. That isn't unique to this Act — capacity assessments are usually done by treating clinicians — but in a coercive setting with a short timeline and a report already being drafted, it compresses a lot of functions into one body.
+        </p>
+
+        <h3>A substitute's refusal doesn't override s.80(2)</h3>
+        <p>
+            If the substitute says no to a treatment authorized in the order, it still gets administered. <strong>The un-refusable category is un-refusable by anyone.</strong>
+        </p>
+        <p>
+            The deeper loop is this. The Act targets people in severe addiction. By its own logic, the person at the receiving end often has compromised capacity — that's part of why the state gave itself authority to intervene in the first place. That same diminished capacity is what can move them from the 80(1) track (I can refuse) to the 81 track (someone else decides for me). The deterioration that justifies the intervention also justifies overriding the intervention's main safeguard.
+        </p>
+        <p>
+            Not saying that's wrong in every case. Saying it's a loop worth noticing.
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 6 -->
+        <h2 id="section-6">Control: force, mechanical, medication</h2>
+
+        <p>
+            Section 82 is short and important:
+        </p>
+
+        <div class="pull-quote">
+            The authority to control a client under this Act is authority to control the client without the client's consent to the extent necessary to prevent serious bodily harm to the client or to another person by the minimal use of such force, mechanical means or medication as is reasonable, having regard to the physical and mental condition of the client.
+        </div>
+
+        <p>
+            The trigger — "serious bodily harm to the client or to another person" — is a real threshold. It's not a general tool for managing a difficult client.
+        </p>
+        <p>
+            But "minimal" and "reasonable" are doing almost all the work in this section, and they're not defined. What counts as minimal force on a detoxing client at 2 a.m.? What counts as reasonable medication when the person is in distress and won't settle? What does "mechanical means" include — soft restraints, four-point restraints, a door held closed? The Act doesn't say. Those are policy, training, and culture questions that get answered in regulation or not at all.
+        </p>
+        <p>
+            This is the section most likely to be invisible in practice. Families won't see it. Lawyers won't see it. The Mental Health Patient Advocate might see some of it if a complaint gets filed. The people who will see it are the nursing staff and the client. Which means the strength of s.82 as a safeguard depends entirely on what gets built on top of it — de-escalation training, documentation standards, incident review, reporting under s.14(5).
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 7 -->
+        <h2 id="section-7">Before the statute, there's the family</h2>
+
+        <p>
+            I want to stop here and name something the Act doesn't really account for.
+        </p>
+        <p>
+            Before any of this — before the application, the apprehension order, the treatment team, the hearing — there's a family already making grey-zone calls that look nothing like what the statute imagines. Mine did. My loved ones did. Every family I know that's been close to serious addiction has.
+        </p>
+        <p>
+            Calling police on your kid. Giving someone money to use, then picking them up and driving them to jail. None of those are clean calls. All of them can be the right move depending on the week. And they don't happen in isolation — they string together.
+        </p>
+        <p>
+            Here's one sequence I've seen more than once. Someone you love has a warrant. They know it, they're not sleeping, they're using more than usual because using is the only way to stop thinking about it. What I'd call <em>desperado mode</em> — escalated, hunted, no exit they can see. And the longer they stay in that mode, the more likely something genuinely bad happens. A more serious charge. An overdose. Somebody getting hurt. Themselves getting hurt.
+        </p>
+        <p>
+            Turning themselves in is almost always the better play. Withdrawal in custody is safer if it's planned. The judge responds differently to somebody who walked in than somebody who got caught. But getting them there is its own problem. They're spun out. They're not going to agree to it cold. So you give them money, or you help them get well one more time, because getting them high enough to come down to human is the only way the conversation happens at all. Then you pick them up from wherever they ended up. Then you drive them to the station.
+        </p>
+        <p>
+            Three "bad" moves in a row — enabling, picking up, delivering them to the state — that together amount to probably the best possible outcome available that week. <strong>And it only works if there's a landing spot waiting.</strong> Somewhere that will take them immediately, where somebody is responsible for them, where they'll actually get treatment, and where the legal issue gets resolved at the same time. Without that, you're just moving a crisis around. With it, three moves that look terrible on paper are the ones that keep everyone alive.
+        </p>
+        <p>
+            You don't feel noble about any of it. You feel like you've broken something, while also knowing you kept something worse from happening.
+        </p>
+        <p>
+            Giving somebody money to get high is the move people outside this world understand least. Sometimes it's the wrong call — feeding the fire, delaying the floor, letting them stay where they are longer. Sometimes it's harm reduction at the family level — they're going to use either way, and the twenty dollars means they don't steal it, don't catch a charge, don't do something they can't walk back. And sometimes, like in the warrant example, getting somebody high is how you get them safe. Stop the chase. Bring the temperature down. Create a window where they can hear you, or sleep, or be driven somewhere better.
+        </p>
+        <p>
+            Calling the police on your kid is the hardest one. I understand why families or loved ones would do it. When the voluntary options aren't working and you can see them getting worse, you're picking between doing something that will feel like betrayal and doing nothing that will feel like neglect. That's not a choice. That's a position.
+        </p>
+
+        <div class="pull-quote">
+            I used to think black and white. Only through lived experience have I realized the world is shades of grey.
+        </div>
+
+        <p>
+            I'm naming all of this here because the Act doesn't see it. The statute starts at the application form. By the time anything official happens, the family has already been in the grey zone for months or years, making calls nobody trained them for, carrying consequences nobody prepared them for, running out of tools. <strong>The formal system shows up late to a decision the family has already been making in private.</strong>
+        </p>
+        <p>
+            That matters for Part 4 specifically because once the person is inside the facility, a lot of the same grey-zone judgment moves from the family to the treatment team. When to medicate. When to restrain. When to push, when to back off. Whether this person in front of them is the same person who walked in three days ago, or somebody whose capacity has slipped, or somebody who's performing well enough to look fine on paper but isn't.
+        </p>
+        <p>
+            The Act gives the team the authority to make those calls. It doesn't give them a map for how. The family didn't have one either.
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 8 -->
+        <h2 id="section-8">What this looked like from inside</h2>
+
+        <p>
+            I wasn't apprehended under this Act. It didn't exist. But I was inside a version of the window it describes, and the structure is close enough that what I remember is useful.
+        </p>
+        <p>
+            In 2023 I got arrested. Went through admission, then minimum security. I was still more or less myself at that point, still tailing off but able to hold a conversation, still able to work the system if I had to. Got transferred to max a couple days in. I don't fully remember why.
+        </p>
+        <p>
+            The second or third night is what I want to describe, because it's the cleanest example I have of what the Act calls "capacity" disappearing on you without you noticing it's gone.
+        </p>
+        <p>
+            It was evening lockdown. I was on the top bunk. The TVs were on — mine, but also the ones on the other ranges, and the doors were open so guards could walk through. The other ranges were playing the same channels I was, but slightly out of sync. Audio bleeding in from the halls on a delay. At first it was just agitating. Distressing, confusing — the same words coming at me twice, three times, from different directions, not quite lined up.
+        </p>
+        <p>
+            Then somewhere in that, it tipped. I became convinced the TV was talking about me. Specifically about me. I started saying things out loud about it. My cellmate asked me what I was talking about. And when he asked, I realized I had no idea what I'd been saying. I couldn't explain it. I shut up because I couldn't find the words for what had just happened in my head.
+        </p>
+        <p>
+            I want you to understand what that did to me, because it's not about the TV.
+        </p>
+        <p>
+            I have always felt strong and capable. Even when I was making terrible choices. Even at my weakest, my sickest, my most strung out. I had a base. A competitor's mind. I could take a hit and come back. <strong>That was core to how I understood myself</strong> — not as a good person necessarily, but as a person who could handle what was in front of him.
+        </p>
+        <p>
+            On the top bunk that night, that was gone. I was meek. I was ashamed. Everything felt small, including me. I couldn't advocate for myself because there was no self left doing the advocating. Just a body in a bunk, losing the plot, unable to explain it to the guy three feet below me.
+        </p>
+        <p>
+            That's the part I want the reader to sit with. Not the paranoia. The erosion of the thing I'd always relied on to get me through anything.
+        </p>
+        <p>
+            Later that week I was at Ottawa General, handcuffed and shackled. I don't remember the transfer. I don't remember how I got there. When I was discharged back to OCDC, I didn't know I was going to jail — I thought I had been in jail before General, but I couldn't remember. The actual sequence came back to me in pieces a couple of weeks later. That's why I filed the FOI. The transfers themselves are on the record. What happened in my head between them is not.
+        </p>
+        <p>
+            I'm telling you this because every safeguard in the 72-hour window assumes a stable participant — and stability was the first thing I lost.
+        </p>
+
+        <h3>I couldn't have participated in an assessment</h3>
+        <p>
+            The version of me who walked in could have. The version on the top bunk convinced the TV was talking about him could not. And here's the harder part — I would have performed well in a clinical assessment anyway. I've always told staff what I thought they wanted to hear, or what I thought would get me what I wanted. I have good manners. I love people. I'm curious, loyal, interested in whoever's in front of me. That worked for me in programs and counselling my whole life. <strong>It also means the version of me least equipped to tell the truth about what was happening to me would have produced the cleanest-looking assessment report in the room.</strong>
+        </p>
+
+        <h3>I couldn't have briefed a lawyer</h3>
+        <p>
+            Not meaningfully. I could have told them my name. I could not have told them whether the facts in the application were right, what I wanted to happen next, or whether the medication they were giving me was something I'd actually agreed to.
+        </p>
+
+        <h3>I couldn't have advocated to the doctor</h3>
+        <p>
+            I want to flag this one specifically. Younger, sicker versions of me had known how to work that angle. I'd begged the system before to get moved from custody to a hospital for care. I knew how. But in 2023, by the time I was actually there, the ability to do that was gone. <strong>The skill of knowing how to speak to the system is itself a capacity, and it can disappear before you notice.</strong> That's a dangerous thing to build safeguards around.
+        </p>
+
+        <h3>I didn't talk to my family for a couple of weeks</h3>
+        <p>
+            Not until I was further through it. And that wasn't just about them finding out — it was about not being able to have the conversation honestly. Telling them what was happening while it was happening would have made it worse for me and worse for them. I didn't have the words. They wouldn't have known what to do with what I could have managed to say.
+        </p>
+        <p>
+            The Act requires the treatment team to make reasonable efforts to notify a guardian when someone is admitted. That's a reasonable rule. But notification isn't the same thing as connection. A guardian can know where you are and still not be able to reach the person inside the building. That's the gap — and it's not a gap the statute can close.
+        </p>
+        <p>
+            That's the thing about the 72-hour window. The person inside it may be someone whose ability to advocate for themselves is the lowest it's been in years. That isn't a flaw in the Act — that's part of the target population the Act was designed to reach. But it means every safeguard in the window — right to counsel, right to refuse, right to contact the MHPA, right to submit to an assessment with real consent — has to be designed to still function when the person inside isn't at their strongest.
+        </p>
+        <p>
+            Some clients will be. Some won't. I wasn't, on the second night on the top bunk. I wouldn't have been for the first week after that either. Most people I've known in that kind of state weren't either. <strong>The system has to hold up for the ones who aren't.</strong>
+        </p>
+
+        <div class="art-divider"></div>
+
+        <!-- SECTION 9 -->
+        <h2 id="section-9">What this means going in</h2>
+
+        <p>
+            If you're a family member whose application has just been approved, or a client who's just been apprehended, the 72-hour window is going to move fast. Here's the short version of what I'd be watching for.
+        </p>
+        <p>
+            <strong>The right to legal counsel is real, but you have to ask.</strong> If you're the client, ask on day one. If you're a family member or guardian who knows someone was just picked up, help them ask. Legal Aid Alberta coverage under this Act isn't confirmed in the statute, but they're still the first call.
+        </p>
+        <p>
+            <strong>The assessment report is the whole ballgame.</strong> It's what the hearing panel will rely on most heavily. You should see a copy before the hearing. Read it carefully. If something in it is factually wrong — wrong about your use history, wrong about what happened before apprehension, wrong about medical history — that's the thing to push back on with your lawyer before the hearing starts.
+        </p>
+        <p>
+            <strong>The right to refuse has holes in it.</strong> Know what's in the assessment order. Know what s.80(2) covers. If a drug is authorized in the order, you can't refuse it under this Act, regardless of what you tell the team.
+        </p>
+        <p>
+            <strong>The discharge mechanism in s.40 exists.</strong> If the treatment team recommends discharge, a lawyer member can grant it before the hearing. That's rare but real. Worth knowing.
+        </p>
+        <p>
+            <strong>What happens inside the facility between admission and the hearing</strong> — the force used, the medication given, the restraints if any — is governed by s.82 and whatever policies the medical director has written. You can ask for those policies. You should.
+        </p>
+        <p>
+            The questions below don't have answers in the Act. The regulations will answer some of them. Others will be answered by whatever culture develops inside the facilities once the program is running.
+        </p>
+
+        <ul>
+            <li>Which drugs, specifically, will be authorized under s.80(2) without a right of refusal? Is the list public?</li>
+            <li>What training will treatment teams receive on capacity assessment, specifically for clients in active poly-drug withdrawal?</li>
+            <li>What standards will govern the use of mechanical restraints under s.82? Is there mandatory incident review?</li>
+            <li>Are assessment reports produced by an independent clinician, or by the same team delivering the treatment?</li>
+            <li>When a treatment team recommends discharge before the hearing, how fast does the lawyer member have to decide?</li>
+            <li>What training will frontline staff receive on reading clients their rights in a way a person in acute withdrawal can actually process?</li>
+        </ul>
+
+        <p>
+            Silence on any of those isn't a detail. It's a choice.
+        </p>
+
+    </div>
+    <!-- ══════════ END ARTICLE BODY ══════════ -->
+
+    <!-- ── BOTTOM TAKEAWAYS ── -->
+    <div class="takeaways-bottom takeaways">
+        <div class="takeaways-label">The bottom line</div>
+        <ul>
+            <li>The 72-hour window is where the Act's clinical work happens. It's also where the person inside is least equipped to advocate for themselves.</li>
+            <li>The right to refuse treatment is real, but s.80(2) carves out a category the client can't refuse. That exception lives or dies on the regulations.</li>
+            <li>Capacity is determined by the treatment team. So is the assessment. So is the treatment recommendation. Efficient — and a lot of discretion stacked in one place.</li>
+            <li>Section 82 is where force, restraint, and non-consensual medication live. The strength of that section as a safeguard is almost entirely a function of what gets built around it.</li>
+            <li>Next: Part 5 steps into the care plan hearing itself — who's in the room, what the panel considers, and where the hearing can bend.</li>
+        </ul>
+    </div>
+
+    <!-- ── RELATED ── -->
+    <div class="related-section">
+        <div class="related-label">Read next</div>
+        <div class="related-grid">
+            <a href="cia-part3-applicant-rules.html" class="related-card">
+                <p>CIA Part 3: Who Can Pull the Trigger</p>
+                <span>12 min read · System &amp; Policy</span>
+            </a>
+            <a href="garden-path-consent.html" class="related-card">
+                <p>When Poly-Dope Withdrawal Breaks Informed Consent</p>
+                <span>7 min read · System &amp; Policy</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ── BOTTOM CTA ── -->
+    <div class="bottom-cta">
+        <p>If you're trying to navigate the system right now, start here.</p>
+        <a href="../resources.html">Find Support Resources →</a>
+    </div>
+
+</div><!-- /article-wrap -->
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer-rich">
+    <div class="footer-inner">
+
+        <div class="footer-about">
+            <h4>Recovery Roofer</h4>
+            <p>Josh Pearsall — working roofer in Ottawa writing honestly about addiction, recovery systems, and what actually works from inside it. Lived experience only, no stock photos.</p>
+        </div>
+
+        <div>
+            <h4>Site</h4>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../story.html">My Story</a></li>
+                <li><a href="../continuum.html">Continuum of Care</a></li>
+                <li><a href="../writing.html">Writing</a></li>
+                <li><a href="../resources.html">Resources</a></li>
+                <li><a href="../connect.html">Get in touch</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Popular Posts</h4>
+            <ul>
+                <li><a href="cia-overview.html">CIA Part 1 — Overview</a></li>
+                <li><a href="cia-part2-harm-threshold.html">CIA Part 2 — Harm Threshold</a></li>
+                <li><a href="cia-part3-applicant-rules.html">CIA Part 3 — Applicant Rules</a></li>
+                <li><a href="toxic-drugs.html">Toxic Drugs, Softer Policy</a></li>
+                <li><a href="housing-first-ottawa.html">Housing First in Ottawa</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <p class="footer-bottom">
+        Josh Pearsall <span class="dot">●</span> Ottawa, ON <span class="dot">●</span> Est. 2024
+        &nbsp;|&nbsp; <a href="../connect.html">Get in touch</a>
+    </p>
+</footer>
+
+<!-- ==================== CRISIS CTA ==================== -->
+<a href="../resources.html" class="floating-cta">
+    <span>🚨</span> Need Help Right Now?
+</a>
+
+</body>
+</html>
