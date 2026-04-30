@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Starting Point Problem – Recovery Roofer</title>
+    <meta name="description" content="A first-person account of accessing detox programs across Ontario from 2011 to today. What's improved, what hasn't, and what happens to people in the gaps the system doesn't see.">
+
+    <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <style>
+        /* ---------- ARTICLE-SPECIFIC STYLES ---------- */
+        .article-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 25px 80px;
+        }
+
+        .breadcrumb {
+            margin: 32px 0 28px;
+            font-size: 0.82em;
+            color: #444;
+        }
+        .breadcrumb a { color: #444; }
+        .breadcrumb a:hover { color: var(--blue); }
+        .breadcrumb span { margin: 0 6px; }
+
+        .article-category {
+            display: inline-block;
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            padding: 3px 10px; border-radius: 4px;
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
+        .cat-sp { background: rgba(77,166,255,0.1); color: #4da6ff; }
+        .cat-le { background: rgba(140,80,220,0.1); color: #a070e0; }
+        .cat-pr { background: rgba(40,160,80,0.1); color: #3cbe64; }
+        .cat-ix { background: rgba(200,140,20,0.1); color: #dca028; }
+
+        .article-title {
+            font-size: 1.85em;
+            font-weight: 700;
+            color: #ececec;
+            line-height: 1.25;
+            margin: 0 0 16px;
+        }
+        .article-hook {
+            font-size: 1.05em;
+            color: #777;
+            line-height: 1.7;
+            margin: 0 0 22px;
+        }
+
+        .article-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.82em;
+            color: #3d3d3d;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+        .meta-author-photo {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 1px solid #333;
+            flex-shrink: 0;
+        }
+        .meta-dot { color: #2a2a2a; }
+        .read-time-badge {
+            background: #1c1c1c; border: 1px solid #2a2a2a;
+            padding: 2px 9px; border-radius: 10px;
+            color: #484848;
+        }
+
+        .takeaways {
+            background: var(--surface-2);
+            border-left: 3px solid var(--blue);
+            border-radius: 0 10px 10px 0;
+            padding: 16px 20px;
+            margin: 0 0 28px;
+        }
+        .takeaways-label {
+            font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: var(--blue); font-weight: 700; margin-bottom: 10px;
+        }
+        .takeaways ul { list-style: none; padding: 0; margin: 0; }
+        .takeaways ul li {
+            font-size: 0.9em; color: #c0c0c0;
+            padding: 5px 0 5px 18px;
+            position: relative; line-height: 1.55;
+            border-bottom: 1px solid #1f1f1f;
+        }
+        .takeaways ul li:last-child { border-bottom: none; }
+        .takeaways ul li::before {
+            content: "";
+            position: absolute; left: 0; top: 12px;
+            width: 5px; height: 5px;
+            border-radius: 50%; background: var(--blue);
+        }
+
+        .toc {
+            background: var(--surface-2); border: 1px solid var(--border);
+            border-radius: 10px; padding: 16px 20px;
+            margin: 0 0 32px;
+        }
+        .toc-label {
+            font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+            color: #3a3a3a; font-weight: 700; margin-bottom: 12px;
+        }
+        .toc ol { list-style: none; padding: 0; margin: 0; }
+        .toc ol li {
+            display: flex; align-items: flex-start; gap: 10px;
+            padding: 5px 0; font-size: 0.85em;
+            border-bottom: 1px solid var(--border);
+        }
+        .toc ol li:last-child { border-bottom: none; }
+        .toc-num {
+            font-size: 9px; color: #333;
+            flex-shrink: 0; margin-top: 3px; min-width: 16px;
+        }
+        .toc ol li a { color: #5a5a5a; line-height: 1.45; }
+        .toc ol li a:hover { color: var(--blue); }
+
+        .article-body h2 {
+            color: var(--blue); font-size: 1.2em; font-weight: 700;
+            margin: 44px 0 14px; padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .article-body h3 {
+            color: #bbb; font-size: 1.0em; font-weight: 700;
+            margin: 28px 0 10px;
+        }
+        .article-body p {
+            font-size: 0.97em; line-height: 1.8;
+            color: #b8b8b8; margin-bottom: 18px; max-width: 660px;
+        }
+        .article-body p strong { color: #ddd; font-weight: 700; }
+
+        .pull-quote {
+            font-size: 1.18em; font-weight: 700;
+            color: #e0e0e0;
+            border-left: 3px solid var(--blue);
+            padding: 12px 20px;
+            margin: 32px 0;
+            line-height: 1.5;
+            font-style: italic;
+            background: var(--surface-2);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-body ul, .article-body ol {
+            padding-left: 0; list-style: none; margin: 0 0 22px;
+        }
+        .article-body ul li, .article-body ol li {
+            font-size: 0.93em; color: #aaa;
+            padding: 6px 0 6px 22px;
+            position: relative; line-height: 1.6;
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .article-body ul li:last-child,
+        .article-body ol li:last-child { border-bottom: none; }
+        .article-body ul li::before {
+            content: ""; position: absolute; left: 0; top: 13px;
+            width: 5px; height: 5px; border-radius: 50%; background: var(--blue);
+        }
+        .article-body ol { counter-reset: ol-counter; }
+        .article-body ol li { counter-increment: ol-counter; }
+        .article-body ol li::before {
+            content: counter(ol-counter);
+            position: absolute; left: 0; top: 6px;
+            font-size: 10px; color: var(--blue); font-weight: 700;
+            background: #1a1a1a; border-radius: 3px;
+            width: 16px; height: 16px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .myth-reality {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 10px; margin: 24px 0;
+        }
+        .myth-box, .reality-box { border-radius: 8px; padding: 12px 14px; }
+        .myth-box { background: rgba(230,57,57,0.07); border: 1px solid rgba(230,57,57,0.15); }
+        .reality-box { background: rgba(40,160,80,0.07); border: 1px solid rgba(40,160,80,0.15); }
+        .myth-box .box-label { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: #c04040; margin-bottom: 6px; font-weight: 700; }
+        .reality-box .box-label { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: #3cbe64; margin-bottom: 6px; font-weight: 700; }
+        .myth-box p { font-size: 0.82em; color: #b06060; margin: 0; line-height: 1.5; }
+        .reality-box p { font-size: 0.82em; color: #60a870; margin: 0; line-height: 1.5; }
+
+        .art-divider { height: 1px; background: var(--border); margin: 36px 0; }
+
+        .takeaways-bottom {
+            background: #131a13;
+            border-left: 3px solid #3cbe64;
+            border-radius: 0 10px 10px 0;
+            padding: 16px 20px;
+            margin: 36px 0 32px;
+        }
+        .takeaways-bottom .takeaways-label { color: #3cbe64; }
+        .takeaways-bottom ul li::before { background: #3cbe64; }
+        .takeaways-bottom ul li { border-bottom-color: #1a201a; }
+
+        .related-section { margin: 36px 0 0; }
+        .related-label {
+            font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+            color: #444; font-weight: 700; margin-bottom: 14px;
+        }
+        .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .related-card {
+            background: #181818; border: 1px solid var(--border-soft);
+            border-radius: 8px; padding: 12px 14px;
+            transition: border-color 0.2s ease;
+        }
+        .related-card:hover { border-color: var(--blue); }
+        .related-card p { font-size: 0.85em; font-weight: 600; color: #bbb; margin: 0 0 4px; line-height: 1.35; }
+        .related-card span { font-size: 0.75em; color: #444; }
+        .related-card:hover p { color: var(--blue); }
+
+        .bottom-cta {
+            margin-top: 36px; background: #111a24;
+            border: 1px solid rgba(0,162,255,0.2);
+            border-radius: 10px; padding: 20px 22px; text-align: center;
+        }
+        .bottom-cta p { font-size: 0.88em; color: #888; margin: 0 0 12px; }
+        .bottom-cta a {
+            display: inline-block; background: var(--blue); color: #fff;
+            font-weight: 700; font-size: 0.88em;
+            padding: 10px 24px; border-radius: 30px;
+        }
+        .bottom-cta a:hover { background: var(--blue-hover); }
+
+        @media (max-width: 600px) {
+            .article-title { font-size: 1.5em; }
+            .myth-reality { grid-template-columns: 1fr; }
+            .related-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1LXCLXR34X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1LXCLXR34X');
+    </script>
+
+</head>
+<body>
+
+<nav class="site-nav">
+    <div class="nav-container">
+        <div class="nav-top">
+            <a href="../index.html">
+                <img src="../assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo">
+            </a>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-btn">Home</a>
+                <a href="../story.html" class="nav-btn">My Story</a>
+                <a href="../continuum.html" class="nav-btn">Continuum of Care</a>
+                <a href="../resources.html" class="nav-btn">Resources</a>
+                <a href="../writing.html" class="nav-btn active">Writing</a>
+                <a href="../connect.html" class="nav-btn">Connect</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="article-wrap">
+
+    <div class="breadcrumb">
+        <a href="../writing.html">← Writing</a>
+        <span>/</span>
+        <span>Lived Experience</span>
+    </div>
+
+    <span class="article-category cat-le">Lived Experience</span>
+
+    <h1 class="article-title">
+        The Starting Point Problem
+    </h1>
+
+    <p class="article-hook">
+        I started accessing detoxes in 2011. I'm 38 now, so almost my whole adult life I was dependent on opiates, seeking detox and treatment.<br><br>
+        That's a long time to watch one system from the inside. This is what I noticed across Ontario, from a first detox in Kitchener to multiple stays in Ottawa. The good, the bad, and the ugly. What's changed, what hasn't, and what happens to people in the gaps nobody seems to be measuring.
+    </p>
+
+    <div class="article-meta-row">
+        <img src="../assets/img/josh-avatar.jpg" alt="Josh Pearsall" class="meta-author-photo">
+        <span style="color:#666;">Josh Pearsall</span>
+        <span class="meta-dot">·</span>
+        <span>April 2026</span>
+        <span class="meta-dot">·</span>
+        <span class="read-time-badge">7 min read</span>
+    </div>
+
+    <div class="takeaways">
+        <div class="takeaways-label">Here's what matters most</div>
+        <ul>
+            <li>Across 15 years and multiple Ontario detoxes, the food got worse, the wait times stayed the same, and the system never got faster for the person trying to get in.</li>
+            <li>The real gift of detox isn't the medical piece. It's connecting people to pro-social workers and services. Most of what younger me wanted to change about detox didn't matter.</li>
+            <li>The hardest part isn't getting in. It's the gap between programs, when you have nowhere to go and nothing to do, and the system has nothing for those hours.</li>
+        </ul>
+    </div>
+
+    <div class="toc">
+        <div class="toc-label">Jump to section</div>
+        <ol>
+            <li><span class="toc-num">01</span><a href="#section-1">Kitchener, 2011</a></li>
+            <li><span class="toc-num">02</span><a href="#section-2">Ottawa Withdrawal Management</a></li>
+            <li><span class="toc-num">03</span><a href="#section-3">What's Changed and What Hasn't</a></li>
+            <li><span class="toc-num">04</span><a href="#section-4">What Would You Do?</a></li>
+        </ol>
+    </div>
+
+    <div class="article-body">
+
+        <p>
+            I started accessing detoxes in 2011. My first one was Kitchener Withdrawal Management. That was 15 years ago. In that time I've been through detoxes in Kitchener, Owen Sound, Ottawa, Toronto, Brampton, and Kingston. Different cities, different sizes, different decades of the opioid crisis. Same system, more or less.
+        </p>
+        <p>
+            <strong>The conversation about addiction tends to skip the part where the person actually has to enter the system.</strong> What I want to write about is what that entry looks like across 15 years, what it taught me, and what's still broken.
+        </p>
+
+        <div class="art-divider"></div>
+
+        <h2 id="section-1">Kitchener, 2011</h2>
+
+        <p>
+            I can't remember the exact conversation with my parents and how I got to detox the first time. I know I had left a bottle of Percocet in my drawer and it was missing. There was a talk. I believe I lied and weaseled my way through it, tried to blame it on a friend or a friend of a friend, said I was just caught up. I chuckle now, because if I only knew.
+        </p>
+
+        <p>
+            What I do remember is being emotional. It was a big deal. It took a week of calling. I was about to make the first of my promises to get clean, all about the good I was going to do.
+        </p>
+
+        <p>
+            The intake form was a standard questionnaire. They asked about addresses, what you were using, your medical history, do you have seizures, who can we call in case of medical emergency. This wasn't so bad. I could do this. I remember being motivated. I had only detoxed a couple times in university, when I would go to Acadia a couple weeks before football started to dry out. It seemed like a manageable system.
+        </p>
+
+        <p>
+            After intake, you're in the bubble for days, or as long as it takes for you physically to get over the worst. Back then, around 72 to 96 hours. The bubble sucked. I hated feeling locked down, but not really locked down, so your brain still runs wild and schemes ways to get high or feel better.
+        </p>
+
+        <div class="pull-quote">
+            "I'm not sure anyone likes to get high. It goes from enjoying a high to getting rid of a sickness really quickly."
+        </div>
+
+        <p>
+            I eventually made it out of the bubble. I don't remember how much I lied. <strong>I always tried to rush the uncomfortable hard stuff in life, and detox would be no different.</strong> If I can just get through the bubble it won't be so bad. If I just get this it will be like that. A constant thing I do, planning for my happiness as if it ever worked, always moving the goalpost.
+        </p>
+
+        <p>
+            After getting into the main area, I remember still feeling like shit. Surprise, surprise. You mean I can't rush and skip the detox and just be better? Jokes over, I want to go home.
+        </p>
+
+        <p>
+            In all seriousness, I did end up listening to the talks and the relapse prevention advice. OAARS was something I didn't figure out, but at this point I thought detox was treatment. I didn't understand the process yet.
+        </p>
+
+        <p>
+            I left after a week, and nothing changed, and I continued to get high and commit petty crimes. Stealing off my parents or friends, sadly, back then.
+        </p>
+
+        <div class="art-divider"></div>
+
+        <h2 id="section-2">Ottawa Withdrawal Management</h2>
+
+        <p>
+            The first time I went to Ottawa was in February 2012, I believe. The detox had just moved from Bruyère and it was a brand new facility on Montreal Road, affiliated with Montfort down the street. I was in the second or third group to go through there. I would also attend Ottawa various times in 2018 into 2019.
+        </p>
+
+        <p>
+            The thing that strikes me now, with the gift of being alive and having attended all these detoxes over almost two decades, is how I thought they could be improved.
+        </p>
+
+        <p>
+            Younger me wanted to be able to smoke more freely, or have access to more comfortable bedding, or fewer restrictions. I don't think any of that really matters too much. <strong>The gift of detox is connecting everyone with pro-social people and services. It's a very important place and position.</strong>
+        </p>
+
+        <h3>What I got wrong about "opportunities"</h3>
+
+        <p>
+            Many times I had financial support through my family or community programs, and I ended up feeling really ashamed of myself when I messed up those opportunities. I would use more and avoid people I generally would not. I would also pretend I didn't care more, and become more entrenched in criminal subculture.
+        </p>
+
+        <p>
+            It's a strange thing. Regardless of being dependent on drugs and homeless, I still cared what people thought, even when I pretended I did not. I would avoid workers I normally trusted and liked. Especially if I liked you, I was embarrassed.
+        </p>
+
+        <div class="myth-reality">
+            <div class="myth-box">
+                <div class="box-label">The assumption</div>
+                <p>Give a person in addiction housing or financial support and they have what they need to stabilize.</p>
+            </div>
+            <div class="reality-box">
+                <div class="box-label">What I lived</div>
+                <p>Help arriving before I could hold it produced shame, and shame drove me away from the workers who could have actually changed things.</p>
+            </div>
+        </div>
+
+        <div class="art-divider"></div>
+
+        <h2 id="section-3">What's Changed and What Hasn't</h2>
+
+        <p>
+            The food is the same, or honestly worse now. The wait times are about the same. If you call lots and keep trying you can get in, but it's tough without proper medical detox intervention, especially with the drug supply being what it is now.
+        </p>
+
+        <p>
+            <strong>The system hasn't gotten faster, and the burden of getting in still falls on the person in crisis.</strong> Which means the people most likely to get a bed are the ones with the most support, the most stable phone, and the most motivation that can survive a week of phone tag. That's not nothing, but it's not the people who need it most either.
+        </p>
+
+        <h3>The gap between programs</h3>
+
+        <p>
+            The real struggle, looking back, is what we do with people in between. Detox to treatment can work if it's direct. The shelters have stabilization programs but it's mostly daily check-ins. The rehabs like Anchorage and Lifehouse are much better. More structured, more like a place you actually live for a while.
+        </p>
+
+        <p>
+            But what do you do when you have nowhere to go and nothing to do?
+        </p>
+
+        <p>
+            You're downtown in the market, students are bustling to class, government workers are returning to office, the morning commuters are alive, and you've been kicked out of the shelter. You're motivated. You don't have much money. Businesses don't want you hanging around. Sometimes it rains. You have no friends or family, or it's usually damaged, and you wouldn't want to impose. Honestly, the times I did, it ended up breaking the relationship. It's not sustainable.
+        </p>
+
+        <p>
+            So you get a free pass to a gym. You go to the library and use a computer. You also have to transport yourself or walk. And then say you get an interview. You can't get money from welfare like that, so you've got to hope the shelter gives you a ticket, and then you need to get back if it's a long trip.
+        </p>
+
+        <ul>
+            <li>Clothes are harder to clean.</li>
+            <li>Everything's more expensive. No storing good sales.</li>
+            <li>Items get stolen.</li>
+            <li>No ID, no problem at the payday loan places.</li>
+            <li>Desperation is an easy target.</li>
+        </ul>
+
+        <div class="art-divider"></div>
+
+        <h2 id="section-4">What Would You Do?</h2>
+
+        <p>
+            What would you do, when you felt like it was hopeless, when sometimes people looked at you with pity, with contempt, occasionally a smile and a brief positive interaction that you'd hold onto for the rest of the day?
+        </p>
+
+        <p>
+            I want to leave you with the question.
+        </p>
+
+        <p>
+            <strong>Where are you going to go?</strong>
+        </p>
+
+        <p>
+            <strong>How are you going to get there?</strong>
+        </p>
+
+        <p>
+            <strong>What happens when it doesn't work out, and you don't have your own space, or even your health?</strong>
+        </p>
+
+    </div>
+
+    <div class="takeaways-bottom takeaways">
+        <div class="takeaways-label">The bottom line</div>
+        <ul>
+            <li>The system has had 15 years to get faster, gentler, or better connected. It hasn't, in the ways that matter most.</li>
+            <li>The gift of detox is the people, not the program. Front-line workers carry the load nobody else will.</li>
+            <li>If we can't answer where someone is supposed to go, how they're supposed to get there, and what happens when it doesn't work, we haven't actually built a recovery system. We've built a series of doors with no hallway.</li>
+        </ul>
+    </div>
+
+    <div class="related-section">
+        <div class="related-label">Read next</div>
+        <div class="related-grid">
+            <a href="owen-sound-small-systems.html" class="related-card">
+                <p>When Small Systems Work: What Owen Sound Taught Me About Addiction Recovery</p>
+                <span>9 min read · System &amp; Policy</span>
+            </a>
+            <a href="decades-detox.html" class="related-card">
+                <p>Two Decades of Detox: Here's What I Actually Learned</p>
+                <span>12 min read · Lived Experience</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="bottom-cta">
+        <p>If you're trying to navigate the system right now, start here.</p>
+        <a href="../resources.html">Find Support Resources →</a>
+    </div>
+
+</div>
+
+<footer class="site-footer-rich">
+    <div class="footer-inner">
+
+        <div class="footer-about">
+            <h4>Recovery Roofer</h4>
+            <p>Josh Pearsall — working roofer in Ottawa writing honestly about addiction, recovery systems, and what actually works from inside it. Lived experience only, no stock photos.</p>
+        </div>
+
+        <div>
+            <h4>Site</h4>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../story.html">My Story</a></li>
+                <li><a href="../continuum.html">Continuum of Care</a></li>
+                <li><a href="../writing.html">Writing</a></li>
+                <li><a href="../resources.html">Resources</a></li>
+                <li><a href="../connect.html">Get in touch</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Popular Posts</h4>
+            <ul>
+                <li><a href="cia-overview.html">CIA Part 1 — Overview</a></li>
+                <li><a href="cia-part2-harm-threshold.html">CIA Part 2 — Harm Threshold</a></li>
+                <li><a href="toxic-drugs.html">Toxic Drugs, Softer Policy</a></li>
+                <li><a href="housing-first-ottawa.html">Housing First in Ottawa</a></li>
+                <li><a href="parole-rebellion-protocol.html">The Parole Rebellion Protocol</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <p class="footer-bottom">
+        Josh Pearsall <span class="dot">●</span> Ottawa, ON <span class="dot">●</span> Est. 2024
+        &nbsp;|&nbsp; <a href="../connect.html">Get in touch</a>
+    </p>
+</footer>
+
+<a href="../resources.html" class="floating-cta">
+    <span>🚨</span> Need Help Right Now?
+</a>
+
+</body>
+</html>
