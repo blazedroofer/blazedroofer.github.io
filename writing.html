@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Writing – Raw Recovery Articles, Policy Breakdowns & Real Talk | Recovery Roofer</title>
     <meta name="description" content="Raw, honest writing from Josh Pearsall — a clean roofer in Ottawa. Articles on addiction, recovery systems, safer supply, housing, criminal records, and the gaps in Ontario's treatment system.">
-    <!-- ── OPEN GRAPH / SOCIAL SHARING ── -->
+
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Recovery Roofer">
     <meta property="og:title" content="Writing from Inside It | Recovery Roofer">
@@ -22,276 +22,12 @@
 
     <link rel="canonical" href="https://www.recoveryroofer.ca/writing.html">
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/style.css">
-
-    <style>
-        /* ---------- PAGE-SPECIFIC COLOUR THEMES ---------- */
-        :root {
-            --purple: #a070e0;
-            --purple-dim: rgba(140,80,220,0.1);
-            --green: #3cbe64;
-            --green-dim: rgba(40,160,80,0.1);
-            --gold: #dca028;
-            --gold-dim: rgba(200,140,20,0.1);
-            --border-2: #252525;
-        }
-
-        /* ---------- HERO / WRITER INTRO ---------- */
-        .hero {
-            max-width: 820px;
-            margin: 0 auto;
-            padding: 80px 28px 60px;
-        }
-        .hero-eyebrow {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .hero-eyebrow span {
-            font-size: 0.72em;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--blue);
-        }
-        .hero-eyebrow::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-            max-width: 120px;
-        }
-        .writer-block {
-            display: flex;
-            align-items: center;
-            gap: 22px;
-            margin-bottom: 28px;
-        }
-        .writer-block img {
-            width: 68px;
-            height: 68px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center top;
-            border: 2px solid var(--blue);
-            flex-shrink: 0;
-        }
-        .writer-block p { color: var(--muted); font-size: 0.97em; line-height: 1.7; }
-        .writer-block p strong { color: var(--text); }
-        .hero h1 {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: clamp(2.6em, 7vw, 4.5em);
-            font-weight: 900;
-            line-height: 1.0;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: -0.01em;
-        }
-        .hero h1 span { color: var(--blue); }
-
-        /* ---------- ARTICLE SECTIONS ---------- */
-        .article-section {
-            max-width: 820px;
-            margin: 0 auto;
-            padding: 0 28px 70px;
-        }
-        .section-header {
-            display: flex;
-            align-items: baseline;
-            gap: 12px;
-            margin-bottom: 10px;
-        }
-        .section-header h2 {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 1.4em;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            color: var(--blue);
-        }
-        .section-count {
-            font-size: 0.72em;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            color: var(--muted-2);
-            background: var(--surface-2);
-            border: 1px solid var(--border);
-            padding: 2px 10px;
-            border-radius: 20px;
-            text-transform: uppercase;
-        }
-        .section-divider { height: 1px; background: var(--border); margin: 10px 0 18px; }
-        .section-desc {
-            color: var(--muted-2);
-            font-size: 0.85em;
-            margin-bottom: 24px;
-            line-height: 1.5;
-        }
-
-        /* ---------- COLOR THEMES ---------- */
-        .section-le .section-header h2 { color: var(--purple); }
-        .section-pr .section-header h2 { color: var(--green); }
-        .section-ix .section-header h2 { color: var(--gold); }
-
-        /* ---------- FEATURED CARD (horizontal) ---------- */
-        .featured-card {
-            display: grid;
-            grid-template-columns: 140px 1fr;
-            background: var(--surface);
-            border: 1px solid var(--border-2);
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 14px;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .featured-card:hover { border-color: var(--blue); box-shadow: 0 0 0 1px rgba(0,162,255,0.12); }
-        .featured-card:hover .card-title { color: var(--blue); }
-
-        .feat-thumb {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 130px;
-            position: relative;
-        }
-        .feat-thumb-label {
-            position: absolute;
-            bottom: 8px;
-            left: 12px;
-            font-size: 8px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-        .feat-body {
-            padding: 18px 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 6px;
-        }
-        .feat-tag {
-            display: inline-block;
-            font-size: 9px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 2px 9px;
-            border-radius: 4px;
-            width: fit-content;
-            font-weight: 700;
-        }
-        .card-title {
-            color: #ddd;
-            font-size: 1em;
-            font-weight: 700;
-            line-height: 1.35;
-            transition: color 0.2s;
-        }
-        .card-desc {
-            color: var(--muted);
-            font-size: 0.82em;
-            line-height: 1.55;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .card-meta {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 4px;
-        }
-        .card-date { font-size: 0.75em; color: var(--muted-2); }
-        .read-time {
-            font-size: 0.72em;
-            color: var(--muted-2);
-            background: var(--surface-2);
-            border: 1px solid var(--border);
-            padding: 1px 8px;
-            border-radius: 10px;
-        }
-
-        /* ---------- CARD GRID ---------- */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-            gap: 10px;
-        }
-        .article-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: border-color 0.2s;
-        }
-        .article-card:hover { border-color: var(--blue); }
-        .article-card:hover .card-title { color: var(--blue); }
-
-        .card-thumb {
-            height: 74px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            flex-shrink: 0;
-        }
-        .thumb-label {
-            position: absolute;
-            bottom: 6px;
-            left: 10px;
-            font-size: 7.5px;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-        .card-body {
-            padding: 12px 14px;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-        .card-body .card-title { font-size: 0.88em; }
-        .card-body .card-desc { font-size: 0.78em; margin-top: 5px; }
-        .card-inner-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: auto;
-            padding-top: 10px;
-        }
-
-        /* ---------- THUMB COLOUR THEMES ---------- */
-        .thumb-sp { background: linear-gradient(135deg, #0a1e38, #0d2f5a); }
-        .thumb-sp .thumb-label, .thumb-sp .feat-thumb-label { color: rgba(77,166,255,0.3); }
-        .tag-sp { background: rgba(77,166,255,0.1); color: #4da6ff; }
-
-        .thumb-le { background: linear-gradient(135deg, #160e2a, #241340); }
-        .thumb-le .thumb-label, .thumb-le .feat-thumb-label { color: rgba(160,112,224,0.3); }
-        .tag-le { background: rgba(140,80,220,0.1); color: #a070e0; }
-
-        .thumb-pr { background: linear-gradient(135deg, #0d2010, #123018); }
-        .thumb-pr .thumb-label, .thumb-pr .feat-thumb-label { color: rgba(60,190,100,0.3); }
-        .tag-pr { background: rgba(40,160,80,0.1); color: #3cbe64; }
-
-        .thumb-ix { background: linear-gradient(135deg, #1e1400, #2e1e00); }
-        .thumb-ix .thumb-label, .thumb-ix .feat-thumb-label { color: rgba(220,160,40,0.3); }
-        .tag-ix { background: rgba(200,140,20,0.1); color: #dca028; }
-
-        /* ---------- RESPONSIVE ---------- */
-        @media (max-width: 600px) {
-            .hero { padding: 50px 20px 40px; }
-            .article-section { padding-left: 20px; padding-right: 20px; }
-            .writer-block { flex-direction: column; text-align: center; }
-            .featured-card { grid-template-columns: 1fr; }
-            .feat-thumb { min-height: 70px; }
-            .cards-grid { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 400px) { .cards-grid { grid-template-columns: 1fr; } }
-    </style>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1LXCLXR34X"></script>
     <script>
@@ -311,344 +47,230 @@
                 <img src="assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo">
             </a>
             <div class="nav-links">
-    <a href="index.html" class="nav-btn">Home</a>
-    <a href="story.html" class="nav-btn">My Story</a>
-    <a href="continuum.html" class="nav-btn">Continuum of Care</a>
-    <a href="resources.html" class="nav-btn">Resources</a>
-    <a href="writing.html" class="nav-btn active">Writing</a>
-    <a href="connect.html" class="nav-btn">Connect</a>
-</div>
+                <a href="index.html" class="nav-btn">Home</a>
+                <a href="story.html" class="nav-btn">My Story</a>
+                <a href="continuum.html" class="nav-btn">Continuum</a>
+                <a href="resources.html" class="nav-btn">Resources</a>
+                <a href="writing.html" class="nav-btn active">Writing</a>
+                <a href="connect.html" class="nav-btn">Connect</a>
+            </div>
         </div>
     </div>
 </nav>
 
-<!-- ============ HERO ============ -->
-<div class="hero">
-    <div class="hero-eyebrow">
-        <span>Ottawa · 4 Years Clean · No Clinical Distance</span>
+<!-- ============ MASTHEAD BAR ============ -->
+<div class="masthead-bar">
+    <div class="masthead-bar-inner">
+        <span class="mb-side">The Archive</span>
+        <span class="mb-mid">Recovery Roofer</span>
+        <span class="mb-side">Ottawa · 17 articles</span>
     </div>
-    <div class="writer-block">
-        <img src="assets/img/josh-avatar.jpg" alt="Josh Pearsall">
-        <p><strong>Josh Pearsall</strong> — Roofer, 3 years clean, Ottawa. Writing about recovery, the system, and what nobody else is saying from inside it. No stock photos. Just what I've actually seen.</p>
-    </div>
-    <h1>Writing from<br><span>inside it</span></h1>
 </div>
+
+<!-- ============ HERO ============ -->
+<header class="writing-page-hero">
+    <div class="wph-kicker">All filings · Ottawa &amp; Ontario · 2024–2026</div>
+    <h1>Writing from <em>inside it</em></h1>
+    <div class="wph-writer">
+        <img src="assets/img/josh-avatar.jpg" alt="Josh Pearsall">
+        <p><strong>Josh Pearsall</strong> — roofer, four years clean, Ottawa. Writing about recovery, the system, and what nobody else is saying from inside it. No clinical distance. No stock photos. Just what I've actually seen.</p>
+    </div>
+</header>
 
 <!-- ============ SYSTEM & POLICY ============ -->
-<div class="article-section">
-    <div class="section-header">
-        <h2>System &amp; Policy</h2>
-        <span class="section-count">8 articles</span>
+<section class="wp-section">
+    <div class="wps-header">
+        <h2 class="wps-title">System &amp; Policy</h2>
+        <span class="wps-count">8 articles</span>
     </div>
-    <div class="section-divider"></div>
-    <p class="section-desc">How the recovery system actually works — and where it breaks down.</p>
+    <p class="wps-deck">How the recovery system actually works — and where it breaks down.</p>
 
-    <a href="articles/toxic-drugs.html" class="featured-card">
-        <div class="feat-thumb thumb-sp">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(77,166,255,0.5)" stroke-width="1.3"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><circle cx="12" cy="12" r="4"/></svg>
-            <span class="feat-thumb-label">System &amp; Policy</span>
+    <a href="articles/toxic-drugs.html" class="wp-feature">
+        <div class="wpf-thumb">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="color:var(--text-soft)"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><circle cx="12" cy="12" r="4"/></svg>
+            <span class="wpf-thumb-label">Featured</span>
         </div>
-        <div class="feat-body">
-            <span class="feat-tag tag-sp">Featured</span>
-            <p class="card-title">The Drugs Got More Toxic, the Environment Got Harsher, and the Policy Response Got Softer</p>
-            <p class="card-desc">A frontline account of how Ottawa's opioid crisis became a poly-substance system current frameworks aren't built for.</p>
-            <div class="card-meta">
-                <span class="card-date">April 2026</span>
-                <span class="read-time">8 min read</span>
-            </div>
+        <div class="wpf-body">
+            <div class="wpf-tag">Lead story · System &amp; Policy</div>
+            <div class="wpf-title">The Drugs Got More Toxic, the Environment Got Harsher, and the Policy Response Got Softer</div>
+            <div class="wpf-deck">A frontline account of how Ottawa's opioid crisis became a poly-substance system current frameworks aren't built for.</div>
+            <div class="wpf-meta">Filed Apr 2026 · 8 min read</div>
         </div>
     </a>
 
-    <div class="cards-grid">
-       
-        <a href="articles/ontario-3point8-billion-who-profits.html" class="article-card">
-            <div class="card-thumb thumb-sp">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(77,166,255,0.45)" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                <span class="thumb-label">System &amp; Policy</span>
-            </div>
-            <div class="card-body">
-                <p class="card-title">Ontario's $3.8B Problem — Who Profits When You Don't Recover?</p>
-                <p class="card-desc">Here's where $3.8 billion actually went — and who gets paid when you stay sick.</p>
-                <div class="card-inner-footer">
-                    <span class="read-time">9 min read</span>
-                    <span class="feat-tag tag-sp" style="margin:0;">Policy</span>
-                </div>
-            </div>
-        </a>
-        
-         <a href="articles/cia-overview.html" class="article-card">
-            <div class="card-thumb thumb-sp">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(77,166,255,0.45)" stroke-width="1.4"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                <span class="thumb-label">System &amp; Policy</span>
-            </div>
-            <div class="card-body">
-                <p class="card-title">Breaking Down the Compassionate Intervention Act — Part 1</p>
-                <p class="card-desc">A section-by-section walkthrough — what it's designed to do, how the system actually flows, and where it could break.</p>
-                <div class="card-inner-footer">
-                    <span class="read-time">8 min read</span>
-                    <span class="feat-tag tag-sp" style="margin:0;">Series</span>
-                </div>
-            </div>
+    <div class="wp-sublist">
+        <a href="articles/ontario-3point8-billion-who-profits.html" class="wp-subitem">
+            <div class="wpsi-tag">Policy</div>
+            <div class="wpsi-title">Ontario's $3.8B Problem — Who Profits When You Don't Recover?</div>
+            <div class="wpsi-deck">Where the money actually went, and who gets paid when you stay sick.</div>
+            <div class="wpsi-meta">Apr 2026 · 9 min</div>
         </a>
 
-        <a href="articles/cia-part2-harm-threshold.html" class="article-card">
-            <div class="card-thumb thumb-sp">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(77,166,255,0.45)" stroke-width="1.4"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                <span class="thumb-label">System &amp; Policy</span>
-            </div>
-            <div class="card-body">
-                <p class="card-title">The Harm Threshold — CIA Part 2</p>
-                <p class="card-desc">Who qualifies for intervention, how "harm" gets defined, and why the real line is drawn by the people reading each application.</p>
-                <div class="card-inner-footer">
-                    <span class="read-time">9 min read</span>
-                    <span class="feat-tag tag-sp" style="margin:0;">Series</span>
-                </div>
-            </div>
+        <a href="articles/cia-overview.html" class="wp-subitem">
+            <div class="wpsi-tag">Series · Pt. 01</div>
+            <div class="wpsi-title">Breaking Down the Compassionate Intervention Act</div>
+            <div class="wpsi-deck">A section-by-section walkthrough — what it's designed to do, how the system actually flows, and where it could break.</div>
+            <div class="wpsi-meta">Apr 2026 · 8 min</div>
         </a>
 
-        <a href="articles/garden-path-consent.html" class="article-card">
-            <div class="card-thumb thumb-sp">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(77,166,255,0.45)" stroke-width="1.4"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
-                <span class="thumb-label">System &amp; Policy</span>
-            </div>
-            <div class="card-body">
-                <p class="card-title">When Poly-Dope Withdrawal Breaks Informed Consent</p>
-                <p class="card-desc">What happens when safer supply meets a drug it wasn't built for.</p>
-                <div class="card-inner-footer">
-                    <span class="read-time">7 min read</span>
-                    <span class="feat-tag tag-sp" style="margin:0;">Policy</span>
-                </div>
-            </div>
+        <a href="articles/cia-part2-harm-threshold.html" class="wp-subitem">
+            <div class="wpsi-tag">Series · Pt. 02</div>
+            <div class="wpsi-title">The Harm Threshold: Who Gets Pulled In</div>
+            <div class="wpsi-deck">Who qualifies for intervention, how "harm" gets defined, and why the real line is drawn by people reading applications.</div>
+            <div class="wpsi-meta">Apr 2026 · 9 min</div>
         </a>
 
-        <a href="articles/owen-sound-systems.html" class="article-card">
-            <div class="card-thumb thumb-sp">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(77,166,255,0.45)" stroke-width="1.4"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                <span class="thumb-label">System &amp; Policy</span>
-            </div>
-            <div class="card-body">
-                <p class="card-title">When Small Systems Work</p>
-                <p class="card-desc">What Owen Sound taught me about why smaller reduces the friction.</p>
-                <div class="card-inner-footer">
-                    <span class="read-time">6 min read</span>
-                    <span class="feat-tag tag-sp" style="margin:0;">Policy</span>
-                </div>
-            </div>
+        <a href="articles/garden-path-consent.html" class="wp-subitem">
+            <div class="wpsi-tag">Harm reduction</div>
+            <div class="wpsi-title">When Poly-Dope Withdrawal Breaks Informed Consent</div>
+            <div class="wpsi-deck">What happens when safer supply meets a drug it wasn't built for.</div>
+            <div class="wpsi-meta">Apr 2026 · 7 min</div>
         </a>
 
-        <a href="articles/housing-first-ottawa.html" class="article-card">
-            <div class="card-thumb thumb-sp">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(77,166,255,0.45)" stroke-width="1.4"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
-                <span class="thumb-label">System &amp; Policy</span>
-            </div>
-            <div class="card-body">
-                <p class="card-title">Housing First in Ottawa: What I've Seen From the Inside</p>
-                <p class="card-desc">Why keys alone don't fix it — and what a real continuum looks like.</p>
-                <div class="card-inner-footer">
-                    <span class="read-time">8 min read</span>
-                    <span class="feat-tag tag-sp" style="margin:0;">Policy</span>
-                </div>
-            </div>
+        <a href="articles/owen-sound-systems.html" class="wp-subitem">
+            <div class="wpsi-tag">Policy</div>
+            <div class="wpsi-title">When Small Systems Work</div>
+            <div class="wpsi-deck">What Owen Sound taught me about why smaller reduces the friction.</div>
+            <div class="wpsi-meta">Apr 2026 · 6 min</div>
         </a>
 
-        <a href="articles/cold-turkey-is-dead.html" class="article-card">
-            <div class="card-thumb thumb-sp">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(77,166,255,0.45)" stroke-width="1.4"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                <span class="thumb-label">System &amp; Policy</span>
-            </div>
-            <div class="card-body">
-                <p class="card-title">Cold Turkey Is Dead</p>
-                <p class="card-desc">Why medical detox is the only safe move with today's toxic supply.</p>
-                <div class="card-inner-footer">
-                    <span class="read-time">5 min read</span>
-                    <span class="feat-tag tag-sp" style="margin:0;">Policy</span>
-                </div>
-            </div>
+        <a href="articles/housing-first-ottawa.html" class="wp-subitem">
+            <div class="wpsi-tag">Housing</div>
+            <div class="wpsi-title">Housing First in Ottawa: What I've Seen From the Inside</div>
+            <div class="wpsi-deck">Why keys alone don't fix it — and what a real continuum looks like.</div>
+            <div class="wpsi-meta">Apr 2026 · 8 min</div>
+        </a>
+
+        <a href="articles/cold-turkey-is-dead.html" class="wp-subitem">
+            <div class="wpsi-tag">Harm reduction</div>
+            <div class="wpsi-title">Cold Turkey Is Dead</div>
+            <div class="wpsi-deck">Why medical detox is the only safe move with today's toxic supply.</div>
+            <div class="wpsi-meta">Apr 2026 · 5 min</div>
         </a>
     </div>
-</div>
+</section>
 
 <!-- ============ LIVED EXPERIENCE ============ -->
-<div class="article-section section-le">
-    <div class="section-header">
-        <h2>Lived Experience</h2>
-        <span class="section-count">6 articles</span>
+<section class="wp-section">
+    <div class="wps-header">
+        <h2 class="wps-title">Lived Experience</h2>
+        <span class="wps-count">6 articles</span>
     </div>
-    <div class="section-divider"></div>
-    <p class="section-desc">Personal writing — the stuff that's harder to say but more important to hear.</p>
+    <p class="wps-deck">Personal writing — the stuff that's harder to say but more important to hear.</p>
 
-    <!-- FEATURED: newest article -->
-    <a href="articles/starting-point-problem.html" class="featured-card">
-        <div class="feat-thumb thumb-le">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(160,112,224,0.5)" stroke-width="1.3"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-            <span class="feat-thumb-label" style="color:rgba(160,112,224,0.3);">Lived Experience</span>
+    <a href="articles/starting-point-problem.html" class="wp-feature">
+        <div class="wpf-thumb">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="color:var(--text-soft)"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            <span class="wpf-thumb-label">Featured</span>
         </div>
-        <div class="feat-body">
-            <span class="feat-tag tag-le">Featured</span>
-            <p class="card-title">The Starting Point Problem</p>
-            <p class="card-desc">Fifteen years of detox across six Ontario cities. What changed, what didn't, and what happens in the gaps the system doesn't see.</p>
-            <div class="card-meta">
-                <span class="card-date">April 2026</span>
-                <span class="read-time">7 min read</span>
-            </div>
+        <div class="wpf-body">
+            <div class="wpf-tag">Lead story · Lived Experience</div>
+            <div class="wpf-title">The Starting Point Problem</div>
+            <div class="wpf-deck">Fifteen years of detox across six Ontario cities. What changed, what didn't, and what happens in the gaps the system doesn't see.</div>
+            <div class="wpf-meta">Filed Apr 2026 · 7 min read</div>
         </div>
     </a>
 
-    <div class="cards-grid">
-        <a href="articles/the-stories-we-tell-ourselves.html" class="article-card">
-            <div class="card-thumb thumb-le">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(160,112,224,0.45)" stroke-width="1.3"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-                <span class="thumb-label" style="color:rgba(160,112,224,0.3);">Lived Experience</span>
-            </div>
-            <div class="card-body">
-                <p class="card-title">The Stories We Tell Ourselves</p>
-                <p class="card-desc">Getting clean doesn't fix the thinking. I relapsed sober, with clear thinking — the more honest story about what drives us back.</p>
-                <div class="card-inner-footer">
-                    <span class="read-time">6 min read</span>
-                    <span class="feat-tag tag-le" style="margin:0;">Personal</span>
-                </div>
-            </div>
+    <div class="wp-sublist">
+        <a href="articles/the-stories-we-tell-ourselves.html" class="wp-subitem">
+            <div class="wpsi-tag">Reflection</div>
+            <div class="wpsi-title">The Stories We Tell Ourselves</div>
+            <div class="wpsi-deck">Getting clean doesn't fix the thinking. I relapsed sober, with clear thinking — the more honest story about what drives us back.</div>
+            <div class="wpsi-meta">Apr 2026 · 6 min</div>
         </a>
 
-        <a href="articles/decades-detox.html" class="article-card">
-            <div class="card-thumb thumb-le">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(160,112,224,0.45)" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <span class="thumb-label" style="color:rgba(160,112,224,0.3);">Lived Experience</span>
-            </div>
-            <div class="card-body">
-                <p class="card-title">Two Decades of Detox — Here's What I Actually Learned</p>
-                <p class="card-desc">From Acadia to Maplehurst to a flat roof. Twenty years of quitting and what the modern supply changed.</p>
-                <div class="card-inner-footer">
-                    <span class="read-time">11 min read</span>
-                    <span class="feat-tag tag-le" style="margin:0;">Personal</span>
-                </div>
-            </div>
+        <a href="articles/decades-detox.html" class="wp-subitem">
+            <div class="wpsi-tag">Reflection</div>
+            <div class="wpsi-title">Two Decades of Detox — Here's What I Actually Learned</div>
+            <div class="wpsi-deck">From Acadia to Maplehurst to a flat roof. Twenty years of quitting, and what the modern supply changed.</div>
+            <div class="wpsi-meta">Apr 2026 · 11 min</div>
         </a>
 
-        <a href="articles/the-lifelong-contract.html" class="article-card">
-            <div class="card-thumb thumb-le">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(160,112,224,0.45)" stroke-width="1.4"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-                <span class="thumb-label" style="color:rgba(160,112,224,0.3);">Lived Experience</span>
-            </div>
-            <div class="card-body">
-                <p class="card-title">The Lifelong Contract</p>
-                <p class="card-desc">The same logic that created the epidemic is now running the treatment.</p>
-                <div class="card-inner-footer">
-                    <span class="read-time">7 min read</span>
-                    <span class="feat-tag tag-le" style="margin:0;">Personal</span>
-                </div>
-            </div>
+        <a href="articles/the-lifelong-contract.html" class="wp-subitem">
+            <div class="wpsi-tag">Reflection</div>
+            <div class="wpsi-title">The Lifelong Contract</div>
+            <div class="wpsi-deck">The same logic that created the epidemic is now running the treatment.</div>
+            <div class="wpsi-meta">Apr 2026 · 7 min</div>
         </a>
 
-        <a href="articles/life-with-a-record-part1.html" class="article-card">
-            <div class="card-thumb thumb-le">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(160,112,224,0.45)" stroke-width="1.4"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                <span class="thumb-label" style="color:rgba(160,112,224,0.3);">Lived Experience</span>
-            </div>
-            <div class="card-body">
-                <p class="card-title">Life With a Record in Canada</p>
-                <p class="card-desc">From a fight at 18 to federal time — how a record locks the cycle in.</p>
-                <div class="card-inner-footer">
-                    <span class="read-time">9 min read</span>
-                    <span class="feat-tag tag-le" style="margin:0;">Personal</span>
-                </div>
-            </div>
+        <a href="articles/life-with-a-record-part1.html" class="wp-subitem">
+            <div class="wpsi-tag">Re-entry</div>
+            <div class="wpsi-title">Life With a Record in Canada</div>
+            <div class="wpsi-deck">From a fight at 18 to federal time — how a record locks the cycle in.</div>
+            <div class="wpsi-meta">Apr 2026 · 9 min</div>
         </a>
 
-        <a href="articles/motivation-window.html" class="article-card">
-            <div class="card-thumb thumb-le">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(160,112,224,0.45)" stroke-width="1.4"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                <span class="thumb-label" style="color:rgba(160,112,224,0.3);">Lived Experience</span>
-            </div>
-            <div class="card-body">
-                <p class="card-title">Shedding the Prison Identity</p>
-                <p class="card-desc">Why letting go of the old mindset is one of the hardest parts of recovery.</p>
-                <div class="card-inner-footer">
-                    <span class="read-time">6 min read</span>
-                    <span class="feat-tag tag-le" style="margin:0;">Personal</span>
-                </div>
-            </div>
+        <a href="articles/motivation-window.html" class="wp-subitem">
+            <div class="wpsi-tag">Re-entry</div>
+            <div class="wpsi-title">Shedding the Prison Identity</div>
+            <div class="wpsi-deck">Why letting go of the old mindset is one of the hardest parts of recovery.</div>
+            <div class="wpsi-meta">Apr 2026 · 6 min</div>
         </a>
     </div>
-</div>
+</section>
+
 <!-- ============ PRACTICAL GUIDES ============ -->
-<div class="article-section section-pr">
-    <div class="section-header">
-        <h2>Practical Guides</h2>
-        <span class="section-count">2 articles</span>
+<section class="wp-section">
+    <div class="wps-header">
+        <h2 class="wps-title">Practical Guides</h2>
+        <span class="wps-count">2 articles</span>
     </div>
-    <div class="section-divider"></div>
-    <p class="section-desc">Concrete systems and tools for people trying to navigate recovery and the system right now.</p>
+    <p class="wps-deck">Concrete systems and tools for people trying to navigate recovery and the system right now.</p>
 
-    <a href="articles/parole-rebellion-protocol.html" class="featured-card">
-        <div class="feat-thumb thumb-pr">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(60,190,100,0.5)" stroke-width="1.3"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
-            <span class="feat-thumb-label" style="color:rgba(60,190,100,0.3);">Practical</span>
+    <a href="articles/parole-rebellion-protocol.html" class="wp-feature">
+        <div class="wpf-thumb">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="color:var(--text-soft)"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+            <span class="wpf-thumb-label">Featured</span>
         </div>
-        <div class="feat-body">
-            <span class="feat-tag tag-pr">Featured</span>
-            <p class="card-title">When You Want to Challenge Everything: The Parole Rebellion Protocol I Built</p>
-            <p class="card-desc">Day 1 on parole my brain screamed "I could disappear right now." Here's the exact 5-step protocol I used when every part of me wanted to run or push back.</p>
-            <div class="card-meta">
-                <span class="card-date">April 2026</span>
-                <span class="read-time">15 min read</span>
-            </div>
+        <div class="wpf-body">
+            <div class="wpf-tag">Lead story · Practical</div>
+            <div class="wpf-title">When You Want to Challenge Everything: The Parole Rebellion Protocol</div>
+            <div class="wpf-deck">Day one on parole my brain screamed "I could disappear right now." Here's the exact 5-step protocol I used when every part of me wanted to run.</div>
+            <div class="wpf-meta">Filed Apr 2026 · 15 min read</div>
         </div>
     </a>
 
-    <div class="cards-grid">
-        <a href="continuum.html" class="article-card">
-            <div class="card-thumb thumb-pr">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(60,190,100,0.45)" stroke-width="1.4"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
-                <span class="thumb-label" style="color:rgba(60,190,100,0.3);">Practical</span>
-            </div>
-            <div class="card-body">
-                <p class="card-title">Navigating Crisis Services in Ottawa</p>
-                <p class="card-desc">Three pathways depending on where you're starting: homeless, still working, or court-involved.</p>
-                <div class="card-inner-footer">
-                    <span class="read-time">5 min read</span>
-                    <span class="feat-tag tag-pr" style="margin:0;">Guide</span>
-                </div>
-            </div>
+    <div class="wp-sublist">
+        <a href="continuum.html" class="wp-subitem">
+            <div class="wpsi-tag">Guide</div>
+            <div class="wpsi-title">Navigating Crisis Services in Ottawa</div>
+            <div class="wpsi-deck">Three pathways depending on where you're starting: homeless, still working, or court-involved.</div>
+            <div class="wpsi-meta">Apr 2026 · 5 min</div>
         </a>
     </div>
-</div>
+</section>
 
 <!-- ============ INTERACTIVE & EXPERIMENTAL ============ -->
-<div class="article-section section-ix">
-    <div class="section-header">
-        <h2>Interactive &amp; Experimental</h2>
-        <span class="section-count">1 piece</span>
+<section class="wp-section">
+    <div class="wps-header">
+        <h2 class="wps-title">Interactive &amp; Experimental</h2>
+        <span class="wps-count">1 piece</span>
     </div>
-    <div class="section-divider"></div>
-    <p class="section-desc">Pieces that try to show the system in a different way.</p>
+    <p class="wps-deck">Pieces that try to show the system in a different way.</p>
 
-    <a href="articles/rewind.html" class="featured-card">
-        <div class="feat-thumb thumb-ix">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="rgba(220,160,40,0.5)" stroke-width="1.3"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            <span class="feat-thumb-label" style="color:rgba(220,160,40,0.3);">Interactive</span>
+    <a href="articles/rewind.html" class="wp-feature">
+        <div class="wpf-thumb">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="color:var(--text-soft)"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span class="wpf-thumb-label">Interactive</span>
         </div>
-        <div class="feat-body">
-            <span class="feat-tag tag-ix">Interactive</span>
-            <p class="card-title">Rewind — A Reverse Timeline</p>
-            <p class="card-desc">Start at the end, go backwards. A roofer's path through housing instability and system failures.</p>
-            <div class="card-meta">
-                <span class="card-date">April 2026</span>
-                <span class="read-time">~10 min</span>
-            </div>
+        <div class="wpf-body">
+            <div class="wpf-tag">Experimental</div>
+            <div class="wpf-title">Rewind — A Reverse Timeline</div>
+            <div class="wpf-deck">Start at the end, go backwards. A roofer's path through housing instability and system failures.</div>
+            <div class="wpf-meta">Filed Apr 2026 · ~10 min</div>
         </div>
     </a>
-</div>
+</section>
+
+<div style="height: 60px;"></div>
 
 <!-- ============ FOOTER ============ -->
 <footer class="site-footer-rich">
     <div class="footer-inner">
-
         <div class="footer-about">
             <h4>Recovery Roofer</h4>
             <p>Josh Pearsall — working roofer in Ottawa writing honestly about addiction, recovery systems, and what actually works from inside it.</p>
         </div>
-
         <div>
             <h4>Site</h4>
             <ul>
@@ -660,18 +282,16 @@
                 <li><a href="connect.html">Get in touch</a></li>
             </ul>
         </div>
-
         <div>
             <h4>Popular Posts</h4>
             <ul>
                 <li><a href="articles/toxic-drugs.html">Toxic Drugs, Softer Policy</a></li>
-                <li><a href="articles/ontario-3point8-billion-who-profits.html">Ontario’s $3.8B Problem</a></li>
+                <li><a href="articles/ontario-3point8-billion-who-profits.html">Ontario's $3.8B Problem</a></li>
                 <li><a href="articles/the-lifelong-contract.html">The Lifelong Contract</a></li>
                 <li><a href="articles/housing-first-ottawa.html">Housing First in Ottawa</a></li>
                 <li><a href="articles/parole-rebellion-protocol.html">The Parole Rebellion Protocol</a></li>
             </ul>
         </div>
-
     </div>
     <p class="footer-bottom">
         Josh Pearsall <span class="dot">●</span> Ottawa, ON <span class="dot">●</span> Est. 2024
@@ -679,9 +299,8 @@
     </p>
 </footer>
 
-<!-- ============ CRISIS CTA ============ -->
 <a href="resources.html" class="floating-cta">
-    <span>🚨</span> Need Help Now?
+    Need help right now?
 </a>
 
 </body>

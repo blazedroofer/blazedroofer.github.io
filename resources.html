@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources – Recovery Roofer</title>
     <meta name="description" content="Ottawa recovery resources — crisis lines, detox, RAAM clinic, and honest notes on where to start if you need help right now.">
-   <!-- ── OPEN GRAPH / SOCIAL SHARING ── -->
+
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Recovery Roofer">
     <meta property="og:title" content="Resources | Recovery Roofer">
     <meta property="og:description" content="Ottawa recovery resources — crisis lines, detox, RAAM clinic, and honest notes on where to start if you need help right now.">
     <meta property="og:url" content="https://www.recoveryroofer.ca/resources.html">
     <meta property="og:image" content="https://www.recoveryroofer.ca/assets/img/og-default.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Resources | Recovery Roofer">
@@ -22,221 +20,20 @@
 
     <link rel="canonical" href="https://www.recoveryroofer.ca/resources.html">
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <style>
-        /* ---------- CRISIS-FIRST LAYOUT ---------- */
-        .res-wrap {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 48px 24px 80px;
-        }
-
-        .res-intro {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .res-intro .eyebrow {
-            display: inline-block;
-            font-size: 0.72em;
-            font-weight: 700;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--blue);
-            margin-bottom: 18px;
-        }
-        .res-intro h1 {
-            font-family: 'Arial Black', sans-serif;
-            font-size: clamp(2em, 5vw, 2.8em);
-            color: #fff;
-            line-height: 1.05;
-            letter-spacing: -0.5px;
-            margin-bottom: 18px;
-        }
-        .res-intro h1 .blue { color: var(--blue); }
-        .res-intro p {
-            color: var(--text-soft);
-            font-size: 1.05em;
-            line-height: 1.7;
-            max-width: 580px;
-            margin: 0 auto;
-        }
-
-        /* ---------- CRISIS PANEL (top of page, impossible to miss) ---------- */
-        .crisis-panel {
-            background: linear-gradient(180deg, #1a0a0a 0%, #140606 100%);
-            border: 1px solid #3a1a1a;
-            border-left: 5px solid var(--danger);
-            border-radius: 12px;
-            padding: 28px 28px 24px;
-            margin-bottom: 48px;
-        }
-        .crisis-panel .panel-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 6px;
-        }
-        .crisis-panel .pulse-dot {
-            width: 10px;
-            height: 10px;
-            background: #ff4444;
-            border-radius: 50%;
-            box-shadow: 0 0 0 0 rgba(255,68,68,0.7);
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0%   { box-shadow: 0 0 0 0 rgba(255,68,68,0.7); }
-            70%  { box-shadow: 0 0 0 12px rgba(255,68,68,0); }
-            100% { box-shadow: 0 0 0 0 rgba(255,68,68,0); }
-        }
-        .crisis-panel h2 {
-            font-family: 'Arial Black', sans-serif;
-            color: #fff;
-            font-size: 1.15em;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        .crisis-panel .panel-sub {
-            color: #b89090;
-            font-size: 0.92em;
-            margin-bottom: 22px;
-        }
-        .crisis-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 12px;
-        }
-        .crisis-card {
-            background: #0f0606;
-            border: 1px solid #2a1010;
-            border-radius: 10px;
-            padding: 16px 18px;
-            transition: border-color 0.2s, transform 0.15s;
-            display: block;
-        }
-        .crisis-card:hover {
-            border-color: var(--danger);
-            transform: translateY(-2px);
-        }
-        .crisis-card .cc-label {
-            display: block;
-            color: #888;
-            font-size: 0.78em;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-            line-height: 1.35;
-        }
-        .crisis-card .cc-number {
-            color: #ff6b6b;
-            font-size: 1.25em;
-            font-weight: 800;
-            font-family: 'Barlow Condensed', sans-serif;
-            letter-spacing: 0.5px;
-        }
-        .crisis-card .cc-note {
-            display: block;
-            color: #666;
-            font-size: 0.75em;
-            margin-top: 6px;
-        }
-
-        /* ---------- SECTION HEADERS ---------- */
-        .res-section {
-            margin-bottom: 52px;
-        }
-        .res-section-header {
-            display: flex;
-            align-items: baseline;
-            gap: 14px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border);
-        }
-        .res-section-header h2 {
-            font-family: 'Arial Black', sans-serif;
-            color: #fff;
-            font-size: 1em;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-        .res-section-header .count {
-            color: var(--muted);
-            font-size: 0.85em;
-        }
-        .res-section-intro {
-            color: var(--muted);
-            font-size: 0.95em;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        /* ---------- RESOURCE CARD GRID ---------- */
-        .res-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 14px;
-        }
-        .res-card {
-            background: var(--surface-2);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 20px 22px;
-            transition: border-color 0.2s, transform 0.15s;
-            display: block;
-        }
-        .res-card:hover {
-            border-color: var(--blue);
-            transform: translateY(-2px);
-        }
-        .res-card h3 {
-            color: #fff;
-            font-size: 1.02em;
-            font-weight: 700;
-            margin-bottom: 6px;
-            line-height: 1.35;
-        }
-        .res-card .rc-meta {
-            color: var(--muted);
-            font-size: 0.82em;
-            margin-bottom: 12px;
-            letter-spacing: 0.3px;
-        }
-        .res-card .rc-note {
-            color: var(--text-soft);
-            font-size: 0.9em;
-            line-height: 1.55;
-            margin-bottom: 14px;
-        }
-        .res-card .rc-phone {
-            color: var(--blue);
-            font-weight: 700;
-            font-size: 0.95em;
-            font-family: 'Barlow Condensed', sans-serif;
-            letter-spacing: 0.5px;
-        }
-
-        /* ---------- WIP NOTE ---------- */
-        .wip-note {
-            background: var(--surface);
-            border: 1px dashed var(--border-soft);
-            border-radius: 10px;
-            padding: 20px 24px;
-            text-align: center;
-            color: var(--muted);
-            font-size: 0.9em;
-            line-height: 1.6;
-            margin-top: 40px;
-        }
-        .wip-note a { color: var(--blue); font-weight: 600; }
-
-        @media (max-width: 600px) {
-            .crisis-panel { padding: 22px 20px 20px; }
-            .crisis-card .cc-number { font-size: 1.15em; }
-        }
-    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1LXCLXR34X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1LXCLXR34X');
+    </script>
 </head>
 <body>
 
@@ -248,136 +45,147 @@
                 <img src="assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo">
             </a>
             <div class="nav-links">
-    <a href="index.html" class="nav-btn">Home</a>
-    <a href="story.html" class="nav-btn">My Story</a>
-    <a href="continuum.html" class="nav-btn">Continuum of Care</a>
-    <a href="resources.html" class="nav-btn active">Resources</a>
-    <a href="writing.html" class="nav-btn">Writing</a>
-    <a href="connect.html" class="nav-btn">Connect</a>
-</div>
+                <a href="index.html" class="nav-btn">Home</a>
+                <a href="story.html" class="nav-btn">My Story</a>
+                <a href="continuum.html" class="nav-btn">Continuum</a>
+                <a href="resources.html" class="nav-btn active">Resources</a>
+                <a href="writing.html" class="nav-btn">Writing</a>
+                <a href="connect.html" class="nav-btn">Connect</a>
+            </div>
         </div>
     </div>
 </nav>
 
-<!-- ============ CONTENT ============ -->
-<div class="res-wrap">
-
-    <div class="res-intro">
-        <span class="eyebrow">Ottawa &bull; Real Numbers &bull; Honest Notes</span>
-        <h1>If you need help, <span class="blue">start here.</span></h1>
-        <p>Crisis numbers first — they're at the top for a reason. Everything below is what I've actually seen or used. More is coming; what's here is real.</p>
+<!-- ============ MASTHEAD BAR ============ -->
+<div class="masthead-bar">
+    <div class="masthead-bar-inner">
+        <span class="mb-side">The Directory</span>
+        <span class="mb-mid">Recovery Roofer</span>
+        <span class="mb-side">Ottawa · Updated May 2026</span>
     </div>
+</div>
+
+<!-- ============ CONTENT ============ -->
+<div class="res-page">
+
+    <header class="res-page-intro">
+        <div class="rpi-kicker">A directory · Real numbers · Honest notes</div>
+        <h1>If you need help, <em>start here.</em></h1>
+        <p class="rpi-deck">Crisis numbers first — they're at the top for a reason. Everything below is what I've actually seen or used. More is coming; what's here is real.</p>
+    </header>
 
     <!-- ===== CRISIS PANEL (top, pulsing indicator) ===== -->
-    <div class="crisis-panel">
-        <div class="panel-header">
-            <span class="pulse-dot"></span>
-            <h2>Right Now</h2>
+    <div class="crisis-panel-ed">
+        <div class="cpe-header">
+            <span class="cpe-pulse"></span>
+            <h2>Right now</h2>
         </div>
-        <p class="panel-sub">If you're in crisis or withdrawal, call one of these. They pick up.</p>
+        <p class="cpe-deck">If you're in crisis or withdrawal, call one of these. They pick up.</p>
 
-        <div class="crisis-grid">
-            <a href="tel:6132411525" class="crisis-card">
-                <span class="cc-label">Ottawa Withdrawal Management (Detox)</span>
-                <div class="cc-number">(613) 241-1525</div>
-                <span class="cc-note">Intake line — call first</span>
+        <div class="crisis-grid-ed">
+            <a href="tel:6132411525" class="crisis-card-ed">
+                <span class="cce-label">Ottawa Withdrawal Mgmt</span>
+                <div class="cce-number">(613) 241-1525</div>
+                <span class="cce-note">Detox intake — call first</span>
             </a>
-            <a href="tel:6137226521" class="crisis-card">
-                <span class="cc-label">RAAM Clinic — The Royal</span>
-                <div class="cc-number">(613) 722-6521 ×6508</div>
-                <span class="cc-note">Rapid access addiction medicine</span>
+            <a href="tel:6137226521" class="crisis-card-ed">
+                <span class="cce-label">RAAM Clinic — The Royal</span>
+                <div class="cce-number">(613) 722-6521</div>
+                <span class="cce-note">Ext. 6508 · Rapid access</span>
             </a>
-            <a href="tel:6137221000" class="crisis-card">
-                <span class="cc-label">Crisis Line — Ottawa</span>
-                <div class="cc-number">(613) 722-1000</div>
-                <span class="cc-note">24/7 mental health crisis</span>
+            <a href="tel:6137221000" class="crisis-card-ed">
+                <span class="cce-label">Ottawa Distress &amp; Crisis</span>
+                <div class="cce-number">(613) 722-1000</div>
+                <span class="cce-note">24/7 mental health crisis</span>
             </a>
-            <a href="tel:988" class="crisis-card">
-                <span class="cc-label">Suicide Crisis Helpline (Canada)</span>
-                <div class="cc-number">988</div>
-                <span class="cc-note">Call or text, 24/7</span>
+            <a href="tel:988" class="crisis-card-ed">
+                <span class="cce-label">Suicide Crisis Helpline</span>
+                <div class="cce-number">988</div>
+                <span class="cce-note">Call or text · Canada-wide</span>
             </a>
         </div>
     </div>
 
     <!-- ===== START HERE ON THIS SITE ===== -->
-    <div class="res-section">
-        <div class="res-section-header">
-            <h2>Start Here</h2>
-            <span class="count">On this site</span>
-        </div>
-        <p class="res-section-intro">If you're figuring out the system for the first time — or helping someone who is — these three pages do most of the work.</p>
+    <section class="directory-section">
+        <div class="directory-head"><h2>Start here · On this site</h2></div>
+        <p class="directory-deck">If you're figuring out the system for the first time, or helping someone who is — these three pages do most of the work.</p>
 
-        <div class="res-grid">
-            <a href="continuum.html" class="res-card">
-                <h3>Continuum of Care →</h3>
-                <div class="rc-meta">The real map</div>
-                <p class="rc-note">Three paths through Ottawa's recovery system — real numbers, honest notes on each step, where people actually fall through.</p>
-            </a>
-            <a href="writing.html" class="res-card">
-                <h3>Writing →</h3>
-                <div class="rc-meta">8+ articles</div>
-                <p class="rc-note">Policy breakdowns, housing, withdrawal, parole, and what the system looks like from inside it.</p>
-            </a>
-            <a href="connect.html" class="res-card">
-                <h3>Connect →</h3>
-                <div class="rc-meta">Reach out directly</div>
-                <p class="rc-note">I'll talk to anyone. I can't fix the system, but I can usually point you at the right door.</p>
-            </a>
-        </div>
-    </div>
+        <a href="continuum.html" class="directory-entry">
+            <div>
+                <div class="de-name">Continuum of Care →</div>
+                <div class="de-note">Three paths through Ottawa's recovery system. Real numbers, honest notes on each step, where people actually fall through.</div>
+            </div>
+            <div class="de-meta">The map</div>
+        </a>
+
+        <a href="writing.html" class="directory-entry">
+            <div>
+                <div class="de-name">Writing →</div>
+                <div class="de-note">Policy breakdowns, housing, withdrawal, parole, and what the system looks like from inside it.</div>
+            </div>
+            <div class="de-meta">17 articles</div>
+        </a>
+
+        <a href="connect.html" class="directory-entry">
+            <div>
+                <div class="de-name">Connect →</div>
+                <div class="de-note">I'll talk to anyone. I can't fix the system, but I can usually point you at the right door.</div>
+            </div>
+            <div class="de-meta">Direct contact</div>
+        </a>
+    </section>
 
     <!-- ===== DETOX & WITHDRAWAL ===== -->
-    <div class="res-section">
-        <div class="res-section-header">
-            <h2>Detox &amp; Withdrawal</h2>
-            <span class="count">Ottawa</span>
-        </div>
-        <p class="res-section-intro">Medical detox is the only safe move with today's supply. Don't white-knuckle it.</p>
+    <section class="directory-section">
+        <div class="directory-head"><h2>Detox &amp; Withdrawal · Ottawa</h2></div>
+        <p class="directory-deck">Medical detox is the only safe move with today's supply. Don't white-knuckle it.</p>
 
-        <div class="res-grid">
-            <div class="res-card">
-                <h3>Ottawa Withdrawal Management Centre</h3>
-                <div class="rc-meta">Detox &bull; Non-medical &amp; medical beds</div>
-                <p class="rc-note">Main intake for Ottawa. Call first — they'll tell you if there's a bed and walk you through what to bring.</p>
-                <div class="rc-phone">(613) 241-1525</div>
+        <div class="directory-entry">
+            <div>
+                <div class="de-name">Ottawa Withdrawal Management Centre</div>
+                <div class="de-note">Main intake for Ottawa. 20 beds, co-ed, 16+. Call first — they'll tell you if there's a bed and walk you through what to bring. Best window is early morning.</div>
+                <a href="tel:6132411525" class="de-phone">(613) 241-1525</a>
             </div>
-            <div class="res-card">
-                <h3>RAAM Clinic — The Royal</h3>
-                <div class="rc-meta">Rapid Access Addiction Medicine</div>
-                <p class="rc-note">Walk-in / referral clinic for starting treatment (Suboxone, methadone, counselling). Often the fastest real door.</p>
-                <div class="rc-phone">(613) 722-6521 ×6508</div>
-            </div>
+            <div class="de-meta">Detox · Beds</div>
         </div>
-    </div>
+
+        <div class="directory-entry">
+            <div>
+                <div class="de-name">RAAM Clinic — The Royal</div>
+                <div class="de-note">Rapid Access Addiction Medicine. No referral needed. Walk-in or check in online — they assess you and start treatment (Suboxone, methadone, counselling) the same day. Often the fastest real door.</div>
+                <a href="tel:6137226521" class="de-phone">(613) 722-6521 ×6508</a>
+            </div>
+            <div class="de-meta">Walk-in</div>
+        </div>
+    </section>
 
     <!-- ===== CRISIS & MENTAL HEALTH ===== -->
-    <div class="res-section">
-        <div class="res-section-header">
-            <h2>Crisis &amp; Mental Health</h2>
-            <span class="count">24/7</span>
-        </div>
-        <p class="res-section-intro">When it's bad right now. Keep these in your phone.</p>
+    <section class="directory-section">
+        <div class="directory-head"><h2>Crisis &amp; Mental Health · 24/7</h2></div>
+        <p class="directory-deck">When it's bad right now. Keep these in your phone.</p>
 
-        <div class="res-grid">
-            <div class="res-card">
-                <h3>Ottawa Distress &amp; Crisis Line</h3>
-                <div class="rc-meta">24/7 &bull; Mental health crisis</div>
-                <p class="rc-note">Human on the other end. Will stay on the phone with you.</p>
-                <div class="rc-phone">(613) 722-1000</div>
+        <div class="directory-entry">
+            <div>
+                <div class="de-name">Ottawa Distress &amp; Crisis Line</div>
+                <div class="de-note">Human on the other end. Will stay on the phone with you. Mental health crisis support, 24/7.</div>
+                <a href="tel:6137221000" class="de-phone">(613) 722-1000</a>
             </div>
-            <div class="res-card">
-                <h3>988 Suicide Crisis Helpline</h3>
-                <div class="rc-meta">24/7 &bull; Canada-wide</div>
-                <p class="rc-note">Call or text 988. National service, trained responders.</p>
-                <div class="rc-phone">988</div>
-            </div>
+            <div class="de-meta">24/7 · Ottawa</div>
         </div>
-    </div>
 
-    <!-- ===== WIP NOTE ===== -->
-    <p class="wip-note">
-        This page is still growing — housing, parole/records, and peer support sections are coming.
+        <div class="directory-entry">
+            <div>
+                <div class="de-name">988 Suicide Crisis Helpline</div>
+                <div class="de-note">Call or text 988. National service, trained responders. Picks up. No script.</div>
+                <a href="tel:988" class="de-phone">988</a>
+            </div>
+            <div class="de-meta">24/7 · Canada</div>
+        </div>
+    </section>
+
+    <p class="wip-note-ed">
+        This directory is still growing — housing, parole / records, and peer support sections are coming.
         If something's missing that should be here, <a href="connect.html">tell me</a>.
     </p>
 
@@ -386,12 +194,10 @@
 <!-- ============ FOOTER ============ -->
 <footer class="site-footer-rich">
     <div class="footer-inner">
-
         <div class="footer-about">
             <h4>Recovery Roofer</h4>
             <p>Josh Pearsall — working roofer in Ottawa writing honestly about addiction, recovery systems, and what actually works from inside it.</p>
         </div>
-
         <div>
             <h4>Site</h4>
             <ul>
@@ -403,7 +209,6 @@
                 <li><a href="connect.html">Get in touch</a></li>
             </ul>
         </div>
-
         <div>
             <h4>Popular Posts</h4>
             <ul>
@@ -414,7 +219,6 @@
                 <li><a href="articles/parole-rebellion-protocol.html">The Parole Rebellion Protocol</a></li>
             </ul>
         </div>
-
     </div>
     <p class="footer-bottom">
         Josh Pearsall <span class="dot">●</span> Ottawa, ON <span class="dot">●</span> Est. 2024
@@ -422,19 +226,9 @@
     </p>
 </footer>
 
-<!-- ============ CRISIS CTA ============ -->
 <a href="tel:6132411525" class="floating-cta">
-    <span>🚨</span> Need Help Now?
+    Need help right now?
 </a>
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1LXCLXR34X"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1LXCLXR34X');
-</script>
 
 </body>
 </html>

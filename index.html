@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recovery Roofer | Raw Recovery Stories, Policy Breakdowns & Real Talk from Ottawa</title>
-    
+
     <meta name="description" content="Josh Pearsall - Clean roofer writing honestly about addiction, recovery systems, housing, safer supply, criminal records, and the gaps in Ontario's treatment system. No fluff. Just real experience.">
-<meta name="author" content="Josh Pearsall">
+    <meta name="author" content="Josh Pearsall">
     <meta name="google-site-verification" content="gfjo6x2ahXORgHOPyMNxt27sJ9R2qC0IS3RecoXFJyk" />
-    <!-- ── OPEN GRAPH / SOCIAL SHARING ── -->
+
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Recovery Roofer">
     <meta property="og:title" content="Recovery Roofer | Honest Writing on Addiction & Recovery">
@@ -26,480 +26,14 @@
     <link rel="canonical" href="https://www.recoveryroofer.ca/">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+
+    <!-- Fonts: Newsreader (serif, free, Google), Barlow (kept for sans), JetBrains Mono (mono) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <style>
-        /* ---------- HERO (page-specific) ---------- */
-        .hero {
-            padding: 70px 24px 64px;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-bg {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none;
-            opacity: 0.03;
-        }
-        .hero-eyebrow {
-            font-family: Arial, sans-serif;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 5px;
-            color: var(--blue);
-            text-transform: uppercase;
-            margin-bottom: 28px;
-            position: relative;
-        }
-        .hero-roof {
-            margin: 0 auto 32px;
-            display: block;
-        }
-        .hero-title {
-            font-family: 'Arial Black', 'Franklin Gothic Heavy', Impact, sans-serif;
-            font-size: clamp(48px, 9vw, 86px);
-            font-weight: 900;
-            line-height: 0.92;
-            letter-spacing: -1px;
-            color: #f0ece0;
-            margin-bottom: 4px;
-        }
-        .hero-title-blue {
-            color: var(--blue);
-            display: block;
-        }
-        .hero-sub {
-            font-family: Arial, sans-serif;
-            font-size: 15px;
-            color: var(--muted);
-            max-width: 420px;
-            margin: 22px auto 34px;
-            line-height: 1.65;
-        }
-        .hero-sub em { color: #999; font-style: normal; }
-        .hero-cta-row {
-            display: flex;
-            gap: 14px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .btn-primary {
-            background: var(--blue);
-            color: #fff;
-            padding: 13px 30px;
-            font-family: 'Arial Black', sans-serif;
-            font-size: 13px;
-            font-weight: 900;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border: none;
-            border-radius: 2px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn-primary:hover { background: var(--blue-hover); }
-        .btn-ghost {
-            background: transparent;
-            color: #555;
-            padding: 13px 30px;
-            font-family: 'Arial Black', sans-serif;
-            font-size: 13px;
-            font-weight: 900;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border: 1px solid #2a2a2a;
-            border-radius: 2px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .btn-ghost:hover { border-color: #444; color: #888; }
-
-        /* ---------- STRIP BAR ---------- */
-        .strip {
-            display: flex;
-            justify-content: center;
-            gap: 48px;
-            padding: 22px 24px;
-            border-bottom: 1px solid var(--border);
-            flex-wrap: wrap;
-        }
-        .strip-item {
-            font-family: Arial, sans-serif;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            color: var(--muted-3);
-            text-transform: uppercase;
-        }
-        .strip-item span { color: var(--blue); margin-right: 8px; }
-
-        /* ---------- MAIN CONTENT WRAP ---------- */
-        .content-wrap {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* ---------- INTRO BLOCK ---------- */
-        .intro-block {
-            padding: 60px 0 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            align-items: start;
-        }
-        .intro-bio {
-            background: var(--surface-2);
-            border-radius: 10px;
-            border-left: 4px solid var(--blue);
-            padding: 28px 26px;
-        }
-        .intro-bio h2 {
-            font-family: 'Arial Black', sans-serif;
-            font-size: 0.8em;
-            color: var(--blue);
-            font-weight: 900;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-        .intro-bio p {
-            color: #888;
-            font-size: 0.97em;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-        .intro-bio .intro-links { display: flex; flex-direction: column; }
-        .intro-bio .intro-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.9em;
-            font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-        }
-        .intro-bio .intro-links a.primary { color: var(--blue); }
-        .intro-bio .intro-links a.secondary { color: var(--muted-2); }
-        .intro-bio .intro-links a:hover { color: var(--blue); }
-
-        .intro-quote {
-            background: var(--surface-2);
-            border-radius: 10px;
-            border-left: 4px solid var(--border-soft);
-            padding: 28px 26px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .intro-quote blockquote {
-            color: #ccc;
-            font-size: 1.05em;
-            line-height: 1.7;
-            font-style: italic;
-            margin: 0 0 16px;
-        }
-        .intro-quote blockquote em {
-            color: var(--blue);
-            font-style: normal;
-            font-weight: 700;
-        }
-        .intro-quote cite {
-            color: var(--muted-2);
-            font-size: 0.82em;
-            font-style: normal;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        @media (max-width: 640px) {
-            .intro-block { grid-template-columns: 1fr; }
-        }
-
-        /* ---------- DIVIDER ---------- */
-        .divider {
-            height: 1px;
-            background: var(--border);
-            margin: 56px 0;
-        }
-
-        /* ---------- START HERE BLOCK ---------- */
-        .start-here {
-            background: var(--surface-2);
-            border-left: 5px solid #3cbe64;
-            border-radius: 10px;
-            padding: 32px 30px;
-            margin-bottom: 56px;
-        }
-        .start-here-badge {
-            background: #3cbe64;
-            color: #000;
-            font-size: 0.78em;
-            font-weight: 700;
-            padding: 4px 14px;
-            border-radius: 30px;
-            letter-spacing: 0.6px;
-            text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 18px;
-        }
-        .start-here h2 {
-            color: #fff;
-            font-size: 1.55em;
-            font-family: 'Arial Black', sans-serif;
-            font-weight: 900;
-            line-height: 1.25;
-            margin-bottom: 22px;
-        }
-        .doors {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-        .door {
-            display: block;
-            background: #111;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 20px 20px 18px;
-            transition: border-color 0.2s, transform 0.2s;
-        }
-        .door:hover {
-            border-color: #3cbe64;
-            transform: translateY(-2px);
-        }
-        .door-num {
-            color: #3cbe64;
-            font-family: 'Arial Black', sans-serif;
-            font-size: 0.78em;
-            font-weight: 900;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-        .door-title {
-            color: #fff;
-            font-size: 1.08em;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-        .door-desc {
-            color: #888;
-            font-size: 0.88em;
-            line-height: 1.55;
-            margin-bottom: 14px;
-        }
-        .door-arrow {
-            color: #3cbe64;
-            font-weight: 700;
-            font-size: 0.9em;
-        }
-        .start-here-footnote {
-            color: var(--muted);
-            font-size: 0.9em;
-            margin-top: 22px;
-            margin-bottom: 0;
-        }
-        .start-here-footnote a {
-            color: var(--blue);
-            font-weight: 600;
-        }
-        .start-here-footnote a:hover {
-            text-decoration: underline;
-        }
-        @media (max-width: 640px) {
-            .doors { grid-template-columns: 1fr; }
-        }
-
-        /* ---------- CIA SERIES BLOCK ---------- */
-        .series-block {
-            background: var(--surface-2);
-            border-left: 5px solid var(--blue);
-            border-radius: 10px;
-            padding: 32px 30px;
-            margin-bottom: 56px;
-        }
-        .series-badge {
-            background: var(--blue);
-            color: #000;
-            font-size: 0.78em;
-            font-weight: 700;
-            padding: 4px 14px;
-            border-radius: 30px;
-            letter-spacing: 0.6px;
-            text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 18px;
-        }
-        .series-block h2 {
-            color: #fff;
-            font-size: 1.55em;
-            font-family: 'Arial Black', sans-serif;
-            font-weight: 900;
-            line-height: 1.25;
-            margin-bottom: 12px;
-        }
-        .series-block > p {
-            color: var(--text-soft);
-            line-height: 1.65;
-            max-width: 620px;
-            margin-bottom: 22px;
-        }
-        .series-article-link {
-            display: block;
-            background: #111;
-            border-radius: 8px;
-            padding: 20px 22px;
-            border: 1px solid var(--border);
-            transition: border-color 0.2s;
-            margin-bottom: 18px;
-        }
-        .series-article-link:hover { border-color: var(--blue); }
-        .series-article-link .part-label {
-            color: #3cbe64;
-            font-size: 0.88em;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .series-article-link h3 {
-            color: #fff;
-            font-size: 1.15em;
-            margin-bottom: 10px;
-            line-height: 1.35;
-        }
-        .series-article-link p {
-            color: #888;
-            font-size: 0.92em;
-            line-height: 1.6;
-        }
-        .series-article-link .read-more {
-            color: var(--blue);
-            font-weight: 600;
-            font-size: 0.92em;
-            display: inline-block;
-            margin-top: 14px;
-        }
-        .series-footer {
-            color: var(--muted);
-            font-size: 0.9em;
-            margin-top: 18px;
-        }
-
-        /* ---------- BLOG SECTION HEADER ---------- */
-        /* FIX 2: removed top-right "See all posts" link; heading now stands alone */
-        .blog-header {
-            margin-bottom: 24px;
-        }
-        .blog-header h2 {
-            font-family: 'Arial Black', sans-serif;
-            font-size: 0.95em;
-            font-weight: 900;
-            color: #b8b4a8;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-        .blog-header .blog-subtitle {
-            color: var(--muted-2);
-            font-size: 0.78em;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-top: 4px;
-        }
-
-        /* ---------- FEATURED ARTICLE ---------- */
-        .featured-article {
-            display: grid;
-            grid-template-columns: 160px 1fr;
-            background: var(--surface-2);
-            border: 1px solid var(--border-soft);
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 24px;
-            transition: border-color 0.2s;
-        }
-        .featured-article:hover { border-color: var(--blue); }
-        .feat-thumb {
-            background: #0a1a2a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        .feat-thumb svg { opacity: 0.8; }
-        .feat-body { padding: 20px 22px; }
-        .feat-tag {
-            display: inline-block;
-            font-size: 10px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 3px 10px;
-            border-radius: 4px;
-            margin-bottom: 10px;
-            background: rgba(40,160,80,0.15);
-            color: #3cbe64;
-        }
-        .feat-title {
-            color: #ccc;
-            font-size: 1.02em;
-            font-weight: 700;
-            line-height: 1.4;
-            margin: 0 0 8px;
-        }
-        .feat-desc { color: #777; font-size: 0.85em; line-height: 1.55; }
-        .feat-meta { margin-top: 10px; font-size: 0.75em; color: var(--muted-2); }
-
-        /* ---------- ARTICLE GRID ---------- */
-        /* FIX (optional tightening): blog cards slightly smaller/lighter than CIA series cards */
-        .article-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 14px;
-            margin-bottom: 32px;
-        }
-        .article-card {
-            background: var(--surface-2);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: border-color 0.2s;
-        }
-        .article-card:hover { border-color: var(--blue); }
-        .article-card:hover .card-title { color: var(--blue); }
-        .card-thumb {
-            height: 90px;
-            background: #0a1a2a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px;
-        }
-        .card-thumb svg { opacity: 0.6; }
-        .card-body { padding: 13px 15px; }
-        .card-title {
-            color: #b8b8b8;
-            font-size: 0.9em;
-            font-weight: 600;
-            line-height: 1.4;
-            margin: 0 0 5px;
-            transition: color 0.2s;
-        }
-        .card-desc { color: var(--muted); font-size: 0.8em; line-height: 1.5; }
-        .card-meta { margin-top: 9px; font-size: 0.72em; color: var(--muted-2); }
-
-        @media (max-width: 640px) {
-            .strip { gap: 24px; }
-            .featured-article { grid-template-columns: 1fr; }
-            .feat-thumb { height: 90px; }
-            .article-grid { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 400px) {
-            .article-grid { grid-template-columns: 1fr; }
-        }
-    </style>
-    <!-- ══ STRUCTURED DATA (JSON-LD) ══ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -517,15 +51,7 @@
             "addressLocality": "Ottawa",
             "addressRegion": "ON",
             "addressCountry": "CA"
-          },
-          "knowsAbout": [
-            "Addiction recovery",
-            "Harm reduction",
-            "Ontario treatment system",
-            "Criminal records in Canada",
-            "Housing First policy",
-            "Compassionate Intervention Act"
-          ]
+          }
         },
         {
           "@type": "WebSite",
@@ -539,311 +65,227 @@
       ]
     }
     </script>
-
-
-
-
-
 </head>
 <body>
 
-<!-- ============ SHARED NAV (same on every page) ============ -->
-<!-- FIX 3: removed duplicate "Need Help" nav item — floating CTA + Resources link are enough -->
+<!-- ============ SHARED NAV ============ -->
 <nav class="site-nav">
     <div class="nav-container">
         <div class="nav-top">
             <a href="index.html">
                 <img src="assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo">
             </a>
-           <div class="nav-links">
-    <a href="index.html" class="nav-btn active">Home</a>
-    <a href="story.html" class="nav-btn">My Story</a>
-    <a href="continuum.html" class="nav-btn">Continuum of Care</a>
-    <a href="resources.html" class="nav-btn">Resources</a>
-    <a href="writing.html" class="nav-btn">Writing</a>
-    <a href="connect.html" class="nav-btn">Connect</a>
-</div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-btn active">Home</a>
+                <a href="story.html" class="nav-btn">My Story</a>
+                <a href="continuum.html" class="nav-btn">Continuum</a>
+                <a href="resources.html" class="nav-btn">Resources</a>
+                <a href="writing.html" class="nav-btn">Writing</a>
+                <a href="connect.html" class="nav-btn">Connect</a>
+            </div>
         </div>
     </div>
 </nav>
 
-<!-- ============ HERO ============ -->
-<div class="hero">
-    <svg class="hero-bg" viewBox="0 0 900 500" preserveAspectRatio="xMidYMid slice">
-        <line x1="450" y1="500" x2="0" y2="0" stroke="#fff" stroke-width="0.5"/>
-        <line x1="450" y1="500" x2="900" y2="0" stroke="#fff" stroke-width="0.5"/>
-        <line x1="450" y1="500" x2="100" y2="0" stroke="#fff" stroke-width="0.5"/>
-        <line x1="450" y1="500" x2="800" y2="0" stroke="#fff" stroke-width="0.5"/>
-        <line x1="450" y1="500" x2="200" y2="0" stroke="#fff" stroke-width="0.5"/>
-        <line x1="450" y1="500" x2="700" y2="0" stroke="#fff" stroke-width="0.5"/>
-        <line x1="450" y1="500" x2="300" y2="0" stroke="#fff" stroke-width="0.5"/>
-        <line x1="450" y1="500" x2="600" y2="0" stroke="#fff" stroke-width="0.5"/>
-    </svg>
-
-    <p class="hero-eyebrow">Ottawa &bull; Est. 2024</p>
-
-    <svg class="hero-roof" width="180" height="118" viewBox="0 0 180 118" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="90,14 8,82 172,82" fill="#1d1d1d" stroke="#2e2e2e" stroke-width="1.5"/>
-        <polygon points="90,14 8,82 24,82 90,32" fill="#252525"/>
-        <polygon points="90,14 172,82 156,82 90,32" fill="#222"/>
-        <line x1="24" y1="82" x2="78" y2="36" stroke="#1a1a1a" stroke-width="1"/>
-        <line x1="44" y1="82" x2="84" y2="44" stroke="#1a1a1a" stroke-width="1"/>
-        <line x1="64" y1="82" x2="88" y2="54" stroke="#1a1a1a" stroke-width="1"/>
-        <line x1="156" y1="82" x2="102" y2="36" stroke="#1e1e1e" stroke-width="1"/>
-        <line x1="136" y1="82" x2="96" y2="44" stroke="#1e1e1e" stroke-width="1"/>
-        <line x1="116" y1="82" x2="92" y2="54" stroke="#1e1e1e" stroke-width="1"/>
-        <line x1="8" y1="82" x2="172" y2="82" stroke="#2a2a2a" stroke-width="1.5"/>
-        <polygon points="90,2 80,20 100,20" fill="#00a2ff"/>
-        <line x1="90" y1="14" x2="24" y2="65" stroke="#00a2ff" stroke-width="0.8" opacity="0.2"/>
-        <line x1="90" y1="14" x2="156" y2="65" stroke="#00a2ff" stroke-width="0.8" opacity="0.2"/>
-    </svg>
-
-    <h1 class="hero-title">
-        RECOVERY<span class="hero-title-blue">ROOFER</span>
-    </h1>
-
-    <p class="hero-sub">
-        A working roofer writing honestly about addiction, recovery,<br>
-        and what the system actually looks like <em>from inside it</em>.
-    </p>
-
-    <div class="hero-cta-row">
-        <a href="story.html" class="btn-primary">Read My Story</a>
-        <a href="writing.html" class="btn-ghost">Read the Blog</a>
+<!-- ============ MASTHEAD BAR ============ -->
+<div class="masthead-bar">
+    <div class="masthead-bar-inner">
+        <span class="mb-side">Vol. II / No. 14</span>
+        <span class="mb-mid">Recovery Roofer</span>
+        <span class="mb-side">Ottawa · Est. 2024</span>
     </div>
 </div>
 
-<!-- ============ STRIP BAR ============ -->
-<div class="strip">
-    <div class="strip-item"><span>&#9679;</span>Raw &amp; honest writing</div>
-    <div class="strip-item"><span>&#9679;</span>Recovery resources</div>
-    <div class="strip-item"><span>&#9679;</span>Ottawa &amp; Ontario focus</div>
-    <div class="strip-item"><span>&#9679;</span>Written from inside it</div>
+<!-- ============ EDITORIAL HERO ============ -->
+<header class="editorial-hero">
+    <div class="eh-eyebrow">Filed from the field · Ottawa &amp; Ontario</div>
+    <h1>From inside&nbsp;it.</h1>
+    <p class="eh-sub">Honest writing on addiction, recovery, and the systems built around them — by a working roofer who got clean, kept hammering, and started <em>writing it down</em>.</p>
+</header>
+
+<!-- ============ LEAD STORY ============ -->
+<section class="lead-story">
+    <div class="lead-main">
+        <div class="ls-kicker">Ongoing series · Compassionate Intervention Act · Pt. 4 of 6</div>
+        <h2><a href="articles/cia-part4-inside-72-hours.html">Inside the 72-Hour Window: What Actually Happens Once the Door Closes</a></h2>
+        <p class="ls-deck">What the Act authorizes between apprehension and the hearing — the assessment report, the right to refuse, the authority to use force — and why the safeguards are built for a person who isn't there.</p>
+        <div class="ls-meta">Filed Apr 2026 · 12 min read · Ottawa</div>
+        <div class="ls-progress" aria-label="Series progress">
+            <span class="done"></span>
+            <span class="done"></span>
+            <span class="done"></span>
+            <span class="done"></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="ls-progress-label">CIA series · 4 of 6 published</div>
+    </div>
+
+    <aside class="lead-rail">
+        <div class="lr-label">Also on the wire</div>
+        <a href="articles/the-stories-we-tell-ourselves.html" class="lr-item">
+            <div class="lr-title">The Stories We Tell Ourselves</div>
+            <div class="lr-meta">Reflection · 6 min</div>
+        </a>
+        <a href="articles/ontario-3point8-billion-who-profits.html" class="lr-item">
+            <div class="lr-title">Ontario's $3.8B Problem</div>
+            <div class="lr-meta">Policy · 9 min</div>
+        </a>
+        <a href="articles/parole-rebellion-protocol.html" class="lr-item">
+            <div class="lr-title">The Parole Rebellion Protocol</div>
+            <div class="lr-meta">Field notes · 15 min</div>
+        </a>
+        <a href="articles/the-lifelong-contract.html" class="lr-item">
+            <div class="lr-title">The Lifelong Contract</div>
+            <div class="lr-meta">Policy · 10 min</div>
+        </a>
+    </aside>
+</section>
+
+<!-- ============ PULL QUOTE ============ -->
+<div class="pull-quote">
+    <blockquote>A solid roof is shelter. A solid recovery is the same thing — built piece by piece, nail by nail, day by day.</blockquote>
+    <cite>— Josh Pearsall, Ottawa</cite>
 </div>
 
-<!-- ============ MAIN CONTENT ============ -->
-<div class="content-wrap">
-
-    <!-- INTRO -->
-    <div class="intro-block">
-        <div class="intro-bio">
-            <h2>Josh Pearsall</h2>
-            <p>
-                I got clean, kept roofing, and started writing about what the system actually looks like from inside it — recovery pathways, policy gaps, and the stuff nobody talks about in Ontario.
-            </p>
-          <div class="intro-links">
-                <a href="writing.html" class="primary">Read the full archive →</a>
-                <a href="connect.html" class="primary">Get in touch →</a>
-            </div>
-        </div>
-        <div class="intro-quote">
-            <blockquote>
-                "A solid roof is shelter. A solid recovery is the same thing — built <em>piece by piece</em>, nail by nail, day by day."
-            </blockquote>
-            <cite>— Josh Pearsall, Ottawa</cite>
-        </div>
+<!-- ============ SERIES (editorial) ============ -->
+<section class="series-editorial">
+    <div class="se-head">
+        <div class="se-kicker">Ongoing series · 4 parts published</div>
+        <h2 class="se-title">Breaking Down the Compassionate Intervention Act</h2>
+        <p class="se-deck">A section-by-section read of Ontario's new involuntary-treatment law. How the system is supposed to work on paper. Where it's likely to break in real life.</p>
     </div>
-
-    <div class="divider"></div>
-
-    <!-- START HERE -->
-    <div class="start-here">
-        <span class="start-here-badge">New Here?</span>
-        <h2>Start with the door that fits you</h2>
-        <div class="doors">
-            <a href="story.html" class="door">
-                <div class="door-num">01</div>
-                <div class="door-title">My Story</div>
-                <p class="door-desc">How I got clean, kept roofing, and started writing about it.</p>
-                <span class="door-arrow">Read it →</span>
-            </a>
-            <a href="resources.html" class="door">
-                <div class="door-num">02</div>
-                <div class="door-title">Need Help Now</div>
-                <p class="door-desc">Ottawa &amp; Ontario crisis lines, detox, shelters, safer supply.</p>
-                <span class="door-arrow">Get resources →</span>
-            </a>
-            <a href="continuum.html" class="door">
-                <div class="door-num">03</div>
-                <div class="door-title">The System</div>
-                <p class="door-desc">The continuum of care — how recovery actually maps out.</p>
-                <span class="door-arrow">See the map →</span>
-            </a>
-        </div>
-        <p class="start-here-footnote">
-            Want my writing on current policy? <a href="articles/cia-overview.html">Start the CIA series →</a>
-        </p>
+    <div class="se-parts">
+        <a href="articles/cia-overview.html" class="se-part">
+            <div class="sep-num">Part 01 · April 2026</div>
+            <div class="sep-title">Breaking Down the Act: An Overview</div>
+            <div class="sep-meta">Walkthrough · pressure points</div>
+        </a>
+        <a href="articles/cia-part2-harm-threshold.html" class="se-part">
+            <div class="sep-num">Part 02 · April 2026</div>
+            <div class="sep-title">The Harm Threshold: Who Gets Pulled In</div>
+            <div class="sep-meta">Definition · discretion</div>
+        </a>
+        <a href="articles/cia-part3-applicant-rules.html" class="se-part">
+            <div class="sep-num">Part 03 · April 2026</div>
+            <div class="sep-title">Who Can Pull the Trigger: Section 17</div>
+            <div class="sep-meta">Applicant rules</div>
+        </a>
+        <a href="articles/cia-part4-inside-72-hours.html" class="se-part">
+            <div class="sep-num">Part 04 · April 2026</div>
+            <div class="sep-title">Inside the 72-Hour Window</div>
+            <div class="sep-meta">Apprehension to hearing</div>
+        </a>
     </div>
+</section>
 
-    <!-- CIA SERIES -->
-<div class="series-block">
-    <span class="series-badge">Series &bull; Part 4 Just Dropped</span>
-    <h2>Breaking Down the Compassionate Intervention Act</h2>
-    <p>
-        A raw, section-by-section breakdown of the new Compassionate Intervention Act — how the system is supposed to work on paper versus where it's likely to break in real life.
-    </p>
+<!-- ============ ARCHIVE LIST ============ -->
+<div class="section-rule-editorial"><span>The Archive</span></div>
+<section class="archive-list">
 
-    <a href="articles/cia-overview.html" class="series-article-link">
-        <div class="part-label">Part 1 &bull; April 2026</div>
-        <h3>Breaking Down the Compassionate Intervention Act</h3>
-        <p>A section-by-section walkthrough — what it's designed to do, how the system actually flows, and the pressure points where it could go wrong in practice.</p>
-        <span class="read-more">Read Part 1 →</span>
+    <a href="articles/starting-point-problem.html" class="archive-row">
+        <div class="ar-date">Apr 2026</div>
+        <div class="ar-body">
+            <div class="ar-tag">Field notes</div>
+            <div class="ar-title">The Starting Point Problem</div>
+            <div class="ar-deck">Fifteen years of detox across six Ontario cities. What changed, what didn't, and what happens in the gaps the system doesn't see.</div>
+        </div>
+        <div class="ar-min">7 min</div>
     </a>
 
-    <a href="articles/cia-part2-harm-threshold.html" class="series-article-link">
-        <div class="part-label">Part 2 &bull; April 2026</div>
-        <h3>The Harm Threshold: Who Gets Pulled Into the System</h3>
-        <p>Who qualifies for intervention, how "harm" gets defined, and why the real line is drawn by the people reading each application — not by the law.</p>
-        <span class="read-more">Read Part 2 →</span>
+    <a href="articles/toxic-drugs.html" class="archive-row">
+        <div class="ar-date">Apr 2026</div>
+        <div class="ar-body">
+            <div class="ar-tag">System &amp; policy</div>
+            <div class="ar-title">The Drugs Got More Toxic, the Policy Got Softer</div>
+            <div class="ar-deck">A frontline account of how Ottawa's opioid crisis became a poly-substance system current frameworks aren't built for.</div>
+        </div>
+        <div class="ar-min">8 min</div>
     </a>
 
-    <a href="articles/cia-part3-applicant-rules.html" class="series-article-link">
-        <div class="part-label">Part 3 &bull; April 2026</div>
-        <h3>Who Can Pull the Trigger: The Applicant Rules of Section 17</h3>
-        <p>Who gets to start the involuntary process — and what happens to the person on the other end before they even know it's happening.</p>
-        <span class="read-more">Read Part 3 →</span>
+    <a href="articles/the-stories-we-tell-ourselves.html" class="archive-row">
+        <div class="ar-date">Apr 2026</div>
+        <div class="ar-body">
+            <div class="ar-tag">Reflection</div>
+            <div class="ar-title">The Stories We Tell Ourselves</div>
+            <div class="ar-deck">I relapsed sober, with clear thinking. The thinking was always the problem — the drugs were just where it took me.</div>
+        </div>
+        <div class="ar-min">6 min</div>
     </a>
 
-    <a href="articles/cia-part4-inside-72-hours.html" class="series-article-link">
-        <div class="part-label">Part 4 &bull; April 2026</div>
-        <h3>Inside the 72-Hour Window: What Actually Happens Once the Door Closes</h3>
-        <p>What the Act authorizes between apprehension and the hearing — the assessment report, the right to refuse, the authority to use force — and why the safeguards are built for a person who isn't there.</p>
-        <span class="read-more">Read Part 4 →</span>
+    <a href="articles/ontario-3point8-billion-who-profits.html" class="archive-row">
+        <div class="ar-date">Apr 2026</div>
+        <div class="ar-body">
+            <div class="ar-tag">Policy</div>
+            <div class="ar-title">Ontario's $3.8B Problem — Who Profits When You Don't Recover?</div>
+            <div class="ar-deck">Where the money actually went. And who gets paid when you stay sick.</div>
+        </div>
+        <div class="ar-min">9 min</div>
     </a>
 
-    <p class="series-footer">This is an ongoing series. More parts coming as I finish them. &nbsp;<a href="articles/cia-overview.html" style="color:var(--blue); font-weight:600;">Start from Part 1 →</a></p>
-
-   <!-- BLOG -->
-<div class="blog-header">
-    <h2>More Writing</h2>
-    <div class="blog-subtitle">Archive — outside the series</div>
-</div>
-
-<a href="articles/starting-point-problem.html" class="article-card">
-        <div class="card-thumb">
-            <svg width="40" height="34" viewBox="0 0 40 34" fill="none"><polygon points="20,3 2,24 38,24" fill="#1d1d1d" stroke="#2e2e2e" stroke-width="1.5"/><polygon points="20,3 2,24 7,24 20,10" fill="#252525"/><polygon points="20,3 38,24 33,24 20,10" fill="#222"/><polygon points="20,0 17,7 23,7" fill="#a070e0"/></svg>
+    <a href="articles/garden-path-consent.html" class="archive-row">
+        <div class="ar-date">Apr 2026</div>
+        <div class="ar-body">
+            <div class="ar-tag">Harm reduction</div>
+            <div class="ar-title">When Poly-Dope Withdrawal Breaks Informed Consent</div>
+            <div class="ar-deck">What happens when safer supply meets a drug it wasn't built for.</div>
         </div>
-        <div class="card-body">
-            <p class="card-title">The Starting Point Problem</p>
-            <p class="card-desc">Fifteen years of detox across six Ontario cities. What changed, what didn't, and what happens in the gaps the system doesn't see.</p>
-            <div class="card-meta">April 2026 &bull; 7 min read</div>
-        </div>
+        <div class="ar-min">7 min</div>
     </a>
 
-<a href="articles/toxic-drugs.html" class="featured-article">
-    <div class="feat-thumb">
-        <svg width="52" height="44" viewBox="0 0 52 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="26,4 2,32 50,32" fill="#1d1d1d" stroke="#2e2e2e" stroke-width="1.5"/>
-            <polygon points="26,4 2,32 9,32 26,12" fill="#252525"/>
-            <polygon points="26,4 50,32 43,32 26,12" fill="#222"/>
-            <polygon points="26,0 22,8 30,8" fill="#00a2ff"/>
-        </svg>
-    </div>
-    <div class="feat-body">
-        <span class="feat-tag">System &amp; Policy</span>
-        <p class="feat-title">The Drugs Got More Toxic, the Environment Got Harsher, and the Policy Response Got Softer</p>
-        <p class="feat-desc">A frontline account of how Ottawa's opioid crisis became a poly-substance system current frameworks aren't built for.</p>
-        <div class="feat-meta">April 2026 &bull; 8 min read</div>
-    </div>
-</a>
-
-<div class="article-grid">
-
-    <a href="articles/the-stories-we-tell-ourselves.html" class="article-card">
-        <div class="card-thumb">
-            <svg width="40" height="34" viewBox="0 0 40 34" fill="none"><polygon points="20,3 2,24 38,24" fill="#1d1d1d" stroke="#2e2e2e" stroke-width="1.5"/><polygon points="20,3 2,24 7,24 20,10" fill="#252525"/><polygon points="20,3 38,24 33,24 20,10" fill="#222"/><polygon points="20,0 17,7 23,7" fill="#a070e0"/></svg>
+    <a href="articles/housing-first-ottawa.html" class="archive-row">
+        <div class="ar-date">Apr 2026</div>
+        <div class="ar-body">
+            <div class="ar-tag">Housing</div>
+            <div class="ar-title">Housing First in Ottawa: Why Just Giving Keys Isn't Enough</div>
+            <div class="ar-deck">Why keys alone don't fix it — and what a real continuum looks like.</div>
         </div>
-        <div class="card-body">
-            <p class="card-title">The Stories We Tell Ourselves</p>
-            <p class="card-desc">I relapsed sober, with clear thinking. The thinking was always the problem — the drugs were just where it took me.</p>
-            <div class="card-meta">April 2026 &bull; 6 min read</div>
-        </div>
+        <div class="ar-min">10 min</div>
     </a>
 
-    <a href="articles/ontario-3point8-billion-who-profits.html" class="article-card">
-        <div class="card-thumb">
-            <svg width="40" height="34" viewBox="0 0 40 34" fill="none"><polygon points="20,3 2,24 38,24" fill="#1d1d1d" stroke="#2e2e2e" stroke-width="1.5"/><polygon points="20,3 2,24 7,24 20,10" fill="#252525"/><polygon points="20,3 38,24 33,24 20,10" fill="#222"/><polygon points="20,0 17,7 23,7" fill="#00a2ff"/></svg>
+    <a href="articles/life-with-a-record-part1.html" class="archive-row">
+        <div class="ar-date">Apr 2026</div>
+        <div class="ar-body">
+            <div class="ar-tag">Re-entry</div>
+            <div class="ar-title">Life With a Record in Canada</div>
+            <div class="ar-deck">How a criminal record locks the cycle in, and what perspective actually means after prison.</div>
         </div>
-        <div class="card-body">
-            <p class="card-title">Ontario's $3.8B Problem — Who Profits When You Don't Recover?</p>
-            <p class="card-desc">Here's where the money actually went — and who gets paid when you stay sick.</p>
-            <div class="card-meta">April 2026 &bull; 9 min read</div>
-        </div>
+        <div class="ar-min">11 min</div>
     </a>
 
-    <a href="articles/garden-path-consent.html" class="article-card">
-        <div class="card-thumb">
-            <svg width="40" height="34" viewBox="0 0 40 34" fill="none"><polygon points="20,3 2,24 38,24" fill="#1d1d1d" stroke="#2e2e2e" stroke-width="1.5"/><polygon points="20,3 2,24 7,24 20,10" fill="#252525"/><polygon points="20,3 38,24 33,24 20,10" fill="#222"/><polygon points="20,0 17,7 23,7" fill="#00a2ff"/></svg>
+    <a href="articles/parole-rebellion-protocol.html" class="archive-row">
+        <div class="ar-date">Apr 2026</div>
+        <div class="ar-body">
+            <div class="ar-tag">Field notes</div>
+            <div class="ar-title">The Parole Rebellion Protocol</div>
+            <div class="ar-deck">Day 1 on parole my brain screamed "I could disappear right now." Here's the exact 5-step protocol I used.</div>
         </div>
-        <div class="card-body">
-            <p class="card-title">When Poly-Dope Withdrawal Breaks Informed Consent</p>
-            <p class="card-desc">What happens when safer supply meets a drug it wasn't built for.</p>
-            <div class="card-meta">April 2026 &bull; 7 min read</div>
-        </div>
+        <div class="ar-min">15 min</div>
     </a>
 
-    <a href="articles/housing-first-ottawa.html" class="article-card">
-        <div class="card-thumb">
-            <svg width="40" height="34" viewBox="0 0 40 34" fill="none"><polygon points="20,3 2,24 38,24" fill="#1d1d1d" stroke="#2e2e2e" stroke-width="1.5"/><polygon points="20,3 2,24 7,24 20,10" fill="#252525"/><polygon points="20,3 38,24 33,24 20,10" fill="#222"/><polygon points="20,0 17,7 23,7" fill="#00a2ff"/></svg>
+    <a href="articles/the-lifelong-contract.html" class="archive-row">
+        <div class="ar-date">Apr 2026</div>
+        <div class="ar-body">
+            <div class="ar-tag">Policy</div>
+            <div class="ar-title">The Lifelong Contract</div>
+            <div class="ar-deck">The same financial logic that created this epidemic is now running the treatment.</div>
         </div>
-        <div class="card-body">
-            <p class="card-title">Housing First in Ottawa: Why Just Giving Keys Isn't Enough</p>
-            <p class="card-desc">Why keys alone don't fix it — and what a real continuum looks like.</p>
-            <div class="card-meta">April 2026 &bull; 10 min read</div>
-        </div>
+        <div class="ar-min">10 min</div>
     </a>
 
-    <a href="articles/life-with-a-record-part1.html" class="article-card">
-        <div class="card-thumb">
-            <svg width="40" height="34" viewBox="0 0 40 34" fill="none"><polygon points="20,3 2,24 38,24" fill="#1d1d1d" stroke="#2e2e2e" stroke-width="1.5"/><polygon points="20,3 2,24 7,24 20,10" fill="#252525"/><polygon points="20,3 38,24 33,24 20,10" fill="#222"/><polygon points="20,0 17,7 23,7" fill="#00a2ff"/></svg>
-        </div>
-        <div class="card-body">
-            <p class="card-title">Life With a Record in Canada</p>
-            <p class="card-desc">How a criminal record locks the cycle in, and what perspective actually means after prison.</p>
-            <div class="card-meta">April 2026 &bull; 11 min read</div>
-        </div>
-    </a>
+</section>
 
-    <a href="articles/parole-rebellion-protocol.html" class="article-card">
-        <div class="card-thumb">
-            <svg width="40" height="34" viewBox="0 0 40 34" fill="none"><polygon points="20,3 2,24 38,24" fill="#1d1d1d" stroke="#2e2e2e" stroke-width="1.5"/><polygon points="20,3 2,24 7,24 20,10" fill="#252525"/><polygon points="20,3 38,24 33,24 20,10" fill="#222"/><polygon points="20,0 17,7 23,7" fill="#00a2ff"/></svg>
-        </div>
-        <div class="card-body">
-            <p class="card-title">The Parole Rebellion Protocol</p>
-            <p class="card-desc">Day 1 on parole my brain screamed "I could disappear right now." Here's the exact 5-step protocol I used.</p>
-            <div class="card-meta">April 2026 &bull; 15 min read</div>
-        </div>
-    </a>
-
-    <a href="articles/the-lifelong-contract.html" class="article-card">
-        <div class="card-thumb">
-            <svg width="40" height="34" viewBox="0 0 40 34" fill="none"><polygon points="20,3 2,24 38,24" fill="#1d1d1d" stroke="#2e2e2e" stroke-width="1.5"/><polygon points="20,3 2,24 7,24 20,10" fill="#252525"/><polygon points="20,3 38,24 33,24 20,10" fill="#222"/><polygon points="20,0 17,7 23,7" fill="#00a2ff"/></svg>
-        </div>
-        <div class="card-body">
-            <p class="card-title">The Lifelong Contract</p>
-            <p class="card-desc">The same financial logic that created this epidemic is now running the treatment.</p>
-            <div class="card-meta">April 2026 &bull; 10 min read</div>
-        </div>
-    </a>
-
-</div>
-
-<p style="text-align:center; margin-bottom: 60px;">
-    <a href="writing.html" style="color:var(--blue); font-weight:700; font-size:0.95em; letter-spacing:1px;">SEE ALL POSTS →</a>
+<p style="text-align:center; padding: 0 24px 60px;">
+    <a href="writing.html" class="next-part-link">See the full archive →</a>
 </p>
 
-</div><!-- /content-wrap -->
-
 <!-- ============ FOOTER ============ -->
-<!-- FIX 1: Popular Posts no longer duplicates CIA Part 1/2 — those live in the featured series block -->
 <footer class="site-footer-rich">
     <div class="footer-inner">
-
         <div class="footer-about">
             <h4>Recovery Roofer</h4>
             <p>Josh Pearsall — working roofer in Ottawa writing honestly about addiction, recovery systems, and what actually works from inside it.</p>
         </div>
-
         <div>
             <h4>Site</h4>
             <ul>
@@ -855,7 +297,6 @@
                 <li><a href="connect.html">Get in touch</a></li>
             </ul>
         </div>
-
         <div>
             <h4>Popular Posts</h4>
             <ul>
@@ -866,7 +307,6 @@
                 <li><a href="articles/parole-rebellion-protocol.html">The Parole Rebellion Protocol</a></li>
             </ul>
         </div>
-
     </div>
     <p class="footer-bottom">
         Josh Pearsall <span class="dot">●</span> Ottawa, ON <span class="dot">●</span> Est. 2024
@@ -876,7 +316,7 @@
 
 <!-- ============ CRISIS CTA ============ -->
 <a href="resources.html" class="floating-cta">
-    <span>🚨</span> Need Help Right Now?
+    Need help right now?
 </a>
 
 </body>
