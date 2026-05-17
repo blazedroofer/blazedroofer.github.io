@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centretown Map – Recovery Roofer</title>
+    <meta name="description" content="A walking map of Centretown Ottawa — methadone clinics, drop-ins, food banks, and recovery resources near Eccles Street. Hours, notes, and what to expect.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Recovery Roofer">
+    <meta property="og:title" content="Centretown Map | Recovery Roofer">
+    <meta property="og:description" content="A walking map of Centretown Ottawa — methadone clinics, drop-ins, food banks, and recovery resources near Eccles Street.">
+    <meta property="og:url" content="https://www.recoveryroofer.ca/resources-centretown.html">
+    <meta property="og:image" content="https://www.recoveryroofer.ca/assets/img/og-default.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Centretown Map | Recovery Roofer">
+    <meta name="twitter:description" content="A walking map of Centretown Ottawa — methadone clinics, drop-ins, food banks, and recovery resources near Eccles Street.">
+    <meta name="twitter:image" content="https://www.recoveryroofer.ca/assets/img/og-default.jpg">
+
+    <link rel="canonical" href="https://www.recoveryroofer.ca/resources-centretown.html">
+    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Leaflet (map library) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Page-specific styles. Keep them here so we don't touch the shared stylesheet. -->
+    <style>
+        /* Layout: filter rail + map, stacked detail panel on mobile */
+        .map-page {
+            max-width: 1100px;
+            margin: 32px auto 0;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 24px;
+        }
+        @media (max-width: 880px) {
+            .map-page { grid-template-columns: 1fr; }
+        }
+
+        /* Filter rail */
+        .map-rail {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .filter-block {
+            border-top: 2px solid var(--blue);
+            padding-top: 14px;
+        }
+        .filter-block .fb-label {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 14px;
+        }
+        .filter-btn-ed {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            text-align: left;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text-soft);
+            padding: 10px 12px;
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-bottom: 6px;
+            transition: border-color 0.2s, color 0.2s, background 0.2s;
+        }
+        .filter-btn-ed:hover {
+            border-color: var(--blue);
+            color: var(--text);
+        }
+        .filter-btn-ed.active {
+            border-color: var(--blue);
+            background: var(--blue-dim);
+            color: #fff;
+        }
+        .filter-btn-ed .fb-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .filter-btn-ed .fb-count {
+            margin-left: auto;
+            font-size: 10px;
+            color: var(--muted);
+            font-variant-numeric: tabular-nums;
+        }
+        .filter-btn-ed.active .fb-count { color: var(--text-soft); }
+
+        /* List of places */
+        .place-list {
+            border-top: 1px solid var(--border);
+        }
+        .place-row {
+            padding: 14px 0;
+            border-bottom: 1px dashed var(--border);
+            cursor: pointer;
+            transition: padding-left 0.2s;
+        }
+        .place-row:hover { padding-left: 4px; }
+        .place-row:hover .pr-name { color: var(--blue); }
+        .place-row.selected {
+            padding-left: 10px;
+            border-left: 2px solid var(--blue);
+            background: var(--surface);
+        }
+        .place-row.selected .pr-name { color: var(--blue); }
+        .pr-name {
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 1.3;
+            color: var(--text);
+            margin-bottom: 4px;
+            transition: color 0.2s;
+        }
+        .pr-meta {
+            font-family: var(--mono);
+            font-size: 9px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .pr-status {
+            padding: 2px 6px;
+            border-radius: 2px;
+            font-size: 9px;
+        }
+        .pr-status.open { background: rgba(0,162,255,0.15); color: var(--blue); }
+        .pr-status.closed { background: rgba(255,255,255,0.04); color: var(--muted); }
+        .pr-status.note { background: rgba(201,122,58,0.15); color: var(--dateline); }
+
+        /* Map */
+        .map-stage {
+            position: relative;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            background: var(--surface);
+            min-height: 560px;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+            min-height: 560px;
+            background: var(--bg);
+        }
+
+        /* Detail panel slides over the map */
+        .detail-panel {
+            position: absolute;
+            top: 0; right: 0; bottom: 0;
+            width: 420px;
+            max-width: 95%;
+            background: var(--bg);
+            border-left: 1px solid var(--border);
+            transform: translateX(105%);
+            transition: transform 0.3s ease;
+            z-index: 500;
+            overflow-y: auto;
+            box-shadow: -4px 0 16px rgba(0,0,0,0.4);
+        }
+        .detail-panel.open { transform: translateX(0); }
+        .dp-inner { padding: 26px 26px 36px; }
+        .dp-close {
+            position: absolute;
+            top: 12px; right: 12px;
+            background: none; border: none;
+            width: 32px; height: 32px;
+            cursor: pointer;
+            color: var(--muted);
+            font-size: 1.5rem;
+            line-height: 1;
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .dp-close:hover { background: var(--surface); color: var(--text); }
+
+        .dp-kicker {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--dateline);
+            margin-bottom: 10px;
+        }
+        .dp-name {
+            font-family: var(--serif);
+            font-weight: 500;
+            font-size: 26px;
+            line-height: 1.2;
+            color: #fff;
+            letter-spacing: -0.01em;
+            margin-bottom: 6px;
+        }
+        .dp-addr {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 14px;
+            color: var(--text-soft);
+            margin-bottom: 18px;
+        }
+        .dp-actions {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 22px;
+            flex-wrap: wrap;
+        }
+        .dp-btn {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            padding: 8px 14px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: border-color 0.2s, background 0.2s, color 0.2s;
+        }
+        .dp-btn:hover { border-color: var(--blue); color: var(--blue); }
+        .dp-btn.primary {
+            background: var(--blue);
+            color: #fff;
+            border-color: var(--blue);
+        }
+        .dp-btn.primary:hover { background: var(--blue-hover); }
+
+        .dp-section { margin-bottom: 22px; }
+        .dp-section h4 {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--blue);
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        .dp-section p {
+            font-family: var(--serif);
+            font-size: 15px;
+            line-height: 1.65;
+            color: var(--text-soft);
+            margin-bottom: 10px;
+        }
+        .dp-section p:last-child { margin-bottom: 0; }
+        .dp-section p strong { color: #fff; font-weight: 500; }
+        .dp-section p em { color: var(--text); }
+
+        .dp-hours {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .dp-hours li {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.06em;
+            color: var(--text-soft);
+            border-bottom: 1px dashed var(--border);
+        }
+        .dp-hours li:last-child { border-bottom: 0; }
+        .dp-hours li .d { color: var(--muted); text-transform: uppercase; letter-spacing: 0.14em; }
+        .dp-hours li.today { color: #fff; }
+        .dp-hours li.today .d { color: var(--blue); }
+
+        /* Voice block — matches the .se-josh / .sp-pull look from continuum/story pages */
+        .dp-voice {
+            border-left: 2px solid var(--blue);
+            padding: 4px 0 4px 16px;
+            margin: 4px 0;
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 15px;
+            line-height: 1.65;
+            color: var(--text);
+        }
+        .dp-voice::before {
+            content: 'Josh — ';
+            font-family: var(--mono);
+            font-style: normal;
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--blue);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        /* Warning block — for catchment area, etc. */
+        .dp-warn {
+            border-left: 2px solid var(--dateline);
+            background: var(--surface);
+            padding: 12px 16px;
+            border-radius: 0 4px 4px 0;
+            font-family: var(--serif);
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-soft);
+        }
+        .dp-warn strong { color: var(--dateline); font-weight: 500; }
+
+        /* Leaflet overrides — dark theme to match site */
+        .leaflet-container {
+            background: var(--bg);
+            font-family: var(--sans);
+        }
+        .leaflet-popup-content-wrapper {
+            background: var(--surface);
+            color: var(--text);
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+        }
+        .leaflet-popup-tip {
+            background: var(--surface);
+            border: 1px solid var(--border);
+        }
+        .leaflet-popup-content {
+            margin: 12px 14px;
+            font-family: var(--serif);
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .leaflet-popup-content b {
+            font-family: var(--serif);
+            font-weight: 500;
+            color: #fff;
+            font-size: 15px;
+            display: block;
+            margin-bottom: 2px;
+        }
+        .leaflet-popup-content .lp-addr {
+            font-style: italic;
+            font-size: 12px;
+            color: var(--text-soft);
+        }
+        .leaflet-control-attribution {
+            background: var(--surface) !important;
+            color: var(--muted) !important;
+            font-family: var(--mono) !important;
+            font-size: 9px !important;
+            letter-spacing: 0.05em;
+        }
+        .leaflet-control-attribution a { color: var(--blue) !important; }
+        .leaflet-control-zoom a {
+            background: var(--surface) !important;
+            color: var(--text) !important;
+            border-color: var(--border) !important;
+            font-family: var(--serif) !important;
+        }
+        .leaflet-control-zoom a:hover {
+            background: var(--blue-dim) !important;
+            color: var(--blue) !important;
+        }
+
+        /* Custom marker pins */
+        .pin {
+            width: 22px;
+            height: 22px;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            border: 2px solid var(--bg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
+
+        /* Closing note */
+        .map-foot {
+            max-width: 1100px;
+            margin: 36px auto 80px;
+            padding: 24px 24px 0;
+            border-top: 1px solid var(--border);
+        }
+        .map-foot p {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 15px;
+            line-height: 1.65;
+            color: var(--muted);
+            max-width: 640px;
+        }
+        .map-foot p strong { color: var(--text-soft); font-style: normal; font-weight: 500; }
+        .map-foot a { color: var(--blue); border-bottom: 1px solid rgba(0,162,255,0.35); }
+
+        @media (max-width: 600px) {
+            .map-page { padding: 0 16px; margin-top: 24px; }
+            .map-stage { min-height: 480px; }
+            #map { min-height: 480px; }
+            .dp-inner { padding: 22px 20px 30px; }
+            .dp-name { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============ SHARED NAV ============ -->
+<nav class="site-nav">
+    <div class="nav-container">
+        <div class="nav-top">
+            <a href="index.html">
+                <img src="assets/img/recovery-roofer-logo.svg" alt="Recovery Roofer" class="nav-logo">
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-btn">Home</a>
+                <a href="story.html" class="nav-btn">My Story</a>
+                <a href="continuum.html" class="nav-btn">Continuum</a>
+                <a href="resources.html" class="nav-btn active">Resources</a>
+                <a href="writing.html" class="nav-btn">Writing</a>
+                <a href="connect.html" class="nav-btn">Connect</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ============ MASTHEAD BAR ============ -->
+<div class="masthead-bar">
+    <div class="masthead-bar-inner">
+        <span class="mb-side">The Centretown Map</span>
+        <span class="mb-mid">Recovery Roofer</span>
+        <span class="mb-side">Living document · Updated May 2026</span>
+    </div>
+</div>
+
+<!-- ============ PAGE INTRO ============ -->
+<header class="res-page-intro" style="max-width: 1100px; margin: 0 auto; padding: 56px 24px 24px;">
+    <div class="rpi-kicker">A walking map · Centretown, Ottawa</div>
+    <h1>Help that's <em>actually around here.</em></h1>
+    <p class="rpi-deck">Methadone clinics, the pharmacies that fill the prescriptions, drop-ins, and food. Real hours, written notes, and what to expect on a first visit. This started near Eccles Street and grows from there.</p>
+</header>
+
+<!-- ============ MAP + RAIL ============ -->
+<section class="map-page">
+
+    <aside class="map-rail">
+        <div class="filter-block">
+            <div class="fb-label">Filter by type</div>
+            <div id="filter-list"></div>
+        </div>
+
+        <div class="filter-block">
+            <div class="fb-label">All places</div>
+            <div id="place-list" class="place-list"></div>
+        </div>
+    </aside>
+
+    <div class="map-stage">
+        <div id="map"></div>
+        <aside class="detail-panel" id="detail-panel">
+            <button class="dp-close" id="dp-close" aria-label="Close">×</button>
+            <div class="dp-inner" id="dp-inner"></div>
+        </aside>
+    </div>
+
+</section>
+
+<!-- ============ CLOSING NOTE ============ -->
+<div class="map-foot">
+    <p>
+        <strong>About this map.</strong>
+        A living list. Each entry is a place I've been, walked past, or confirmed with someone who has. Some I've used. Some I just know exist. Where I haven't been, the entry says so. Hours and services change — if something here is wrong, <a href="connect.html">tell me</a> and I'll fix it. More entries are coming. We do this one place at a time.
+    </p>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer-rich">
+    <div class="footer-inner">
+        <div class="footer-about">
+            <h4>Recovery Roofer</h4>
+            <p>Josh Pearsall — working roofer in Ottawa writing honestly about addiction, recovery systems, and what actually works from inside it.</p>
+        </div>
+        <div>
+            <h4>Site</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="story.html">My Story</a></li>
+                <li><a href="continuum.html">Continuum of Care</a></li>
+                <li><a href="writing.html">Writing</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="connect.html">Get in touch</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Popular Posts</h4>
+            <ul>
+                <li><a href="articles/its-not-personal-its-designed.html">It's Not Personal, It's Designed</a></li>
+                <li><a href="articles/the-same-money-the-same-question.html">The Same Money, The Same Question</a></li>
+                <li><a href="articles/a-beautiful-life.html">A Beautiful Life</a></li>
+                <li><a href="articles/toxic-drugs.html">Toxic Drugs, Softer Policy</a></li>
+                <li><a href="articles/ontario-3point8-billion-who-profits.html">Ontario's $3.8B Problem</a></li>
+            </ul>
+        </div>
+    </div>
+    <p class="footer-bottom">
+        Josh Pearsall <span class="dot">●</span> Ottawa, ON <span class="dot">●</span> Est. 2024
+        &nbsp;|&nbsp; <a href="connect.html">Get in touch</a>
+    </p>
+</footer>
+
+<!-- ============ FLOATING CRISIS CTA ============ -->
+<a href="resources.html" class="floating-cta">
+    Need help right now?
+</a>
+
+<!-- ============ SCRIPTS ============ -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+
+// =====================================================
+// CATEGORIES — site palette: blue, dateline rust, purple
+// =====================================================
+const CATEGORIES = {
+    methadone: { label: "Methadone & Suboxone",  color: "#00a2ff" },  // blue
+    safer:     { label: "Safer Supply",          color: "#e74c3c" },  // red — note + caution
+    pharmacy:  { label: "Pharmacy",              color: "#58d68d" },  // continuum green
+    treatment: { label: "Treatment & Housing",   color: "#a569bd" },  // continuum purple
+    dropin:    { label: "Drop-in & Meals",       color: "#c97a3a" },  // dateline rust
+    food:      { label: "Food Banks",            color: "#e8a87c" },  // soft rust
+};
+
+// =====================================================
+// PLACES
+// =====================================================
+const PLACES = [
+    {
+        id: "oatc",
+        name: "OATC Ottawa Clinic",
+        cat: "methadone",
+        addr: "401 Somerset St W",
+        coords: [45.4151836, -75.6975147],
+        phone: "613-233-1114",
+        website: "https://canatc.ca/company/locations/ottawa/",
+        hours: ["9:00 AM – 12:00 PM","6:00 AM – 2:00 PM","6:00 AM – 2:00 PM","6:00 AM – 2:00 PM","6:00 AM – 2:00 PM","6:00 AM – 2:00 PM","9:00 AM – 12:00 PM"],
+        sections: [
+            { h: "Why this one", p: "If you work early, this is the clinic. Opens at 6 AM and I haven't found another one in Ottawa that opens that early. They're on time — not really ever late." },
+            { h: "What happens on a first visit", p: "Walk in, do a urine test, see a doctor by telehealth, walk out with a prescription for methadone or Suboxone the same day. Plan for about an hour — can be quicker, depends how long it takes to get the on-call doctor." },
+            { h: "The schedule after that", p: "Weekly visits while you titrate up to a stable dose. Once stable, visits get less frequent as you earn carries — take-home doses, so you don't have to come in daily." },
+            { h: "Where you'll pick up your dose", p: "There's a pharmacy on site, but for your first dose — probably your first week — they'll send you somewhere else because they won't have your drink prepared yet. <strong>CentreTown Pharmacy at 326 Bank St</strong> is the easiest option (see entry on this map). Any pharmacy that carries methadone or Suboxone will work — pick one that fits your route." },
+            { h: "Cost", p: "Covered by OHIP, Trillium, Ontario Drug Card, OW, or ODSP — most people walk out paying nothing. Without coverage: methadone runs about $6 a day. Suboxone is more — around $12 for 16 mg. Bloodwork and level checks available on site." },
+            { h: "Hep C support", p: "If you're on the methadone program here, hep C treatment is easy to access through them. You don't have to go chasing it down somewhere else." }
+        ]
+    },
+    {
+        id: "centretown-pharmacy",
+        name: "CentreTown Pharmacy",
+        cat: "pharmacy",
+        addr: "326 Bank St",
+        coords: [45.4142379, -75.6956348],
+        phone: "613-422-2900",
+        website: null,
+        hours: ["8:00 AM – 3:00 PM","6:00 AM – 6:00 PM","6:00 AM – 6:00 PM","6:00 AM – 6:00 PM","6:00 AM – 6:00 PM","6:00 AM – 6:00 PM","8:00 AM – 3:00 PM"],
+        sections: [
+            { h: "Why it's on this map", p: "If OATC sends you somewhere else for your first week of dosing — which they usually do — this is where most people end up. Six AM open weekdays matches OATC's hours, so you can dose and get on with your day. Staff are kind. They've been doing this a long time and they know how to treat people without making it weird.", voice: true },
+            { h: "Harm reduction supplies", p: "They used to give out clean gear here. With provincial funding changes and site closures across Ottawa I'm not sure if that's still the case — confirming and will update. Call before you walk over if that's what you need.", warn: true }
+        ]
+    },
+    {
+        id: "hart-hub",
+        name: "Somerset West HART Hub",
+        cat: "treatment",
+        addr: "55 Eccles St (Somerset West CHC)",
+        coords: [45.4090532, -75.709901],
+        phone: "613-238-8210",
+        website: "https://www.swchc.on.ca/hart-hub",
+        hours: null,
+        hoursNote: "Advertised as 24/7 — but it isn't in practice. See notes.",
+        sections: [
+            { h: "Hours — what they say vs. what's actually happening", p: "Officially advertised as 24/7. <strong>In practice it isn't.</strong> I walk by at 2 and 3 AM regularly and there's no staff inside — just people sometimes hanging around out front. Daytime is when you'll actually find someone. Call before you go.", voice: true },
+            { h: "What it is — and what it isn't", p: "This replaced the supervised consumption site at 55 Eccles on April 1, 2025. Same building, but a different mandate. <strong>No supervised consumption. No needle exchange. No safer supply.</strong> If you're looking for harm reduction supplies or a supervised space to use, this isn't that place anymore — Sandy Hill and Ottawa Inner City Health still operate sites in Lowertown." },
+            { h: "What the HART Hub does offer", p: "Primary care, mental health support, substance use treatment, housing coordination, and employment support — all in one location. Designed for people with complex, overlapping needs: substance use plus housing instability plus mental health." },
+            { h: "What I know and don't know", p: "I haven't been through the HART model myself — I used the consumption site before the switch. What I've read says it's more treatment-focused and intake-driven than the drop-in feel of the old site. If you've been recently and want to tell me what it's actually like, message me and I'll update this.", voice: true }
+        ]
+    },
+    {
+        id: "centre-507",
+        name: "Centre 507",
+        cat: "dropin",
+        addr: "507 Bank St (Centretown United Church)",
+        coords: [45.4103357, -75.6920737],
+        phone: "613-233-5626",
+        website: "http://www.centre507.org/",
+        hours: null,
+        hoursNote: "Breakfast 9–10 AM · Lunch 12–1 PM · Dinner 5–6 PM",
+        sections: [
+            { h: "What they do", p: "Free meals three times a day — take-out or dine-in. Coffee, tea, showers, phone access, crisis support. Low-barrier — you walk in, no questions, no registration." },
+            { h: "From a job site nearby", p: "I ate here a lot. When I was roofing in Centretown and broke, I'd walk down for lunch. The food's decent — menu changes day to day, so it's not the same thing on repeat. Breakfast is solid: toast, eggs, cereal, coffee. Wi-Fi works. It's a good place. Not pretending to be something fancy, just feeding people who need to eat.", voice: true }
+        ]
+    },
+    {
+        id: "ccfc",
+        name: "Centretown Community Food Centre",
+        cat: "food",
+        addr: "370 Catherine St",
+        coords: [45.4080, -75.6970],
+        phone: null,
+        website: null,
+        hours: ["Closed","12:00 PM – 3:00 PM","12:00 PM – 3:00 PM","Closed","12:00 PM – 3:00 PM","9:00 AM – 12:00 PM","Closed"],
+        sections: [
+            { h: "What they do", p: "3–5 days of groceries — fresh and shelf-stable both. Short walk west of the heart of Centretown." },
+            { h: "Heads up: catchment area", p: "You need to live within roughly Lyon Ave to Main St, Wellington St to Billings Bridge. If you're outside, they'll point you toward a food bank that covers your area. <strong>Worth calling before you walk over if you're not sure.</strong>", warn: true },
+            { h: "From me", p: "I've used this food bank. It's great. Food banks always put in the work — and this one's no exception.", voice: true }
+        ]
+    },
+    {
+        id: "new-dawn",
+        name: "New Dawn Medical",
+        cat: "safer",
+        addr: "838 Somerset St W, Unit 30",
+        coords: [45.4088107, -75.7121553],
+        phone: null,
+        website: null,
+        hours: ["8:30 AM – 3:00 PM","7:30 AM – 5:00 PM","7:30 AM – 5:00 PM","7:30 AM – 5:00 PM","7:30 AM – 5:00 PM","7:30 AM – 5:00 PM","8:30 AM – 3:00 PM"],
+        sections: [
+            { h: "What it is", p: "A medical clinic in Centretown that prescribes safer supply — medications like hydromorphone (Dilaudid) — as an alternative to the toxic street supply for people with severe opioid use disorder. Likely covered by OHIP, ODSP, or the Ontario Drug Benefit, but worth confirming with them directly before your first visit." },
+            { h: "Worth knowing", p: "This is one of the newer and more debated places in the neighbourhood. Supporters say safer supply kept them alive when nothing else worked. Critics — including some neighbors and people in recovery — raise concerns about diversion (clients selling or trading their supply on the street). Both perspectives are real. The program exists, it's an option, and you can decide for yourself what to make of it." },
+            { h: "From me", p: "I've never been inside this clinic — I just walk by it on my daily walks through Centretown, so I can't tell you what the intake is like or what they ask of you. If you've been recently and want to share what your experience was, message me and I'll add it here.", voice: true }
+        ]
+    },
+    {
+        id: "ottawa-medical-pharmacy",
+        name: "Ottawa Medical Pharmacy",
+        cat: "pharmacy",
+        addr: "797 Somerset St W (near Booth)",
+        coords: [45.4097095, -75.7105878],
+        phone: "613-236-2307",
+        website: null,
+        hours: ["9:30 AM – 4:00 PM","8:30 AM – 7:00 PM","8:30 AM – 7:00 PM","8:30 AM – 7:00 PM","8:30 AM – 7:00 PM","8:30 AM – 7:00 PM","8:30 AM – 4:00 PM"],
+        sections: [
+            { h: "Why it's on this map", p: "Long-running pharmacy at the west end of Centretown, near the old supervised consumption site at 55 Eccles. Connected to the street outreach world — the kind of pharmacy that knows how to handle methadone, Suboxone, and the people picking them up without making it weird. Strong neighborhood reputation across the years." },
+            { h: "From me", p: "I've never really used their services — I'd just stop in for a drink sometimes. But I used to hang out in front of this place back in 2018 when the consumption site at Eccles was still open, and they were part of that ecosystem. Worth knowing about if you're west of Bank St and need a pharmacy that gets it.", voice: true }
+        ]
+    }
+];
+
+// =====================================================
+// STATE
+// =====================================================
+let activeFilter = "all";
+let selectedId = null;
+const markers = {};
+
+// =====================================================
+// MAP
+// =====================================================
+const map = L.map('map', { zoomControl: true, attributionControl: true })
+    .setView([45.4140, -75.6985], 15);
+
+// Dark tile layer matching site
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OSM</a> · © <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+}).addTo(map);
+
+PLACES.forEach(p => {
+    const color = CATEGORIES[p.cat].color;
+    const icon = L.divIcon({
+        className: '',
+        html: `<div class="pin" style="background:${color}"></div>`,
+        iconSize: [22, 22],
+        iconAnchor: [11, 22]
+    });
+    const m = L.marker(p.coords, { icon }).addTo(map);
+    m.bindPopup(`<b>${p.name}</b><span class="lp-addr">${p.addr}</span>`);
+    m.on('click', () => selectPlace(p.id));
+    markers[p.id] = m;
+});
+
+// =====================================================
+// FILTERS
+// =====================================================
+function buildFilters() {
+    const wrap = document.getElementById('filter-list');
+    const counts = { all: PLACES.length };
+    Object.keys(CATEGORIES).forEach(k => {
+        counts[k] = PLACES.filter(p => p.cat === k).length;
+    });
+
+    const entries = [
+        ['all', { label: 'All resources', color: 'transparent' }],
+        ...Object.entries(CATEGORIES)
+    ];
+
+    wrap.innerHTML = entries.map(([key, c]) => `
+        <button class="filter-btn-ed ${key === activeFilter ? 'active' : ''}" data-key="${key}">
+            <span class="fb-dot" style="background:${c.color}; ${key === 'all' ? 'border:1px solid var(--muted);' : ''}"></span>
+            <span>${c.label}</span>
+            <span class="fb-count">${counts[key] || 0}</span>
+        </button>
+    `).join('');
+
+    wrap.querySelectorAll('.filter-btn-ed').forEach(btn => {
+        btn.addEventListener('click', () => {
+            activeFilter = btn.dataset.key;
+            buildFilters();
+            renderList();
+            updateMarkers();
+        });
+    });
+}
+
+function updateMarkers() {
+    PLACES.forEach(p => {
+        const show = activeFilter === 'all' || p.cat === activeFilter;
+        if (show) markers[p.id].addTo(map);
+        else map.removeLayer(markers[p.id]);
+    });
+}
+
+// =====================================================
+// LIST
+// =====================================================
+const DAYS_FULL = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const DAYS_LONG = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+function getStatus(p) {
+    if (!p.hours) return { label: 'See hours', cls: 'note' };
+    const today = new Date().getDay();
+    const h = p.hours[today];
+    if (!h || h.toLowerCase().includes('closed')) return { label: 'Closed today', cls: 'closed' };
+    return { label: 'Open today', cls: 'open' };
+}
+
+function renderList() {
+    const filtered = activeFilter === 'all'
+        ? PLACES
+        : PLACES.filter(p => p.cat === activeFilter);
+
+    const list = document.getElementById('place-list');
+    list.innerHTML = filtered.map(p => {
+        const s = getStatus(p);
+        return `
+            <div class="place-row ${p.id === selectedId ? 'selected' : ''}" data-id="${p.id}">
+                <div class="pr-name">${p.name}</div>
+                <div class="pr-meta">
+                    <span class="pr-status ${s.cls}">${s.label}</span>
+                    <span>${CATEGORIES[p.cat].label}</span>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    list.querySelectorAll('.place-row').forEach(el => {
+        el.addEventListener('click', () => selectPlace(el.dataset.id));
+    });
+}
+
+// =====================================================
+// DETAIL PANEL
+// =====================================================
+function selectPlace(id) {
+    selectedId = id;
+    const p = PLACES.find(x => x.id === id);
+    if (!p) return;
+
+    map.setView(p.coords, 16, { animate: true });
+    markers[id].openPopup();
+
+    const today = new Date().getDay();
+    let hoursHTML = '';
+    if (p.hours) {
+        hoursHTML = `
+            <div class="dp-section">
+                <h4>Hours</h4>
+                <ul class="dp-hours">
+                    ${p.hours.map((h, i) => `
+                        <li class="${i === today ? 'today' : ''}">
+                            <span class="d">${DAYS_LONG[i]}</span>
+                            <span>${h}</span>
+                        </li>
+                    `).join('')}
+                </ul>
+            </div>`;
+    } else if (p.hoursNote) {
+        hoursHTML = `
+            <div class="dp-section">
+                <h4>Hours</h4>
+                <p>${p.hoursNote}</p>
+            </div>`;
+    }
+
+    const sectionsHTML = p.sections.map(s => {
+        if (s.voice) {
+            return `<div class="dp-section">
+                <h4>${s.h}</h4>
+                <div class="dp-voice">${s.p}</div>
+            </div>`;
+        }
+        if (s.warn) {
+            return `<div class="dp-section">
+                <h4>${s.h}</h4>
+                <div class="dp-warn">${s.p}</div>
+            </div>`;
+        }
+        return `<div class="dp-section">
+            <h4>${s.h}</h4>
+            <p>${s.p}</p>
+        </div>`;
+    }).join('');
+
+    document.getElementById('dp-inner').innerHTML = `
+        <div class="dp-kicker">${CATEGORIES[p.cat].label}</div>
+        <div class="dp-name">${p.name}</div>
+        <div class="dp-addr">${p.addr}</div>
+        <div class="dp-actions">
+            ${p.phone ? `<a class="dp-btn primary" href="tel:${p.phone.replace(/\D/g,'')}">📞 ${p.phone}</a>` : ''}
+            <a class="dp-btn" href="https://maps.google.com/?q=${encodeURIComponent(p.addr + ' Ottawa')}" target="_blank" rel="noopener">Directions</a>
+            ${p.website ? `<a class="dp-btn" href="${p.website}" target="_blank" rel="noopener">Website</a>` : ''}
+        </div>
+        ${hoursHTML}
+        ${sectionsHTML}
+    `;
+
+    document.getElementById('detail-panel').classList.add('open');
+    renderList();
+}
+
+document.getElementById('dp-close').addEventListener('click', () => {
+    document.getElementById('detail-panel').classList.remove('open');
+    selectedId = null;
+    renderList();
+});
+
+// =====================================================
+// INIT
+// =====================================================
+buildFilters();
+renderList();
+
+}); // end DOMContentLoaded
+</script>
+
+</body>
+</html>
