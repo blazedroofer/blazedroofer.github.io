@@ -542,6 +542,7 @@ const CATEGORIES = {
     treatment: { label: "Treatment & Housing",   color: "#a569bd" },  // continuum purple
     dropin:    { label: "Drop-in & Meals",       color: "#c97a3a" },  // dateline rust
     food:      { label: "Food Banks",            color: "#e8a87c" },  // soft rust
+    income:    { label: "Income Support",        color: "#5d8aa8" },  // steel blue — civic
 };
 
 // =====================================================
@@ -654,6 +655,38 @@ const PLACES = [
         sections: [
             { h: "Why it's on this map", p: "Long-running pharmacy at the west end of Centretown, near the old supervised consumption site at 55 Eccles. Connected to the street outreach world — the kind of pharmacy that knows how to handle methadone, Suboxone, and the people picking them up without making it weird. Strong neighborhood reputation across the years." },
             { h: "From me", p: "I've never really used their services — I'd just stop in for a drink sometimes. But I used to hang out in front of this place back in 2018 when the consumption site at Eccles was still open, and they were part of that ecosystem. Worth knowing about if you're west of Bank St and need a pharmacy that gets it.", voice: true }
+        ]
+    },
+    {
+        id: "ontario-works",
+        name: "Ontario Works (Central Ottawa)",
+        cat: "income",
+        addr: "370 Catherine St",
+        coords: [45.4072828, -75.6972984],
+        phone: "613-580-2400",
+        website: null,
+        hours: ["Closed","8:00 AM – 4:30 PM","8:00 AM – 4:30 PM","8:00 AM – 4:30 PM","8:00 AM – 4:30 PM","8:00 AM – 4:30 PM","Closed"],
+        sections: [
+            { h: "What it is", p: "The main Ontario Works office for central Ottawa. This is where you apply for OW (basic income support) or come in to deal with your file. Same building as the Centretown Community Food Centre — if you're here for one, you can usually do both." },
+            { h: "What to bring", p: "ID if you have it, SIN, proof of address, banking info for direct deposit. If you don't have ID, tell them — they can help you start the process of getting it. Don't skip the appointment because you're missing paperwork; show up and start the conversation." },
+            { h: "From me", p: "I've been to this office. The support isn't enough to live off — let's not pretend it is. If you're homeless, basic needs alone won't house you. But it supplements the shelter food and drop-in food (Centre 507, Centre 454), and combined with those, it works. Treat it as one piece of the puzzle, not the whole thing.", voice: true },
+            { h: "Things they'll cover that people miss", p: "<strong>Medical bus pass — free, if you're on methadone.</strong> Get your nurse to sign the form. Worth doing the second you're on the program. It's a real thing and most people don't know about it.<br><br><strong>Work clothes funding.</strong> I was able to get this every couple of years. If you're working or trying to, ask about it specifically — it doesn't come up unless you bring it up.<br><br><strong>ID replacement.</strong> They'll help you get health card, birth certificate, SIN replaced if you're missing them. The whole chain." }
+        ]
+    },
+    {
+        id: "odsp",
+        name: "Ontario Disability Support Program",
+        cat: "income",
+        addr: "351 Preston St, Room 210",
+        coords: [45.4017029, -75.7099574],
+        phone: "613-234-1188",
+        website: null,
+        hours: ["Closed","8:30 AM – 4:50 PM","8:30 AM – 4:50 PM","8:30 AM – 4:50 PM","8:30 AM – 4:50 PM","8:30 AM – 4:50 PM","Closed"],
+        sections: [
+            { h: "What it is", p: "Higher monthly support than OW, plus prescription drug coverage (your methadone, Suboxone, and other meds covered) and other benefits — but you have to qualify medically. If you've got a condition that affects your ability to work — substance use disorder, mental health, physical disability — this is the program to apply for." },
+            { h: "The path in", p: "For most people the route is: get on OW first, then apply for ODSP from there. You need a doctor or nurse practitioner to fill out the medical paperwork. The CHCs in the neighbourhood (Centretown CHC, Somerset West) can help with that part if you don't have a family doctor." },
+            { h: "Heads up", p: "Reviews of this office are rough — wait times, phone calls not returned, missing paperwork. Standard government experience. <strong>Keep copies of everything you submit. Get your worker's name and direct line. Follow up in writing.</strong> Building closes at 4:50 PM sharp — show up earlier.", warn: true },
+            { h: "From me", p: "I've never been on ODSP myself, so I can't tell you what living on it is like or what the application felt like from the inside. What I can tell you is most people I know in recovery who qualify say it's the difference between living and surviving. If you've got a condition that limits your work — and addiction can count — it's worth pursuing.", voice: true }
         ]
     }
 ];

@@ -27,12 +27,96 @@
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 
-    <!-- Fonts: Newsreader (serif, free, Google), Barlow (kept for sans), JetBrains Mono (mono) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Page-scoped styles for the map callout. Doesn't touch style.css. -->
+    <style>
+        .map-callout {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            padding: 0 24px;
+        }
+        .map-callout-inner {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 28px;
+            align-items: center;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--dateline);
+            border-radius: 4px;
+            padding: 28px 32px;
+            transition: border-color 0.2s, transform 0.15s;
+            text-decoration: none;
+            color: inherit;
+        }
+        .map-callout-inner:hover {
+            border-color: var(--blue);
+            border-left-color: var(--dateline);
+            transform: translateY(-2px);
+        }
+        .map-callout-inner:hover .mc-title {
+            color: var(--blue);
+        }
+        .mc-body .mc-kicker {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--dateline);
+            margin-bottom: 10px;
+        }
+        .mc-body .mc-title {
+            font-family: var(--serif);
+            font-weight: 500;
+            font-style: italic;
+            font-size: clamp(24px, 3vw, 32px);
+            line-height: 1.15;
+            color: #fff;
+            letter-spacing: -0.01em;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+        .mc-body .mc-deck {
+            font-family: var(--serif);
+            font-size: 16px;
+            line-height: 1.55;
+            color: var(--text-soft);
+            max-width: 580px;
+            margin: 0;
+        }
+        .mc-arrow {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--blue);
+            white-space: nowrap;
+            border: 1px solid var(--blue);
+            padding: 12px 18px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .map-callout-inner:hover .mc-arrow {
+            background: var(--blue);
+            color: #fff;
+        }
+        @media (max-width: 700px) {
+            .map-callout-inner {
+                grid-template-columns: 1fr;
+                gap: 18px;
+                padding: 22px 24px;
+            }
+            .mc-arrow {
+                justify-self: start;
+            }
+        }
+    </style>
 
     <script type="application/ld+json">
     {
@@ -182,6 +266,18 @@
     <blockquote>It only needs to work once. You can fail two thousand times — none of it counts against you. The one attempt that holds is the one that builds a life.</blockquote>
     <cite>— Josh Pearsall, Ottawa</cite>
 </div>
+
+<!-- ============ MAP CALLOUT (right after the quote — visible, before the series) ============ -->
+<section class="map-callout">
+    <a href="resources-centretown.html" class="map-callout-inner">
+        <div class="mc-body">
+            <div class="mc-kicker">A working tool · Centretown, Ottawa</div>
+            <div class="mc-title">Help that's <em>actually around here.</em></div>
+            <p class="mc-deck">A live walking map of methadone, drop-ins, food, income support, and recovery resources near Eccles Street — with real hours, written notes, and what to expect on a first visit. Nine entries, growing.</p>
+        </div>
+        <div class="mc-arrow">Open the map →</div>
+    </a>
+</section>
 
 <!-- ============ SERIES (editorial) ============ -->
 <section class="series-editorial">
