@@ -1,19 +1,55 @@
 <!DOCTYPE html>
+<!--
+  ============================================================
+  RECOVERY ROOFER - MASTER ARTICLE TEMPLATE
+  ============================================================
+  Copy this file to articles/your-slug.html and fill in every
+  {{TOKEN}} below. This is the ONE clean structure - Newsreader,
+  the .ap-title / .prose classes, the masthead bar, and all the
+  social + SEO tags already wired in.
+
+  Find-and-replace these tokens (Ctrl+H inside the file):
+    {{SLUG}}        the filename without .html  (e.g. tier-the-detoxes)
+    {{TITLE}}       article title for the browser tab + social
+    {{DESCRIPTION}} one-sentence summary (deck), under ~155 chars
+    {{KICKER}}      small label above the title (e.g. Essay - Policy)
+    {{H1}}          the full on-page headline
+    {{DECK}}        the on-page deck under the headline
+    {{DATE_HUMAN}}  e.g. May 2026   (shown in byline + masthead)
+    {{DATE_ISO}}    e.g. 2026-05-01 (machine date for SEO)
+    {{READ}}        e.g. 8          (minutes)
+    {{MASTHEAD_NO}} e.g. 21         (the Vol II / No. X issue number)
+
+  Then write the article body inside <div class="prose"> ... </div>.
+  Card image is assumed to be assets/img/{{SLUG}}-og.jpg - make it
+  from your card template and drop it in before publishing.
+  ============================================================
+-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inside the 72-Hour Window | Recovery Roofer</title>
+    <title>{{TITLE}} | Recovery Roofer</title>
 
-    <meta name="description" content="What the Compassionate Intervention Act authorizes between apprehension and the hearing — and why the safeguards are built for a person who isn't there.">
+    <meta name="description" content="{{DESCRIPTION}}">
     <meta name="author" content="Josh Pearsall">
 
+    <!-- Open Graph / social card -->
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Inside the 72-Hour Window | Recovery Roofer">
-    <meta property="og:description" content="What the Compassionate Intervention Act authorizes between apprehension and the hearing — and why the safeguards are built for a person who isn't there.">
-    <meta property="og:url" content="https://www.recoveryroofer.ca/articles/cia-part4-inside-72-hours.html">
+    <meta property="og:title" content="{{TITLE}} | Recovery Roofer">
+    <meta property="og:description" content="{{DESCRIPTION}}">
+    <meta property="og:url" content="https://www.recoveryroofer.ca/articles/{{SLUG}}.html">
+    <meta property="og:image" content="https://www.recoveryroofer.ca/assets/img/{{SLUG}}-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
-    <link rel="canonical" href="https://www.recoveryroofer.ca/articles/cia-part4-inside-72-hours.html">
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{TITLE}} | Recovery Roofer">
+    <meta name="twitter:description" content="{{DESCRIPTION}}">
+    <meta name="twitter:image" content="https://www.recoveryroofer.ca/assets/img/{{SLUG}}-og.jpg">
+
+    <link rel="canonical" href="https://www.recoveryroofer.ca/articles/{{SLUG}}.html">
     <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,6 +57,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- Article structured data (helps Google tie this piece to you) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "{{H1}}",
+      "description": "{{DESCRIPTION}}",
+      "image": "https://www.recoveryroofer.ca/assets/img/{{SLUG}}-og.jpg",
+      "datePublished": "{{DATE_ISO}}",
+      "dateModified": "{{DATE_ISO}}",
+      "author": {
+        "@type": "Person",
+        "@id": "https://www.recoveryroofer.ca/#josh",
+        "name": "Josh Pearsall",
+        "url": "https://www.recoveryroofer.ca/story.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Recovery Roofer",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.recoveryroofer.ca/assets/img/recovery-roofer-logo.svg"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.recoveryroofer.ca/articles/{{SLUG}}.html"
+      }
+    }
+    </script>
 </head>
 <body>
 
@@ -46,63 +113,56 @@
 <!-- ============ MASTHEAD BAR ============ -->
 <div class="masthead-bar">
     <div class="masthead-bar-inner">
-        <span class="mb-side">Vol. II / No. 14</span>
+        <span class="mb-side">Vol. II / No. {{MASTHEAD_NO}}</span>
         <span class="mb-mid">Recovery Roofer</span>
-        <span class="mb-side">Ottawa · Apr 2026</span>
+        <span class="mb-side">Ottawa &middot; {{DATE_HUMAN}}</span>
     </div>
 </div>
 
 <!-- ============ ARTICLE ============ -->
 <article class="article-page">
 
-    <a href="../writing.html" class="ap-back">← Back to writing</a>
+    <a href="../writing.html" class="ap-back">&larr; Back to writing</a>
 
-    <div class="ap-kicker">Series · Compassionate Intervention Act · Pt. 04 of 06</div>
+    <div class="ap-kicker">{{KICKER}}</div>
 
-    <h1 class="ap-title">Inside the 72-Hour Window: What Actually Happens Once the Door Closes</h1>
+    <h1 class="ap-title">{{H1}}</h1>
 
-    <p class="ap-deck">What the Act authorizes between apprehension and the hearing — the assessment report, the right to refuse, the authority to use force — and why the safeguards are built for a person who isn't there.</p>
+    <p class="ap-deck">{{DECK}}</p>
 
     <div class="ap-byline">
         <span>By <strong>Josh Pearsall</strong></span>
-        <span>· Filed Apr 2026</span>
-        <span>· 12 min read</span>
-        <span>· Ottawa</span>
+        <span>&middot; Filed {{DATE_HUMAN}}</span>
+        <span>&middot; {{READ}} min read</span>
+        <span>&middot; Ottawa</span>
     </div>
 
     <div class="prose">
-        <p>The 72 hours start the moment the door closes. Not when you're told what's happening. Not when you sign anything. The clock starts when someone with statutory authority decides it has, and from that point forward almost everything written into the Act assumes a version of you that does not currently exist — clear-headed, capable of reading a form, capable of refusing a thing you don't yet know is being done.</p>
 
-        <p>That gap is the whole story. It's also the part nobody is going to put in the press release.</p>
+        <!-- ===== WRITE THE ARTICLE HERE ===== -->
+        <p>First paragraph. The first letter gets the drop-cap automatically via .prose styling, so just write normally.</p>
 
-        <h2>What the Act actually authorizes</h2>
+        <h2>A section heading</h2>
 
-        <p>The plain text of Section 17(3) is short. The implications aren't.</p>
+        <p>Body paragraph. Link to other pieces like <a href="another-slug.html">this</a>.</p>
 
         <blockquote>
-            The director shall ensure that an assessment is completed within 72 hours of apprehension.
-            <span class="bq-source">— Compassionate Intervention Act, s. 17(3)</span>
+            A pulled quote or a cited line.
+            <span class="bq-source">&mdash; source, if any</span>
         </blockquote>
 
-        <p>Here is what that sentence does not say. It does not say who conducts the assessment, what their training is, what they can ask, what they can record, what happens to the recording. It does not say what counts as a refusal. It does not say what happens when the person being assessed is in active withdrawal and physically cannot answer the questions in a way the form will accept.</p>
+        <p>Keep going. Use h2 for sections, h3 for sub-points.</p>
+        <!-- ===== END ARTICLE ===== -->
 
-        <h3>The right to refuse, in theory</h3>
-
-        <p>Subsection (4) gives the apprehended person a right to refuse the assessment. On paper that sounds like a meaningful safeguard. <a href="cia-part3-applicant-rules.html">As I covered in Part 3</a>, who actually gets to start this process is broader than people assume — and a right that depends on you being able to read, understand, and articulate it inside 72 hours of forced sobriety is a right designed for someone who doesn't need it.</p>
-
-        <p>The first time I went through detox in Ottawa, I could not have told you my own birthday on day two. Not because I didn't know it. Because the part of my brain that retrieves it had stopped showing up for work.</p>
-
-        <h2>The authority to use force</h2>
-
-        <p>This is the section nobody quotes in the press release, and the one that matters most. The Act authorizes "such force as is reasonably necessary" — language borrowed from Mental Health Act precedent — but extends it to a population the Mental Health Act was never designed for.</p>
-
-        <p>The legal phrase looks reasonable until you stand inside it.</p>
     </div>
 
+    <!-- Optional: series footer for multi-part pieces. Delete if not a series. -->
+    <!--
     <div class="ap-series-foot">
-        <a href="cia-part3-applicant-rules.html">← Pt. 03 · Who Can Pull the Trigger</a>
-        <a href="../writing.html">Pt. 05 · coming →</a>
+        <a href="prev-slug.html">&larr; Pt. 0X &middot; Previous title</a>
+        <a href="next-slug.html">Pt. 0X &middot; Next title &rarr;</a>
     </div>
+    -->
 
 </article>
 
@@ -111,7 +171,7 @@
     <div class="footer-inner">
         <div class="footer-about">
             <h4>Recovery Roofer</h4>
-            <p>Josh Pearsall — working roofer in Ottawa writing honestly about addiction, recovery systems, and what actually works from inside it.</p>
+            <p>Josh Pearsall &mdash; working roofer in Ottawa writing honestly about addiction, recovery systems, and what actually works from inside it.</p>
         </div>
         <div>
             <h4>Site</h4>
@@ -136,11 +196,12 @@
         </div>
     </div>
     <p class="footer-bottom">
-        Josh Pearsall <span class="dot">●</span> Ottawa, ON <span class="dot">●</span> Est. 2024
+        Josh Pearsall <span class="dot">&bull;</span> Ottawa, ON <span class="dot">&bull;</span> Est. 2024
         &nbsp;|&nbsp; <a href="../connect.html">Get in touch</a>
     </p>
 </footer>
 
+<!-- ============ CRISIS CTA ============ -->
 <a href="../resources.html" class="floating-cta">
     Need help right now?
 </a>
