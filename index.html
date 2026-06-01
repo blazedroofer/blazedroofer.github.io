@@ -27,14 +27,12 @@
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
     <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <!-- Page-scoped styles for the map callout. Doesn't touch style.css. -->
     <style>
         .map-callout {
             max-width: 1000px;
@@ -60,9 +58,7 @@
             border-left-color: var(--dateline);
             transform: translateY(-2px);
         }
-        .map-callout-inner:hover .mc-title {
-            color: var(--blue);
-        }
+        .map-callout-inner:hover .mc-title { color: var(--blue); }
         .mc-body .mc-kicker {
             font-family: var(--mono);
             font-size: 11px;
@@ -102,20 +98,113 @@
             border-radius: 4px;
             transition: background 0.2s;
         }
-        .map-callout-inner:hover .mc-arrow {
-            background: var(--blue);
-            color: #fff;
-        }
+        .map-callout-inner:hover .mc-arrow { background: var(--blue); color: #fff; }
         @media (max-width: 700px) {
-            .map-callout-inner {
-                grid-template-columns: 1fr;
-                gap: 18px;
-                padding: 22px 24px;
-            }
-            .mc-arrow {
-                justify-self: start;
-            }
+            .map-callout-inner { grid-template-columns: 1fr; gap: 18px; padding: 22px 24px; }
+            .mc-arrow { justify-self: start; }
         }
+
+    /* ── Combined hero ── */
+.combined-hero {
+    position: relative;
+    background: #0a0a0a;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 64px 24px 48px;
+    gap: 28px;
+}
+.ch-illustration {
+    position: static;
+    order: 2;
+    opacity: 0.85;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.ch-illustration img {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+}
+.ch-top {
+    position: static;
+    order: 1;
+    text-align: center;
+}
+.ch-bottom {
+    position: static;
+    order: 3;
+    text-align: center;
+}
+.ch-rule {
+    width: 96px;
+    height: 1px;
+    background: #c97a3a;
+    opacity: 0.6;
+    margin: 0 auto 20px;
+}
+.ch-sub {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(16px, 1.5vw, 19px);
+    line-height: 1.6;
+    color: #bbbbbb;
+    max-width: 560px;
+    margin: 0 auto 10px;
+    padding: 0 24px;
+}
+.ch-sub em { font-style: normal; color: var(--blue); }
+.ch-location {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #444;
+}
+.combined-hero .ch-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #c97a3a;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+.combined-hero .ch-eyebrow::before,
+.combined-hero .ch-eyebrow::after {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: #c97a3a;
+    opacity: 0.5;
+}
+.combined-hero h1 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    margin: 0;
+}
+.combined-hero .ch-from {
+    display: block;
+    font-size: clamp(52px, 9vw, 100px);
+    color: #bbbbbb;
+    font-weight: 400;
+}
+.combined-hero .ch-inside {
+    display: block;
+    font-size: clamp(60px, 11vw, 120px);
+    color: #ffffff;
+    margin-left: 0.22em;
+}
+.combined-hero .ch-period { color: #c97a3a; }
     </style>
 
     <script type="application/ld+json">
@@ -127,22 +216,15 @@
           "@id": "https://www.recoveryroofer.ca/#josh",
           "name": "Josh Pearsall",
           "url": "https://www.recoveryroofer.ca/story.html",
-          "image": "https://www.recoveryroofer.ca/assets/img/josh-avatar.jpg",
           "jobTitle": "Roofer and Writer",
           "description": "Working roofer in Ottawa writing honestly about addiction, recovery systems, and what the system actually looks like from inside it.",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Ottawa",
-            "addressRegion": "ON",
-            "addressCountry": "CA"
-          }
+          "address": { "@type": "PostalAddress", "addressLocality": "Ottawa", "addressRegion": "ON", "addressCountry": "CA" }
         },
         {
           "@type": "WebSite",
           "@id": "https://www.recoveryroofer.ca/#website",
           "url": "https://www.recoveryroofer.ca/",
           "name": "Recovery Roofer",
-          "description": "Raw, honest writing on addiction, recovery systems, and policy — from a working roofer in Ottawa with lived experience.",
           "author": { "@id": "https://www.recoveryroofer.ca/#josh" },
           "inLanguage": "en-CA"
         }
@@ -152,7 +234,6 @@
 </head>
 <body>
 
-<!-- ============ SHARED NAV ============ -->
 <nav class="site-nav">
     <div class="nav-container">
         <div class="nav-top">
@@ -171,65 +252,32 @@
     </div>
 </nav>
 
-<!-- ============ MASTHEAD BAR ============ -->
 <div class="masthead-bar">
     <div class="masthead-bar-inner">
-        <span class="mb-side">Vol. II / No. 20</span>
+        <span class="mb-side">Vol. II / No. 21</span>
         <span class="mb-mid">Recovery Roofer</span>
-        <span class="mb-side">Ottawa · Est. 2024</span>
+        <span class="mb-side">Ottawa &middot; June 2026</span>
     </div>
 </div>
 
-<!-- ============ EDITORIAL HERO ============ -->
-<header class="editorial-hero">
-    <div class="eh-eyebrow">Filed from the field · Ottawa &amp; Ontario</div>
-
-    <h1>
-        <span class="eh-from">From</span>
-        <span class="eh-inside">inside it<span class="eh-period">.</span></span>
-    </h1>
-
-    <hr class="eh-rule" aria-hidden="true">
-
-    <p class="eh-sub">
-        Honest writing on addiction, recovery, and the systems built around them. Written by a working roofer, three years clean, in <em>Ottawa</em>.
-    </p>
+<!-- ============ COMBINED HERO ============ -->
+<header class="combined-hero">
+    <div class="ch-illustration" aria-hidden="true">
+        <img src="assets/img/journey-illustration.svg" alt="">
+    </div>
+    <div class="ch-top">
+        <div class="ch-eyebrow">Filed from the field · Ottawa &amp; Ontario</div>
+        <h1>
+            <span class="ch-from">From</span>
+            <span class="ch-inside">inside it<span class="ch-period">.</span></span>
+        </h1>
+    </div>
+    <div class="ch-bottom">
+        <div class="ch-rule"></div>
+        <p class="ch-sub">Honest writing on addiction, recovery, and the systems built around them. Written by a working roofer, three years clean, in <em>Ottawa</em>.</p>
+        <div class="ch-location">Ottawa · Ontario · Est. 2024</div>
+    </div>
 </header>
-
-<!-- ============ CREDIBILITY BAND ============ -->
-<div class="cred-band">
-    <span class="cb-item"><strong>Working roofer</strong></span>
-    <span class="cb-sep">●</span>
-    <span class="cb-item"><strong>Three years clean</strong></span>
-    <span class="cb-sep">●</span>
-    <span class="cb-item">Lived experience of the system</span>
-    <span class="cb-sep">●</span>
-    <span class="cb-item">Ottawa &amp; Ontario</span>
-</div>
-
-<!-- ============ BRIDGE — WHY A TRADES PERSPECTIVE ============ -->
-<section class="bridge">
-    <div class="br-kicker">Why a trades perspective</div>
-    <h2>The system looks different from a roof.</h2>
-
-
-<p>Most people writing about addiction policy have never actually had to live inside the system they're writing about. They come from healthcare, academia, government, or advocacy. That's not a criticism. It's just a different perspective.</p>
-
-<p><strong>I come at it from a roof.</strong></p>
-
-<p>I'm a roofer in Ottawa. I've spent years dealing with addiction, treatment, methadone, jail, parole, housing, and trying to build a life afterward.</p>
-
-<p class="br-aside">Detox. Treatment. Federal time. Parole. Re-entry. I know these systems because I've had to use them.</p>
-
-<p>So when I write about policy, I'm not writing about theories. I'm writing about what those policies look like when they meet real people and real life.</p>
-
-<p>That's really all Recovery Roofer is: one person's attempt to connect what's written on paper with what actually happens on the ground.</p>
-
-
-
-</section>
-
-<!-- ============ PHOTO BAND ============ -->
 <figure class="photo-band">
     <img src="assets/img/josh-on-roof-bw.jpg" alt="Josh Pearsall working on a roof in Ottawa, with a nail gun.">
     <figcaption>
@@ -237,6 +285,24 @@
         <span class="pb-credit">Recovery Roofer · Field documentation</span>
     </figcaption>
 </figure>
+
+<!-- ============ BRIDGE ============ -->
+<section class="bridge">
+    <div class="br-kicker">Why a trades perspective</div>
+    <h2>The system looks different from a roof.</h2>
+
+    <p>Most people writing about addiction policy have never actually had to live inside the system they're writing about. They come from healthcare, academia, government, or advocacy. That's not a criticism. It's just a different perspective.</p>
+
+    <p><strong>I come at it from a roof.</strong></p>
+
+    <p>I'm a roofer in Ottawa. I've spent years dealing with addiction, treatment, methadone, jail, parole, housing, and trying to build a life afterward.</p>
+
+    <p class="br-aside">Detox. Treatment. Federal time. Parole. Re-entry. I know these systems because I've had to use them.</p>
+
+    <p>So when I write about policy, I'm not writing about theories. I'm writing about what those policies look like when they meet real people and real life.</p>
+
+    <p>That's really all Recovery Roofer is: one person's attempt to connect what's written on paper with what actually happens on the ground.</p>
+</section>
 
 <!-- ============ LEAD STORY ============ -->
 <section class="lead-story">
@@ -247,7 +313,6 @@
         <div class="ls-meta">Filed May 2026 · 6 min read · Ottawa</div>
         <a href="articles/the-maintenance-contract.html" class="ls-readlink">Read this piece <span>→</span></a>
     </div>
-
     <aside class="lead-rail">
         <div class="lr-label">Also on the wire</div>
         <a href="articles/rsr-001-the-strong-season.html" class="lr-item">
@@ -275,51 +340,20 @@
     <cite>— Josh Pearsall, Ottawa</cite>
 </div>
 
-<!-- ============ MAP CALLOUT (right after the quote — visible, before the series) ============ -->
+<!-- ============ MAP CALLOUT ============ -->
 <section class="map-callout">
     <a href="resources-centretown.html" class="map-callout-inner">
         <div class="mc-body">
             <div class="mc-kicker">A working tool · Centretown, Ottawa</div>
             <div class="mc-title">Help that's <em>actually around here.</em></div>
-            <p class="mc-deck">A live walking map of methadone, drop-ins, food, income support, and recovery resources near Eccles Street — with real hours, written notes, and what to expect on a first visit. Nine entries, growing.</p>
+            <p class="mc-deck">A live walking map of methadone, drop-ins, food, income support, and recovery resources near Eccles Street — with real hours, written notes, and what to expect on a first visit.</p>
         </div>
         <div class="mc-arrow">Open the map →</div>
     </a>
 </section>
 
-<!-- ============ SERIES (editorial) ============ -->
-<section class="series-editorial">
-    <div class="se-head">
-        <div class="se-kicker">Ongoing series · 4 parts published</div>
-        <h2 class="se-title">Breaking Down the Compassionate Intervention Act</h2>
-        <p class="se-deck">A section-by-section read of Ontario's new involuntary-treatment law. How the system is supposed to work on paper. Where it's likely to break in real life.</p>
-    </div>
-    <div class="se-parts">
-        <a href="articles/cia-overview.html" class="se-part">
-            <div class="sep-num">Part 01 · April 2026</div>
-            <div class="sep-title">Breaking Down the Act: An Overview</div>
-            <div class="sep-meta">Walkthrough · pressure points</div>
-        </a>
-        <a href="articles/cia-part2-harm-threshold.html" class="se-part">
-            <div class="sep-num">Part 02 · April 2026</div>
-            <div class="sep-title">The Harm Threshold: Who Gets Pulled In</div>
-            <div class="sep-meta">Definition · discretion</div>
-        </a>
-        <a href="articles/cia-part3-applicant-rules.html" class="se-part">
-            <div class="sep-num">Part 03 · April 2026</div>
-            <div class="sep-title">Who Can Pull the Trigger: Section 17</div>
-            <div class="sep-meta">Applicant rules</div>
-        </a>
-        <a href="articles/cia-part4-inside-72-hours.html" class="se-part">
-            <div class="sep-num">Part 04 · April 2026</div>
-            <div class="sep-title">Inside the 72-Hour Window</div>
-            <div class="sep-meta">Apprehension to hearing</div>
-        </a>
-    </div>
-</section>
-
-<!-- ============ ARCHIVE LIST ============ -->
-<div class="section-rule-editorial"><span>The Archive</span></div>
+<!-- ============ ARCHIVE (6 entries) ============ -->
+<div class="section-rule-editorial"><span>Recent Writing</span></div>
 <section class="archive-list">
 
     <a href="articles/the-maintenance-contract.html" class="archive-row">
@@ -327,7 +361,7 @@
         <div class="ar-body">
             <div class="ar-tag">Essay · Pharma &amp; Recovery</div>
             <div class="ar-title">The Maintenance Contract</div>
-            <div class="ar-deck">Retatrutide works. Methadone works. Both come with a contract most people don't read until they try to leave. What the GLP-1 hype is missing from someone who's already lived inside a miracle drug.</div>
+            <div class="ar-deck">Retatrutide works. Methadone works. Both come with a contract most people don't read until they try to leave.</div>
         </div>
         <div class="ar-min">6 min</div>
     </a>
@@ -337,7 +371,7 @@
         <div class="ar-body">
             <div class="ar-tag">Recovery Systems Review · No. 01</div>
             <div class="ar-title">The Strong Season</div>
-            <div class="ar-deck">A strong week, a harder season on the roof, and the first place I've ever designed and bought everything for. The new weekly review of the systems that keep me working, housed, and clean.</div>
+            <div class="ar-deck">A strong week, a harder season on the roof, and the first place I've ever designed and bought everything for.</div>
         </div>
         <div class="ar-min">5 min</div>
     </a>
@@ -347,7 +381,7 @@
         <div class="ar-body">
             <div class="ar-tag">Field notes · Systems &amp; Survival</div>
             <div class="ar-title">It's Not Personal, It's Designed</div>
-            <div class="ar-deck">On methadone, shelters, ID, and what happens when the systems don't line up. The clocks of survival run on different schedules — and the collisions are where lives break.</div>
+            <div class="ar-deck">On methadone, shelters, ID, and what happens when the systems don't line up.</div>
         </div>
         <div class="ar-min">8 min</div>
     </a>
@@ -357,27 +391,17 @@
         <div class="ar-body">
             <div class="ar-tag">Essay · Addiction &amp; Policy</div>
             <div class="ar-title">The Same Money, The Same Question</div>
-            <div class="ar-deck">I would have qualified for the CIA. I support the tool. I also remember what happened the last time Ontario sold off addiction treatment to American private equity.</div>
+            <div class="ar-deck">I would have qualified for the CIA. I support the tool. I also remember what privatization did.</div>
         </div>
         <div class="ar-min">10 min</div>
-    </a>
-
-    <a href="articles/the-truck-i-almost-turned-around.html" class="archive-row">
-        <div class="ar-date">May 2026</div>
-        <div class="ar-body">
-            <div class="ar-tag">Essay · On Recovery</div>
-            <div class="ar-title">The Truck I Almost Turned Around</div>
-            <div class="ar-deck">On routine, structure, and how it came to be in my life — from a red light in Kanata on day one of roofing to the moment I had something to lose.</div>
-        </div>
-        <div class="ar-min">8 min</div>
     </a>
 
     <a href="articles/tier-the-detoxes.html" class="archive-row">
         <div class="ar-date">May 2026</div>
         <div class="ar-body">
-            <div class="ar-tag">System &amp; policy</div>
+            <div class="ar-tag">System &amp; Policy</div>
             <div class="ar-title">Tier the Detoxes</div>
-            <div class="ar-deck">The drug supply changed. The system didn't. A case for tiering Ontario's detox into three levels — and why the missing middle is killing people.</div>
+            <div class="ar-deck">The drug supply changed. The system didn't. A case for tiering Ontario's detox into three levels.</div>
         </div>
         <div class="ar-min">10 min</div>
     </a>
@@ -387,99 +411,9 @@
         <div class="ar-body">
             <div class="ar-tag">Essay · Addiction &amp; Policy</div>
             <div class="ar-title">A Beautiful Life</div>
-            <div class="ar-deck">Sixteen years in Ontario's system. The drug changed. The response didn't. Why scrapping clean needles, jail-as-detox, and the missing stabilization layer add up to a province failing on purpose.</div>
+            <div class="ar-deck">Sixteen years in Ontario's system. The drug changed. The response didn't.</div>
         </div>
         <div class="ar-min">9 min</div>
-    </a>
-
-    <a href="articles/starting-point-problem.html" class="archive-row">
-        <div class="ar-date">Apr 2026</div>
-        <div class="ar-body">
-            <div class="ar-tag">Field notes</div>
-            <div class="ar-title">The Starting Point Problem</div>
-            <div class="ar-deck">Fifteen years of detox across six Ontario cities. What changed, what didn't, and what happens in the gaps the system doesn't see.</div>
-        </div>
-        <div class="ar-min">7 min</div>
-    </a>
-
-    <a href="articles/toxic-drugs.html" class="archive-row">
-        <div class="ar-date">Apr 2026</div>
-        <div class="ar-body">
-            <div class="ar-tag">System &amp; policy</div>
-            <div class="ar-title">The Drugs Got More Toxic, the Policy Got Softer</div>
-            <div class="ar-deck">A frontline account of how Ottawa's opioid crisis became a poly-substance system current frameworks aren't built for.</div>
-        </div>
-        <div class="ar-min">8 min</div>
-    </a>
-
-    <a href="articles/the-stories-we-tell-ourselves.html" class="archive-row">
-        <div class="ar-date">Apr 2026</div>
-        <div class="ar-body">
-            <div class="ar-tag">Reflection</div>
-            <div class="ar-title">The Stories We Tell Ourselves</div>
-            <div class="ar-deck">I relapsed sober, with clear thinking. The thinking was always the problem — the drugs were just where it took me.</div>
-        </div>
-        <div class="ar-min">6 min</div>
-    </a>
-
-    <a href="articles/ontario-3point8-billion-who-profits.html" class="archive-row">
-        <div class="ar-date">Apr 2026</div>
-        <div class="ar-body">
-            <div class="ar-tag">Policy</div>
-            <div class="ar-title">Ontario's $3.8B Problem — Who Profits When You Don't Recover?</div>
-            <div class="ar-deck">Where the money actually went. And who gets paid when you stay sick.</div>
-        </div>
-        <div class="ar-min">9 min</div>
-    </a>
-
-    <a href="articles/garden-path-consent.html" class="archive-row">
-        <div class="ar-date">Apr 2026</div>
-        <div class="ar-body">
-            <div class="ar-tag">Harm reduction</div>
-            <div class="ar-title">When Poly-Dope Withdrawal Breaks Informed Consent</div>
-            <div class="ar-deck">What happens when safer supply meets a drug it wasn't built for.</div>
-        </div>
-        <div class="ar-min">7 min</div>
-    </a>
-
-    <a href="articles/housing-first-ottawa.html" class="archive-row">
-        <div class="ar-date">Apr 2026</div>
-        <div class="ar-body">
-            <div class="ar-tag">Housing</div>
-            <div class="ar-title">Housing First in Ottawa: Why Just Giving Keys Isn't Enough</div>
-            <div class="ar-deck">Why keys alone don't fix it — and what a real continuum looks like.</div>
-        </div>
-        <div class="ar-min">10 min</div>
-    </a>
-
-    <a href="articles/life-with-a-record-part1.html" class="archive-row">
-        <div class="ar-date">Apr 2026</div>
-        <div class="ar-body">
-            <div class="ar-tag">Re-entry</div>
-            <div class="ar-title">Life With a Record in Canada</div>
-            <div class="ar-deck">How a criminal record locks the cycle in, and what perspective actually means after prison.</div>
-        </div>
-        <div class="ar-min">11 min</div>
-    </a>
-
-    <a href="articles/parole-rebellion-protocol.html" class="archive-row">
-        <div class="ar-date">Apr 2026</div>
-        <div class="ar-body">
-            <div class="ar-tag">Field notes</div>
-            <div class="ar-title">The Parole Rebellion Protocol</div>
-            <div class="ar-deck">Day 1 on parole my brain screamed "I could disappear right now." Here's the exact 5-step protocol I used.</div>
-        </div>
-        <div class="ar-min">15 min</div>
-    </a>
-
-    <a href="articles/the-lifelong-contract.html" class="archive-row">
-        <div class="ar-date">Apr 2026</div>
-        <div class="ar-body">
-            <div class="ar-tag">Policy</div>
-            <div class="ar-title">The Lifelong Contract</div>
-            <div class="ar-deck">The same financial logic that created this epidemic is now running the treatment.</div>
-        </div>
-        <div class="ar-min">10 min</div>
     </a>
 
 </section>
@@ -489,7 +423,7 @@
     <a href="writing.html" class="exit-ramp">
         <div class="er-kicker">Keep reading</div>
         <div class="er-title">The full archive</div>
-        <div class="er-deck">All 22 pieces — system &amp; policy, lived experience, practical guides.</div>
+        <div class="er-deck">All 24 pieces — system &amp; policy, lived experience, practical guides.</div>
         <div class="er-arrow">See all writing →</div>
     </a>
     <a href="connect.html" class="exit-ramp">
@@ -500,7 +434,6 @@
     </a>
 </div>
 
-<!-- ============ FOOTER ============ -->
 <footer class="site-footer-rich">
     <div class="footer-inner">
         <div class="footer-about">
@@ -535,7 +468,6 @@
     </p>
 </footer>
 
-<!-- ============ CRISIS CTA ============ -->
 <a href="resources.html" class="floating-cta">
     Need help right now?
 </a>
