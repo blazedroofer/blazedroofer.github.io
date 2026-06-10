@@ -205,6 +205,13 @@
     margin-left: 0.22em;
 }
 .combined-hero .ch-period { color: #c97a3a; }
+
+/* On small screens the 1000px-wide illustration becomes unreadable —
+   drop it and let the headline carry the hero. */
+@media (max-width: 640px) {
+    .ch-illustration { display: none; }
+    .combined-hero { padding: 48px 20px 36px; gap: 20px; }
+}
     </style>
 
     <script type="application/ld+json">
@@ -216,6 +223,7 @@
           "@id": "https://www.recoveryroofer.ca/#josh",
           "name": "Josh Pearsall",
           "url": "https://www.recoveryroofer.ca/story.html",
+          "image": "https://www.recoveryroofer.ca/assets/img/josh-avatar.jpg",
           "jobTitle": "Roofer and Writer",
           "description": "Working roofer in Ottawa writing honestly about addiction, recovery systems, and what the system actually looks like from inside it.",
           "address": { "@type": "PostalAddress", "addressLocality": "Ottawa", "addressRegion": "ON", "addressCountry": "CA" }
@@ -278,31 +286,6 @@
         <div class="ch-location">Ottawa · Ontario · Est. 2024</div>
     </div>
 </header>
-<figure class="photo-band">
-    <img src="assets/img/josh-on-roof-bw.jpg" alt="Josh Pearsall working on a roof in Ottawa, with a nail gun.">
-    <figcaption>
-        <span>On a roof, Ottawa · 2026</span>
-        <span class="pb-credit">Recovery Roofer · Field documentation</span>
-    </figcaption>
-</figure>
-
-<!-- ============ BRIDGE ============ -->
-<section class="bridge">
-    <div class="br-kicker">Why a trades perspective</div>
-    <h2>The system looks different from a roof.</h2>
-
-    <p>Most people writing about addiction policy have never actually had to live inside the system they're writing about. They come from healthcare, academia, government, or advocacy. That's not a criticism. It's just a different perspective.</p>
-
-    <p><strong>I come at it from a roof.</strong></p>
-
-    <p>I'm a roofer in Ottawa. I've spent years dealing with addiction, treatment, methadone, jail, parole, housing, and trying to build a life afterward.</p>
-
-    <p class="br-aside">Detox. Treatment. Federal time. Parole. Re-entry. I know these systems because I've had to use them.</p>
-
-    <p>So when I write about policy, I'm not writing about theories. I'm writing about what those policies look like when they meet real people and real life.</p>
-
-    <p>That's really all Recovery Roofer is: one person's attempt to connect what's written on paper with what actually happens on the ground.</p>
-</section>
 
 <!-- ============ LEAD STORY ============ -->
 <section class="lead-story">
@@ -340,8 +323,34 @@
     <cite>— Josh Pearsall, Ottawa</cite>
 </div>
 
+<!-- ============ BRIDGE ============ -->
+<section class="bridge">
+    <div class="br-kicker">Why a trades perspective</div>
+    <h2>The system looks different from a roof.</h2>
+
+    <p>Most people writing about addiction policy have never actually had to live inside the system they're writing about. They come from healthcare, academia, government, or advocacy. That's not a criticism. It's just a different perspective.</p>
+
+    <p><strong>I come at it from a roof.</strong></p>
+
+    <p>I'm a roofer in Ottawa. I've spent years dealing with addiction, treatment, methadone, jail, parole, housing, and trying to build a life afterward.</p>
+
+    <p class="br-aside">Detox. Treatment. Federal time. Parole. Re-entry. I know these systems because I've had to use them.</p>
+
+    <p>So when I write about policy, I'm not writing about theories. I'm writing about what those policies look like when they meet real people and real life.</p>
+
+    <p>That's really all Recovery Roofer is: one person's attempt to connect what's written on paper with what actually happens on the ground.</p>
+</section>
+
+<figure class="photo-band">
+    <img src="assets/img/josh-on-roof-bw.jpg" alt="Josh Pearsall working on a roof in Ottawa, with a nail gun.">
+    <figcaption>
+        <span>On a roof, Ottawa · 2026</span>
+        <span class="pb-credit">Recovery Roofer · Field documentation</span>
+    </figcaption>
+</figure>
+
 <!-- ============ MAP CALLOUT ============ -->
-<section class="map-callout">
+<section class="map-callout" style="margin-top: 60px;">
     <a href="resources-centretown.html" class="map-callout-inner">
         <div class="mc-body">
             <div class="mc-kicker">A working tool · Centretown, Ottawa</div>
@@ -355,16 +364,6 @@
 <!-- ============ ARCHIVE (6 entries) ============ -->
 <div class="section-rule-editorial"><span>Recent Writing</span></div>
 <section class="archive-list">
-
-    <a href="articles/the-maintenance-contract.html" class="archive-row">
-        <div class="ar-date">May 2026</div>
-        <div class="ar-body">
-            <div class="ar-tag">Essay · Pharma &amp; Recovery</div>
-            <div class="ar-title">The Maintenance Contract</div>
-            <div class="ar-deck">Retatrutide works. Methadone works. Both come with a contract most people don't read until they try to leave.</div>
-        </div>
-        <div class="ar-min">6 min</div>
-    </a>
 
     <a href="articles/rsr-001-the-strong-season.html" class="archive-row">
         <div class="ar-date">May 2026</div>
@@ -396,6 +395,16 @@
         <div class="ar-min">10 min</div>
     </a>
 
+    <a href="articles/the-truck-i-almost-turned-around.html" class="archive-row">
+        <div class="ar-date">May 2026</div>
+        <div class="ar-body">
+            <div class="ar-tag">Essay · On Recovery</div>
+            <div class="ar-title">The Truck I Almost Turned Around</div>
+            <div class="ar-deck">On routine, structure, and how it came to be in my life — from a red light in Kanata on day one of roofing.</div>
+        </div>
+        <div class="ar-min">8 min</div>
+    </a>
+
     <a href="articles/tier-the-detoxes.html" class="archive-row">
         <div class="ar-date">May 2026</div>
         <div class="ar-body">
@@ -423,7 +432,7 @@
     <a href="writing.html" class="exit-ramp">
         <div class="er-kicker">Keep reading</div>
         <div class="er-title">The full archive</div>
-        <div class="er-deck">All 24 pieces — system &amp; policy, lived experience, practical guides.</div>
+        <div class="er-deck">All 22 pieces — system &amp; policy, lived experience, practical guides.</div>
         <div class="er-arrow">See all writing →</div>
     </a>
     <a href="connect.html" class="exit-ramp">
